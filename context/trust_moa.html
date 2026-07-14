@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Visual specification for training directed trust relationships between paired AI agents and freezing them for downstream inference.">
+  <title>Learning Who to Trust — Trust MoA</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' fill='%2306111f'/%3E%3Ccircle cx='32' cy='32' r='28' fill='none' stroke='%23ffd452' stroke-width='2'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-size='28' font-weight='800' fill='%23ffd452'%3ET%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #06111f;
+      --ink-2: #0b1a2d;
+      --panel: #10243b;
+      --panel-2: #142d49;
+      --line: #29445f;
+      --paper: #f5f1e8;
+      --white: #fffdf8;
+      --muted: #a4b4c6;
+      --yellow: #ffd452;
+      --mint: #5ce1c3;
+      --blue: #82aaff;
+      --coral: #ff806f;
+      --max: 1180px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--ink); }
+    body {
+      margin: 0;
+      overflow-x: clip;
+      color: var(--white);
+      background:
+        linear-gradient(rgba(130,170,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(130,170,255,.045) 1px, transparent 1px),
+        var(--ink);
+      background-size: 52px 52px;
+      line-height: 1.55;
+    }
+    ::selection { color: var(--ink); background: var(--yellow); }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    code, pre, .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+    .shell { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+    .skip { position: fixed; z-index: 100; top: -60px; left: 16px; padding: 10px 14px; border-radius: 8px; color: var(--ink); background: var(--yellow); font-weight: 850; text-decoration: none; }
+    .skip:focus { top: 16px; }
+    .progress { position: fixed; z-index: 90; inset: 0 0 auto; height: 4px; background: rgba(255,255,255,.06); }
+    .progress span { display: block; width: 0; height: 100%; background: linear-gradient(90deg, var(--yellow), var(--mint)); }
+    .eyebrow { color: var(--yellow); font-size: .71rem; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+    .muted { color: var(--muted); }
+    .accent { color: var(--mint); }
+    .coral { color: var(--coral); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { line-height: 1.04; letter-spacing: -.04em; }
+    h1 { max-width: 980px; margin-bottom: 24px; font-size: clamp(3.3rem, 8.3vw, 7.5rem); }
+    h2 { margin-bottom: 18px; font-size: clamp(2.3rem, 5vw, 4.65rem); }
+    h3 { margin-bottom: 11px; font-size: 1.3rem; }
+    .lead { max-width: 820px; color: #d9e3ed; font-size: clamp(1.08rem, 2vw, 1.35rem); overflow-wrap: break-word; }
+
+    .hero { position: relative; display: grid; grid-template-columns: minmax(0,1fr); min-height: 92vh; align-items: center; padding: 100px 0 78px; }
+    .hero > div { min-width: 0; max-width: 100%; }
+    .hero::before { content: ""; position: absolute; top: 60px; right: -70px; width: 520px; height: 520px; border: 1px solid rgba(92,225,195,.17); border-radius: 50%; box-shadow: 0 0 0 70px rgba(92,225,195,.025), 0 0 0 140px rgba(255,212,82,.02); pointer-events: none; }
+    .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 55px; }
+    .brand-mark { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid var(--yellow); border-radius: 50%; color: var(--yellow); font-weight: 950; }
+    .brand strong { letter-spacing: .17em; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 9px; max-width: 790px; margin-top: 34px; }
+    .chip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 999px; color: #cad7e4; background: rgba(16,36,59,.7); font-size: .8rem; font-weight: 750; }
+    .chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--mint); }
+    .hero-edge { position: absolute; right: 2vw; bottom: 14vh; display: grid; grid-template-columns: 82px 175px 82px; align-items: center; text-align: center; }
+    .agent-orb { display: grid; width: 82px; height: 82px; place-items: center; border: 1px solid var(--blue); border-radius: 50%; background: var(--ink-2); font-size: 1.4rem; font-weight: 900; }
+    .edge-lines { position: relative; height: 60px; }
+    .edge-lines::before, .edge-lines::after { content: ""; position: absolute; right: 8px; left: 8px; height: 1px; background: var(--line); }
+    .edge-lines::before { top: 17px; } .edge-lines::after { bottom: 17px; }
+    .edge-lines b { position: absolute; left: 50%; translate: -50% 0; color: var(--mint); font: 800 .68rem/1 monospace; white-space: nowrap; }
+    .edge-lines b:first-child { top: 0; } .edge-lines b:last-child { bottom: 0; color: var(--coral); }
+    .edge-lines i { position: absolute; right: 6px; top: 10px; color: var(--mint); font-style: normal; }
+    .edge-lines em { position: absolute; bottom: 9px; left: 6px; color: var(--coral); font-style: normal; }
+    .edge-note { grid-column: 1 / -1; margin-top: 15px; color: var(--muted); font-size: .71rem; letter-spacing: .08em; text-transform: uppercase; }
+
+    .toc-wrap { position: sticky; z-index: 70; top: 4px; border-block: 1px solid var(--line); background: rgba(6,17,31,.92); backdrop-filter: blur(18px); }
+    .toc { display: flex; gap: 3px; overflow-x: auto; padding: 9px 0; scrollbar-width: none; }
+    .toc::-webkit-scrollbar { display: none; }
+    .toc a { flex: 0 0 auto; padding: 8px 10px; border-radius: 7px; color: var(--muted); font-size: .72rem; font-weight: 850; letter-spacing: .05em; text-decoration: none; text-transform: uppercase; }
+    .toc a:hover, .toc a:focus-visible { color: var(--ink); background: var(--yellow); outline: none; }
+
+    section { position: relative; padding: 105px 0; scroll-margin-top: 70px; }
+    section + section { border-top: 1px solid rgba(41,68,95,.7); }
+    .section-head { display: grid; grid-template-columns: 120px minmax(0,790px); gap: 28px; margin-bottom: 48px; }
+    .section-head > div { min-width: 0; }
+    .section-no { padding-top: 8px; color: var(--yellow); font: 850 .74rem/1 monospace; letter-spacing: .15em; }
+    .section-copy { max-width: 760px; color: #b9c8d8; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; }
+    .card { position: relative; overflow: hidden; padding: 25px; border: 1px solid var(--line); border-radius: 13px; background: linear-gradient(145deg, rgba(20,45,73,.94), rgba(11,26,45,.94)); }
+    .card::after { content: ""; position: absolute; right: -45px; bottom: -75px; width: 150px; height: 150px; border: 1px solid rgba(92,225,195,.11); border-radius: 50%; pointer-events: none; }
+    .card p:last-child { margin-bottom: 0; }
+    .big-claim { margin-top: 38px; padding: 33px; border-left: 4px solid var(--mint); background: rgba(92,225,195,.07); font-size: clamp(1.25rem,2.5vw,2rem); font-weight: 780; letter-spacing: -.03em; }
+    .tag { display: inline-block; margin-bottom: 18px; padding: 6px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--yellow); font: 800 .67rem/1 monospace; }
+
+    .rpe-demo { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 12px; align-items: center; margin-top: 20px; }
+    .rpe-box { padding: 20px; border: 1px solid var(--line); border-radius: 11px; background: var(--panel); text-align: center; }
+    .rpe-box small { display: block; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+    .rpe-box strong { display: block; margin-top: 8px; color: var(--mint); font: 900 1.45rem/1 monospace; }
+    .rpe-symbol { color: var(--yellow); font: 900 1.35rem/1 monospace; }
+    .surprises { display: grid; grid-template-columns: repeat(4,1fr); gap: 9px; margin-top: 12px; }
+    .surprise { padding: 15px; border: 1px solid var(--line); border-radius: 9px; color: var(--muted); background: rgba(16,36,59,.72); font-size: .78rem; }
+    .surprise b { display: block; margin-bottom: 4px; color: var(--white); }
+    .mode-map { display: grid; grid-template-columns: 1fr 92px 1fr; gap: 12px; align-items: stretch; margin-top: 18px; }
+    .mode { padding: 28px; border: 1px solid var(--line); border-radius: 13px; background: var(--panel); }
+    .mode:last-child { border-color: var(--mint); background: rgba(92,225,195,.08); }
+    .mode ul { margin-bottom: 0; padding-left: 18px; color: var(--muted); }
+    .mode li { margin: 7px 0; }
+    .lock { display: grid; place-items: center; color: var(--yellow); font: 850 .68rem/1.35 monospace; text-align: center; text-transform: uppercase; }
+    .lock b { display: grid; width: 50px; height: 50px; margin: 0 auto 8px; place-items: center; border: 1px solid var(--yellow); border-radius: 50%; font-size: 1.2rem; }
+
+    .round-map { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 10px; align-items: center; margin-bottom: 18px; }
+    .round-node { min-height: 150px; padding: 23px; border: 1px solid var(--line); border-radius: 13px; background: var(--panel); text-align: center; }
+    .round-node strong { display: block; margin: 10px 0 6px; color: var(--mint); font-size: 1.2rem; }
+    .round-node span { color: var(--muted); font-size: .8rem; }
+    .round-arrow { color: var(--yellow); font-size: 1.35rem; }
+    .team-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 11px; }
+    .team-card { overflow: hidden; border: 1px solid var(--line); border-radius: 11px; background: var(--panel); }
+    .team-title { display: flex; justify-content: space-between; padding: 13px 15px; border-bottom: 1px solid var(--line); color: var(--yellow); font: 900 .78rem/1 monospace; }
+    .team-title small { color: var(--muted); font-size: .62rem; }
+    .team-agents { display: grid; grid-template-columns: 1fr 1fr; }
+    .named-agent { padding: 14px 12px; }
+    .named-agent + .named-agent { border-left: 1px solid var(--line); }
+    .named-agent b, .named-agent span { display: block; }
+    .named-agent span { margin-top: 4px; color: var(--muted); font-size: .68rem; }
+    .night-workspace { margin-top: 22px; padding: 29px; border: 1px solid var(--blue); border-radius: 16px; background: radial-gradient(circle at 50% 0, rgba(130,170,255,.12), transparent 43%), var(--ink-2); }
+    .night-head { display: flex; justify-content: space-between; gap: 22px; align-items: end; margin-bottom: 25px; }
+    .night-head p { max-width: 720px; margin-bottom: 0; color: var(--muted); }
+    .night-count { padding: 10px 14px; border: 1px solid rgba(130,170,255,.55); border-radius: 10px; color: var(--blue); background: rgba(130,170,255,.08); font: 900 .9rem/1.5 monospace; text-align: right; white-space: nowrap; }
+    .night-flow { display: grid; grid-template-columns: .9fr auto 1.7fr auto .9fr; gap: 13px; align-items: stretch; }
+    .night-panel { min-height: 250px; padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: rgba(16,36,59,.92); }
+    .night-panel > strong { display: block; margin: 8px 0 14px; font-size: 1rem; }
+    .night-panel ul { margin: 0; padding-left: 17px; color: var(--muted); font-size: .72rem; }
+    .night-panel li { margin: 7px 0; }
+    .night-arrow { display: grid; place-items: center; color: var(--yellow); font-size: 1.45rem; }
+    .curator { position: relative; overflow: hidden; border-color: var(--mint); background: linear-gradient(145deg, rgba(92,225,195,.14), rgba(16,36,59,.96)); }
+    .curator::after { content: "1"; position: absolute; right: -10px; bottom: -48px; color: rgba(92,225,195,.08); font: 950 12rem/1 sans-serif; }
+    .curator-title { position: relative; z-index: 1; display: flex; align-items: center; gap: 12px; }
+    .curator-icon { display: grid; flex: 0 0 52px; width: 52px; height: 52px; place-items: center; border: 1px solid var(--mint); border-radius: 50%; color: var(--ink); background: var(--mint); font-weight: 950; }
+    .curator-title b, .curator-title span { display: block; }
+    .curator-title span { margin-top: 4px; color: var(--muted); font-size: .68rem; }
+    .responsibilities { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3,1fr); gap: 7px; margin-top: 18px; }
+    .responsibilities span { padding: 9px 8px; border: 1px solid rgba(92,225,195,.32); border-radius: 7px; color: #dffbf4; background: rgba(6,17,31,.48); font: 800 .66rem/1.2 monospace; text-align: center; }
+    .night-note { position: relative; z-index: 1; margin: 14px 0 0; color: var(--yellow); font: 750 .68rem/1.45 monospace; }
+    .contract { margin-top: 14px; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: rgba(16,36,59,.78); }
+    .contract-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+    .contract-item { padding: 15px; border-left: 2px solid var(--blue); color: var(--muted); background: rgba(130,170,255,.05); font-size: .76rem; }
+    .contract-item b { display: block; margin-bottom: 5px; color: var(--white); }
+    .compression-target { margin-top: 12px; padding: 15px; color: var(--ink); background: var(--yellow); font-weight: 850; }
+
+    .models { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--line); border-radius: 13px; overflow: hidden; }
+    .model { min-height: 205px; padding: 24px; background: rgba(16,36,59,.9); }
+    .model + .model { border-left: 1px solid var(--line); }
+    .model strong { display: block; margin: 19px 0 7px; font-size: 1.05rem; }
+    .model code { color: var(--mint); }
+    .gate { display: grid; grid-template-columns: 84px 1fr auto; gap: 21px; align-items: center; margin-top: 17px; padding: 23px; border: 1px solid var(--yellow); border-radius: 13px; background: rgba(255,212,82,.06); }
+    .gate-icon { display: grid; width: 62px; height: 62px; place-items: center; border: 1px solid var(--yellow); border-radius: 50%; color: var(--yellow); font-size: 1.55rem; }
+    .gate-stat { color: var(--yellow); font: 900 1.25rem/1 monospace; white-space: nowrap; }
+    .puzzle-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
+    .logic { padding: 29px; color: var(--ink); background: var(--paper); border-radius: 13px; }
+    .route { padding: 29px; border: 1px solid var(--line); border-radius: 13px; background: var(--ink-2); }
+    .logic-tiles { display: grid; grid-template-columns: repeat(5,1fr); gap: 6px; max-width: 310px; margin: 25px auto; }
+    .logic-tiles span { display: grid; aspect-ratio: 1; place-items: center; border: 1px solid #c8c1b5; border-radius: 6px; font-weight: 850; }
+    .logic-tiles span:nth-child(4n+2) { background: var(--yellow); }
+    .route-map { display: grid; grid-template-columns: repeat(3,1fr); align-items: center; gap: 8px; height: 150px; text-align: center; }
+    .route-node { display: grid; width: 48px; height: 48px; place-items: center; justify-self: center; border: 1px solid var(--blue); border-radius: 50%; background: var(--panel); font-weight: 850; }
+    .route-line { height: 3px; background: var(--mint); transform: rotate(-8deg); }
+    .check-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 8px; margin-top: 16px; }
+    .check { padding: 14px; border: 1px solid var(--line); border-radius: 9px; color: var(--muted); background: rgba(16,36,59,.75); font-size: .72rem; }
+    .check b { display: block; margin-bottom: 5px; color: var(--mint); }
+
+    .vector { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .vector span { padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .78rem; }
+    .vector .primary { color: var(--ink); background: var(--yellow); border-color: var(--yellow); font-weight: 900; }
+    .lab { overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: radial-gradient(circle at 50% 0, rgba(92,225,195,.1), transparent 42%), var(--ink-2); }
+    .lab-head { display: flex; justify-content: space-between; gap: 20px; padding: 17px 21px; border-bottom: 1px solid var(--line); }
+    .lab-head span { color: var(--muted); font-size: .76rem; }
+    .lab-body { display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 22px; align-items: center; padding: 34px; }
+    .lab-agent { text-align: center; }
+    .lab-agent .agent-orb { margin: 0 auto 10px; }
+    .lab-agent b, .lab-agent small { display: block; }
+    .sliders { display: grid; gap: 22px; }
+    .slider-row label { display: flex; justify-content: space-between; margin-bottom: 7px; font-size: .8rem; font-weight: 850; }
+    input[type="range"] { width: 100%; accent-color: var(--mint); }
+    .stance-output { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); }
+    .output-cell { padding: 20px; text-align: center; }
+    .output-cell + .output-cell { border-left: 1px solid var(--line); }
+    .output-cell small { display: block; color: var(--muted); letter-spacing: .07em; text-transform: uppercase; }
+    .output-cell strong { display: block; margin-top: 6px; color: var(--yellow); }
+    .lab-actions { display: flex; justify-content: center; gap: 9px; padding: 0 18px 22px; }
+    .lab-actions button { padding: 8px 11px; border: 1px solid var(--line); border-radius: 8px; color: var(--white); background: transparent; cursor: pointer; }
+    .lab-actions button:hover, .lab-actions button:focus-visible { border-color: var(--yellow); color: var(--yellow); outline: none; }
+    .equation { margin-top: 16px; padding: 23px; overflow-x: auto; border: 1px solid var(--line); border-radius: 13px; color: #dce9f5; background: #030b14; font-size: clamp(.69rem,1.3vw,.88rem); line-height: 1.75; }
+    .variables { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-top: 12px; }
+    .variable { padding: 13px; border: 1px solid var(--line); border-radius: 9px; background: var(--panel); }
+    .variable code { color: var(--yellow); }
+    .variable span { display: block; margin-top: 4px; color: var(--muted); font-size: .7rem; }
+    .firewall { display: grid; grid-template-columns: 1fr 78px 1fr; align-items: stretch; margin-top: 17px; overflow: hidden; border: 1px solid var(--line); border-radius: 13px; }
+    .firewall > div { min-height: 180px; padding: 25px; background: var(--panel); }
+    .firewall > div:last-child { background: rgba(255,128,111,.08); }
+    .firewall .wall { display: grid; min-height: auto; place-items: center; padding: 0; color: var(--ink); background: repeating-linear-gradient(0deg, var(--yellow) 0 5px, transparent 5px 12px); font-weight: 950; letter-spacing: .09em; writing-mode: vertical-rl; }
+
+    .cycle { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cycle-panel { padding: 31px; border-radius: 15px; }
+    .day { color: var(--ink); background: var(--paper); }
+    .night { border: 1px solid var(--blue); background: #080e1d; }
+    .cycle-title { display: flex; align-items: center; gap: 11px; margin-bottom: 22px; font-size: 1.55rem; font-weight: 900; }
+    .cycle-icon { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; }
+    .day .cycle-icon { background: var(--yellow); } .night .cycle-icon { border: 1px solid var(--blue); color: var(--blue); }
+    .steps { margin: 0; padding: 0; list-style: none; counter-reset: step; }
+    .steps li { position: relative; padding: 0 0 21px 41px; counter-increment: step; }
+    .steps li::before { content: counter(step); position: absolute; top: -2px; left: 0; display: grid; width: 25px; height: 25px; place-items: center; border: 1px solid currentColor; border-radius: 50%; font: 800 .68rem/1 monospace; }
+    .steps li::after { content: ""; position: absolute; top: 26px; bottom: 2px; left: 12px; width: 1px; background: currentColor; opacity: .22; }
+    .steps li:last-child::after { display: none; }
+    .status-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin-top: 16px; }
+    .status { padding: 14px; border: 1px solid var(--line); border-radius: 9px; background: rgba(16,36,59,.78); }
+    .status code { color: var(--yellow); font-size: .72rem; }
+    .status span { display: block; margin-top: 6px; color: var(--muted); font-size: .69rem; }
+
+    .forget-flow { display: grid; grid-template-columns: repeat(4,1fr); margin: 28px 0 16px; }
+    .forget-step { position: relative; padding: 22px 17px; border: 1px solid var(--line); background: var(--panel); }
+    .forget-step:first-child { border-radius: 12px 0 0 12px; } .forget-step:last-child { border-radius: 0 12px 12px 0; }
+    .forget-step + .forget-step { border-left: 0; }
+    .forget-step + .forget-step::before { content: "→"; position: absolute; z-index: 2; top: 50%; left: -10px; color: var(--yellow); }
+    .forget-step b { display: block; margin-bottom: 6px; color: var(--mint); }
+    .metric-grid { display: grid; grid-template-columns: repeat(2,1fr); overflow: hidden; border: 1px solid var(--line); border-radius: 13px; }
+    .metric { padding: 22px; background: rgba(16,36,59,.82); }
+    .metric:nth-child(even) { border-left: 1px solid var(--line); }
+    .metric:nth-child(n+3) { border-top: 1px solid var(--line); }
+    .metric b { display: block; margin-bottom: 5px; color: var(--mint); }
+    .record-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 9px; }
+    .record { padding: 17px; border: 1px solid var(--line); border-radius: 9px; background: rgba(16,36,59,.78); }
+    .record b { display: block; color: var(--yellow); }
+    .record span { display: block; margin-top: 5px; color: var(--muted); font-size: .74rem; }
+    .pilot-note { margin-top: 17px; padding: 22px; color: var(--ink); background: var(--yellow); border-radius: 11px; font-weight: 800; }
+
+    .provenance { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 19px; }
+    .provenance code { padding: 7px 9px; border: 1px solid var(--line); border-radius: 7px; color: var(--mint); background: var(--panel); font-size: .7rem; }
+    .log-stack { display: grid; gap: 7px; }
+    .log-row { display: grid; grid-template-columns: 245px 1fr; gap: 18px; padding: 13px 17px; border: 1px solid var(--line); border-radius: 8px; background: var(--ink-2); }
+    .log-row code { color: var(--yellow); font-size: .79rem; }
+    .namespace { display: grid; grid-template-columns: repeat(3,1fr); gap: 9px; margin-top: 16px; }
+    .namespace code { min-width: 0; padding: 16px; border: 1px solid var(--mint); border-radius: 9px; color: var(--mint); background: rgba(92,225,195,.06); text-align: center; overflow-wrap: anywhere; }
+
+    .repo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+    .folder { padding: 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+    .folder b { display: block; color: var(--yellow); font-family: monospace; }
+    .folder span { display: block; margin-top: 7px; color: var(--muted); font-size: .78rem; }
+    .commands { margin-top: 16px; padding: 22px; overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; color: #d7e5f4; background: #030b14; line-height: 1.75; }
+    .commands .comment { color: #75899f; }
+    .operations { max-width: 880px; margin: 0 auto; }
+    .operation { display: grid; grid-template-columns: 60px 1fr; gap: 18px; position: relative; padding-bottom: 23px; }
+    .operation::after { content: ""; position: absolute; top: 49px; bottom: 0; left: 29px; width: 1px; background: var(--line); }
+    .operation:last-child::after { display: none; }
+    .op-no { display: grid; z-index: 1; width: 60px; height: 46px; place-items: center; border: 1px solid var(--yellow); border-radius: 9px; color: var(--yellow); background: var(--ink); font: 900 .78rem/1 monospace; }
+    .op-copy { padding-top: 6px; }
+    .op-copy b { display: block; margin-bottom: 4px; }
+    .op-copy ul { margin: 6px 0 0; padding-left: 18px; color: var(--muted); font-size: .8rem; }
+    .scope-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 9px; }
+    .scope-item { padding: 18px; border: 1px solid var(--line); border-radius: 9px; background: rgba(16,36,59,.78); }
+    .scope-item b { color: var(--mint); }
+    .failure-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+    .failure { padding: 20px; border: 1px solid var(--line); border-radius: 10px; background: rgba(16,36,59,.78); }
+    .failure b { display: block; margin-bottom: 6px; color: var(--coral); }
+    .defaults { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+    .default-group { padding: 21px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
+    .default-group h3 { color: var(--yellow); font: 900 .8rem/1.2 monospace; letter-spacing: .08em; text-transform: uppercase; }
+    .kv { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 6px 14px; font: .75rem/1.55 monospace; }
+    .kv span:nth-child(odd) { color: var(--muted); } .kv span:nth-child(even) { color: var(--mint); text-align: right; }
+
+    footer { padding: 68px 0 95px; border-top: 1px solid var(--line); }
+    .footer-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 28px; }
+    .source-link { align-self: end; justify-self: end; padding: 12px 15px; border: 1px solid var(--yellow); border-radius: 8px; color: var(--yellow); font-weight: 850; text-decoration: none; }
+    .source-link:hover, .source-link:focus-visible { color: var(--ink); background: var(--yellow); outline: none; }
+
+    @media (max-width: 980px) {
+      .hero { min-height: auto; }
+      .hero-edge { position: relative; right: auto; bottom: auto; width: min(100%,500px); margin-top: 65px; }
+      .grid-3, .grid-4, .team-grid { grid-template-columns: repeat(2,1fr); }
+      .night-flow { grid-template-columns: 1fr; }
+      .night-arrow { min-height: 28px; transform: rotate(90deg); }
+      .models { grid-template-columns: 1fr; }
+      .model + .model { border-top: 1px solid var(--line); border-left: 0; }
+      .puzzle-grid { grid-template-columns: 1fr; }
+      .check-grid { grid-template-columns: repeat(3,1fr); }
+      .repo-grid, .scope-grid { grid-template-columns: repeat(2,1fr); }
+      .variables { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 700px) {
+      .shell { width: min(calc(100% - 28px),var(--max)); }
+      .hero { padding: 75px 0 60px; }
+      .hero::before { top: 35px; right: 0; width: 100%; height: auto; aspect-ratio: 1; }
+      .brand { margin-bottom: 38px; }
+      h1 { font-size: clamp(2.8rem,13vw,3.7rem); }
+      .hero-chips { width: 100%; max-width: 100%; }
+      .chip { flex: 1 1 calc(50% - 6px); min-width: 0; padding: 8px 10px; font-size: .7rem; line-height: 1.25; }
+      section { padding: 76px 0; }
+      .section-head { grid-template-columns: 1fr; gap: 9px; margin-bottom: 34px; }
+      .grid-2, .grid-3, .grid-4, .team-grid, .cycle, .metric-grid, .record-grid, .repo-grid, .scope-grid, .failure-grid, .defaults, .contract-grid, .namespace { grid-template-columns: 1fr; }
+      .rpe-demo, .round-map { grid-template-columns: 1fr; }
+      .rpe-symbol, .round-arrow { min-height: 28px; text-align: center; transform: rotate(90deg); }
+      .surprises, .check-grid, .status-grid, .forget-flow, .variables { grid-template-columns: 1fr; }
+      .mode-map { grid-template-columns: 1fr; }
+      .lock { min-height: 90px; }
+      .night-workspace { padding: 19px; }
+      .night-head { display: block; }
+      .night-count { margin-top: 15px; text-align: left; }
+      .responsibilities { grid-template-columns: repeat(2,1fr); }
+      .lab-body { grid-template-columns: 1fr; }
+      .lab-agent { display: flex; align-items: center; gap: 12px; text-align: left; }
+      .lab-agent .agent-orb { width: 58px; height: 58px; margin: 0; }
+      .stance-output { grid-template-columns: 1fr; }
+      .output-cell + .output-cell { border-top: 1px solid var(--line); border-left: 0; }
+      .firewall { grid-template-columns: 1fr; }
+      .firewall .wall { min-height: 44px; writing-mode: initial; background: repeating-linear-gradient(90deg,var(--yellow) 0 5px,transparent 5px 12px); }
+      .forget-step, .forget-step:first-child, .forget-step:last-child { border: 1px solid var(--line); border-radius: 9px; }
+      .forget-step + .forget-step { border-left: 1px solid var(--line); }
+      .forget-step + .forget-step::before { display: none; }
+      .metric:nth-child(even) { border-left: 0; }
+      .metric + .metric { border-top: 1px solid var(--line); }
+      .log-row { grid-template-columns: 1fr; gap: 4px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .source-link { justify-self: start; }
+      .hero-edge { grid-template-columns: 60px minmax(0,1fr) 60px; width: 100%; max-width: 100%; min-width: 0; overflow: hidden; }
+      .hero-edge .agent-orb { width: 60px; height: 60px; }
+      .edge-lines { min-width: 0; overflow: hidden; }
+      .edge-lines b { overflow: hidden; width: 100%; font-size: .55rem; text-overflow: clip; }
+      .section-copy code { overflow-wrap: anywhere; word-break: break-word; }
+      .sliders, .slider-row, input[type="range"] { min-width: 0; }
+      .default-group { min-width: 0; overflow: hidden; }
+      .kv { grid-template-columns: 1fr; gap: 2px; }
+      .kv span { min-width: 0; overflow-wrap: anywhere; }
+      .kv span:nth-child(even) { margin-bottom: 7px; text-align: left; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to explainer</a>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <header class="hero shell">
+    <div>
+      <div class="brand"><span class="brand-mark">T</span><strong>TRUST MoA</strong></div>
+      <p class="eyebrow">Gradient-free relationship training</p>
+      <h1>Learning who<br>to <span class="accent">trust.</span></h1>
+      <p class="lead">Seven paired teams learn directed trust through a ten-round puzzle pilot. After every round, each training agent gets one dedicated Night Curator call that completes the entire reflection and memory workspace in a single prompt. The learned trust values are then <strong>locked for downstream autonomous software-delivery inference</strong>.</p>
+      <div class="hero-chips"><span class="chip">7 teams · 14 training agents</span><span class="chip">1 Night Curator per agent</span><span class="chip">10-round descriptive pilot</span><span class="chip">Every run logged as JSON</span></div>
+    </div>
+    <div class="hero-edge" aria-label="Trust from A to B can differ from trust from B to A">
+      <div class="agent-orb">A</div><div class="edge-lines"><b>A → B · 0.0</b><i>→</i><em>←</em><b>B → A · 0.0</b></div><div class="agent-orb">B</div><div class="edge-note">Both start neutral · each direction learns independently</div>
+    </div>
+  </header>
+
+  <nav class="toc-wrap" aria-label="Specification sections"><div class="toc shell">
+    <a href="#project">1 · Project</a><a href="#pipeline">2 · Pipeline</a><a href="#models">3 · Models</a><a href="#puzzles">4 · Puzzles</a><a href="#mechanism">5 · Mechanism</a><a href="#episode">6 · Episode</a><a href="#memory">7 · Memory</a><a href="#objective">8 · Objective</a><a href="#metrics">9 · Metrics</a><a href="#logging">10 · Logging</a><a href="#repository">11 · Repository</a><a href="#operations">12 · Operations</a><a href="#scope">13 · Scope</a><a href="#failures">14 · Failures</a><a href="#defaults">15 · Defaults</a>
+  </div></nav>
+
+  <main id="main">
+    <section id="project"><div class="shell">
+      <div class="section-head"><div class="section-no">01 / PROJECT</div><div><p class="eyebrow">What this is</p><h2>Train the connection.<br>Freeze it for inference.</h2><p class="section-copy">Most systems train a model. This project trains the directed relationship between two models. Each agent holds only half a puzzle, so cooperation is required and neither can uniquely determine the answer alone.</p></div></div>
+      <div class="rpe-demo"><div class="rpe-box"><small>Result</small><strong>1</strong></div><span class="rpe-symbol">−</span><div class="rpe-box"><small>Expected success</small><strong>0.2</strong></div><span class="rpe-symbol">=</span><div class="rpe-box"><small>Surprise · δ</small><strong>+0.8</strong></div></div>
+      <p class="section-copy">A surprising win creates a large positive prediction error. If A followed B’s answer, A’s trust in B rises substantially.</p>
+      <div class="surprises"><div class="surprise"><b>Unexpected win</b>Trust rises strongly.</div><div class="surprise"><b>Expected win</b>Trust rises slightly.</div><div class="surprise"><b>Unexpected failure</b>Trust falls strongly.</div><div class="surprise"><b>Expected failure</b>Trust falls slightly.</div></div>
+      <div class="grid-2">
+        <article class="card"><span class="tag">SOFT CONSUMER</span><h3>Stance band</h3><p class="muted">A→B becomes prompt language: Strongly trust, Trust, Neutral, Skeptical, or Distrust. The agent feels the stance but never sees its numeric value.</p></article>
+        <article class="card"><span class="tag">HARD CONSUMER</span><h3>Inbound authority</h3><p class="muted">If final answers disagree, the agent with higher inbound trust leads and that answer ships.</p></article>
+      </div>
+      <div class="mode-map"><article class="mode"><p class="eyebrow">Training</p><h3>Puzzle agents + Night Curators</h3><ul><li>Trust changes through repeated puzzle outcomes.</li><li>One curator call per agent handles reflection and memory.</li><li>All state changes are auditable.</li></ul></article><div class="lock"><span><b>⌁</b>Lock learned trust</span></div><article class="mode"><p class="eyebrow">Inference</p><h3>Autonomous delivery</h3><ul><li>Trained pairs perform their software-delivery roles.</li><li>Trust values remain frozen.</li><li>A memory-curation workspace may also be used.</li></ul></article></div>
+    </div></section>
+
+    <section id="pipeline"><div class="shell">
+      <div class="section-head"><div class="section-no">02 / PIPELINE</div><div><p class="eyebrow">Day and night training</p><h2>Seven episodes.<br>Fourteen private curators.</h2><p class="section-copy">Every round is one training day. All seven teams solve one puzzle, shared difficulty expectations update once, and then each of the 14 training agents receives one complete Night Curator call.</p></div></div>
+      <div class="round-map"><div class="round-node"><span class="tag">DAY</span><strong>7 team episodes</strong><span>One unseen puzzle per team</span></div><span class="round-arrow">→</span><div class="round-node"><span class="tag">BATCH</span><strong>1 shared update</strong><span>Difficulty expectations update once from valid outcomes</span></div><span class="round-arrow">→</span><div class="round-node"><span class="tag">NIGHT</span><strong>14 curator calls</strong><span>One single-prompt workspace per training agent</span></div></div>
+      <h3>Training / puzzle teams</h3>
+      <div class="team-grid">
+        <article class="team-card"><div class="team-title">SEEK <small>PAIR 01</small></div><div class="team-agents"><div class="named-agent"><b>Mira</b><span>Steadiness</span></div><div class="named-agent"><b>Zephyr</b><span>Dominance</span></div></div></article>
+        <article class="team-card"><div class="team-title">SHAPE <small>PAIR 02</small></div><div class="team-agents"><div class="named-agent"><b>Kestrel</b><span>Influence</span></div><div class="named-agent"><b>Rowan</b><span>Conscientiousness</span></div></div></article>
+        <article class="team-card"><div class="team-title">FRAME <small>PAIR 03</small></div><div class="team-agents"><div class="named-agent"><b>Aster</b><span>Conscientiousness</span></div><div class="named-agent"><b>Juno</b><span>Steadiness</span></div></div></article>
+        <article class="team-card"><div class="team-title">GROUND <small>PAIR 04</small></div><div class="team-agents"><div class="named-agent"><b>Flint</b><span>Dominance</span></div><div class="named-agent"><b>Sable</b><span>Influence</span></div></div></article>
+        <article class="team-card"><div class="team-title">PACE <small>PAIR 05</small></div><div class="team-agents"><div class="named-agent"><b>Niko</b><span>Influence</span></div><div class="named-agent"><b>Tundra</b><span>Steadiness</span></div></div></article>
+        <article class="team-card"><div class="team-title">BUILD <small>PAIR 06</small></div><div class="team-agents"><div class="named-agent"><b>Ember</b><span>Conscientiousness</span></div><div class="named-agent"><b>Rook</b><span>Dominance</span></div></div></article>
+        <article class="team-card"><div class="team-title">PROVE <small>PAIR 07</small></div><div class="team-agents"><div class="named-agent"><b>Peter</b><span>Conscientiousness</span></div><div class="named-agent"><b>Betty</b><span>Dominance</span></div></div></article>
+      </div>
+
+      <div class="night-workspace"><div class="night-head"><div><p class="eyebrow">Single-agent night workspace</p><h3>One agent. One complete prompt. One validated decision.</h3><p>Each private workspace receives typed diary evidence, retained memories, the episode result and transcript, lead decision, relationship snapshot, capacity, horizon, and fixed metaplasticity settings.</p></div><div class="night-count">14 CALLS / ROUND<br>140 / PILOT</div></div>
+        <div class="night-flow">
+          <article class="night-panel"><span class="tag">INPUT</span><strong>Typed evidence bundle</strong><ul><li>Diary + retained memories</li><li>Result, RPE + transcript</li><li>Answers + lead decision</li><li>Vector + memory settings</li></ul></article>
+          <span class="night-arrow" aria-hidden="true">→</span>
+          <article class="night-panel curator"><div class="curator-title"><span class="curator-icon">1</span><div><b>Night Curator</b><span><code>gpt-5.6-sol high</code> · one complete prompt</span></div></div><div class="responsibilities"><span>Structure</span><span>Remember</span><span>Forget</span><span>Compress</span><span>Challenge</span><span>Integrate</span></div><p class="night-note">Also proposes all nine non-trust relationship deltas. Trust stays mechanical.</p></article>
+          <span class="night-arrow" aria-hidden="true">→</span>
+          <article class="night-panel"><span class="tag">OUTPUT</span><strong>One final JSON</strong><ul><li>Theme map + evidence</li><li>Relationship deltas</li><li>Memory decisions</li><li>Self-review + reasons</li></ul></article>
+        </div>
+        <div class="contract"><h3>Workspace contract</h3><div class="contract-grid"><div class="contract-item"><b>No agent handoffs</b>The one curator completes the former workspace responsibilities in a single response.</div><div class="contract-item"><b>All-or-nothing commit</b>The orchestrator validates schema, IDs, delta bounds, capacity, and resolved issues before changing state.</div><div class="contract-item"><b>Trust is protected</b>The curator never judges trust; only the mechanical reward-prediction-error rule can move it.</div></div><div class="compression-target">Every valid response produces at most five final memory lines and at most 100 words combined.</div></div>
+      </div>
+    </div></section>
+
+    <section id="models"><div class="shell">
+      <div class="section-head"><div class="section-no">03 / MODELS</div><div><p class="eyebrow">GPT-5.6 Sol via Codex</p><h2>Light by day.<br>High by night.</h2><p class="section-copy">The day model is economical and weak enough that cooperation matters. The higher-reasoning night model handles reflection and consolidation. Puzzle generation stays deterministic.</p></div></div>
+      <div class="models"><article class="model"><p class="eyebrow">Day episodes</p><strong>Puzzle-solving agents</strong><code>gpt-5.6-sol · light</code><p class="muted">Cheap, fast, cooperation-relevant.</p></article><article class="model"><p class="eyebrow">Night workspace</p><strong>Single Night Curator</strong><code>gpt-5.6-sol · high</code><p class="muted">One complete prompt handles reflection, self-review, and consolidation.</p></article><article class="model"><p class="eyebrow">Puzzle generation</p><strong>Deterministic</strong><code>Python + solver</code><p class="muted">Seeded, reproducible, zero API cost.</p></article></div>
+      <div class="gate"><div class="gate-icon">⏱</div><div><h3>Every task is timed</h3><p class="muted">Agent time is recorded in seconds for every task.</p></div><div class="gate-stat">ALL CALLS</div></div>
+    </div></section>
+
+    <section id="puzzles"><div class="shell">
+      <div class="section-head"><div class="section-no">04 / PUZZLES</div><div><p class="eyebrow">Search, not length</p><h2>Backtracking creates<br>the training signal.</h2><p class="section-copy">A long explicit procedure can still be easy. The pilot uses solver-verified tasks where greedy reasoning reaches dead ends and requires search.</p></div></div>
+      <div class="puzzle-grid"><article class="logic"><p class="eyebrow coral">Primary family</p><h3>Logic grids · CSP</h3><div class="logic-tiles" aria-hidden="true"><span>?</span><span>✓</span><span>×</span><span>3</span><span>?</span><span>2</span><span>×</span><span>?</span><span>✓</span><span>4</span><span>×</span><span>1</span><span>?</span><span>×</span><span>✓</span><span>?</span><span>4</span><span>×</span><span>2</span><span>?</span></div><p>3×3 through 5×5, moving from direct pins toward negations, positional relations, and disjunctions. Every grid is unique and clue-minimal.</p></article><article class="route"><p class="eyebrow">Secondary · conditional</p><h3>Graph routes</h3><div class="route-map" aria-hidden="true"><span class="route-node">A</span><span class="route-line"></span><span class="route-node">B</span><span></span><span class="route-line"></span><span></span><span class="route-node">C</span><span class="route-line"></span><span class="route-node">D</span></div><p class="muted">Shortest path on a weighted graph represented as edge lists.</p></article></div>
+      <div class="grid-2"><article class="card"><h3>Certified cooperation</h3><p class="muted">Each private clue set is insufficient: it admits multiple grid solutions or leaves the route unreachable or strictly farther. Neither agent can uniquely determine the answer alone.</p></article><article class="card"><h3>Ten-puzzle pilot</h3><p class="muted">Randomized by difficulty with a fixed seed. It validates the training pipeline; it does not estimate general puzzle-solving performance.</p></article></div>
+      <div class="check-grid"><div class="check"><b>01</b>Valid, unique answer</div><div class="check"><b>02</b>Private clues insufficient</div><div class="check"><b>03</b>No answer leakage</div><div class="check"><b>04</b>Equivalent formats grade</div><div class="check"><b>05</b>Timeout handling works</div></div>
+      <div class="pilot-note">Difficulty and solver telemetry are recorded for inspection. There is no statistical accuracy gate, confidence interval, performance claim, or generalization claim.</div>
+    </div></section>
+
+    <section id="mechanism"><div class="shell">
+      <div class="section-head"><div class="section-no">05 / MECHANISM</div><div><p class="eyebrow">Directed relationship vector</p><h2>Ten dimensions.<br>Only trust acts.</h2><p class="section-copy">Every directed edge carries ten values from −1 to +1. Trust affects behavior; the other nine are logged and analyzed. Live state is run-scoped in <code>state/[run_id]/relationship_vectors.json</code>, history is append-only in <code>logs/relationship_vectors.jsonl</code>, and narrative evidence lives in <code>memories/[agent].md</code>.</p></div></div>
+      <div class="vector"><span class="primary">trust · consumed</span><span>respect</span><span>reliability</span><span>warmth</span><span>patience</span><span>resentment</span><span>dominance</span><span>openness</span><span>confidence</span><span>affection</span></div>
+      <div class="lab" aria-labelledby="lab-title"><div class="lab-head"><strong id="lab-title">DIRECTED TRUST LAB</strong><span>Both edges initialize at 0.0 · Neutral</span></div><div class="lab-body"><div class="lab-agent"><div class="agent-orb">A</div><div><b>Agent A</b><small class="muted">Inbound = B→A</small></div></div><div class="sliders"><div class="slider-row"><label for="trustAB"><span>A → B</span><output id="valueAB">0.0</output></label><input id="trustAB" type="range" min="-1" max="1" value="0" step="0.1"></div><div class="slider-row"><label for="trustBA"><span>B → A</span><output id="valueBA">0.0</output></label><input id="trustBA" type="range" min="-1" max="1" value="0" step="0.1"></div></div><div class="lab-agent"><div class="agent-orb">B</div><div><b>Agent B</b><small class="muted">Inbound = A→B</small></div></div></div><div class="stance-output" aria-live="polite"><div class="output-cell"><small>A’s stance toward B</small><strong id="stanceA">Neutral</strong></div><div class="output-cell"><small>Authority on disagreement</small><strong id="authority">Tie → dominance → last speaker</strong></div><div class="output-cell"><small>B’s stance toward A</small><strong id="stanceB">Neutral</strong></div></div><div class="lab-actions"><button type="button" data-preset="neutral">Reset to neutral</button><button type="button" data-preset="trust-b">A trusts B</button><button type="button" data-preset="trust-a">B trusts A</button></div></div>
+      <div class="grid-2"><article class="card"><span class="tag">STANCE THRESHOLDS</span><p class="muted"><strong>Strongly trust</strong> w ≥ +0.6<br><strong>Trust</strong> +0.2 ≤ w &lt; +0.6<br><strong>Neutral</strong> −0.2 &lt; w &lt; +0.2<br><strong>Skeptical</strong> −0.6 &lt; w ≤ −0.2<br><strong>Distrust</strong> w ≤ −0.6</p></article><article class="card"><span class="tag">AUTHORITY</span><p class="muted">Higher inbound trust leads on disagreement. Ties break by personality Dominance, then last speaker. Lead and resolution reason are logged.</p></article></div>
+      <pre class="equation">δ_i           = r_i − b_d^(t)                          # immutable round-start snapshot
+credit_i      = 1.0 on follower→lead if disagreement   # otherwise 0.5 on both edges
+Δw_i          = clamp(α·δ_i·credit_i, −0.25, +0.25)    # α = 0.2
+new_w_i       = clamp(w_i + Δw_i, −1, +1)
+mean_reward_d = mean(valid rewards at difficulty d in round t)
+b_d^(t+1)     = b_d^(t) + β·(mean_reward_d − b_d^(t))  # β = 0.1; once per round</pre>
+      <div class="variables"><div class="variable"><code>r_i</code><span>1 win, 0 failure for a valid episode</span></div><div class="variable"><code>b_d^(t)</code><span>Round-start expected success for difficulty d</span></div><div class="variable"><code>δ_i</code><span>How surprising the result was</span></div><div class="variable"><code>credit_i</code><span>Responsibility for the submitted answer</span></div><div class="variable"><code>w_i</code><span>Current directed trust</span></div><div class="variable"><code>Δw_i</code><span>This episode’s bounded change</span></div><div class="variable"><code>clamp</code><span>Prevents values exceeding limits</span></div><div class="variable"><code>∅ valid</code><span>Expectation carries forward unchanged</span></div></div>
+      <div class="grid-2"><article class="card"><h3>Shared, batched expectation</h3><p class="muted">All episodes in one round use the same immutable snapshot. The shared expectation updates once per difficulty using only valid outcomes. Backend errors are excluded from reward, trust, non-trust, and expectation updates.</p></article><article class="card"><h3>Pure RPE</h3><p class="muted">Trust changes only at night from binary valid rewards. The other nine dimensions update separately during reflection.</p></article></div>
+      <div class="firewall"><div><p class="eyebrow">Always canonical</p><h3>Facts</h3><p class="muted">Puzzle clues and answer evidence are always believed.</p></div><div class="wall">FIREWALL</div><div><p class="eyebrow coral">Trust-weighted</p><h3>Judgments</h3><p class="muted">Answers and strategy may be challenged. Distrust never means discarding a clue.</p></div></div>
+      <div class="grid-2"><article class="card"><h3>Anti-sycophancy</h3><p class="muted">Always agreeing hides whether authority works. Productive disagreement rate is logged every day so collapse into agreement remains visible.</p></article><article class="card"><h3>Fixed metaplasticity</h3><p class="muted">Learning rate, memory transport, emotional stability, attention routing, repair mode, plasticity, and identity stability load once from settings and may parameterize the existing trust, reflection, consolidation, and forgetting rules. They remain frozen for the pilot: no drift, learning, or ablation.</p></article></div>
+    </div></section>
+
+    <section id="episode"><div class="shell">
+      <div class="section-head"><div class="section-no">06 / EPISODE</div><div><p class="eyebrow">Anatomy of a round</p><h2>Fresh chats by day.<br>Committed state by night.</h2><p class="section-copy">No conversation carries between episodes. Continuity lives only in the diary, retained memory, and relationship state.</p></div></div>
+      <div class="cycle"><article class="cycle-panel day"><div class="cycle-title"><span class="cycle-icon">☀</span>Day · <code>train.py</code></div><ol class="steps"><li>Both agents receive personality, diary excerpt, stance, shared question, and private clues.</li><li>Each publishes one initial answer and one reasoning paragraph before discussion.</li><li>Each sends one revised answer after considering the teammate’s reasoning.</li><li>Agreement ships; disagreement invokes inbound-trust authority and logs the reason.</li><li>A component parser grades equivalent formats and assigns an episode status.</li><li>Each agent emits diary evidence and <code>memory_ids_used</code>. No relationship value changes during the day.</li></ol></article><article class="cycle-panel night"><div class="cycle-title"><span class="cycle-icon">☾</span>Night · <code>night_workspace.py</code></div><ol class="steps"><li>Wait until all seven team episodes in the round finish.</li><li>Commit mechanical RPE trust updates per valid directed edge.</li><li>Update shared difficulty expectations once from valid round outcomes.</li><li>Call one Night Curator for each of the 14 training agents.</li><li>Each single response proposes nine non-trust deltas and the final memory decisions.</li><li>Validate the complete response, commit all-or-nothing, and append every JSON log before the next call.</li></ol></article></div>
+      <div class="status-grid"><div class="status"><code>completed</code><span>Graded binary reward.</span></div><div class="status"><code>agent_timeout</code><span>Agent failure · reward 0.</span></div><div class="status"><code>invalid_agent_output</code><span>Agent failure · reward 0.</span></div><div class="status"><code>backend_error</code><span>No reward; skip every state update.</span></div></div>
+      <div class="gate"><div class="gate-icon">4</div><div><h3>Exact interaction budget</h3><p class="muted">Two task messages per agent—one initial and one revised—produce four task-solving messages per team episode. Diary evidence appends after each episode; consolidation commits after the full round.</p></div><div class="gate-stat">2 × 2</div></div>
+    </div></section>
+
+    <section id="memory"><div class="shell">
+      <div class="section-head"><div class="section-no">07 / MEMORY</div><div><p class="eyebrow">Consolidation and forgetting</p><h2>Remembering everything<br>destroys attention.</h2><p class="section-copy">Biological memory actively prunes. Trust MoA treats that as an engineering hypothesis: a growing prompt diary needs an explicit, learned, and auditable editor—not accidental context truncation.</p></div></div>
+      <div class="big-claim">One round is one training day. After every round, one <span class="accent">gpt-5.6-sol high Night Curator</span> call per training agent assigns each diary entry salience from 0–1 and a verdict: retain, compress, or forget.</div>
+      <div class="forget-flow"><div class="forget-step"><b>01 · Surprise gate</b><span class="muted">Protect high-|δ| memories.</span></div><div class="forget-step"><b>02 · Redundancy prune</b><span class="muted">Merge near-duplicates.</span></div><div class="forget-step"><b>03 · Decay</b><span class="muted">Forget old, low-salience entries; fixed memory transport gates rate.</span></div><div class="forget-step"><b>04 · Capacity</b><span class="muted">Compress lowest-salience retained lines until the cap is met.</span></div></div>
+      <div class="grid-3"><article class="card"><h3>Auditable deletion</h3><p class="muted">Forgotten entries move to <code>logs/forgotten.jsonl</code> with original text, reason, salience, and originating episode. The agent loses them; the researcher does not.</p></article><article class="card"><h3>Asymmetric resentment</h3><p class="muted">Negative events resist forgetting. Repair requires consistent evidence, not one good night.</p></article><article class="card"><h3>Age in rounds</h3><p class="muted">Memory age is measured in completed training rounds since creation.</p></article></div>
+      <div class="grid-2"><article class="card"><h3>Retention precision</h3><p class="muted">Fraction of retained entries later cited through <code>memory_ids_used</code>.</p></article><article class="card"><h3>Forget regret proxy</h3><p class="muted">Fraction of forgotten entries associated with a later repeated mistake for which that memory would have been relevant. This is observational, not causal.</p></article></div>
+    </div></section>
+
+    <section id="objective"><div class="shell">
+      <div class="section-head"><div class="section-no">08 / OBJECTIVE</div><div><p class="eyebrow">Training objective</p><h2>Better-calibrated trust.<br>Better team outcomes.</h2><p class="section-copy">Across repeated puzzle episodes, the pilot observes whether directed trust becomes better calibrated and whether each pair improves its puzzle-solving accuracy.</p></div></div>
+      <div class="record-grid"><div class="record"><b>Puzzle accuracy</b><span>Result by team, difficulty, and day.</span></div><div class="record"><b>Bidirectional trust</b><span>A→B and B→A changes.</span></div><div class="record"><b>Followed answer</b><span>Whose judgment shipped.</span></div><div class="record"><b>Productive disagreement</b><span>Whether dissent improved the answer.</span></div><div class="record"><b>Memory outcomes</b><span>Retention and forgetting.</span></div><div class="record"><b>Reliability</b><span>Latency and timeouts.</span></div></div>
+    </div></section>
+
+    <section id="metrics"><div class="shell">
+      <div class="section-head"><div class="section-no">09 / METRICS</div><div><p class="eyebrow">Training metrics</p><h2>Measure learning<br>without overclaiming.</h2><p class="section-copy">The pilot measures behavior, calibration, memory quality, and harness health. Its ten-puzzle scale supports descriptive evidence only.</p></div></div>
+      <div class="metric-grid"><article class="metric"><b>Accuracy per difficulty + day</b><span class="muted">Does team performance improve?</span></article><article class="metric"><b>Trust value in each direction</b><span class="muted">How do A→B and B→A diverge?</span></article><article class="metric"><b>Trust change per episode</b><span class="muted">How strongly does an outcome move trust?</span></article><article class="metric"><b>Trust calibration</b><span class="muted">Does inbound trust correspond to success when followed?</span></article><article class="metric"><b>Lead-selection accuracy</b><span class="muted">How often is the authority-selected answer correct?</span></article><article class="metric"><b>Agreement / disagreement</b><span class="muted">How often do agents converge?</span></article><article class="metric"><b>Productive disagreement</b><span class="muted">How often does dissent lead to the right answer?</span></article><article class="metric"><b>Retention precision</b><span class="muted">How often is retained memory useful later?</span></article><article class="metric"><b>Forget regret proxy</b><span class="muted">Are repeated mistakes associated with relevant forgotten memory?</span></article><article class="metric"><b>Turns, latency, timeouts</b><span class="muted">How reliably and efficiently does training run?</span></article></div>
+      <div class="pilot-note">Report raw counts such as 7/10, completed puzzles, and timeouts. Do not use confidence intervals or make statistical performance or generalization claims.</div>
+    </div></section>
+
+    <section id="logging"><div class="shell">
+      <div class="section-head"><div class="section-no">10 / LOGGING</div><div><p class="eyebrow">Automatic JSON provenance</p><h2>If it is not on disk,<br>it did not happen.</h2><p class="section-copy">Every training result must be reproducible. JSONL schemas stay stable: fields that do not apply remain present with null values.</p></div></div>
+      <h3>Common fields on every JSONL row</h3><div class="provenance"><code>schema_version</code><code>run_id</code><code>round_id</code><code>team_id</code><code>episode_id</code><code>puzzle_id</code><code>puzzle_digest</code><code>settings_digest</code><code>model</code><code>reasoning_effort</code><code>git_commit</code><code>timestamp</code></div>
+      <div class="log-stack"><div class="log-row"><code>episodes.jsonl</code><span class="muted">Team, agents, puzzle, transcript, proposed and final answers, lead, reason, reward, agreement, turns, latency, status, disagreement, and each agent’s memory IDs used.</span></div><div class="log-row"><code>night_updates.jsonl</code><span class="muted">One row per directed trust update: result, round-start expectation, δ, credit, before/after trust, and fixed metaplasticity modifiers.</span></div><div class="log-row"><code>night_workspace.jsonl</code><span class="muted">One row per Night Curator call: input digest, complete response, validation result, timing, retry status, and commit outcome.</span></div><div class="log-row"><code>relationship_vectors.jsonl</code><span class="muted">Append-only snapshot of all ten dimensions on every directed edge after each night.</span></div><div class="log-row"><code>memory_decisions.jsonl</code><span class="muted">Agent, memory ID, salience, verdict, reason, age, and episode δ.</span></div><div class="log-row"><code>memories_state.jsonl</code><span class="muted">Per-agent retained, compressed, forgotten counts, and current diary size.</span></div><div class="log-row"><code>forgotten.jsonl</code><span class="muted">Original forgotten text, salience, reason, and originating episode.</span></div><div class="log-row"><code>puzzle_validation.jsonl</code><span class="muted">Difficulty, family, solve result, latency, timeout, and solver telemetry.</span></div><div class="log-row"><code>run_manifests.jsonl</code><span class="muted">Started/completed/failed lifecycle, teams, model config, digests, episode counts, and failure reason.</span></div></div>
+      <h3 class="big-claim">Mutable state and aggregate metrics are isolated by run.</h3><div class="namespace"><code>state/[run_id]/relationship_vectors.json</code><code>state/[run_id]/difficulty_expectations.json</code><code>metrics/[run_id].json</code></div>
+    </div></section>
+
+    <section id="repository"><div class="shell">
+      <div class="section-head"><div class="section-no">11 / REPOSITORY</div><div><p class="eyebrow">Implementation map</p><h2>Inputs, state, behavior,<br>and evidence stay separate.</h2></div></div>
+      <div class="repo-grid"><div class="folder"><b>data/</b><span>puzzles.jsonl · puzzle_stats.json</span></div><div class="folder"><b>settings/</b><span>teams · models · training · metaplasticity · memory</span></div><div class="folder"><b>state/[run_id]/</b><span>relationship_vectors · difficulty_expectations</span></div><div class="folder"><b>metrics/</b><span>[run_id].json</span></div><div class="folder"><b>personalities/ · memories/</b><span>one Markdown file per agent</span></div><div class="folder"><b>trust_edges/</b><span>backend · episode · trust · relationships · night workspace · memory · prompts · puzzles · logging · state · models</span></div><div class="folder"><b>scripts</b><span>generate · audit · validate · initialize · train · analyze · export</span></div><div class="folder"><b>tests/ · logs/ · figures/</b><span>verification and evidence artifacts</span></div></div>
+      <pre class="commands"><span class="comment"># corpus and structural validation</span>
+python generate_puzzles.py
+python puzzle_audit.py
+python validate_puzzles.py
+
+<span class="comment"># isolated run state; previous logs remain</span>
+python initialize_run.py
+
+<span class="comment"># ten rounds: seven episodes → one batch update → night</span>
+python train.py --rounds 10
+
+<span class="comment"># current-run metrics and optional figures</span>
+python analyze.py
+python export_figures.py</pre>
+    </div></section>
+
+    <section id="operations"><div class="shell">
+      <div class="section-head"><div class="section-no">12 / OPERATIONS</div><div><p class="eyebrow">Order of operations</p><h2>Fail closed.<br>Freeze before training.</h2></div></div>
+      <div class="operations">
+        <div class="operation"><div class="op-no">01</div><div class="op-copy"><b>Validate configuration</b><ul><li>Exactly two agents per team; unique names.</li><li>All directed trust starts at 0.0.</li><li>Model, memory, and fixed metaplasticity settings exist.</li></ul></div></div>
+        <div class="operation"><div class="op-no">02</div><div class="op-copy"><b>Generate deterministic puzzles and solver telemetry</b></div></div>
+        <div class="operation"><div class="op-no">03</div><div class="op-copy"><b>Audit the corpus</b><ul><li>Correctness, uniqueness, insufficient private clues, duplicates, and leakage.</li></ul></div></div>
+        <div class="operation"><div class="op-no">04</div><div class="op-copy"><b>Run the pilot validation gate</b><ul><li>Valid answers, cooperation, grading, and timeout behavior.</li><li>Stop if any structural check fails.</li></ul></div></div>
+        <div class="operation"><div class="op-no">05</div><div class="op-copy"><b>Freeze training inputs</b><ul><li>Record puzzle digest, settings digest, and Git commit.</li><li>Never change puzzles or settings mid-run.</li></ul></div></div>
+        <div class="operation"><div class="op-no">06</div><div class="op-copy"><b>Initialize a new run</b><ul><li>Create run ID; trust = 0.0; each difficulty expectation = 0.5.</li><li>Preserve prior logs.</li></ul></div></div>
+        <div class="operation"><div class="op-no">07</div><div class="op-copy"><b>Run an isolated smoke test</b><ul><li>One full day/night cycle with transcripts, rewards, trust, vectors, memory decisions, and logs.</li><li>Confirm exactly one Night Curator call for each of the 14 training agents.</li><li>Keep smoke-test evidence out of training.</li></ul></div></div>
+        <div class="operation"><div class="op-no">08</div><div class="op-copy"><b>Run ten full rounds</b><ul><li>Snapshot expectations at round start; give every team an unseen puzzle.</li><li>Keep expectations immutable during seven episodes.</li><li>Exclude backend errors from every reward and state update.</li><li>Update each difficulty once from mean valid reward; run one single-prompt curator call for every training agent.</li><li>Ten rounds yield ten episodes per team and 140 curator calls before retries.</li></ul></div></div>
+        <div class="operation"><div class="op-no">09</div><div class="op-copy"><b>Analyze the completed run</b><ul><li>Accuracy, trust curves and calibration, disagreements, lead accuracy, memory, latency, and timeouts.</li></ul></div></div>
+        <div class="operation"><div class="op-no">10</div><div class="op-copy"><b>Finalize</b><ul><li>Write <code>status="completed"</code> to the manifest.</li><li>Export requested figures or summaries.</li></ul></div></div>
+      </div>
+    </div></section>
+
+    <section id="scope"><div class="shell">
+      <div class="section-head"><div class="section-no">13 / SCOPE</div><div><p class="eyebrow">Pilot boundaries</p><h2>Everything in.<br>Nothing implied.</h2></div></div>
+      <div class="scope-grid"><div class="scope-item"><b>Fixed pairs</b><br><span class="muted">Two agents per training team.</span></div><div class="scope-item"><b>Directed vectors</b><br><span class="muted">Ten dimensions on each edge.</span></div><div class="scope-item"><b>Neutral start</b><br><span class="muted">Trust 0.0 in both directions.</span></div><div class="scope-item"><b>RPE learning</b><br><span class="muted">Round-batched expectations.</span></div><div class="scope-item"><b>Two consumers</b><br><span class="muted">Stance and inbound authority.</span></div><div class="scope-item"><b>Day / night cycles</b><br><span class="muted">Ten repeated rounds.</span></div><div class="scope-item"><b>Single-agent workspace</b><br><span class="muted">One curator prompt handles reflection and consolidation.</span></div><div class="scope-item"><b>Selective memory</b><br><span class="muted">Retain, compress, forget.</span></div><div class="scope-item"><b>Fixed metaplasticity</b><br><span class="muted">Loaded once per agent.</span></div><div class="scope-item"><b>Deterministic puzzles</b><br><span class="muted">Generation, audit, pilot gate.</span></div><div class="scope-item"><b>Automatic evidence</b><br><span class="muted">JSON logs and metrics.</span></div><div class="scope-item"><b>Frozen inference</b><br><span class="muted">Relationship vectors lock downstream.</span></div></div>
+    </div></section>
+
+    <section id="failures"><div class="shell">
+      <div class="section-head"><div class="section-no">14 / FAILURES</div><div><p class="eyebrow">Known failure modes</p><h2>Nine ways to fool<br>the experiment.</h2></div></div>
+      <div class="failure-grid"><article class="failure"><b>01 · Ceiling accuracy</b><span class="muted">Uniform success provides little variation for trust learning. Inspect difficulty during validation.</span></article><article class="failure"><b>02 · Length ≠ difficulty</b><span class="muted">Long procedures are easy; search is hard.</span></article><article class="failure"><b>03 · Fragmented expectations</b><span class="muted">Per-team priors exaggerate surprise. Share by difficulty and update once per round.</span></article><article class="failure"><b>04 · Order-sensitive grading</b><span class="muted">Equivalent reordered answers must compare equal. Parse components.</span></article><article class="failure"><b>05 · Stale digests</b><span class="muted">Old-corpus evidence must never enter current metrics.</span></article><article class="failure"><b>06 · Missing timeout semantics</b><span class="muted">Agent timeout and invalid output are failures; backend error is infrastructure and skips every update.</span></article><article class="failure"><b>07 · Single-prompt overload</b><span class="muted">The curator can miss a responsibility. Require all schema sections, explicit self-review, and fail closed when validation does not pass.</span></article><article class="failure"><b>08 · Tiny sample</b><span class="muted">Ten puzzles demand raw counts like 7/10 and no statistical or generalization claims.</span></article><article class="failure"><b>09 · Hidden structure</b><span class="muted">Overall totals can hide differences. Report raw counts by team, family, and difficulty whenever observations allow.</span></article></div>
+    </div></section>
+
+    <section id="defaults"><div class="shell">
+      <div class="section-head"><div class="section-no">15 / DEFAULTS</div><div><p class="eyebrow">Single source of truth</p><h2>No silent<br>magic numbers.</h2><p class="section-copy">Canonical values live under <code>settings/</code>, code reads them, and every manifest snapshots the effective configuration.</p></div></div>
+      <div class="defaults">
+        <article class="default-group"><h3>Teams + rounds</h3><div class="kv"><span>teams_file</span><span>settings/teams.json</span><span>agents_per_team</span><span>2</span><span>messages_per_agent</span><span>2</span><span>rounds</span><span>10</span><span>episodes_per_team</span><span>10</span><span>one_episode_per_team_per_round</span><span>true</span><span>night_after_every_round</span><span>true</span><span>trust_init</span><span>0.0</span><span>other_relationship_dimensions_init</span><span>0.0</span></div></article>
+        <article class="default-group"><h3>Trust update</h3><div class="kv"><span>alpha</span><span>0.2</span><span>beta</span><span>0.1</span><span>trust_step_max</span><span>0.25</span><span>trust_range</span><span>[−1,+1]</span><span>expectation_init</span><span>0.5</span><span>expectation_scope</span><span>shared across teams</span></div></article>
+        <article class="default-group"><h3>Non-trust reflection</h3><div class="kv"><span>reflection_step_max</span><span>0.2</span><span>negativity_bias</span><span>1.5</span><span>metaplasticity</span><span>fixed</span></div></article>
+        <article class="default-group"><h3>Memory</h3><div class="kv"><span>memory_policy</span><span>learned</span><span>memory_capacity</span><span>5</span><span>memory_capacity_unit</span><span>lines</span><span>forget_horizon</span><span>3</span><span>memory_update_after_every_episode</span><span>true</span><span>consolidation_commit</span><span>after round</span><span>surprise_protect_threshold</span><span>0.4</span></div></article>
+        <article class="default-group"><h3>Night workspace</h3><div class="kv"><span>night_workspace_agents</span><span>1</span><span>one_workspace_per_training_agent</span><span>true</span><span>night_workspace_prompt_mode</span><span>single_prompt</span><span>final line limit</span><span>5</span><span>combined word limit</span><span>100</span></div></article>
+        <article class="default-group"><h3>Models</h3><div class="kv"><span>day model</span><span>gpt-5.6-sol</span><span>day reasoning</span><span>light</span><span>night model</span><span>gpt-5.6-sol</span><span>night reasoning</span><span>high</span></div></article>
+        <article class="default-group"><h3>Backend reliability</h3><div class="kv"><span>timeout_seconds</span><span>180</span><span>max_retries</span><span>1</span><span>episode_statuses</span><span>4 canonical</span><span>agent_timeout_reward</span><span>0</span><span>invalid_agent_output_reward</span><span>0</span><span>backend_error_skips_reward</span><span>true</span><span>backend_error_skips_trust_update</span><span>true</span><span>backend_error_skips_difficulty_expectation_update</span><span>true</span></div></article>
+        <article class="default-group"><h3>Pilot + corpus</h3><div class="kv"><span>pilot_mode</span><span>true</span><span>corpus_total</span><span>10</span><span>puzzle_seed</span><span>42</span><span>reuse_puzzles_within_team</span><span>false</span><span>agent_timeouts_count_as_failures</span><span>true</span><span>invalid_agent_outputs_count_as_failures</span><span>true</span><span>statistical_accuracy_gate</span><span>false</span><span>confidence_intervals</span><span>false</span><span>generalization_claims</span><span>false</span></div></article>
+      </div>
+    </div></section>
+  </main>
+
+  <footer><div class="shell footer-grid"><div><p class="eyebrow">Trust MoA</p><h2>Train the relationship. Audit every change. Freeze it for work.</h2><p class="section-copy">A ten-round, descriptive pilot for directed trust, round-batched surprise, explicit failure semantics, and schema-gated memory curation.</p></div><a class="source-link" href="trust_moa.md">Read the immutable source specification →</a></div></footer>
+
+  <script>
+    const ab = document.querySelector('#trustAB');
+    const ba = document.querySelector('#trustBA');
+    const progress = document.querySelector('#progressBar');
+    function band(value) {
+      if (value >= .6) return 'Strongly trust';
+      if (value >= .2) return 'Trust';
+      if (value > -.2) return 'Neutral';
+      if (value > -.6) return 'Skeptical';
+      return 'Distrust';
+    }
+    function pretty(value) {
+      const number = Number(value);
+      if (number === 0) return '0.0';
+      return `${number > 0 ? '+' : '−'}${Math.abs(number).toFixed(1)}`;
+    }
+    function updateLab() {
+      const aToB = Number(ab.value);
+      const bToA = Number(ba.value);
+      document.querySelector('#valueAB').value = pretty(aToB);
+      document.querySelector('#valueBA').value = pretty(bToA);
+      document.querySelector('#stanceA').textContent = band(aToB);
+      document.querySelector('#stanceB').textContent = band(bToA);
+      document.querySelector('#authority').textContent = bToA > aToB ? 'Agent A leads' : aToB > bToA ? 'Agent B leads' : 'Tie → dominance → last speaker';
+    }
+    [ab, ba].forEach(input => input.addEventListener('input', updateLab));
+    document.querySelectorAll('[data-preset]').forEach(button => button.addEventListener('click', () => {
+      if (button.dataset.preset === 'neutral') { ab.value = 0; ba.value = 0; }
+      if (button.dataset.preset === 'trust-b') { ab.value = .7; ba.value = -.3; }
+      if (button.dataset.preset === 'trust-a') { ab.value = -.3; ba.value = .7; }
+      updateLab();
+    }));
+    function updateProgress() {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      progress.style.width = `${max > 0 ? (scrollY / max) * 100 : 0}%`;
+    }
+    addEventListener('scroll', updateProgress, { passive: true });
+    addEventListener('resize', updateProgress);
+    updateLab();
+    updateProgress();
+  </script>
+</body>
+</html>

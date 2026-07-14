@@ -1,0 +1,10 @@
+- Build using Codex and GPT-5.6 in one of four tracks.
+- Submission deadline: July 21, 2026 at 5:00 PM PT.
+- Deliver a polished, working, testable project—not merely a proof of concept.
+- Optimize equally for implementation, design, impact, and originality.
+- Maintain clear evidence of work completed during the submission period.
+- Provide a public demo or unrestricted judge access, a repository, setup instructions, and a sub-three-minute narrated YouTube demo.
+- Document how Codex and GPT-5.6 contributed, including our major human-made decisions.
+- Preserve this task as the core build session so its /feedback session ID can be submitted.
+- Use properly licensed assets, dependencies, APIs, and data.
+- If we build a developer tool or plugin, include installation instructions, supported platforms, and an immediately testable instance or sandbox.

@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A one-screen visual map of ZeroHandoff turning one build request into an auditable software-delivery bundle.">
+  <title>ZeroHandoff — From Request to Product</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' fill='%23101820'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-size='29' font-weight='800' fill='%23f7cd46'%3EZ%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --paper: #f4f0e6;
+      --ink: #101820;
+      --cream: #fffdf7;
+      --yellow: #f7cd46;
+      --mint: #65d9bd;
+      --blue: #7da8f8;
+      --coral: #ff8068;
+      --muted: #667078;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #191f25; }
+    body { display: grid; place-items: center; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    .board {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1600px;
+      height: 900px;
+      padding: 42px 50px 30px;
+      overflow: hidden;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(247,205,70,.24), transparent 20%),
+        radial-gradient(circle at 88% 70%, rgba(101,217,189,.19), transparent 23%),
+        linear-gradient(rgba(16,24,32,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,24,32,.045) 1px, transparent 1px),
+        var(--paper);
+      background-size: auto, auto, 34px 34px, 34px 34px, auto;
+      transform-origin: center;
+    }
+
+    .board::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 12px;
+      background: linear-gradient(var(--yellow) 0 33%, var(--blue) 33% 66%, var(--mint) 66%);
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 255px 1fr auto;
+      align-items: center;
+      height: 116px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .brand { display: flex; align-items: center; gap: 13px; }
+    .brand-mark {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--yellow);
+      background: var(--ink);
+      font-size: 21px;
+      font-weight: 950;
+      box-shadow: 5px 5px 0 var(--yellow);
+    }
+    .brand strong { font-size: 20px; letter-spacing: .12em; }
+
+    .headline small {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    h1 { margin: 0; font-size: 41px; line-height: 1; letter-spacing: -.05em; }
+    h1 span { position: relative; z-index: 0; }
+    h1 span::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: -5px;
+      bottom: 0;
+      left: -5px;
+      height: 14px;
+      background: var(--yellow);
+      transform: rotate(-1deg);
+    }
+
+    .score {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 11px 16px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--cream);
+      box-shadow: 4px 4px 0 var(--ink);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .score span + span { position: relative; }
+    .score span + span::before { content: ""; position: absolute; left: -9px; top: 50%; width: 3px; height: 3px; border-radius: 50%; background: var(--coral); }
+
+    main { height: 667px; padding-top: 26px; }
+    .story {
+      position: relative;
+      height: 620px;
+    }
+
+    .autonomy-zone {
+      position: absolute;
+      top: 0;
+      right: 210px;
+      bottom: 0;
+      left: 210px;
+      border: 2px dashed rgba(16,24,32,.38);
+      border-radius: 36px;
+      background: rgba(255,253,247,.46);
+    }
+    .zone-title {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      padding: 5px 17px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .training-strip {
+      position: absolute;
+      z-index: 6;
+      top: 18px;
+      left: 50%;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: 1100px;
+      height: 140px;
+      padding: 14px 16px;
+      border: 3px solid var(--ink);
+      border-radius: 24px;
+      background: var(--cream);
+      box-shadow: 6px 6px 0 var(--blue);
+      color: var(--ink);
+      transform: translateX(-50%);
+    }
+    .training-label {
+      display: grid;
+      align-self: stretch;
+      width: 92px;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: .12em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .training-puzzles {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      align-items: center;
+      gap: 13px;
+      min-width: 300px;
+    }
+    .puzzle-count {
+      display: grid;
+      width: 58px;
+      height: 58px;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--yellow);
+      font-size: 20px;
+      font-weight: 950;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+    .simple-copy b { display: block; font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
+    .simple-copy small { display: block; margin-top: 5px; color: var(--muted); font-size: 8.5px; font-weight: 800; letter-spacing: .03em; }
+    .training-puzzles .simple-copy b { font-size: 13px; line-height: 1.15; letter-spacing: .025em; }
+    .training-puzzles .simple-copy small { font-size: 9.5px; line-height: 1.25; }
+    .training-change {
+      display: grid;
+      min-width: 76px;
+      justify-items: center;
+      gap: 5px;
+      color: var(--coral);
+    }
+    .training-change b { font-size: 27px; line-height: 1; }
+    .training-change small { color: var(--ink); font-size: 8px; font-weight: 950; letter-spacing: .06em; text-align: center; text-transform: uppercase; }
+    .relationship-card {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      align-items: center;
+      gap: 13px;
+      min-width: 320px;
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(125,168,248,.25);
+    }
+    .agent-relationship { display: flex; align-items: center; justify-content: center; }
+    .agent-relationship > b {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--cream);
+      font-size: 9px;
+    }
+    .relationship-link {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      width: 42px;
+      margin: 0 2px;
+    }
+    .relationship-link i { height: 8px; border-radius: 3px; background: var(--coral); }
+    .relationship-link i:nth-child(2) { background: var(--yellow); }
+    .relationship-link i:nth-child(3) { background: var(--mint); }
+    .relationship-link::after { content: "↔"; position: absolute; top: -20px; left: 50%; font-size: 13px; font-weight: 950; transform: translateX(-50%); }
+    .training-frozen {
+      padding: 15px 14px;
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      background: var(--mint);
+      font-size: 8px;
+      font-weight: 950;
+      letter-spacing: .07em;
+      text-align: center;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .human-side,
+    .output-side {
+      position: absolute;
+      z-index: 5;
+      top: 245px;
+      width: 190px;
+      text-align: center;
+    }
+    .human-side { left: 0; }
+    .output-side { right: 0; width: 220px; }
+
+    .side-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 15px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 950;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .side-kicker::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--coral); }
+    .output-side .side-kicker::before { background: var(--mint); }
+
+    .brief-illustration {
+      position: relative;
+      width: 132px;
+      height: 174px;
+      margin: 0 auto 18px;
+    }
+    .person {
+      position: absolute;
+      left: -12px;
+      bottom: 2px;
+      width: 72px;
+      height: 96px;
+      border: 3px solid var(--ink);
+      border-radius: 38px 38px 12px 12px;
+      background: var(--blue);
+    }
+    .person::before {
+      content: "";
+      position: absolute;
+      top: -44px;
+      left: 10px;
+      width: 48px;
+      height: 48px;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: var(--coral);
+    }
+    .person::after {
+      content: "";
+      position: absolute;
+      top: -44px;
+      left: 10px;
+      width: 51px;
+      height: 23px;
+      border-radius: 28px 28px 4px 4px;
+      background: var(--ink);
+    }
+    .brief-sheet {
+      position: absolute;
+      z-index: 2;
+      right: -4px;
+      bottom: 0;
+      width: 92px;
+      height: 128px;
+      padding: 26px 14px;
+      border: 3px solid var(--ink);
+      background: var(--cream);
+      box-shadow: 7px 7px 0 var(--yellow);
+      transform: rotate(4deg);
+    }
+    .brief-sheet::before {
+      content: "REQUEST";
+      display: block;
+      margin-bottom: 12px;
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: .08em;
+    }
+    .brief-sheet i { display: block; height: 5px; margin: 8px 0; border-radius: 3px; background: var(--ink); opacity: .72; }
+    .brief-sheet i:nth-child(2) { width: 72%; background: var(--coral); opacity: 1; }
+    .brief-sheet i:nth-child(3) { width: 88%; }
+    .brief-sheet i:nth-child(4) { width: 58%; }
+
+    .side-title { display: block; font-size: 20px; font-weight: 950; letter-spacing: -.035em; }
+    .side-caption { display: block; margin-top: 5px; color: var(--muted); font-size: 10px; font-weight: 750; }
+    .one-click {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 15px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--ink);
+      background: var(--yellow);
+      font-size: 9px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .product-window {
+      position: relative;
+      width: 210px;
+      height: 166px;
+      margin: 0 auto 18px;
+      overflow: hidden;
+      border: 3px solid var(--ink);
+      border-radius: 12px;
+      background: var(--cream);
+      box-shadow: 8px 8px 0 var(--mint);
+      text-align: left;
+    }
+    .window-bar { display: flex; gap: 5px; height: 25px; align-items: center; padding: 0 10px; border-bottom: 3px solid var(--ink); background: var(--paper); }
+    .window-bar i { width: 7px; height: 7px; border: 1px solid var(--ink); border-radius: 50%; background: var(--coral); }
+    .window-bar i:nth-child(2) { background: var(--yellow); }
+    .window-bar i:nth-child(3) { background: var(--mint); }
+    .app-preview { display: grid; grid-template-columns: 45px 1fr; height: 138px; }
+    .app-nav { border-right: 3px solid var(--ink); background: var(--blue); }
+    .app-nav::before, .app-nav::after { content: ""; display: block; width: 22px; height: 5px; margin: 18px auto; border-radius: 2px; background: var(--ink); }
+    .app-body { padding: 18px 14px; }
+    .app-body b { display: block; width: 75%; height: 10px; margin-bottom: 13px; background: var(--ink); }
+    .app-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .app-cards span { height: 48px; border: 2px solid var(--ink); border-radius: 6px; background: var(--yellow); }
+    .app-cards span:last-child { background: var(--mint); }
+    .play {
+      position: absolute;
+      right: 15px;
+      bottom: 12px;
+      display: grid;
+      width: 46px;
+      height: 46px;
+      place-items: center;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      color: var(--cream);
+      background: var(--coral);
+      font-size: 17px;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+    .verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 15px;
+      padding: 7px 11px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--cream);
+      font-size: 9px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+    .verified b { display: grid; width: 18px; height: 18px; place-items: center; border-radius: 50%; color: var(--ink); background: var(--mint); }
+
+    .bundle-tags {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      margin-top: 10px;
+    }
+    .bundle-tags span {
+      padding: 6px 3px;
+      border: 1.5px solid var(--ink);
+      border-radius: 5px;
+      background: var(--cream);
+      font-size: 7px;
+      font-weight: 950;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .bundle-tags span:nth-child(2) { background: var(--yellow); }
+    .bundle-tags span:nth-child(3) { background: var(--blue); }
+    .bundle-tags span:nth-child(4) { background: var(--mint); }
+
+    .entry-arrow,
+    .exit-arrow {
+      position: absolute;
+      z-index: 4;
+      top: 397px;
+      height: 5px;
+      background: var(--ink);
+    }
+    .entry-arrow { left: 172px; width: 72px; }
+    .exit-arrow { right: 204px; width: 68px; }
+    .entry-arrow::after,
+    .exit-arrow::after {
+      content: "";
+      position: absolute;
+      top: -7px;
+      right: -2px;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 14px solid var(--ink);
+    }
+
+    .pipeline {
+      position: absolute;
+      z-index: 3;
+      top: 245px;
+      right: 260px;
+      bottom: 32px;
+      left: 260px;
+    }
+    .phases {
+      display: grid;
+      grid-template-columns: 3fr 2fr 2fr;
+      gap: 18px;
+      height: 42px;
+      padding: 0 8px;
+    }
+    .phase {
+      position: relative;
+      padding-top: 9px;
+      border-top: 3px solid var(--yellow);
+      color: var(--muted);
+      font-size: 8px;
+      font-weight: 950;
+      letter-spacing: .16em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .phase::before, .phase::after { content: ""; position: absolute; top: -6px; width: 9px; height: 9px; border-radius: 50%; background: var(--yellow); }
+    .phase::before { left: 0; }
+    .phase::after { right: 0; }
+    .phase.design { border-color: var(--blue); }
+    .phase.design::before, .phase.design::after { background: var(--blue); }
+    .phase.deliver { border-color: var(--mint); }
+    .phase.deliver::before, .phase.deliver::after { background: var(--mint); }
+
+    .rail {
+      position: absolute;
+      top: 151px;
+      right: 5px;
+      left: 5px;
+      height: 13px;
+      border: 3px solid var(--ink);
+      border-radius: 999px;
+      background: var(--cream);
+      overflow: hidden;
+    }
+    .rail::before {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--yellow) 0 42.8%, var(--blue) 42.8% 71.4%, var(--mint) 71.4%);
+    }
+    .flow-pulse {
+      position: absolute;
+      z-index: 4;
+      top: 148px;
+      left: 5px;
+      width: 19px;
+      height: 19px;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: var(--cream);
+      animation: travel 7s linear infinite;
+    }
+    @keyframes travel { from { transform: translateX(0); } to { transform: translateX(966px); } }
+
+    .stations {
+      position: absolute;
+      z-index: 5;
+      top: 91px;
+      right: 0;
+      left: 0;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+    .station { min-width: 0; text-align: center; }
+    .station-orb {
+      display: grid;
+      grid-template-columns: 31px 17px 31px;
+      align-items: center;
+      justify-content: center;
+      width: 122px;
+      height: 122px;
+      margin: 0 auto 13px;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+    .station:nth-child(n+4):nth-child(-n+5) .station-orb { background: var(--blue); }
+    .station:nth-child(n+6) .station-orb { background: var(--mint); }
+    .agent {
+      display: grid;
+      width: 31px;
+      height: 31px;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--cream);
+      font-size: 9px;
+      font-weight: 950;
+    }
+    .station-orb em { font-size: 15px; font-style: normal; font-weight: 950; }
+    .station strong { display: block; font-size: 15px; line-height: 1; letter-spacing: -.02em; text-transform: uppercase; }
+    .station small { display: block; margin-top: 7px; color: var(--muted); font-size: 8px; font-weight: 850; letter-spacing: .04em; text-transform: uppercase; }
+
+    footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: end;
+      height: 45px;
+      padding-top: 10px;
+    }
+    .footnote { color: var(--muted); font-size: 7.5px; font-weight: 800; letter-spacing: .06em; text-align: right; text-transform: uppercase; }
+    .footnote strong { display: block; margin-bottom: 4px; color: var(--ink); font-size: 8.5px; }
+
+    @media (prefers-reduced-motion: reduce) { .flow-pulse { animation: none; left: calc(50% - 9px); } }
+    @media print { .board { transform: translate(-50%, -50%) !important; } }
+  </style>
+</head>
+<body>
+  <article class="board" aria-labelledby="page-title">
+    <header>
+      <div class="brand" aria-label="ZeroHandoff"><span class="brand-mark" aria-hidden="true">Z</span><strong>ZEROHANDOFF</strong></div>
+      <div class="headline"><small>Autonomous software delivery</small><h1 id="page-title">One request. <span>One autonomous run.</span> Finished software.</h1></div>
+      <div class="score" aria-label="Fourteen agents, seven trusted pairs, zero human handoffs"><span>14 agents</span><span>7 pairs</span><span>0 human handoffs</span></div>
+    </header>
+
+    <main>
+      <section class="story" aria-label="One human build request enters seven autonomous paired-agent stations and becomes a delivered application and demo">
+        <div class="autonomy-zone" aria-hidden="true"><span class="zone-title">ZeroHandoff autonomous delivery engine</span></div>
+        <aside class="training-strip" aria-label="Before delivery, each of the seven teams tries to solve ten puzzles, one puzzle per team in each round. After every attempt, how much the two agents trust each other changes based on the outcome. After the tenth puzzle, that learned trust is kept fixed for the delivery pipeline.">
+          <span class="training-label">Train once</span>
+          <span class="training-puzzles">
+            <span class="puzzle-count">10</span>
+            <span class="simple-copy"><b>Each of the 7 teams<br>tries to solve 10 puzzles</b><small>One puzzle per team · across 10 rounds</small></span>
+          </span>
+          <span class="training-change"><b aria-hidden="true">→</b><small>After every try</small></span>
+          <span class="relationship-card">
+            <span class="agent-relationship" aria-hidden="true"><b>A</b><span class="relationship-link"><i></i><i></i><i></i></span><b>B</b></span>
+            <span class="simple-copy"><b>Their trust in each other changes</b><small>Each result moves their trust up or down</small></span>
+          </span>
+          <span class="training-frozen">❄ Then keep it fixed for delivery</span>
+        </aside>
+
+        <article class="human-side" aria-label="Human submits one build request">
+          <span class="side-kicker">You · once</span>
+          <div class="brief-illustration" aria-hidden="true"><span class="person"></span><span class="brief-sheet"><i></i><i></i><i></i></span></div>
+          <strong class="side-title">Build request</strong>
+          <span class="side-caption">Idea · audience · outcome · constraints</span>
+          <span class="one-click">→ Start the run</span>
+        </article>
+
+        <span class="entry-arrow" aria-hidden="true"></span>
+
+        <section class="pipeline" aria-label="Seven stages, each operated by a pair of agents">
+          <div class="phases" aria-hidden="true"><span class="phase">Define</span><span class="phase design">Design + plan</span><span class="phase deliver">Build + prove</span></div>
+          <span class="rail" aria-hidden="true"></span>
+          <span class="flow-pulse" aria-hidden="true"></span>
+
+          <div class="stations">
+            <article class="station" aria-label="Seek creates the Product Brief"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Seek</strong><small>Product brief</small></article>
+            <article class="station" aria-label="Shape creates the PRD"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Shape</strong><small>PRD</small></article>
+            <article class="station" aria-label="Frame creates UI and UX screen designs"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Frame</strong><small>UI/UX screens</small></article>
+            <article class="station" aria-label="Ground creates the architecture diagram"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Ground</strong><small>Architecture</small></article>
+            <article class="station" aria-label="Pace creates epics and stories"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Pace</strong><small>Epics + stories</small></article>
+            <article class="station" aria-label="Build develops every epic and story"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Build</strong><small>Implementation</small></article>
+            <article class="station" aria-label="Prove checks the implementation against the PRD"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Prove</strong><small>PRD check</small></article>
+          </div>
+
+        </section>
+
+        <span class="exit-arrow" aria-hidden="true"></span>
+
+        <article class="output-side" aria-label="ZeroHandoff delivers a tested application and narrated video demo">
+          <span class="side-kicker">Delivered automatically</span>
+          <div class="product-window" aria-hidden="true">
+            <span class="window-bar"><i></i><i></i><i></i></span>
+            <span class="app-preview"><i class="app-nav"></i><span class="app-body"><b></b><span class="app-cards"><span></span><span></span></span></span></span>
+            <span class="play">▶</span>
+          </div>
+          <strong class="side-title">Delivery bundle</strong>
+          <span class="side-caption">Runnable · tested · auditable</span>
+          <span class="bundle-tags" aria-label="Application, test evidence, append-only JSON log, and narrated demo"><span>App</span><span>Tests</span><span>JSON log</span><span>Demo</span></span>
+          <span class="verified"><b>✓</b> Ready to run</span>
+        </article>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="footnote"><strong>Original ZeroHandoff implementation</strong>Inspired by BMad role structure · Independent · No affiliation</div>
+    </footer>
+  </article>
+
+  <script>
+    const board = document.querySelector('.board');
+    function fitBoard() {
+      const scale = Math.min(innerWidth / 1600, innerHeight / 900);
+      board.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    }
+    fitBoard();
+    addEventListener('resize', fitBoard, { passive: true });
+  </script>
+</body>
+</html>

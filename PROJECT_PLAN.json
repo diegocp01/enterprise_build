@@ -1,0 +1,111 @@
+{
+  "project": "ZeroHandoff — Autonomous Software Delivery",
+  "last_updated": "2026-07-13",
+  "current_step": 5,
+  "status_values": [
+    "pending",
+    "done"
+  ],
+  "source_of_truth": {
+    "trust_design": "context/trust_moa.md",
+    "trust_explainer": "context/trust_moa.html",
+    "project_summary": "README.md",
+    "pipeline_visual": "overview.html"
+  },
+  "steps": [
+    {
+      "id": 1,
+      "owner": "user",
+      "task": "Review and revise context/trust_moa.md until the Trust MoA design reflects the intended mechanism.",
+      "status": "done"
+    },
+    {
+      "id": 2,
+      "owner": "codex",
+      "task": "Reconcile context/trust_moa.html with the revised context/trust_moa.md so the visual explainer is complete and accurate.",
+      "depends_on": [1],
+      "status": "done"
+    },
+    {
+      "id": 3,
+      "owner": "codex",
+      "task": "Reconcile README.md with the approved Trust MoA design while keeping the README concise and linking deeper material instead of duplicating it.",
+      "depends_on": [1, 2],
+      "status": "done"
+    },
+    {
+      "id": 4,
+      "owner": "user",
+      "task": "Review and approve the revised README.md.",
+      "depends_on": [3],
+      "status": "done"
+    },
+    {
+      "id": 5,
+      "owner": "shared",
+      "task": "After the user gives Codex an explicit green light, design the complete system and write the execution plan. Decide whether the primary experience is CLI-based, UI-based, or hybrid; define the architecture, Codex-first runtime, host adapters, agent interfaces, artifact handoffs, state, quality gates, repair loops, JSON logging, and demo-generation path.",
+      "depends_on": [4],
+      "status": "pending"
+    },
+    {
+      "id": 6,
+      "owner": "codex",
+      "task": "Implement the complete ZeroHandoff training and inference scaffolds, from puzzle-run initialization and day/night orchestration through build-request intake and final delivery-bundle assembly, including configuration, persistence, gates, bounded repair, runtime adapters, append-only JSON logging, and test fixtures for agent-free execution.",
+      "depends_on": [5],
+      "status": "pending"
+    },
+    {
+      "id": 7,
+      "owner": "codex",
+      "task": "Run an end-to-end smoke test without live agents, using deterministic fixtures or mocks to verify the training and inference control flow, stage transitions, artifact handoffs, quality gates, repair paths, JSON logs, and final delivery-bundle assembly.",
+      "depends_on": [6],
+      "status": "pending"
+    },
+    {
+      "id": 8,
+      "owner": "codex",
+      "task": "Create and validate the deterministic puzzle corpus and its tooling, including correctness, uniqueness, clue splitting, leakage prevention, difficulty ordering, grading, and timeout behavior.",
+      "depends_on": [7],
+      "status": "pending"
+    },
+    {
+      "id": 9,
+      "owner": "codex",
+      "task": "Run the real ten-round day/night Trust MoA training across the seven two-agent teams, capture all training logs and metrics, produce the directed relationship vectors, and freeze those vectors for inference.",
+      "depends_on": [8],
+      "status": "pending"
+    },
+    {
+      "id": 10,
+      "owner": "codex",
+      "task": "Run the complete autonomous software-delivery inference pipeline with the trained agents and frozen relationship vectors, from the build-request intake through Product Brief, PRD, UI/UX screens, architecture diagram, epics and stories, implementation, PRD verification, and narrated demo.",
+      "depends_on": [9],
+      "status": "pending"
+    },
+    {
+      "id": 11,
+      "owner": "codex",
+      "task": "Review smoke-test, training, and inference evidence; make the necessary corrections and iterations; and rerun affected checks until the agreed quality gates pass.",
+      "depends_on": [10],
+      "status": "pending"
+    },
+    {
+      "id": 12,
+      "owner": "codex",
+      "task": "Prepare and verify the complete hackathon package: runnable application, source and setup instructions, automated tests and quality evidence, representative append-only JSON logs, narrated video demo, submission copy, and rules-compliance checklist.",
+      "depends_on": [11],
+      "status": "pending"
+    },
+    {
+      "id": 13,
+      "owner": "user",
+      "task": "Review the final package and submit the ZeroHandoff project to the OpenAI Build Week hackathon.",
+      "depends_on": [12],
+      "status": "pending"
+    }
+  ],
+  "implementation_gate": {
+    "rule": "Step 5 starts only when the user gives an explicit green light; do not begin its Codex-owned design work or any later execution step before that approval.",
+    "status": "pending"
+  }
+}
