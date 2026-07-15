@@ -1,0 +1,3 @@
+interface:
+  display_name: "Pipeline Status"
+  short_description: "Inspect run progress and delivery evidence"

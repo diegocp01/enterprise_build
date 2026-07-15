@@ -7,12 +7,14 @@ Developer Tools track. A person describes only what they want built, for whom,
 the desired outcome, and any constraints. Codex turns that request into a
 sequence of deliverables without human handoffs:
 
-`Build Request → Product Brief → PRD → UI/UX Screens → Architecture Diagram → Epics & Stories → Implementation → PRD Verification → Demo`
+`Build Request → Opportunity Model → Outcome Model → Capability Graph → Decision Graph → Scenario Model → Autonomous Change → Evidence + Learning → Demo`
 
-Seven two-agent delivery cells: SEEK, SHAPE, FRAME, GROUND, PACE, BUILD, and
-PROVE—own those seven delivery stages, respectively. Each pair forms independent
-judgments and passes one versioned artifact forward. Codex preserves project
-memory, enforces quality gates, and routes PRD failures through bounded repair
+Seven two-agent lifecycle cells—SENSE, MODEL, COMPOSE, DECIDE, SIMULATE,
+EXECUTE, and OBSERVE—own those seven stages, respectively. Each pair forms independent
+judgments and passes one versioned artifact forward. These compact artifacts are
+designed for agent-to-agent execution instead of long-form specifications,
+planning ceremonies, or human handoff documents. Codex preserves project memory,
+enforces quality gates, and routes failed contract checks through bounded repair
 loops.
 
 Every run produces an auditable delivery bundle:
@@ -25,22 +27,32 @@ Every run produces an auditable delivery bundle:
 - a generated narrated video demo.
 
 Trust training supports the pipeline; it is not the product itself. Before
-delivery, a separate ten-round puzzle pilot trains asymmetric directed trust
-through reward prediction error and one single-prompt Night Curator call per
-agent after each round. The resulting relationship vectors are frozen during
-software-delivery inference. See the
+delivery, a separate ten-round, solver-validated puzzle pilot trains asymmetric
+directed trust through reward prediction error and one single-prompt Night
+Curator call per agent after each round. The resulting ten-dimensional vectors
+form an immutable trained baseline for software-delivery inference: trust alone selects authority, while
+a deterministic policy compiler turns up to three strong non-trust dimensions
+into qualitative collaboration guidance without exposing raw scores. See the
 [visual explainer](context/trust_moa.html) or the
 [source specification](context/trust_moa.md) for the full design.
+
+Before the first live inference run, a separate design gate will decide the
+continual-learning layer: whether verified outcomes may update a bounded,
+auditable trust-only overlay and evidence-backed memory while the other nine
+trained dimensions remain frozen. No adaptive update is active yet.
 
 Codex is the reference runtime for the hackathon. ZeroHandoff’s roles, protocols,
 artifacts, gates, and state remain host-neutral so adapters can later support
 GitHub Copilot and Claude Code without redesigning the workflow.
+
+Use the three repo skills from Codex chat. Setup, fixture verification, internal
+engine commands, and the Control Room are documented in the [local runbook](RUNBOOK.md).
 
 ZeroHandoff is an independent original implementation conceptually inspired by the
 [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD). It does not copy or
 redistribute BMad source, prompts, agent definitions, names, or branded assets,
 and is not affiliated with or endorsed by BMad Code, LLC.
 
-**Explore:** [visual pipeline](overview.html) · [project idea](context/idea.md) ·
-[trust architecture](context/trust_moa.html) · [hackathon overview](context/overview.md) ·
-[rules](context/rules.md) · [tracked constraints](HACKATHON_CONSTRAINTS.md)
+**Explore:** [visual pipeline](overview.html) · [system design](SYSTEM_DESIGN.md) ·
+[execution plan](EXECUTION_PLAN.md) · [trust architecture](context/trust_moa.html) ·
+[project idea](context/idea.md) · [tracked constraints](HACKATHON_CONSTRAINTS.md)

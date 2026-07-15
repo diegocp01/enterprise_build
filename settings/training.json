@@ -1,0 +1,18 @@
+{
+  "rounds": 10,
+  "episodes_per_team": 10,
+  "messages_per_agent": 2,
+  "trust_init": 0.0,
+  "other_relationship_dimensions_init": 0.0,
+  "alpha": 0.2,
+  "beta": 0.1,
+  "trust_step_max": 0.25,
+  "relationship_min": -1.0,
+  "relationship_max": 1.0,
+  "reflection_step_max": 0.2,
+  "difficulty_expectation_init": 0.5,
+  "timeout_seconds": 180,
+  "max_retries": 1,
+  "puzzle_seed": 42
+}
+

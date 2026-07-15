@@ -1,0 +1,194 @@
+{
+  "$defs": {
+    "RelationshipDeltas": {
+      "additionalProperties": false,
+      "properties": {
+        "affection": {
+          "maximum": 0.2,
+          "minimum": -0.2,
+          "title": "Affection",
+          "type": "number"
+        },
+        "confidence": {
+          "maximum": 0.2,
+          "minimum": -0.2,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "dominance": {
+          "maximum": 0.2,
+          "minimum": -0.2,
+          "title": "Dominance",
+          "type": "number"
+        },
+        "openness": {
+          "maximum": 0.2,
+          "minimum": -0.2,
+          "title": "Openness",
+          "type": "number"
+        },
+        "patience": {
+          "maximum": 0.2,
+          "minimum": -0.2,
+          "title": "Patience",
+          "type": "number"
+        },
+        "reliability": {
+          "maximum": 0.2,
+          "minimum": -0.2,
+          "title": "Reliability",
+          "type": "number"
+        },
+        "resentment": {
+          "maximum": 0.2,
+          "minimum": -0.2,
+          "title": "Resentment",
+          "type": "number"
+        },
+        "respect": {
+          "maximum": 0.2,
+          "minimum": -0.2,
+          "title": "Respect",
+          "type": "number"
+        },
+        "warmth": {
+          "maximum": 0.2,
+          "minimum": -0.2,
+          "title": "Warmth",
+          "type": "number"
+        }
+      },
+      "required": [
+        "respect",
+        "reliability",
+        "warmth",
+        "patience",
+        "resentment",
+        "dominance",
+        "openness",
+        "confidence",
+        "affection"
+      ],
+      "title": "RelationshipDeltas",
+      "type": "object"
+    },
+    "ThemeMapEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "theme": {
+          "title": "Theme",
+          "type": "string"
+        }
+      },
+      "required": [
+        "theme",
+        "evidence"
+      ],
+      "title": "ThemeMapEntry",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "blocking_issues": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Blocking Issues",
+      "type": "array"
+    },
+    "compressed_memories": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Compressed Memories",
+      "type": "array"
+    },
+    "confidence": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Confidence",
+      "type": "number"
+    },
+    "decision_reasons": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Decision Reasons",
+      "type": "array"
+    },
+    "evidence": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "final_memory_lines": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 5,
+      "title": "Final Memory Lines",
+      "type": "array"
+    },
+    "forgotten_memory_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Forgotten Memory Ids",
+      "type": "array"
+    },
+    "relationship_deltas": {
+      "$ref": "#/$defs/RelationshipDeltas"
+    },
+    "resolved_issues": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Resolved Issues",
+      "type": "array"
+    },
+    "retained_memory_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Retained Memory Ids",
+      "type": "array"
+    },
+    "theme_map": {
+      "items": {
+        "$ref": "#/$defs/ThemeMapEntry"
+      },
+      "title": "Theme Map",
+      "type": "array"
+    },
+    "training_agent": {
+      "title": "Training Agent",
+      "type": "string"
+    }
+  },
+  "required": [
+    "training_agent",
+    "theme_map",
+    "relationship_deltas",
+    "retained_memory_ids",
+    "compressed_memories",
+    "forgotten_memory_ids",
+    "blocking_issues",
+    "resolved_issues",
+    "decision_reasons",
+    "final_memory_lines",
+    "evidence",
+    "confidence"
+  ],
+  "title": "NightCuratorOutput",
+  "type": "object"
+}

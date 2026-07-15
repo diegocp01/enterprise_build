@@ -1,0 +1,49 @@
+.captured-request,
+.chat-start {
+  display: grid;
+  gap: 16px;
+}
+
+.captured-field {
+  border: 1.5px solid #98a0a5;
+  border-radius: 8px;
+  background: #fff;
+  padding: 12px 14px;
+}
+
+.captured-field span {
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.captured-field p {
+  margin: 7px 0 0;
+  line-height: 1.45;
+}
+
+.chat-start > p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.chat-command {
+  display: block;
+  border: 2px solid var(--ink);
+  border-radius: 9px;
+  background: var(--ink);
+  color: var(--mint);
+  padding: 18px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  box-shadow: 5px 5px 0 var(--yellow);
+}
+
+.chat-start .chat-note {
+  border-top: 1px solid #d3d0c8;
+  padding-top: 16px;
+  font-size: 0.82rem;
+}

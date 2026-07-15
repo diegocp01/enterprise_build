@@ -1,0 +1,138 @@
+{
+  "$defs": {
+    "RunStatus": {
+      "enum": [
+        "created",
+        "running",
+        "repairing",
+        "completed",
+        "failed",
+        "cancelled",
+        "infrastructure_failed"
+      ],
+      "title": "RunStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "adapter": {
+      "title": "Adapter",
+      "type": "string"
+    },
+    "artifact_checksums": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Artifact Checksums",
+      "type": "object"
+    },
+    "completed_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Completed At"
+    },
+    "failure_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Failure Reason"
+    },
+    "final_outcome": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Final Outcome"
+    },
+    "model_settings": {
+      "additionalProperties": true,
+      "title": "Model Settings",
+      "type": "object"
+    },
+    "relationship_vector_digest": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Relationship Vector Digest"
+    },
+    "repair_counts": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "title": "Repair Counts",
+      "type": "object"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "run_type": {
+      "enum": [
+        "training",
+        "delivery"
+      ],
+      "title": "Run Type",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "settings_digest": {
+      "title": "Settings Digest",
+      "type": "string"
+    },
+    "stage_outcomes": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Stage Outcomes",
+      "type": "object"
+    },
+    "started_at": {
+      "format": "date-time",
+      "title": "Started At",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/RunStatus"
+    }
+  },
+  "required": [
+    "run_id",
+    "run_type",
+    "status",
+    "settings_digest",
+    "adapter",
+    "model_settings"
+  ],
+  "title": "RunManifest",
+  "type": "object"
+}

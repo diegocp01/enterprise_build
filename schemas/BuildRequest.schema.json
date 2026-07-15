@@ -1,0 +1,79 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "audience": {
+      "minLength": 2,
+      "title": "Audience",
+      "type": "string"
+    },
+    "constraints": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Constraints",
+      "type": "array"
+    },
+    "demo_preferences": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Demo Preferences"
+    },
+    "existing_assets": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Existing Assets",
+      "type": "array"
+    },
+    "idea": {
+      "minLength": 3,
+      "title": "Idea",
+      "type": "string"
+    },
+    "must_have_capabilities": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Must Have Capabilities",
+      "type": "array"
+    },
+    "out_of_scope": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Out Of Scope",
+      "type": "array"
+    },
+    "outcome": {
+      "minLength": 3,
+      "title": "Outcome",
+      "type": "string"
+    },
+    "visual_direction": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Visual Direction"
+    }
+  },
+  "required": [
+    "idea",
+    "audience",
+    "outcome"
+  ],
+  "title": "BuildRequest",
+  "type": "object"
+}

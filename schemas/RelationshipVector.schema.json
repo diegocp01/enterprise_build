@@ -1,0 +1,77 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "affection": {
+      "default": 0.0,
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "title": "Affection",
+      "type": "number"
+    },
+    "confidence": {
+      "default": 0.0,
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "title": "Confidence",
+      "type": "number"
+    },
+    "dominance": {
+      "default": 0.0,
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "title": "Dominance",
+      "type": "number"
+    },
+    "openness": {
+      "default": 0.0,
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "title": "Openness",
+      "type": "number"
+    },
+    "patience": {
+      "default": 0.0,
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "title": "Patience",
+      "type": "number"
+    },
+    "reliability": {
+      "default": 0.0,
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "title": "Reliability",
+      "type": "number"
+    },
+    "resentment": {
+      "default": 0.0,
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "title": "Resentment",
+      "type": "number"
+    },
+    "respect": {
+      "default": 0.0,
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "title": "Respect",
+      "type": "number"
+    },
+    "trust": {
+      "default": 0.0,
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "title": "Trust",
+      "type": "number"
+    },
+    "warmth": {
+      "default": 0.0,
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "title": "Warmth",
+      "type": "number"
+    }
+  },
+  "title": "RelationshipVector",
+  "type": "object"
+}

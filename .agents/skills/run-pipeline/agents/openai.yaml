@@ -1,0 +1,3 @@
+interface:
+  display_name: "Run Pipeline"
+  short_description: "Turn one build request into a verified application"

@@ -1,0 +1,206 @@
+{
+  "$defs": {
+    "EpisodeMessage": {
+      "additionalProperties": false,
+      "properties": {
+        "agent": {
+          "title": "Agent",
+          "type": "string"
+        },
+        "answer": {
+          "title": "Answer",
+          "type": "string"
+        },
+        "reasoning": {
+          "title": "Reasoning",
+          "type": "string"
+        },
+        "turn": {
+          "enum": [
+            "initial",
+            "revised"
+          ],
+          "title": "Turn",
+          "type": "string"
+        }
+      },
+      "required": [
+        "agent",
+        "turn",
+        "answer",
+        "reasoning"
+      ],
+      "title": "EpisodeMessage",
+      "type": "object"
+    },
+    "EpisodeStatus": {
+      "enum": [
+        "completed",
+        "agent_timeout",
+        "invalid_agent_output",
+        "backend_error"
+      ],
+      "title": "EpisodeStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "agreement": {
+      "title": "Agreement",
+      "type": "boolean"
+    },
+    "diary_evidence": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Diary Evidence",
+      "type": "object"
+    },
+    "difficulty": {
+      "title": "Difficulty",
+      "type": "string"
+    },
+    "duration_ms": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Duration Ms",
+      "type": "integer"
+    },
+    "episode_id": {
+      "title": "Episode Id",
+      "type": "string"
+    },
+    "final_answer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Final Answer"
+    },
+    "final_answers": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Final Answers",
+      "type": "object"
+    },
+    "initial_answers": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Initial Answers",
+      "type": "object"
+    },
+    "last_speaker": {
+      "title": "Last Speaker",
+      "type": "string"
+    },
+    "memory_ids_used": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "title": "Memory Ids Used",
+      "type": "object"
+    },
+    "messages": {
+      "items": {
+        "$ref": "#/$defs/EpisodeMessage"
+      },
+      "title": "Messages",
+      "type": "array"
+    },
+    "productive_disagreement": {
+      "title": "Productive Disagreement",
+      "type": "boolean"
+    },
+    "puzzle_digest": {
+      "title": "Puzzle Digest",
+      "type": "string"
+    },
+    "puzzle_id": {
+      "title": "Puzzle Id",
+      "type": "string"
+    },
+    "resolution_reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Resolution Reason"
+    },
+    "reward": {
+      "anyOf": [
+        {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reward"
+    },
+    "round_id": {
+      "minimum": 1,
+      "title": "Round Id",
+      "type": "integer"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "selected_lead": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Selected Lead"
+    },
+    "status": {
+      "$ref": "#/$defs/EpisodeStatus"
+    },
+    "team_id": {
+      "title": "Team Id",
+      "type": "string"
+    }
+  },
+  "required": [
+    "run_id",
+    "round_id",
+    "team_id",
+    "episode_id",
+    "puzzle_id",
+    "puzzle_digest",
+    "difficulty",
+    "status",
+    "messages",
+    "initial_answers",
+    "final_answers",
+    "final_answer",
+    "selected_lead",
+    "resolution_reason",
+    "agreement",
+    "productive_disagreement",
+    "last_speaker"
+  ],
+  "title": "EpisodeRecord",
+  "type": "object"
+}

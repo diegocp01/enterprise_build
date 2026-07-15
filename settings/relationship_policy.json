@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "compiler_version": "relationship-policy-v1",
+  "activation_threshold": 0.2,
+  "max_dimensions": 3,
+  "dimension_priority": [
+    "reliability",
+    "openness",
+    "respect",
+    "confidence",
+    "patience",
+    "resentment",
+    "dominance",
+    "warmth",
+    "affection"
+  ]
+}

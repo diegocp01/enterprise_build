@@ -1,7 +1,7 @@
 {
   "project": "ZeroHandoff — Autonomous Software Delivery",
-  "last_updated": "2026-07-13",
-  "current_step": 5,
+  "last_updated": "2026-07-14",
+  "current_step": 9,
   "status_values": [
     "pending",
     "done"
@@ -10,7 +10,9 @@
     "trust_design": "context/trust_moa.md",
     "trust_explainer": "context/trust_moa.html",
     "project_summary": "README.md",
-    "pipeline_visual": "overview.html"
+    "pipeline_visual": "overview.html",
+    "system_design": "SYSTEM_DESIGN.md",
+    "execution_plan": "EXECUTION_PLAN.md"
   },
   "steps": [
     {
@@ -45,42 +47,111 @@
       "owner": "shared",
       "task": "After the user gives Codex an explicit green light, design the complete system and write the execution plan. Decide whether the primary experience is CLI-based, UI-based, or hybrid; define the architecture, Codex-first runtime, host adapters, agent interfaces, artifact handoffs, state, quality gates, repair loops, JSON logging, and demo-generation path.",
       "depends_on": [4],
-      "status": "pending"
+      "status": "done",
+      "decision": "Hybrid: Codex-chat workflows over an internal deterministic engine, with a UI-first observational Control Room for delivery runs.",
+      "outputs": ["SYSTEM_DESIGN.md", "EXECUTION_PLAN.md"]
     },
     {
       "id": 6,
       "owner": "codex",
       "task": "Implement the complete ZeroHandoff training and inference scaffolds, from puzzle-run initialization and day/night orchestration through build-request intake and final delivery-bundle assembly, including configuration, persistence, gates, bounded repair, runtime adapters, append-only JSON logging, and test fixtures for agent-free execution.",
       "depends_on": [5],
-      "status": "pending"
+      "status": "done",
+      "outputs": [
+        "pyproject.toml",
+        "src/zerohandoff/",
+        "settings/",
+        "schemas/",
+        "data/puzzles.fixture.json",
+        "tests/",
+        ".codex/",
+        ".agents/skills/",
+        "ui/",
+        "RUNBOOK.md"
+      ],
+      "verification": {
+        "agent_free_suite": "21 tests passed",
+        "control_room": "TypeScript typecheck and Vite production build passed",
+        "live_runtime": "GPT-5.6 Sol structured-output and isolated workspace-write probes passed",
+        "protected_context": "No context/ files changed"
+      }
     },
     {
       "id": 7,
       "owner": "codex",
       "task": "Run an end-to-end smoke test without live agents, using deterministic fixtures or mocks to verify the training and inference control flow, stage transitions, artifact handoffs, quality gates, repair paths, JSON logs, and final delivery-bundle assembly.",
       "depends_on": [6],
-      "status": "pending"
+      "status": "done",
+      "outputs": [
+        ".zerohandoff/training/smoke_train_agent_native_v1/",
+        ".zerohandoff/runs/smoke_delivery_agent_native_v1/"
+      ],
+      "verification": {
+        "training": "10 rounds, 70/70 valid episodes, exactly 420 fixture calls, frozen digest verified",
+        "delivery": "All seven artifact stages plus demo and bundle completed",
+        "repair": "One deliberate SHAPE failure repaired within budget with both versions preserved",
+        "evidence": "31 delivery calls, 11 gate records, 60 bundle checksums with zero failures",
+        "archive": "delivery_bundle.zip passed full ZIP integrity validation",
+        "media": "Narrated MP4 contains video and audio and decodes at 3 seconds",
+        "regression": "21 Python tests, Control Room typecheck, and Vite production build passed",
+        "fix": "Custom safe delivery run IDs are now consistently discoverable and readable by status/API",
+        "protected_context": "No context/ files changed"
+      }
     },
     {
       "id": 8,
       "owner": "codex",
       "task": "Create and validate the deterministic puzzle corpus and its tooling, including correctness, uniqueness, clue splitting, leakage prevention, difficulty ordering, grading, and timeout behavior.",
       "depends_on": [7],
-      "status": "pending"
+      "status": "done",
+      "outputs": [
+        "data/puzzles.jsonl",
+        "data/puzzle_stats.json",
+        "src/zerohandoff/training/corpus.py",
+        "src/zerohandoff/training/puzzles.py"
+      ],
+      "verification": {
+        "corpus": "10 deterministic seed-42 puzzles: 8 logic grids and 2 graph routes",
+        "correctness": "Every combined clue set has one solver-confirmed answer and every private half is insufficient",
+        "quality": "Unique IDs/specs, clue minimality, ordered difficulty, answer-leakage prevention, equivalent-format grading, reproducibility, and timeout behavior passed",
+        "digest": "sha256:54013830ee7c4caccf16f11fa0bbce6dba81be754d257f4d2da6bdc781471268",
+        "isolation": "Training and curation Codex calls are prompt-only with file, shell, app, browser, image, web, and multi-agent tools disabled",
+        "regression": "28 Python tests, non-live doctor, Control Room typecheck, and Vite production build passed",
+        "protected_context": "No context/ files changed"
+      }
     },
     {
       "id": 9,
       "owner": "codex",
       "task": "Run the real ten-round day/night Trust MoA training across the seven two-agent teams, capture all training logs and metrics, produce the directed relationship vectors, and freeze those vectors for inference.",
       "depends_on": [8],
-      "status": "pending"
+      "status": "done",
+      "readiness": {
+        "relationship_policy": "Versioned deterministic compiler injects up to three strong non-trust dimensions as qualitative guidance while trust remains the sole authority signal",
+        "curator_evidence": "Each Curator receives the complete four-message episode, answers, reward/RPE, diary evidence, current memory, memory policy, metaplasticity, peer identity, and current vector",
+        "audit_outputs": "Round-zero vectors, relationship_policies.jsonl, and consolidated training_results.json are implemented",
+        "reasoning": "Puzzle solvers use medium; the single Curator uses xhigh",
+        "regression": "30 Python tests passed after live training and report finalization; live Codex doctor and locked-corpus checks passed before training",
+        "live_training_started": true,
+        "live_training_completed": true,
+        "run_id": "live_train_20260714_v2",
+        "outcome": "10/10 rounds, 70/70 valid episodes, 63 wins, 280 accepted solver calls, 140 accepted Curator calls, and 431 total attempts including retries/rejections",
+        "frozen_digest": "sha256:b0849f195010cbedca942a351f6005dc8e91959b8f276ab4dec86bfd9baef324",
+        "evidence": ".zerohandoff/training/live_train_20260714_v2/training_results.json",
+        "published_snapshot": ".zerohandoff/frozen/latest.json"
+      }
     },
     {
       "id": 10,
       "owner": "codex",
-      "task": "Run the complete autonomous software-delivery inference pipeline with the trained agents and frozen relationship vectors, from the build-request intake through Product Brief, PRD, UI/UX screens, architecture diagram, epics and stories, implementation, PRD verification, and narrated demo.",
+      "task": "Run the complete autonomous product-lifecycle inference pipeline with the trained agents, from the Build Request through SENSE Opportunity Model, MODEL Outcome Model, COMPOSE Capability Graph, DECIDE Decision Graph, SIMULATE Scenario Model, EXECUTE Autonomous Change, OBSERVE Evidence + Learning, and the narrated demo.",
       "depends_on": [9],
-      "status": "pending"
+      "status": "pending",
+      "preconditions": {
+        "lifecycle_names_and_outputs": "done",
+        "continual_learning_design": "pending_user_approval",
+        "inference_must_not_start_before_approval": true
+      }
     },
     {
       "id": 11,
@@ -106,6 +177,8 @@
   ],
   "implementation_gate": {
     "rule": "Step 5 starts only when the user gives an explicit green light; do not begin its Codex-owned design work or any later execution step before that approval.",
-    "status": "pending"
+    "status": "done",
+    "approved_at": "2026-07-13",
+    "evidence": "The user explicitly requested execution of plan step 5 in this Codex task."
   }
 }

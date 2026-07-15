@@ -1,0 +1,3 @@
+interface:
+  display_name: "Train Trust"
+  short_description: "Train seven pairs and freeze their trust vectors"

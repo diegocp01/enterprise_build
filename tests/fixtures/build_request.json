@@ -1,0 +1,15 @@
+{
+  "idea": "Create a lightweight equipment request tracker",
+  "audience": "Facilities and workplace operations teams",
+  "outcome": "Employees can submit requests and track their status",
+  "constraints": [
+    "React and Vite",
+    "Local only",
+    "No external services"
+  ],
+  "must_have_capabilities": [
+    "Create a request",
+    "Track request status",
+    "Review the operations queue"
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "$defs": {
+    "ReviewFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "evidence": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        },
+        "rule_id": {
+          "title": "Rule Id",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low"
+          ],
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule_id",
+        "severity",
+        "message"
+      ],
+      "title": "ReviewFinding",
+      "type": "object"
+    },
+    "Stage": {
+      "enum": [
+        "INTAKE",
+        "SENSE",
+        "MODEL",
+        "COMPOSE",
+        "DECIDE",
+        "SIMULATE",
+        "EXECUTE",
+        "OBSERVE",
+        "DEMO",
+        "BUNDLE"
+      ],
+      "title": "Stage",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "artifact_refs": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Artifact Refs",
+      "type": "array"
+    },
+    "attempt": {
+      "minimum": 1,
+      "title": "Attempt",
+      "type": "integer"
+    },
+    "expected_condition": {
+      "title": "Expected Condition",
+      "type": "string"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/ReviewFinding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "remaining_budget": {
+      "minimum": 0,
+      "title": "Remaining Budget",
+      "type": "integer"
+    },
+    "repair_id": {
+      "title": "Repair Id",
+      "type": "string"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "stage": {
+      "$ref": "#/$defs/Stage"
+    }
+  },
+  "required": [
+    "repair_id",
+    "run_id",
+    "stage",
+    "attempt",
+    "remaining_budget",
+    "findings",
+    "artifact_refs",
+    "expected_condition"
+  ],
+  "title": "RepairPacket",
+  "type": "object"
+}

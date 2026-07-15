@@ -1,0 +1,282 @@
+{
+  "$defs": {
+    "AgentIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "personality": {
+          "$ref": "#/$defs/Personality"
+        },
+        "team": {
+          "$ref": "#/$defs/Stage"
+        }
+      },
+      "required": [
+        "name",
+        "personality",
+        "team"
+      ],
+      "title": "AgentIdentity",
+      "type": "object"
+    },
+    "ExecutionMode": {
+      "enum": [
+        "artifact",
+        "workspace",
+        "review",
+        "training",
+        "curation"
+      ],
+      "title": "ExecutionMode",
+      "type": "string"
+    },
+    "Personality": {
+      "enum": [
+        "Dominance",
+        "Influence",
+        "Steadiness",
+        "Conscientiousness"
+      ],
+      "title": "Personality",
+      "type": "string"
+    },
+    "RelationshipPolicy": {
+      "additionalProperties": false,
+      "properties": {
+        "compiler_version": {
+          "title": "Compiler Version",
+          "type": "string"
+        },
+        "instructions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Instructions",
+          "type": "array"
+        },
+        "rendered": {
+          "title": "Rendered",
+          "type": "string"
+        },
+        "schema_version": {
+          "default": "1.0",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "selected_dimensions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Selected Dimensions",
+          "type": "array"
+        },
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "source_vector_digest": {
+          "title": "Source Vector Digest",
+          "type": "string"
+        },
+        "target": {
+          "title": "Target",
+          "type": "string"
+        }
+      },
+      "required": [
+        "compiler_version",
+        "source",
+        "target",
+        "source_vector_digest",
+        "selected_dimensions",
+        "instructions",
+        "rendered"
+      ],
+      "title": "RelationshipPolicy",
+      "type": "object"
+    },
+    "Stage": {
+      "enum": [
+        "INTAKE",
+        "SENSE",
+        "MODEL",
+        "COMPOSE",
+        "DECIDE",
+        "SIMULATE",
+        "EXECUTE",
+        "OBSERVE",
+        "DEMO",
+        "BUNDLE"
+      ],
+      "title": "Stage",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "agent": {
+      "$ref": "#/$defs/AgentIdentity"
+    },
+    "attempt": {
+      "default": 1,
+      "minimum": 1,
+      "title": "Attempt",
+      "type": "integer"
+    },
+    "fixture_data": {
+      "additionalProperties": true,
+      "title": "Fixture Data",
+      "type": "object"
+    },
+    "input_digests": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Input Digests",
+      "type": "object"
+    },
+    "inputs": {
+      "additionalProperties": true,
+      "title": "Inputs",
+      "type": "object"
+    },
+    "invocation_id": {
+      "title": "Invocation Id",
+      "type": "string"
+    },
+    "mode": {
+      "$ref": "#/$defs/ExecutionMode"
+    },
+    "model": {
+      "title": "Model",
+      "type": "string"
+    },
+    "objective": {
+      "title": "Objective",
+      "type": "string"
+    },
+    "output_schema": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Output Schema"
+    },
+    "pair": {
+      "title": "Pair",
+      "type": "string"
+    },
+    "permission_profile": {
+      "default": "read-only",
+      "enum": [
+        "read-only",
+        "workspace-write"
+      ],
+      "title": "Permission Profile",
+      "type": "string"
+    },
+    "phase": {
+      "enum": [
+        "training",
+        "delivery"
+      ],
+      "title": "Phase",
+      "type": "string"
+    },
+    "reasoning_effort": {
+      "title": "Reasoning Effort",
+      "type": "string"
+    },
+    "relationship_policy": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/RelationshipPolicy"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "relationship_vector_digest": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Relationship Vector Digest"
+    },
+    "retry_budget": {
+      "default": 1,
+      "minimum": 0,
+      "title": "Retry Budget",
+      "type": "integer"
+    },
+    "run_id": {
+      "title": "Run Id",
+      "type": "string"
+    },
+    "stage": {
+      "title": "Stage",
+      "type": "string"
+    },
+    "timeout_seconds": {
+      "default": 180,
+      "minimum": 1,
+      "title": "Timeout Seconds",
+      "type": "integer"
+    },
+    "trust_stance": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Trust Stance"
+    },
+    "workspace_root": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Workspace Root"
+    }
+  },
+  "required": [
+    "invocation_id",
+    "run_id",
+    "phase",
+    "stage",
+    "pair",
+    "agent",
+    "mode",
+    "objective",
+    "model",
+    "reasoning_effort"
+  ],
+  "title": "AgentInvocation",
+  "type": "object"
+}

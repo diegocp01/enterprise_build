@@ -1,0 +1,32 @@
+{
+  "teams": {
+    "SENSE": [
+      {"name": "Mira", "personality": "Steadiness"},
+      {"name": "Zephyr", "personality": "Dominance"}
+    ],
+    "MODEL": [
+      {"name": "Kestrel", "personality": "Influence"},
+      {"name": "Rowan", "personality": "Conscientiousness"}
+    ],
+    "COMPOSE": [
+      {"name": "Aster", "personality": "Conscientiousness"},
+      {"name": "Juno", "personality": "Steadiness"}
+    ],
+    "DECIDE": [
+      {"name": "Flint", "personality": "Dominance"},
+      {"name": "Sable", "personality": "Influence"}
+    ],
+    "SIMULATE": [
+      {"name": "Niko", "personality": "Influence"},
+      {"name": "Tundra", "personality": "Steadiness"}
+    ],
+    "EXECUTE": [
+      {"name": "Ember", "personality": "Conscientiousness"},
+      {"name": "Rook", "personality": "Dominance"}
+    ],
+    "OBSERVE": [
+      {"name": "Peter", "personality": "Conscientiousness"},
+      {"name": "Betty", "personality": "Dominance"}
+    ]
+  }
+}

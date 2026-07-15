@@ -1,0 +1,115 @@
+{
+  "$defs": {
+    "InvocationStatus": {
+      "enum": [
+        "completed",
+        "invalid_output",
+        "timeout",
+        "backend_error",
+        "cancelled"
+      ],
+      "title": "InvocationStatus",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "duration_ms": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Duration Ms",
+      "type": "integer"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "title": "Events",
+      "type": "array"
+    },
+    "invocation_id": {
+      "title": "Invocation Id",
+      "type": "string"
+    },
+    "output": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Output"
+    },
+    "produced_files": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Produced Files",
+      "type": "array"
+    },
+    "raw_trace": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Raw Trace"
+    },
+    "resume_token": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Resume Token"
+    },
+    "status": {
+      "$ref": "#/$defs/InvocationStatus"
+    },
+    "usage": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Usage"
+    }
+  },
+  "required": [
+    "invocation_id",
+    "status"
+  ],
+  "title": "AgentResult",
+  "type": "object"
+}

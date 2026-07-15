@@ -1,8 +1,8 @@
 # Build Request Intake
 
 Complete this once to start an autonomous ZeroHandoff run. This is the initial
-request—not the Product Brief. The pipeline creates the Product Brief and every
-subsequent delivery artifact.
+request, not a generated delivery artifact. SENSE converts it into the first
+artifact—the Opportunity Model—and the pipeline creates everything after that.
 
 ## Required input
 

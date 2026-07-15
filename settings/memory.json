@@ -1,0 +1,7 @@
+{
+  "memory_capacity": 5,
+  "forget_horizon": 3,
+  "surprise_protect_threshold": 0.4,
+  "compressed_memory_word_limit": 100
+}
+

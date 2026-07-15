@@ -1,0 +1,12 @@
+{
+  "default": {
+    "learning_rate": 1.0,
+    "memory_transport": 1.0,
+    "emotional_stability": 1.0,
+    "attention_routing": 1.0,
+    "repair_mode": 1.0,
+    "plasticity": 1.0,
+    "identity_stability": 1.0
+  }
+}
+

@@ -1,0 +1,16 @@
+{
+  "training_agent": "Mira",
+  "theme_map": [],
+  "relationship_deltas": {
+    "trust": 1.0
+  },
+  "retained_memory_ids": [],
+  "compressed_memories": [],
+  "forgotten_memory_ids": [],
+  "blocking_issues": [],
+  "resolved_issues": [],
+  "decision_reasons": [],
+  "final_memory_lines": [],
+  "evidence": [],
+  "confidence": 1.0
+}

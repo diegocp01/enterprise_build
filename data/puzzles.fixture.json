@@ -1,0 +1,13 @@
+[
+  {"id":"fixture-01","family":"logic-grid","difficulty":"easy","question":"Combine both private clues and return the fixture answer.","private_clues":{"A":["The answer begins with solution."],"B":["The answer ends with 01."]},"answer":"solution-01"},
+  {"id":"fixture-02","family":"logic-grid","difficulty":"easy","question":"Combine both private clues and return the fixture answer.","private_clues":{"A":["The answer begins with solution."],"B":["The answer ends with 02."]},"answer":"solution-02"},
+  {"id":"fixture-03","family":"logic-grid","difficulty":"easy","question":"Combine both private clues and return the fixture answer.","private_clues":{"A":["The answer begins with solution."],"B":["The answer ends with 03."]},"answer":"solution-03"},
+  {"id":"fixture-04","family":"logic-grid","difficulty":"medium","question":"Combine both private clues and return the fixture answer.","private_clues":{"A":["The answer begins with solution."],"B":["The answer ends with 04."]},"answer":"solution-04"},
+  {"id":"fixture-05","family":"logic-grid","difficulty":"medium","question":"Combine both private clues and return the fixture answer.","private_clues":{"A":["The answer begins with solution."],"B":["The answer ends with 05."]},"answer":"solution-05"},
+  {"id":"fixture-06","family":"logic-grid","difficulty":"medium","question":"Combine both private clues and return the fixture answer.","private_clues":{"A":["The answer begins with solution."],"B":["The answer ends with 06."]},"answer":"solution-06"},
+  {"id":"fixture-07","family":"graph-route","difficulty":"hard","question":"Combine both private clues and return the fixture answer.","private_clues":{"A":["The answer begins with solution."],"B":["The answer ends with 07."]},"answer":"solution-07"},
+  {"id":"fixture-08","family":"graph-route","difficulty":"hard","question":"Combine both private clues and return the fixture answer.","private_clues":{"A":["The answer begins with solution."],"B":["The answer ends with 08."]},"answer":"solution-08"},
+  {"id":"fixture-09","family":"graph-route","difficulty":"hard","question":"Combine both private clues and return the fixture answer.","private_clues":{"A":["The answer begins with solution."],"B":["The answer ends with 09."]},"answer":"solution-09"},
+  {"id":"fixture-10","family":"graph-route","difficulty":"expert","question":"Combine both private clues and return the fixture answer.","private_clues":{"A":["The answer begins with solution."],"B":["The answer ends with 10."]},"answer":"solution-10"}
+]
+

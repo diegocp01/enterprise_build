@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zerohandoff"
+version = "0.1.0"
+description = "Chat-native autonomous software delivery with trained two-agent cells."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+  "fastapi>=0.115,<1",
+  "jsonschema>=4.23,<5",
+  "Pillow>=11,<13",
+  "pydantic>=2.10,<3",
+  "uvicorn>=0.34,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.28,<1",
+  "pytest>=8.3,<10",
+]
+
+[project.scripts]
+zerohandoff-internal = "zerohandoff.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/zerohandoff"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
