@@ -1,0 +1,3531 @@
+{
+  "baseline_relationship_digest": "sha256:b0849f195010cbedca942a351f6005dc8e91959b8f276ab4dec86bfd9baef324",
+  "baseline_training_run_id": "live_train_20260714_v2",
+  "baseline_trust": {
+    "Aster->Betty": 0.0,
+    "Aster->Ember": 0.0,
+    "Aster->Flint": 0.0,
+    "Aster->Juno": 0.23889999999999992,
+    "Aster->Kestrel": 0.0,
+    "Aster->Mira": 0.0,
+    "Aster->Niko": 0.0,
+    "Aster->Peter": 0.0,
+    "Aster->Rook": 0.0,
+    "Aster->Rowan": 0.0,
+    "Aster->Sable": 0.0,
+    "Aster->Tundra": 0.0,
+    "Aster->Zephyr": 0.0,
+    "Betty->Aster": 0.0,
+    "Betty->Ember": 0.0,
+    "Betty->Flint": 0.0,
+    "Betty->Juno": 0.0,
+    "Betty->Kestrel": 0.0,
+    "Betty->Mira": 0.0,
+    "Betty->Niko": 0.0,
+    "Betty->Peter": 0.31694999999999995,
+    "Betty->Rook": 0.0,
+    "Betty->Rowan": 0.0,
+    "Betty->Sable": 0.0,
+    "Betty->Tundra": 0.0,
+    "Betty->Zephyr": 0.0,
+    "Ember->Aster": 0.0,
+    "Ember->Betty": 0.0,
+    "Ember->Flint": 0.0,
+    "Ember->Juno": 0.0,
+    "Ember->Kestrel": 0.0,
+    "Ember->Mira": 0.0,
+    "Ember->Niko": 0.0,
+    "Ember->Peter": 0.0,
+    "Ember->Rook": 0.4524499999999999,
+    "Ember->Rowan": 0.0,
+    "Ember->Sable": 0.0,
+    "Ember->Tundra": 0.0,
+    "Ember->Zephyr": 0.0,
+    "Flint->Aster": 0.0,
+    "Flint->Betty": 0.0,
+    "Flint->Ember": 0.0,
+    "Flint->Juno": 0.0,
+    "Flint->Kestrel": 0.0,
+    "Flint->Mira": 0.0,
+    "Flint->Niko": 0.0,
+    "Flint->Peter": 0.0,
+    "Flint->Rook": 0.0,
+    "Flint->Rowan": 0.0,
+    "Flint->Sable": 0.2659999999999999,
+    "Flint->Tundra": 0.0,
+    "Flint->Zephyr": 0.0,
+    "Juno->Aster": 0.2659999999999999,
+    "Juno->Betty": 0.0,
+    "Juno->Ember": 0.0,
+    "Juno->Flint": 0.0,
+    "Juno->Kestrel": 0.0,
+    "Juno->Mira": 0.0,
+    "Juno->Niko": 0.0,
+    "Juno->Peter": 0.0,
+    "Juno->Rook": 0.0,
+    "Juno->Rowan": 0.0,
+    "Juno->Sable": 0.0,
+    "Juno->Tundra": 0.0,
+    "Juno->Zephyr": 0.0,
+    "Kestrel->Aster": 0.0,
+    "Kestrel->Betty": 0.0,
+    "Kestrel->Ember": 0.0,
+    "Kestrel->Flint": 0.0,
+    "Kestrel->Juno": 0.0,
+    "Kestrel->Mira": 0.0,
+    "Kestrel->Niko": 0.0,
+    "Kestrel->Peter": 0.0,
+    "Kestrel->Rook": 0.0,
+    "Kestrel->Rowan": 0.28889999999999993,
+    "Kestrel->Sable": 0.0,
+    "Kestrel->Tundra": 0.0,
+    "Kestrel->Zephyr": 0.0,
+    "Mira->Aster": 0.0,
+    "Mira->Betty": 0.0,
+    "Mira->Ember": 0.0,
+    "Mira->Flint": 0.0,
+    "Mira->Juno": 0.0,
+    "Mira->Kestrel": 0.0,
+    "Mira->Niko": 0.0,
+    "Mira->Peter": 0.0,
+    "Mira->Rook": 0.0,
+    "Mira->Rowan": 0.0,
+    "Mira->Sable": 0.0,
+    "Mira->Tundra": 0.0,
+    "Mira->Zephyr": 0.4524499999999999,
+    "Niko->Aster": 0.0,
+    "Niko->Betty": 0.0,
+    "Niko->Ember": 0.0,
+    "Niko->Flint": 0.0,
+    "Niko->Juno": 0.0,
+    "Niko->Kestrel": 0.0,
+    "Niko->Mira": 0.0,
+    "Niko->Peter": 0.0,
+    "Niko->Rook": 0.0,
+    "Niko->Rowan": 0.0,
+    "Niko->Sable": 0.0,
+    "Niko->Tundra": 0.32939999999999997,
+    "Niko->Zephyr": 0.0,
+    "Peter->Aster": 0.0,
+    "Peter->Betty": 0.38795,
+    "Peter->Ember": 0.0,
+    "Peter->Flint": 0.0,
+    "Peter->Juno": 0.0,
+    "Peter->Kestrel": 0.0,
+    "Peter->Mira": 0.0,
+    "Peter->Niko": 0.0,
+    "Peter->Rook": 0.0,
+    "Peter->Rowan": 0.0,
+    "Peter->Sable": 0.0,
+    "Peter->Tundra": 0.0,
+    "Peter->Zephyr": 0.0,
+    "Rook->Aster": 0.0,
+    "Rook->Betty": 0.0,
+    "Rook->Ember": 0.4524499999999999,
+    "Rook->Flint": 0.0,
+    "Rook->Juno": 0.0,
+    "Rook->Kestrel": 0.0,
+    "Rook->Mira": 0.0,
+    "Rook->Niko": 0.0,
+    "Rook->Peter": 0.0,
+    "Rook->Rowan": 0.0,
+    "Rook->Sable": 0.0,
+    "Rook->Tundra": 0.0,
+    "Rook->Zephyr": 0.0,
+    "Rowan->Aster": 0.0,
+    "Rowan->Betty": 0.0,
+    "Rowan->Ember": 0.0,
+    "Rowan->Flint": 0.0,
+    "Rowan->Juno": 0.0,
+    "Rowan->Kestrel": 0.4159999999999999,
+    "Rowan->Mira": 0.0,
+    "Rowan->Niko": 0.0,
+    "Rowan->Peter": 0.0,
+    "Rowan->Rook": 0.0,
+    "Rowan->Sable": 0.0,
+    "Rowan->Tundra": 0.0,
+    "Rowan->Zephyr": 0.0,
+    "Sable->Aster": 0.0,
+    "Sable->Betty": 0.0,
+    "Sable->Ember": 0.0,
+    "Sable->Flint": 0.23889999999999992,
+    "Sable->Juno": 0.0,
+    "Sable->Kestrel": 0.0,
+    "Sable->Mira": 0.0,
+    "Sable->Niko": 0.0,
+    "Sable->Peter": 0.0,
+    "Sable->Rook": 0.0,
+    "Sable->Rowan": 0.0,
+    "Sable->Tundra": 0.0,
+    "Sable->Zephyr": 0.0,
+    "Tundra->Aster": 0.0,
+    "Tundra->Betty": 0.0,
+    "Tundra->Ember": 0.0,
+    "Tundra->Flint": 0.0,
+    "Tundra->Juno": 0.0,
+    "Tundra->Kestrel": 0.0,
+    "Tundra->Mira": 0.0,
+    "Tundra->Niko": 0.37549999999999994,
+    "Tundra->Peter": 0.0,
+    "Tundra->Rook": 0.0,
+    "Tundra->Rowan": 0.0,
+    "Tundra->Sable": 0.0,
+    "Tundra->Zephyr": 0.0,
+    "Zephyr->Aster": 0.0,
+    "Zephyr->Betty": 0.0,
+    "Zephyr->Ember": 0.0,
+    "Zephyr->Flint": 0.0,
+    "Zephyr->Juno": 0.0,
+    "Zephyr->Kestrel": 0.0,
+    "Zephyr->Mira": 0.4524499999999999,
+    "Zephyr->Niko": 0.0,
+    "Zephyr->Peter": 0.0,
+    "Zephyr->Rook": 0.0,
+    "Zephyr->Rowan": 0.0,
+    "Zephyr->Sable": 0.0,
+    "Zephyr->Tundra": 0.0
+  },
+  "commit_sequence": 1,
+  "content_digest": "sha256:c76e4388eb1a4f172e1635828d306ccb7784fc4b73639c7aaef8b9c00386c592",
+  "expected_success": {
+    "Aster->Betty": 0.5,
+    "Aster->Ember": 0.5,
+    "Aster->Flint": 0.5,
+    "Aster->Juno": 0.55,
+    "Aster->Kestrel": 0.67195,
+    "Aster->Mira": 0.5,
+    "Aster->Niko": 0.5,
+    "Aster->Peter": 0.5,
+    "Aster->Rook": 0.5,
+    "Aster->Rowan": 0.67195,
+    "Aster->Sable": 0.5,
+    "Aster->Tundra": 0.5,
+    "Aster->Zephyr": 0.5,
+    "Betty->Aster": 0.5,
+    "Betty->Ember": 0.5950000000000001,
+    "Betty->Flint": 0.5,
+    "Betty->Juno": 0.5,
+    "Betty->Kestrel": 0.5,
+    "Betty->Mira": 0.5,
+    "Betty->Niko": 0.5,
+    "Betty->Peter": 0.5,
+    "Betty->Rook": 0.5950000000000001,
+    "Betty->Rowan": 0.5,
+    "Betty->Sable": 0.5,
+    "Betty->Tundra": 0.5,
+    "Betty->Zephyr": 0.5,
+    "Ember->Aster": 0.5,
+    "Ember->Betty": 0.5,
+    "Ember->Flint": 0.5,
+    "Ember->Juno": 0.5,
+    "Ember->Kestrel": 0.5,
+    "Ember->Mira": 0.5,
+    "Ember->Niko": 0.67195,
+    "Ember->Peter": 0.5,
+    "Ember->Rook": 0.5950000000000001,
+    "Ember->Rowan": 0.5,
+    "Ember->Sable": 0.5,
+    "Ember->Tundra": 0.67195,
+    "Ember->Zephyr": 0.5,
+    "Flint->Aster": 0.55,
+    "Flint->Betty": 0.5,
+    "Flint->Ember": 0.5,
+    "Flint->Juno": 0.55,
+    "Flint->Kestrel": 0.5,
+    "Flint->Mira": 0.5,
+    "Flint->Niko": 0.5,
+    "Flint->Peter": 0.5,
+    "Flint->Rook": 0.5,
+    "Flint->Rowan": 0.5,
+    "Flint->Sable": 0.55,
+    "Flint->Tundra": 0.5,
+    "Flint->Zephyr": 0.5,
+    "Juno->Aster": 0.55,
+    "Juno->Betty": 0.5,
+    "Juno->Ember": 0.5,
+    "Juno->Flint": 0.5,
+    "Juno->Kestrel": 0.67195,
+    "Juno->Mira": 0.5,
+    "Juno->Niko": 0.5,
+    "Juno->Peter": 0.5,
+    "Juno->Rook": 0.5,
+    "Juno->Rowan": 0.67195,
+    "Juno->Sable": 0.5,
+    "Juno->Tundra": 0.5,
+    "Juno->Zephyr": 0.5,
+    "Kestrel->Aster": 0.5,
+    "Kestrel->Betty": 0.5,
+    "Kestrel->Ember": 0.5,
+    "Kestrel->Flint": 0.5,
+    "Kestrel->Juno": 0.5,
+    "Kestrel->Mira": 0.55,
+    "Kestrel->Niko": 0.5,
+    "Kestrel->Peter": 0.5,
+    "Kestrel->Rook": 0.5,
+    "Kestrel->Rowan": 0.67195,
+    "Kestrel->Sable": 0.5,
+    "Kestrel->Tundra": 0.5,
+    "Kestrel->Zephyr": 0.55,
+    "Mira->Aster": 0.5,
+    "Mira->Betty": 0.5,
+    "Mira->Ember": 0.5,
+    "Mira->Flint": 0.5,
+    "Mira->Juno": 0.5,
+    "Mira->Kestrel": 0.5,
+    "Mira->Niko": 0.5,
+    "Mira->Peter": 0.5,
+    "Mira->Rook": 0.5,
+    "Mira->Rowan": 0.5,
+    "Mira->Sable": 0.5,
+    "Mira->Tundra": 0.5,
+    "Mira->Zephyr": 0.55,
+    "Niko->Aster": 0.5,
+    "Niko->Betty": 0.5,
+    "Niko->Ember": 0.5,
+    "Niko->Flint": 0.55,
+    "Niko->Juno": 0.5,
+    "Niko->Kestrel": 0.5,
+    "Niko->Mira": 0.5,
+    "Niko->Peter": 0.5,
+    "Niko->Rook": 0.5,
+    "Niko->Rowan": 0.5,
+    "Niko->Sable": 0.55,
+    "Niko->Tundra": 0.67195,
+    "Niko->Zephyr": 0.5,
+    "Peter->Aster": 0.5,
+    "Peter->Betty": 0.5,
+    "Peter->Ember": 0.5950000000000001,
+    "Peter->Flint": 0.5,
+    "Peter->Juno": 0.5,
+    "Peter->Kestrel": 0.5,
+    "Peter->Mira": 0.5,
+    "Peter->Niko": 0.5,
+    "Peter->Rook": 0.5950000000000001,
+    "Peter->Rowan": 0.5,
+    "Peter->Sable": 0.5,
+    "Peter->Tundra": 0.5,
+    "Peter->Zephyr": 0.5,
+    "Rook->Aster": 0.5,
+    "Rook->Betty": 0.5,
+    "Rook->Ember": 0.5950000000000001,
+    "Rook->Flint": 0.5,
+    "Rook->Juno": 0.5,
+    "Rook->Kestrel": 0.5,
+    "Rook->Mira": 0.5,
+    "Rook->Niko": 0.67195,
+    "Rook->Peter": 0.5,
+    "Rook->Rowan": 0.5,
+    "Rook->Sable": 0.5,
+    "Rook->Tundra": 0.67195,
+    "Rook->Zephyr": 0.5,
+    "Rowan->Aster": 0.5,
+    "Rowan->Betty": 0.5,
+    "Rowan->Ember": 0.5,
+    "Rowan->Flint": 0.5,
+    "Rowan->Juno": 0.5,
+    "Rowan->Kestrel": 0.67195,
+    "Rowan->Mira": 0.55,
+    "Rowan->Niko": 0.5,
+    "Rowan->Peter": 0.5,
+    "Rowan->Rook": 0.5,
+    "Rowan->Sable": 0.5,
+    "Rowan->Tundra": 0.5,
+    "Rowan->Zephyr": 0.55,
+    "Sable->Aster": 0.55,
+    "Sable->Betty": 0.5,
+    "Sable->Ember": 0.5,
+    "Sable->Flint": 0.55,
+    "Sable->Juno": 0.55,
+    "Sable->Kestrel": 0.5,
+    "Sable->Mira": 0.5,
+    "Sable->Niko": 0.5,
+    "Sable->Peter": 0.5,
+    "Sable->Rook": 0.5,
+    "Sable->Rowan": 0.5,
+    "Sable->Tundra": 0.5,
+    "Sable->Zephyr": 0.5,
+    "Tundra->Aster": 0.5,
+    "Tundra->Betty": 0.5,
+    "Tundra->Ember": 0.5,
+    "Tundra->Flint": 0.55,
+    "Tundra->Juno": 0.5,
+    "Tundra->Kestrel": 0.5,
+    "Tundra->Mira": 0.5,
+    "Tundra->Niko": 0.67195,
+    "Tundra->Peter": 0.5,
+    "Tundra->Rook": 0.5,
+    "Tundra->Rowan": 0.5,
+    "Tundra->Sable": 0.55,
+    "Tundra->Zephyr": 0.5,
+    "Zephyr->Aster": 0.5,
+    "Zephyr->Betty": 0.5,
+    "Zephyr->Ember": 0.5,
+    "Zephyr->Flint": 0.5,
+    "Zephyr->Juno": 0.5,
+    "Zephyr->Kestrel": 0.5,
+    "Zephyr->Mira": 0.55,
+    "Zephyr->Niko": 0.5,
+    "Zephyr->Peter": 0.5,
+    "Zephyr->Rook": 0.5,
+    "Zephyr->Rowan": 0.5,
+    "Zephyr->Sable": 0.5,
+    "Zephyr->Tundra": 0.5
+  },
+  "initialized_at": "2026-07-16T02:22:06.264450Z",
+  "lineage_id": "inference_71dcbb25b3d6",
+  "memories": {
+    "Aster": [
+      "During COMPOSE, I accepted four MODEL handoffs from Kestrel and Rowan, each with reward 1.",
+      "DECIDE accepted the COMPOSE handoff from Juno and me with reward 1."
+    ],
+    "Betty": [
+      "During OBSERVE, I accepted two EXECUTE handoffs from Ember and Rook, each with reward 1."
+    ],
+    "Ember": [
+      "During EXECUTE, I accepted four SIMULATE handoffs from Niko and Tundra, each with reward 1.",
+      "OBSERVE accepted two EXECUTE handoffs from Rook and me, each with reward 1."
+    ],
+    "Flint": [
+      "During DECIDE, I accepted the COMPOSE handoff from Aster and Juno with reward 1.",
+      "SIMULATE accepted the DECIDE handoff from Sable and me with reward 1."
+    ],
+    "Juno": [
+      "During COMPOSE, I accepted four MODEL handoffs from Kestrel and Rowan, each with reward 1.",
+      "DECIDE accepted the COMPOSE handoff from Aster and me with reward 1."
+    ],
+    "Kestrel": [
+      "During MODEL, I accepted the SENSE handoff from Mira and Zephyr with reward 1.",
+      "COMPOSE accepted four MODEL handoffs from Rowan and me, each with reward 1."
+    ],
+    "Mira": [
+      "MODEL accepted the SENSE handoff from Zephyr and me with reward 1."
+    ],
+    "Niko": [
+      "During SIMULATE, I accepted the DECIDE handoff from Flint and Sable with reward 1.",
+      "EXECUTE accepted four SIMULATE handoffs from Tundra and me, each with reward 1."
+    ],
+    "Peter": [
+      "During OBSERVE, I accepted two EXECUTE handoffs from Ember and Rook, each with reward 1."
+    ],
+    "Rook": [
+      "During EXECUTE, I accepted four SIMULATE handoffs from Niko and Tundra, each with reward 1.",
+      "OBSERVE accepted two EXECUTE handoffs from Ember and me, each with reward 1."
+    ],
+    "Rowan": [
+      "During MODEL, I accepted the SENSE handoff from Mira and Zephyr with reward 1.",
+      "COMPOSE accepted four MODEL handoffs from Kestrel and me, each with reward 1."
+    ],
+    "Sable": [
+      "During DECIDE, I accepted the COMPOSE handoff from Aster and Juno with reward 1.",
+      "SIMULATE accepted the DECIDE handoff from Flint and me with reward 1."
+    ],
+    "Tundra": [
+      "During SIMULATE, I accepted the DECIDE handoff from Flint and Sable with reward 1.",
+      "EXECUTE accepted four SIMULATE handoffs from Niko and me, each with reward 1."
+    ],
+    "Zephyr": [
+      "MODEL accepted the SENSE handoff from Mira and me with reward 1."
+    ]
+  },
+  "schema_version": "1.0",
+  "trust_deltas_from_baseline": {
+    "Aster->Betty": 0.0,
+    "Aster->Ember": 0.0,
+    "Aster->Flint": 0.0,
+    "Aster->Juno": 0.024999999999999994,
+    "Aster->Kestrel": 0.085975,
+    "Aster->Mira": 0.0,
+    "Aster->Niko": 0.0,
+    "Aster->Peter": 0.0,
+    "Aster->Rook": 0.0,
+    "Aster->Rowan": 0.085975,
+    "Aster->Sable": 0.0,
+    "Aster->Tundra": 0.0,
+    "Aster->Zephyr": 0.0,
+    "Betty->Aster": 0.0,
+    "Betty->Ember": 0.0475,
+    "Betty->Flint": 0.0,
+    "Betty->Juno": 0.0,
+    "Betty->Kestrel": 0.0,
+    "Betty->Mira": 0.0,
+    "Betty->Niko": 0.0,
+    "Betty->Peter": 0.0,
+    "Betty->Rook": 0.0475,
+    "Betty->Rowan": 0.0,
+    "Betty->Sable": 0.0,
+    "Betty->Tundra": 0.0,
+    "Betty->Zephyr": 0.0,
+    "Ember->Aster": 0.0,
+    "Ember->Betty": 0.0,
+    "Ember->Flint": 0.0,
+    "Ember->Juno": 0.0,
+    "Ember->Kestrel": 0.0,
+    "Ember->Mira": 0.0,
+    "Ember->Niko": 0.085975,
+    "Ember->Peter": 0.0,
+    "Ember->Rook": 0.04750000000000004,
+    "Ember->Rowan": 0.0,
+    "Ember->Sable": 0.0,
+    "Ember->Tundra": 0.085975,
+    "Ember->Zephyr": 0.0,
+    "Flint->Aster": 0.025,
+    "Flint->Betty": 0.0,
+    "Flint->Ember": 0.0,
+    "Flint->Juno": 0.025,
+    "Flint->Kestrel": 0.0,
+    "Flint->Mira": 0.0,
+    "Flint->Niko": 0.0,
+    "Flint->Peter": 0.0,
+    "Flint->Rook": 0.0,
+    "Flint->Rowan": 0.0,
+    "Flint->Sable": 0.025000000000000022,
+    "Flint->Tundra": 0.0,
+    "Flint->Zephyr": 0.0,
+    "Juno->Aster": 0.025000000000000022,
+    "Juno->Betty": 0.0,
+    "Juno->Ember": 0.0,
+    "Juno->Flint": 0.0,
+    "Juno->Kestrel": 0.085975,
+    "Juno->Mira": 0.0,
+    "Juno->Niko": 0.0,
+    "Juno->Peter": 0.0,
+    "Juno->Rook": 0.0,
+    "Juno->Rowan": 0.085975,
+    "Juno->Sable": 0.0,
+    "Juno->Tundra": 0.0,
+    "Juno->Zephyr": 0.0,
+    "Kestrel->Aster": 0.0,
+    "Kestrel->Betty": 0.0,
+    "Kestrel->Ember": 0.0,
+    "Kestrel->Flint": 0.0,
+    "Kestrel->Juno": 0.0,
+    "Kestrel->Mira": 0.025,
+    "Kestrel->Niko": 0.0,
+    "Kestrel->Peter": 0.0,
+    "Kestrel->Rook": 0.0,
+    "Kestrel->Rowan": 0.08597500000000002,
+    "Kestrel->Sable": 0.0,
+    "Kestrel->Tundra": 0.0,
+    "Kestrel->Zephyr": 0.025,
+    "Mira->Aster": 0.0,
+    "Mira->Betty": 0.0,
+    "Mira->Ember": 0.0,
+    "Mira->Flint": 0.0,
+    "Mira->Juno": 0.0,
+    "Mira->Kestrel": 0.0,
+    "Mira->Niko": 0.0,
+    "Mira->Peter": 0.0,
+    "Mira->Rook": 0.0,
+    "Mira->Rowan": 0.0,
+    "Mira->Sable": 0.0,
+    "Mira->Tundra": 0.0,
+    "Mira->Zephyr": 0.025000000000000022,
+    "Niko->Aster": 0.0,
+    "Niko->Betty": 0.0,
+    "Niko->Ember": 0.0,
+    "Niko->Flint": 0.025,
+    "Niko->Juno": 0.0,
+    "Niko->Kestrel": 0.0,
+    "Niko->Mira": 0.0,
+    "Niko->Peter": 0.0,
+    "Niko->Rook": 0.0,
+    "Niko->Rowan": 0.0,
+    "Niko->Sable": 0.025,
+    "Niko->Tundra": 0.08597500000000002,
+    "Niko->Zephyr": 0.0,
+    "Peter->Aster": 0.0,
+    "Peter->Betty": 0.0,
+    "Peter->Ember": 0.0475,
+    "Peter->Flint": 0.0,
+    "Peter->Juno": 0.0,
+    "Peter->Kestrel": 0.0,
+    "Peter->Mira": 0.0,
+    "Peter->Niko": 0.0,
+    "Peter->Rook": 0.0475,
+    "Peter->Rowan": 0.0,
+    "Peter->Sable": 0.0,
+    "Peter->Tundra": 0.0,
+    "Peter->Zephyr": 0.0,
+    "Rook->Aster": 0.0,
+    "Rook->Betty": 0.0,
+    "Rook->Ember": 0.04750000000000004,
+    "Rook->Flint": 0.0,
+    "Rook->Juno": 0.0,
+    "Rook->Kestrel": 0.0,
+    "Rook->Mira": 0.0,
+    "Rook->Niko": 0.085975,
+    "Rook->Peter": 0.0,
+    "Rook->Rowan": 0.0,
+    "Rook->Sable": 0.0,
+    "Rook->Tundra": 0.085975,
+    "Rook->Zephyr": 0.0,
+    "Rowan->Aster": 0.0,
+    "Rowan->Betty": 0.0,
+    "Rowan->Ember": 0.0,
+    "Rowan->Flint": 0.0,
+    "Rowan->Juno": 0.0,
+    "Rowan->Kestrel": 0.08597500000000002,
+    "Rowan->Mira": 0.025,
+    "Rowan->Niko": 0.0,
+    "Rowan->Peter": 0.0,
+    "Rowan->Rook": 0.0,
+    "Rowan->Sable": 0.0,
+    "Rowan->Tundra": 0.0,
+    "Rowan->Zephyr": 0.025,
+    "Sable->Aster": 0.025,
+    "Sable->Betty": 0.0,
+    "Sable->Ember": 0.0,
+    "Sable->Flint": 0.024999999999999994,
+    "Sable->Juno": 0.025,
+    "Sable->Kestrel": 0.0,
+    "Sable->Mira": 0.0,
+    "Sable->Niko": 0.0,
+    "Sable->Peter": 0.0,
+    "Sable->Rook": 0.0,
+    "Sable->Rowan": 0.0,
+    "Sable->Tundra": 0.0,
+    "Sable->Zephyr": 0.0,
+    "Tundra->Aster": 0.0,
+    "Tundra->Betty": 0.0,
+    "Tundra->Ember": 0.0,
+    "Tundra->Flint": 0.025,
+    "Tundra->Juno": 0.0,
+    "Tundra->Kestrel": 0.0,
+    "Tundra->Mira": 0.0,
+    "Tundra->Niko": 0.08597500000000002,
+    "Tundra->Peter": 0.0,
+    "Tundra->Rook": 0.0,
+    "Tundra->Rowan": 0.0,
+    "Tundra->Sable": 0.025,
+    "Tundra->Zephyr": 0.0,
+    "Zephyr->Aster": 0.0,
+    "Zephyr->Betty": 0.0,
+    "Zephyr->Ember": 0.0,
+    "Zephyr->Flint": 0.0,
+    "Zephyr->Juno": 0.0,
+    "Zephyr->Kestrel": 0.0,
+    "Zephyr->Mira": 0.025000000000000022,
+    "Zephyr->Niko": 0.0,
+    "Zephyr->Peter": 0.0,
+    "Zephyr->Rook": 0.0,
+    "Zephyr->Rowan": 0.0,
+    "Zephyr->Sable": 0.0,
+    "Zephyr->Tundra": 0.0
+  },
+  "trust_updates_enabled": true,
+  "updated_at": "2026-07-16T12:41:05.414336Z",
+  "vectors": {
+    "Aster->Betty": {
+      "source": "Aster",
+      "target": "Betty",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Aster->Ember": {
+      "source": "Aster",
+      "target": "Ember",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Aster->Flint": {
+      "source": "Aster",
+      "target": "Flint",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Aster->Juno": {
+      "source": "Aster",
+      "target": "Juno",
+      "vector": {
+        "affection": 0.13,
+        "confidence": 0.52,
+        "dominance": -0.09,
+        "openness": 0.38,
+        "patience": 0.09,
+        "reliability": 0.56,
+        "resentment": 0.0,
+        "respect": 0.44999999999999996,
+        "trust": 0.2638999999999999,
+        "warmth": 0.15
+      }
+    },
+    "Aster->Kestrel": {
+      "source": "Aster",
+      "target": "Kestrel",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.085975,
+        "warmth": 0.0
+      }
+    },
+    "Aster->Mira": {
+      "source": "Aster",
+      "target": "Mira",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Aster->Niko": {
+      "source": "Aster",
+      "target": "Niko",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Aster->Peter": {
+      "source": "Aster",
+      "target": "Peter",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Aster->Rook": {
+      "source": "Aster",
+      "target": "Rook",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Aster->Rowan": {
+      "source": "Aster",
+      "target": "Rowan",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.085975,
+        "warmth": 0.0
+      }
+    },
+    "Aster->Sable": {
+      "source": "Aster",
+      "target": "Sable",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Aster->Tundra": {
+      "source": "Aster",
+      "target": "Tundra",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Aster->Zephyr": {
+      "source": "Aster",
+      "target": "Zephyr",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Betty->Aster": {
+      "source": "Betty",
+      "target": "Aster",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Betty->Ember": {
+      "source": "Betty",
+      "target": "Ember",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0475,
+        "warmth": 0.0
+      }
+    },
+    "Betty->Flint": {
+      "source": "Betty",
+      "target": "Flint",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Betty->Juno": {
+      "source": "Betty",
+      "target": "Juno",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Betty->Kestrel": {
+      "source": "Betty",
+      "target": "Kestrel",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Betty->Mira": {
+      "source": "Betty",
+      "target": "Mira",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Betty->Niko": {
+      "source": "Betty",
+      "target": "Niko",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Betty->Peter": {
+      "source": "Betty",
+      "target": "Peter",
+      "vector": {
+        "affection": 0.16999999999999998,
+        "confidence": 0.54,
+        "dominance": 0.19999999999999998,
+        "openness": 0.44999999999999996,
+        "patience": 0.26,
+        "reliability": 0.61,
+        "resentment": -0.22999999999999998,
+        "respect": 0.6000000000000001,
+        "trust": 0.31694999999999995,
+        "warmth": 0.22
+      }
+    },
+    "Betty->Rook": {
+      "source": "Betty",
+      "target": "Rook",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0475,
+        "warmth": 0.0
+      }
+    },
+    "Betty->Rowan": {
+      "source": "Betty",
+      "target": "Rowan",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Betty->Sable": {
+      "source": "Betty",
+      "target": "Sable",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Betty->Tundra": {
+      "source": "Betty",
+      "target": "Tundra",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Betty->Zephyr": {
+      "source": "Betty",
+      "target": "Zephyr",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Ember->Aster": {
+      "source": "Ember",
+      "target": "Aster",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Ember->Betty": {
+      "source": "Ember",
+      "target": "Betty",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Ember->Flint": {
+      "source": "Ember",
+      "target": "Flint",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Ember->Juno": {
+      "source": "Ember",
+      "target": "Juno",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Ember->Kestrel": {
+      "source": "Ember",
+      "target": "Kestrel",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Ember->Mira": {
+      "source": "Ember",
+      "target": "Mira",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Ember->Niko": {
+      "source": "Ember",
+      "target": "Niko",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.085975,
+        "warmth": 0.0
+      }
+    },
+    "Ember->Peter": {
+      "source": "Ember",
+      "target": "Peter",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Ember->Rook": {
+      "source": "Ember",
+      "target": "Rook",
+      "vector": {
+        "affection": 0.10999999999999999,
+        "confidence": 0.6900000000000002,
+        "dominance": -0.15000000000000002,
+        "openness": 0.43999999999999995,
+        "patience": 0.11,
+        "reliability": 0.73,
+        "resentment": 0.0,
+        "respect": 0.6200000000000001,
+        "trust": 0.49994999999999995,
+        "warmth": 0.10999999999999999
+      }
+    },
+    "Ember->Rowan": {
+      "source": "Ember",
+      "target": "Rowan",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Ember->Sable": {
+      "source": "Ember",
+      "target": "Sable",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Ember->Tundra": {
+      "source": "Ember",
+      "target": "Tundra",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.085975,
+        "warmth": 0.0
+      }
+    },
+    "Ember->Zephyr": {
+      "source": "Ember",
+      "target": "Zephyr",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Flint->Aster": {
+      "source": "Flint",
+      "target": "Aster",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.025,
+        "warmth": 0.0
+      }
+    },
+    "Flint->Betty": {
+      "source": "Flint",
+      "target": "Betty",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Flint->Ember": {
+      "source": "Flint",
+      "target": "Ember",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Flint->Juno": {
+      "source": "Flint",
+      "target": "Juno",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.025,
+        "warmth": 0.0
+      }
+    },
+    "Flint->Kestrel": {
+      "source": "Flint",
+      "target": "Kestrel",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Flint->Mira": {
+      "source": "Flint",
+      "target": "Mira",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Flint->Niko": {
+      "source": "Flint",
+      "target": "Niko",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Flint->Peter": {
+      "source": "Flint",
+      "target": "Peter",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Flint->Rook": {
+      "source": "Flint",
+      "target": "Rook",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Flint->Rowan": {
+      "source": "Flint",
+      "target": "Rowan",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Flint->Sable": {
+      "source": "Flint",
+      "target": "Sable",
+      "vector": {
+        "affection": 0.12999999999999998,
+        "confidence": 0.6000000000000001,
+        "dominance": -0.16000000000000003,
+        "openness": 0.4700000000000001,
+        "patience": 0.14999999999999997,
+        "reliability": 0.7000000000000002,
+        "resentment": 0.0,
+        "respect": 0.56,
+        "trust": 0.2909999999999999,
+        "warmth": 0.13999999999999999
+      }
+    },
+    "Flint->Tundra": {
+      "source": "Flint",
+      "target": "Tundra",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Flint->Zephyr": {
+      "source": "Flint",
+      "target": "Zephyr",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Juno->Aster": {
+      "source": "Juno",
+      "target": "Aster",
+      "vector": {
+        "affection": 0.11999999999999998,
+        "confidence": 0.45999999999999996,
+        "dominance": 0.02,
+        "openness": 0.3600000000000001,
+        "patience": 0.16999999999999998,
+        "reliability": 0.4999999999999999,
+        "resentment": 0.0,
+        "respect": 0.41000000000000003,
+        "trust": 0.2909999999999999,
+        "warmth": 0.18000000000000002
+      }
+    },
+    "Juno->Betty": {
+      "source": "Juno",
+      "target": "Betty",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Juno->Ember": {
+      "source": "Juno",
+      "target": "Ember",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Juno->Flint": {
+      "source": "Juno",
+      "target": "Flint",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Juno->Kestrel": {
+      "source": "Juno",
+      "target": "Kestrel",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.085975,
+        "warmth": 0.0
+      }
+    },
+    "Juno->Mira": {
+      "source": "Juno",
+      "target": "Mira",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Juno->Niko": {
+      "source": "Juno",
+      "target": "Niko",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Juno->Peter": {
+      "source": "Juno",
+      "target": "Peter",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Juno->Rook": {
+      "source": "Juno",
+      "target": "Rook",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Juno->Rowan": {
+      "source": "Juno",
+      "target": "Rowan",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.085975,
+        "warmth": 0.0
+      }
+    },
+    "Juno->Sable": {
+      "source": "Juno",
+      "target": "Sable",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Juno->Tundra": {
+      "source": "Juno",
+      "target": "Tundra",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Juno->Zephyr": {
+      "source": "Juno",
+      "target": "Zephyr",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Kestrel->Aster": {
+      "source": "Kestrel",
+      "target": "Aster",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Kestrel->Betty": {
+      "source": "Kestrel",
+      "target": "Betty",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Kestrel->Ember": {
+      "source": "Kestrel",
+      "target": "Ember",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Kestrel->Flint": {
+      "source": "Kestrel",
+      "target": "Flint",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Kestrel->Juno": {
+      "source": "Kestrel",
+      "target": "Juno",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Kestrel->Mira": {
+      "source": "Kestrel",
+      "target": "Mira",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.025,
+        "warmth": 0.0
+      }
+    },
+    "Kestrel->Niko": {
+      "source": "Kestrel",
+      "target": "Niko",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Kestrel->Peter": {
+      "source": "Kestrel",
+      "target": "Peter",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Kestrel->Rook": {
+      "source": "Kestrel",
+      "target": "Rook",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Kestrel->Rowan": {
+      "source": "Kestrel",
+      "target": "Rowan",
+      "vector": {
+        "affection": 0.12499999999999999,
+        "confidence": 0.6200000000000001,
+        "dominance": -0.14500000000000002,
+        "openness": 0.4,
+        "patience": 0.14500000000000002,
+        "reliability": 0.6750000000000002,
+        "resentment": 0.0,
+        "respect": 0.51,
+        "trust": 0.37487499999999996,
+        "warmth": 0.195
+      }
+    },
+    "Kestrel->Sable": {
+      "source": "Kestrel",
+      "target": "Sable",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Kestrel->Tundra": {
+      "source": "Kestrel",
+      "target": "Tundra",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Kestrel->Zephyr": {
+      "source": "Kestrel",
+      "target": "Zephyr",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.025,
+        "warmth": 0.0
+      }
+    },
+    "Mira->Aster": {
+      "source": "Mira",
+      "target": "Aster",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Mira->Betty": {
+      "source": "Mira",
+      "target": "Betty",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Mira->Ember": {
+      "source": "Mira",
+      "target": "Ember",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Mira->Flint": {
+      "source": "Mira",
+      "target": "Flint",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Mira->Juno": {
+      "source": "Mira",
+      "target": "Juno",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Mira->Kestrel": {
+      "source": "Mira",
+      "target": "Kestrel",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Mira->Niko": {
+      "source": "Mira",
+      "target": "Niko",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Mira->Peter": {
+      "source": "Mira",
+      "target": "Peter",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Mira->Rook": {
+      "source": "Mira",
+      "target": "Rook",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Mira->Rowan": {
+      "source": "Mira",
+      "target": "Rowan",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Mira->Sable": {
+      "source": "Mira",
+      "target": "Sable",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Mira->Tundra": {
+      "source": "Mira",
+      "target": "Tundra",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Mira->Zephyr": {
+      "source": "Mira",
+      "target": "Zephyr",
+      "vector": {
+        "affection": 0.14,
+        "confidence": 0.6600000000000001,
+        "dominance": -0.10999999999999999,
+        "openness": 0.46,
+        "patience": 0.17000000000000004,
+        "reliability": 0.7200000000000002,
+        "resentment": -0.14,
+        "respect": 0.58,
+        "trust": 0.47744999999999993,
+        "warmth": 0.21000000000000002
+      }
+    },
+    "Niko->Aster": {
+      "source": "Niko",
+      "target": "Aster",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Niko->Betty": {
+      "source": "Niko",
+      "target": "Betty",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Niko->Ember": {
+      "source": "Niko",
+      "target": "Ember",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Niko->Flint": {
+      "source": "Niko",
+      "target": "Flint",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.025,
+        "warmth": 0.0
+      }
+    },
+    "Niko->Juno": {
+      "source": "Niko",
+      "target": "Juno",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Niko->Kestrel": {
+      "source": "Niko",
+      "target": "Kestrel",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Niko->Mira": {
+      "source": "Niko",
+      "target": "Mira",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Niko->Peter": {
+      "source": "Niko",
+      "target": "Peter",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Niko->Rook": {
+      "source": "Niko",
+      "target": "Rook",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Niko->Rowan": {
+      "source": "Niko",
+      "target": "Rowan",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Niko->Sable": {
+      "source": "Niko",
+      "target": "Sable",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.025,
+        "warmth": 0.0
+      }
+    },
+    "Niko->Tundra": {
+      "source": "Niko",
+      "target": "Tundra",
+      "vector": {
+        "affection": 0.10999999999999999,
+        "confidence": 0.6100000000000001,
+        "dominance": -0.13,
+        "openness": 0.41,
+        "patience": 0.19999999999999998,
+        "reliability": 0.71,
+        "resentment": 0.0,
+        "respect": 0.5700000000000001,
+        "trust": 0.415375,
+        "warmth": 0.18
+      }
+    },
+    "Niko->Zephyr": {
+      "source": "Niko",
+      "target": "Zephyr",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Peter->Aster": {
+      "source": "Peter",
+      "target": "Aster",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Peter->Betty": {
+      "source": "Peter",
+      "target": "Betty",
+      "vector": {
+        "affection": 0.15000000000000002,
+        "confidence": 0.63,
+        "dominance": -0.15000000000000002,
+        "openness": 0.44999999999999996,
+        "patience": 0.19999999999999998,
+        "reliability": 0.7200000000000001,
+        "resentment": 0.0,
+        "respect": 0.6000000000000001,
+        "trust": 0.38795,
+        "warmth": 0.2
+      }
+    },
+    "Peter->Ember": {
+      "source": "Peter",
+      "target": "Ember",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0475,
+        "warmth": 0.0
+      }
+    },
+    "Peter->Flint": {
+      "source": "Peter",
+      "target": "Flint",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Peter->Juno": {
+      "source": "Peter",
+      "target": "Juno",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Peter->Kestrel": {
+      "source": "Peter",
+      "target": "Kestrel",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Peter->Mira": {
+      "source": "Peter",
+      "target": "Mira",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Peter->Niko": {
+      "source": "Peter",
+      "target": "Niko",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Peter->Rook": {
+      "source": "Peter",
+      "target": "Rook",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0475,
+        "warmth": 0.0
+      }
+    },
+    "Peter->Rowan": {
+      "source": "Peter",
+      "target": "Rowan",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Peter->Sable": {
+      "source": "Peter",
+      "target": "Sable",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Peter->Tundra": {
+      "source": "Peter",
+      "target": "Tundra",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Peter->Zephyr": {
+      "source": "Peter",
+      "target": "Zephyr",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rook->Aster": {
+      "source": "Rook",
+      "target": "Aster",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rook->Betty": {
+      "source": "Rook",
+      "target": "Betty",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rook->Ember": {
+      "source": "Rook",
+      "target": "Ember",
+      "vector": {
+        "affection": 0.13,
+        "confidence": 0.53,
+        "dominance": 0.1,
+        "openness": 0.49999999999999994,
+        "patience": 0.30000000000000004,
+        "reliability": 0.53,
+        "resentment": -0.14,
+        "respect": 0.55,
+        "trust": 0.49994999999999995,
+        "warmth": 0.24
+      }
+    },
+    "Rook->Flint": {
+      "source": "Rook",
+      "target": "Flint",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rook->Juno": {
+      "source": "Rook",
+      "target": "Juno",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rook->Kestrel": {
+      "source": "Rook",
+      "target": "Kestrel",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rook->Mira": {
+      "source": "Rook",
+      "target": "Mira",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rook->Niko": {
+      "source": "Rook",
+      "target": "Niko",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.085975,
+        "warmth": 0.0
+      }
+    },
+    "Rook->Peter": {
+      "source": "Rook",
+      "target": "Peter",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rook->Rowan": {
+      "source": "Rook",
+      "target": "Rowan",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rook->Sable": {
+      "source": "Rook",
+      "target": "Sable",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rook->Tundra": {
+      "source": "Rook",
+      "target": "Tundra",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.085975,
+        "warmth": 0.0
+      }
+    },
+    "Rook->Zephyr": {
+      "source": "Rook",
+      "target": "Zephyr",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rowan->Aster": {
+      "source": "Rowan",
+      "target": "Aster",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rowan->Betty": {
+      "source": "Rowan",
+      "target": "Betty",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rowan->Ember": {
+      "source": "Rowan",
+      "target": "Ember",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rowan->Flint": {
+      "source": "Rowan",
+      "target": "Flint",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rowan->Juno": {
+      "source": "Rowan",
+      "target": "Juno",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rowan->Kestrel": {
+      "source": "Rowan",
+      "target": "Kestrel",
+      "vector": {
+        "affection": 0.08,
+        "confidence": 0.48,
+        "dominance": 0.01,
+        "openness": 0.37,
+        "patience": 0.18000000000000002,
+        "reliability": 0.55,
+        "resentment": 0.0,
+        "respect": 0.41,
+        "trust": 0.501975,
+        "warmth": 0.13999999999999999
+      }
+    },
+    "Rowan->Mira": {
+      "source": "Rowan",
+      "target": "Mira",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.025,
+        "warmth": 0.0
+      }
+    },
+    "Rowan->Niko": {
+      "source": "Rowan",
+      "target": "Niko",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rowan->Peter": {
+      "source": "Rowan",
+      "target": "Peter",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rowan->Rook": {
+      "source": "Rowan",
+      "target": "Rook",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rowan->Sable": {
+      "source": "Rowan",
+      "target": "Sable",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rowan->Tundra": {
+      "source": "Rowan",
+      "target": "Tundra",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Rowan->Zephyr": {
+      "source": "Rowan",
+      "target": "Zephyr",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.025,
+        "warmth": 0.0
+      }
+    },
+    "Sable->Aster": {
+      "source": "Sable",
+      "target": "Aster",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.025,
+        "warmth": 0.0
+      }
+    },
+    "Sable->Betty": {
+      "source": "Sable",
+      "target": "Betty",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Sable->Ember": {
+      "source": "Sable",
+      "target": "Ember",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Sable->Flint": {
+      "source": "Sable",
+      "target": "Flint",
+      "vector": {
+        "affection": 0.13,
+        "confidence": 0.45,
+        "dominance": 0.0,
+        "openness": 0.43000000000000005,
+        "patience": 0.21999999999999997,
+        "reliability": 0.4799999999999999,
+        "resentment": 0.0,
+        "respect": 0.42000000000000004,
+        "trust": 0.2638999999999999,
+        "warmth": 0.21999999999999997
+      }
+    },
+    "Sable->Juno": {
+      "source": "Sable",
+      "target": "Juno",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.025,
+        "warmth": 0.0
+      }
+    },
+    "Sable->Kestrel": {
+      "source": "Sable",
+      "target": "Kestrel",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Sable->Mira": {
+      "source": "Sable",
+      "target": "Mira",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Sable->Niko": {
+      "source": "Sable",
+      "target": "Niko",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Sable->Peter": {
+      "source": "Sable",
+      "target": "Peter",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Sable->Rook": {
+      "source": "Sable",
+      "target": "Rook",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Sable->Rowan": {
+      "source": "Sable",
+      "target": "Rowan",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Sable->Tundra": {
+      "source": "Sable",
+      "target": "Tundra",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Sable->Zephyr": {
+      "source": "Sable",
+      "target": "Zephyr",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Tundra->Aster": {
+      "source": "Tundra",
+      "target": "Aster",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Tundra->Betty": {
+      "source": "Tundra",
+      "target": "Betty",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Tundra->Ember": {
+      "source": "Tundra",
+      "target": "Ember",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Tundra->Flint": {
+      "source": "Tundra",
+      "target": "Flint",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.025,
+        "warmth": 0.0
+      }
+    },
+    "Tundra->Juno": {
+      "source": "Tundra",
+      "target": "Juno",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Tundra->Kestrel": {
+      "source": "Tundra",
+      "target": "Kestrel",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Tundra->Mira": {
+      "source": "Tundra",
+      "target": "Mira",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Tundra->Niko": {
+      "source": "Tundra",
+      "target": "Niko",
+      "vector": {
+        "affection": 0.09999999999999999,
+        "confidence": 0.39,
+        "dominance": 0.0,
+        "openness": 0.29000000000000004,
+        "patience": 0.175,
+        "reliability": 0.445,
+        "resentment": -0.11,
+        "respect": 0.3700000000000001,
+        "trust": 0.46147499999999997,
+        "warmth": 0.15500000000000003
+      }
+    },
+    "Tundra->Peter": {
+      "source": "Tundra",
+      "target": "Peter",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Tundra->Rook": {
+      "source": "Tundra",
+      "target": "Rook",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Tundra->Rowan": {
+      "source": "Tundra",
+      "target": "Rowan",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Tundra->Sable": {
+      "source": "Tundra",
+      "target": "Sable",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.025,
+        "warmth": 0.0
+      }
+    },
+    "Tundra->Zephyr": {
+      "source": "Tundra",
+      "target": "Zephyr",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Zephyr->Aster": {
+      "source": "Zephyr",
+      "target": "Aster",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Zephyr->Betty": {
+      "source": "Zephyr",
+      "target": "Betty",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Zephyr->Ember": {
+      "source": "Zephyr",
+      "target": "Ember",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Zephyr->Flint": {
+      "source": "Zephyr",
+      "target": "Flint",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Zephyr->Juno": {
+      "source": "Zephyr",
+      "target": "Juno",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Zephyr->Kestrel": {
+      "source": "Zephyr",
+      "target": "Kestrel",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Zephyr->Mira": {
+      "source": "Zephyr",
+      "target": "Mira",
+      "vector": {
+        "affection": 0.10999999999999999,
+        "confidence": 0.45999999999999996,
+        "dominance": 0.09,
+        "openness": 0.33000000000000007,
+        "patience": 0.19999999999999998,
+        "reliability": 0.4999999999999999,
+        "resentment": 0.0,
+        "respect": 0.43999999999999995,
+        "trust": 0.47744999999999993,
+        "warmth": 0.19
+      }
+    },
+    "Zephyr->Niko": {
+      "source": "Zephyr",
+      "target": "Niko",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Zephyr->Peter": {
+      "source": "Zephyr",
+      "target": "Peter",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Zephyr->Rook": {
+      "source": "Zephyr",
+      "target": "Rook",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Zephyr->Rowan": {
+      "source": "Zephyr",
+      "target": "Rowan",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Zephyr->Sable": {
+      "source": "Zephyr",
+      "target": "Sable",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    },
+    "Zephyr->Tundra": {
+      "source": "Zephyr",
+      "target": "Tundra",
+      "vector": {
+        "affection": 0.0,
+        "confidence": 0.0,
+        "dominance": 0.0,
+        "openness": 0.0,
+        "patience": 0.0,
+        "reliability": 0.0,
+        "resentment": 0.0,
+        "respect": 0.0,
+        "trust": 0.0,
+        "warmth": 0.0
+      }
+    }
+  }
+}

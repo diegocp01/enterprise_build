@@ -147,6 +147,78 @@ class FrozenRelationshipSnapshot(Contract):
     content_digest: str
 
 
+class InferenceLearningState(Contract):
+    """Mutable inference state derived from, but never written back to, training."""
+
+    schema_version: str = "1.0"
+    lineage_id: str
+    baseline_training_run_id: str
+    baseline_relationship_digest: str
+    initialized_at: datetime = Field(default_factory=utc_now)
+    updated_at: datetime = Field(default_factory=utc_now)
+    commit_sequence: int = Field(default=0, ge=0)
+    trust_updates_enabled: bool = True
+    vectors: dict[str, DirectedRelationship]
+    expected_success: dict[str, float]
+    baseline_trust: dict[str, float]
+    trust_deltas_from_baseline: dict[str, float]
+    memories: dict[str, list[str]]
+    content_digest: str
+
+
+class ShadowTrustUpdate(Contract):
+    schema_version: str = "1.0"
+    update_id: str
+    run_id: str
+    producer_stage: Stage
+    consumer_stage: Stage
+    source: str
+    target: str
+    reward: int = Field(ge=0, le=1)
+    expected_success_before: float = Field(ge=0.0, le=1.0)
+    reward_prediction_error: float = Field(ge=-1.0, le=1.0)
+    alpha: float = Field(gt=0.0, le=1.0)
+    unclamped_delta: float
+    proposed_delta: float
+    trust_before: float = Field(ge=-1.0, le=1.0)
+    shadow_trust_after: float = Field(ge=-1.0, le=1.0)
+    evidence: list[str] = Field(default_factory=list)
+    created_at: datetime = Field(default_factory=utc_now)
+
+
+class HandoffAssessment(Contract):
+    schema_version: str = "1.0"
+    run_id: str
+    producer_stage: Stage
+    consumer_stage: Stage
+    producer_agents: list[str]
+    consumer_agents: list[str]
+    assessments: dict[str, bool]
+    revision_requests: dict[str, list[str]]
+    reward: int = Field(ge=0, le=1)
+    revised: bool = False
+    evidence: list[str] = Field(default_factory=list)
+    created_at: datetime = Field(default_factory=utc_now)
+
+
+class InferenceNightOutput(Contract):
+    trust_commit_approved: bool
+    memory_updates: dict[str, list[str]]
+    blocking_issues: list[str]
+    resolved_issues: list[str]
+    decision_reasons: list[str]
+    evidence: list[str]
+    confidence: float = Field(ge=0.0, le=1.0)
+
+    @model_validator(mode="after")
+    def validate_night_contract(self) -> InferenceNightOutput:
+        if self.blocking_issues and not self.resolved_issues:
+            raise ValueError("blocking issues must be resolved in the same response")
+        if any(len(lines) > 5 for lines in self.memory_updates.values()):
+            raise ValueError("inference memories are capped at five lines per agent")
+        return self
+
+
 class BuildRequest(Contract):
     idea: str = Field(min_length=3)
     audience: str = Field(min_length=2)

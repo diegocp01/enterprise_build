@@ -12,7 +12,13 @@ from pathlib import Path
 from jsonschema import ValidationError, validate
 
 from zerohandoff.config import canonical_json
-from zerohandoff.models import AgentInvocation, AgentResult, ExecutionMode, InvocationStatus
+from zerohandoff.models import (
+    AgentInvocation,
+    AgentResult,
+    ExecutionMode,
+    InvocationStatus,
+    Stage,
+)
 from zerohandoff.runtime.base import RuntimeCapabilities
 
 
@@ -145,10 +151,11 @@ class CodexExecAdapter:
         )
         with self._lock:
             self._processes[invocation.invocation_id] = process
+        timeout_seconds = self._effective_timeout_seconds(invocation)
         try:
             stdout, stderr = process.communicate(
                 input=prompt,
-                timeout=invocation.timeout_seconds,
+                timeout=timeout_seconds,
             )
         except subprocess.TimeoutExpired as exc:
             self._terminate_group(process)
@@ -162,6 +169,14 @@ class CodexExecAdapter:
                 duration_ms=int((time.monotonic() - started) * 1000),
                 error={"code": "timeout", "message": str(exc)},
             )
+        except KeyboardInterrupt:
+            # The CLI can be interrupted while a Codex child is in its own process group.
+            # Always reap that group so an abandoned retry cannot keep consuming resources.
+            self._terminate_group(process)
+            stdout, stderr = process.communicate()
+            stdout_path.write_text(stdout)
+            stderr_path.write_text(stderr)
+            raise
         finally:
             with self._lock:
                 self._processes.pop(invocation.invocation_id, None)
@@ -252,14 +267,82 @@ class CodexExecAdapter:
             "--config",
             'approval_policy="never"',
         ]
-        if invocation.mode in {ExecutionMode.TRAINING, ExecutionMode.CURATION}:
-            # Puzzle answers live in the parent process. Training agents are deliberately
-            # prompt-only so they cannot inspect the repository, corpus, or one another's
-            # private workspace through Codex tools.
+        prompt_only = invocation.mode in {
+            ExecutionMode.TRAINING,
+            ExecutionMode.CURATION,
+            ExecutionMode.ARTIFACT,
+        } or (
+            invocation.mode == ExecutionMode.REVIEW
+            and invocation.stage != Stage.EXECUTE.value
+        )
+        if prompt_only:
+            # All artifact facts live in the typed prompt. Content agents are deliberately
+            # prompt-only so tools, unrelated skills, and empty workspaces cannot distort
+            # their judgment. EXECUTE workspace implementation and review retain tools.
             for feature in self.prompt_only_disabled_features:
                 command.extend(["--disable", feature])
+            command.extend(
+                [
+                    "--config",
+                    'web_search="disabled"',
+                    "--config",
+                    "tools.web_search=false",
+                    "--config",
+                    (
+                        'developer_instructions="This is a prompt-only structured-output '
+                        "worker. Do not invoke, inspect, announce, or use any tool, skill, "
+                        'plugin, workspace file, or web search. Return one complete JSON '
+                        'object matching the supplied output schema."'
+                    ),
+                ]
+            )
+            disabled_skills = self._disabled_skills_config(workspace)
+            if disabled_skills:
+                command.extend(["--config", disabled_skills])
         command.append("-")
         return command
+
+    @staticmethod
+    def _effective_timeout_seconds(invocation: AgentInvocation) -> int:
+        # Design artifacts can contain a complete standalone HTML flowboard. Keep the
+        # approved baseline for every other call, but allow these larger structured
+        # responses enough time to finish instead of retrying the same expensive prompt.
+        if invocation.mode == ExecutionMode.ARTIFACT:
+            return max(invocation.timeout_seconds, 360)
+        if invocation.mode == ExecutionMode.WORKSPACE or (
+            invocation.mode == ExecutionMode.REVIEW
+            and invocation.stage == Stage.EXECUTE.value
+        ):
+            return max(invocation.timeout_seconds, 600)
+        return invocation.timeout_seconds
+
+    @staticmethod
+    def _disabled_skills_config(workspace: Path) -> str | None:
+        """Disable every discoverable local skill for prompt-only invocations.
+
+        ``--ignore-user-config`` ignores config values, but Codex still discovers user and
+        project skills. Typed artifact calls must not activate either source.
+        """
+
+        roots = [Path(os.environ.get("CODEX_HOME", Path.home() / ".codex")) / "skills"]
+        for directory in (workspace, *workspace.parents):
+            roots.extend((directory / ".agents" / "skills", directory / ".codex" / "skills"))
+        skill_paths = sorted(
+            {
+                skill_file.parent.resolve()
+                for root in roots
+                if root.is_dir()
+                for skill_file in root.rglob("SKILL.md")
+            },
+            key=str,
+        )
+        if not skill_paths:
+            return None
+        entries = ", ".join(
+            f'{{ path = {json.dumps(str(path))}, enabled = false }}'
+            for path in skill_paths
+        )
+        return f"skills.config=[{entries}]"
 
     @staticmethod
     def _terminate_group(process: subprocess.Popen[str]) -> None:

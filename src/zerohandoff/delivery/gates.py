@@ -85,7 +85,12 @@ class GateEngine:
                 )
         if stage == Stage.OBSERVE:
             ledger = candidate.get("proof_entries", [])
-            all_proven = bool(ledger) and all(row.get("status") == "pass" for row in ledger)
+            passing_statuses = {"pass", "passed"}
+            all_proven = bool(ledger) and all(
+                str(row.get("status", "")).strip().lower() in passing_statuses
+                for row in ledger
+                if isinstance(row, dict)
+            ) and all(isinstance(row, dict) for row in ledger)
             rule_results["observe.must_have_evidenced"] = all_proven
             if not all_proven:
                 findings.append(

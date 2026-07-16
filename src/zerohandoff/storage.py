@@ -47,6 +47,10 @@ class RunStore:
         "forgotten",
         "puzzle_validation",
         "run_manifests",
+        "handoff_rewards",
+        "shadow_trust_updates",
+        "inference_night_commits",
+        "inference_memory",
     }
 
     def __init__(self, base_dir: Path, run_id: str, phase: str) -> None:
@@ -105,6 +109,24 @@ class RunStore:
         payload = value.model_dump(mode="json") if hasattr(value, "model_dump") else value
         temporary = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
         temporary.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
+        with temporary.open("rb") as handle:
+            os.fsync(handle.fileno())
+        temporary.replace(path)
+        return path
+
+    def atomic_jsonl(
+        self,
+        relative_path: str | Path,
+        values: Iterable[Any],
+    ) -> Path:
+        path = self._safe_path(relative_path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        rows = [
+            value.model_dump(mode="json") if hasattr(value, "model_dump") else value
+            for value in values
+        ]
+        temporary = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
+        temporary.write_text("".join(f"{canonical_json(row)}\n" for row in rows))
         with temporary.open("rb") as handle:
             os.fsync(handle.fileno())
         temporary.replace(path)
@@ -285,6 +307,15 @@ class RunStore:
                 raise StoreError("bundle target escapes bundle directory")
             target.parent.mkdir(parents=True, exist_ok=True)
             if source.is_dir():
-                shutil.copytree(source, target, dirs_exist_ok=True)
+                ignore = (
+                    shutil.ignore_patterns(
+                        "node_modules",
+                        ".git",
+                        "*.tsbuildinfo",
+                    )
+                    if relative_target == "app"
+                    else None
+                )
+                shutil.copytree(source, target, dirs_exist_ok=True, ignore=ignore)
             else:
                 shutil.copy2(source, target)

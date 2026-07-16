@@ -1,0 +1,200 @@
+{
+  "$defs": {
+    "DirectedRelationship": {
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "target": {
+          "title": "Target",
+          "type": "string"
+        },
+        "vector": {
+          "$ref": "#/$defs/RelationshipVector"
+        }
+      },
+      "required": [
+        "source",
+        "target"
+      ],
+      "title": "DirectedRelationship",
+      "type": "object"
+    },
+    "RelationshipVector": {
+      "additionalProperties": false,
+      "properties": {
+        "affection": {
+          "default": 0.0,
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Affection",
+          "type": "number"
+        },
+        "confidence": {
+          "default": 0.0,
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "dominance": {
+          "default": 0.0,
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Dominance",
+          "type": "number"
+        },
+        "openness": {
+          "default": 0.0,
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Openness",
+          "type": "number"
+        },
+        "patience": {
+          "default": 0.0,
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Patience",
+          "type": "number"
+        },
+        "reliability": {
+          "default": 0.0,
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Reliability",
+          "type": "number"
+        },
+        "resentment": {
+          "default": 0.0,
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Resentment",
+          "type": "number"
+        },
+        "respect": {
+          "default": 0.0,
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Respect",
+          "type": "number"
+        },
+        "trust": {
+          "default": 0.0,
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Trust",
+          "type": "number"
+        },
+        "warmth": {
+          "default": 0.0,
+          "maximum": 1.0,
+          "minimum": -1.0,
+          "title": "Warmth",
+          "type": "number"
+        }
+      },
+      "title": "RelationshipVector",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Mutable inference state derived from, but never written back to, training.",
+  "properties": {
+    "baseline_relationship_digest": {
+      "title": "Baseline Relationship Digest",
+      "type": "string"
+    },
+    "baseline_training_run_id": {
+      "title": "Baseline Training Run Id",
+      "type": "string"
+    },
+    "baseline_trust": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "title": "Baseline Trust",
+      "type": "object"
+    },
+    "commit_sequence": {
+      "default": 0,
+      "minimum": 0,
+      "title": "Commit Sequence",
+      "type": "integer"
+    },
+    "content_digest": {
+      "title": "Content Digest",
+      "type": "string"
+    },
+    "expected_success": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "title": "Expected Success",
+      "type": "object"
+    },
+    "initialized_at": {
+      "format": "date-time",
+      "title": "Initialized At",
+      "type": "string"
+    },
+    "lineage_id": {
+      "title": "Lineage Id",
+      "type": "string"
+    },
+    "memories": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "title": "Memories",
+      "type": "object"
+    },
+    "schema_version": {
+      "default": "1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "trust_deltas_from_baseline": {
+      "additionalProperties": {
+        "type": "number"
+      },
+      "title": "Trust Deltas From Baseline",
+      "type": "object"
+    },
+    "trust_updates_enabled": {
+      "default": true,
+      "title": "Trust Updates Enabled",
+      "type": "boolean"
+    },
+    "updated_at": {
+      "format": "date-time",
+      "title": "Updated At",
+      "type": "string"
+    },
+    "vectors": {
+      "additionalProperties": {
+        "$ref": "#/$defs/DirectedRelationship"
+      },
+      "title": "Vectors",
+      "type": "object"
+    }
+  },
+  "required": [
+    "lineage_id",
+    "baseline_training_run_id",
+    "baseline_relationship_digest",
+    "vectors",
+    "expected_success",
+    "baseline_trust",
+    "trust_deltas_from_baseline",
+    "memories",
+    "content_digest"
+  ],
+  "title": "InferenceLearningState",
+  "type": "object"
+}

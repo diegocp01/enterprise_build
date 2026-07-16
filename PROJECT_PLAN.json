@@ -1,7 +1,7 @@
 {
   "project": "ZeroHandoff — Autonomous Software Delivery",
-  "last_updated": "2026-07-14",
-  "current_step": 9,
+  "last_updated": "2026-07-16",
+  "current_step": 11,
   "status_values": [
     "pending",
     "done"
@@ -146,11 +146,41 @@
       "owner": "codex",
       "task": "Run the complete autonomous product-lifecycle inference pipeline with the trained agents, from the Build Request through SENSE Opportunity Model, MODEL Outcome Model, COMPOSE Capability Graph, DECIDE Decision Graph, SIMULATE Scenario Model, EXECUTE Autonomous Change, OBSERVE Evidence + Learning, and the narrated demo.",
       "depends_on": [9],
-      "status": "pending",
+      "status": "done",
       "preconditions": {
         "lifecycle_names_and_outputs": "done",
-        "continual_learning_design": "pending_user_approval",
-        "inference_must_not_start_before_approval": true
+        "continual_learning_design": "approved_and_implemented",
+        "training_baseline": "immutable forever; copied into separate inference state",
+        "inference_trust": "run-start snapshot remains stable; alpha 0.05; step cap +/-0.1; cross-team edges start 0.0",
+        "reward": "next team accepts = 1; next team requests revision = 0",
+        "night_commit": "one xhigh curator commits shadow trust and consolidated memory after one completed prototype",
+        "non_trust_dimensions": "frozen during inference",
+        "inference_must_not_start_before_loophole_review": true,
+        "policy_defaults_approved": {
+          "acceptance": "both receiving agents must accept",
+          "update_scope": "six edges per handoff: two producer-pair edges plus four receiver-to-producer edges",
+          "expectation": "one RPE expectation per directed edge, initialized at 0.5",
+          "terminal_observe": "no trust reward because no eighth team consumes OBSERVE",
+          "training_memory_transfer": "disabled; inference memory starts empty",
+          "night_curator_identity": "dedicated internal system curator, not one of the 14 delivery agents"
+        }
+      },
+      "outputs": [
+        ".zerohandoff/runs/step10_shiftpulse_live_20260715/workspace/app/",
+        ".zerohandoff/runs/step10_shiftpulse_live_20260715/delivery_bundle/",
+        ".zerohandoff/runs/step10_shiftpulse_live_20260715/demo/demo.mp4",
+        ".zerohandoff/runs/step10_shiftpulse_live_20260715/inference_relationships.end.json",
+        ".zerohandoff/runs/step10_shiftpulse_live_20260715/inference_night_commit.json"
+      ],
+      "verification": {
+        "run": "step10_shiftpulse_live_20260715 completed SENSE, MODEL, COMPOSE, DECIDE, SIMULATE, EXECUTE, OBSERVE, DEMO, and BUNDLE",
+        "product": "ShiftPulse React/TypeScript/Vite application; 14 application tests, typecheck, and production build passed",
+        "learning": "6 canonical handoff rewards, 36 canonical shadow updates, 36 trust edges changed by +0.025, and all non-trust dimensions remained unchanged",
+        "lineage": "Frozen training digest sha256:b0849f195010cbedca942a351f6005dc8e91959b8f276ab4dec86bfd9baef324 remained valid; corrected inference commit sequence 1 ends at sha256:85c7f5a8c7f89c5921705b4afdf63bc99a0755ce92c91506da9d71be5ae04b72",
+        "resume_integrity": "Retry-duplicated learning evidence was detected before approval, preserved, explicitly invalidated, and replaced by canonical 6/36 evidence without hiding the audit trail",
+        "demo": "Browser-captured, visually non-blank 8-second H.264/AAC narrated MP4 passed video, audio, duration, checksum, and visual-content gates",
+        "bundle": "120-file delivery bundle excludes node_modules and passed independent checksum and manifest-digest validation",
+        "regression": "41 Python tests passed; Control Room typecheck/build passed"
       }
     },
     {

@@ -22,7 +22,8 @@ Every run produces an auditable delivery bundle:
 - a runnable application with source and setup instructions;
 - automated tests and quality-gate evidence;
 - append-only JSON logs covering timestamps, runtime and model configuration,
-  the frozen relationship-vector snapshot, decisions, gates, repairs, artifacts,
+  the immutable training baseline, run-start inference state, handoff rewards,
+  shadow deltas, night commit, decisions, gates, repairs, artifacts,
   and the final outcome; and
 - a generated narrated video demo.
 
@@ -36,10 +37,13 @@ into qualitative collaboration guidance without exposing raw scores. See the
 [visual explainer](context/trust_moa.html) or the
 [source specification](context/trust_moa.md) for the full design.
 
-Before the first live inference run, a separate design gate will decide the
-continual-learning layer: whether verified outcomes may update a bounded,
-auditable trust-only overlay and evidence-backed memory while the other nine
-trained dimensions remain frozen. No adaptive update is active yet.
+Inference copies that baseline into a separate evolving state. Trained pair
+edges begin at their learned values; new cross-team edges begin at `0.0`.
+Each next team gives a binary handoff reward—accept `1`, request revision `0`—but
+trust stays stable during the run. One extra-high-reasoning Night Curator then
+commits reduced-plasticity trust (`α=0.05`, step cap `±0.1`) and consolidated
+memory once the prototype completes. The nine non-trust dimensions and the
+original training JSON remain unchanged forever.
 
 Codex is the reference runtime for the hackathon. ZeroHandoff’s roles, protocols,
 artifacts, gates, and state remain host-neutral so adapters can later support

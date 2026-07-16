@@ -7,6 +7,7 @@ import pytest
 from zerohandoff.config import digest_file, digest_value
 from zerohandoff.delivery.gates import GateEngine
 from zerohandoff.delivery.orchestrator import DeliveryOrchestrator, RunCancelled
+from zerohandoff.delivery.pairs import inference_night_schema
 from zerohandoff.models import (
     AgentResult,
     BuildRequest,
@@ -49,6 +50,53 @@ def test_scenario_model_gate_rejects_dependency_cycles() -> None:
     assert result.rule_results["simulate.scenario_model_valid"] is False
 
 
+@pytest.mark.parametrize("status", ["pass", "passed"])
+def test_observe_gate_accepts_canonical_passing_statuses(status: str) -> None:
+    candidate = {
+        "proof_entries": [
+            {
+                "contract_item_id": "MODEL-01",
+                "status": status,
+                "evidence": ["recorded command evidence"],
+            }
+        ],
+        "defects": [],
+        "demo_plan": [{"step": 1}],
+        "narration_script": "Show the verified workflow.",
+    }
+    result = GateEngine().evaluate(Stage.OBSERVE, candidate, [])
+    assert result.rule_results["observe.must_have_evidenced"] is True
+    assert result.decision == GateDecision.PASS
+
+
+def test_inference_night_schema_requires_every_named_agent_memory() -> None:
+    names = ["Aster", "Juno", "Peter"]
+    schema = inference_night_schema(names)
+    memories = schema["properties"]["memory_updates"]
+    assert memories["additionalProperties"] is False
+    assert memories["required"] == names
+    assert set(memories["properties"]) == set(names)
+
+
+def test_resume_learning_rows_are_canonicalized_by_handoff(tmp_path) -> None:
+    store = RunStore(tmp_path, "resume_dedup", "delivery")
+    handoff = {
+        "producer_stage": "MODEL",
+        "consumer_stage": "COMPOSE",
+        "reward": 1,
+    }
+    shadow = {
+        **handoff,
+        "source": "Aster",
+        "target": "Juno",
+    }
+    for _ in range(3):
+        store.append_log("handoff_rewards", handoff)
+        store.append_log("shadow_trust_updates", shadow)
+    assert len(DeliveryOrchestrator._canonical_handoff_rows(store)) == 1
+    assert len(DeliveryOrchestrator._canonical_shadow_rows(store)) == 1
+
+
 def test_delivery_reaches_bundle_with_media_logs_and_valid_checksums(
     tmp_path, repo_root, settings, build_request
 ) -> None:
@@ -59,13 +107,40 @@ def test_delivery_reaches_bundle_with_media_logs_and_valid_checksums(
         settings=settings, adapter=adapter, base_dir=tmp_path / "runs"
     ).run(request=build_request, frozen=frozen, run_id="delivery_complete")
     assert result.status == RunStatus.COMPLETED
-    assert len(adapter.calls) == 30
-    assert all(call.relationship_policy is not None for call in adapter.calls)
+    assert len(adapter.calls) == 31
+    delivery_pair_calls = [call for call in adapter.calls if call.pair != "SYSTEM"]
+    assert len(delivery_pair_calls) == 30
+    assert all(call.relationship_policy is not None for call in delivery_pair_calls)
+    night_call = next(call for call in adapter.calls if call.pair == "SYSTEM")
+    assert night_call.inputs["purpose"] == "inference_night_commit"
+    assert night_call.reasoning_effort == "xhigh"
     policies = RunStore.read_jsonl(
         result.store_root / "logs" / "relationship_policies.jsonl"
     )
     assert len(policies) == 30
     assert all(row["policy"]["source_vector_digest"] for row in policies)
+    handoffs = RunStore.read_jsonl(result.store_root / "logs" / "handoff_rewards.jsonl")
+    shadows = RunStore.read_jsonl(
+        result.store_root / "logs" / "shadow_trust_updates.jsonl"
+    )
+    assert len(handoffs) == 6
+    assert all(row["reward"] == 1 for row in handoffs)
+    assert len(shadows) == 36
+    assert len(
+        RunStore.read_jsonl(
+            result.store_root / "logs" / "handoff_rewards.canonical.jsonl"
+        )
+    ) == 6
+    assert len(
+        RunStore.read_jsonl(
+            result.store_root / "logs" / "shadow_trust_updates.canonical.jsonl"
+        )
+    ) == 36
+    start = json.loads((result.store_root / "inference_relationships.start.json").read_text())
+    end = json.loads((result.store_root / "inference_relationships.end.json").read_text())
+    assert start["content_digest"] != end["content_digest"]
+    assert end["commit_sequence"] == start["commit_sequence"] + 1
+    assert (result.store_root / "inference_relationship_deltas.json").is_file()
     artifact_types = {artifact.artifact_type for artifact in result.artifacts.values()}
     assert {
         "opportunity_model",
@@ -89,6 +164,7 @@ def test_delivery_reaches_bundle_with_media_logs_and_valid_checksums(
     )
     assert review_call.permission_profile == "read-only"
     assert result.demo.has_video and result.demo.has_audio
+    assert result.demo.visual_content
     assert result.demo.duration_seconds < 180
 
     checksums = json.loads(result.bundle.checksums_path.read_text())
@@ -97,6 +173,7 @@ def test_delivery_reaches_bundle_with_media_logs_and_valid_checksums(
     assert bundle_manifest["checksums_digest"] == digest_value(checksums)
     assert "evidence/build_request.json" in checksums
     assert "evidence/settings.snapshot.json" in checksums
+    assert not (result.bundle.bundle_dir / "app" / "node_modules").exists()
     for relative, expected in checksums.items():
         assert digest_file(result.bundle.bundle_dir / relative) == expected
     bundled_events = RunStore.read_jsonl(result.bundle.bundle_dir / "evidence" / "events.jsonl")
@@ -231,6 +308,56 @@ class FailOnceAdapter(FixtureAdapter):
                 error={"code": "fixture_interruption", "message": "interrupted"},
             )
         return super().invoke(invocation)
+
+
+class RejectFirstModelHandoffAdapter(FixtureAdapter):
+    def __init__(self) -> None:
+        super().__init__()
+        self.rejected = False
+
+    def invoke(self, invocation):
+        if (
+            invocation.stage == Stage.MODEL.value
+            and "proposal-1" in invocation.invocation_id
+            and not self.rejected
+        ):
+            self.rejected = True
+            invocation.fixture_data["output"]["upstream_accepted"] = False
+            invocation.fixture_data["output"]["revision_requests"] = [
+                "Clarify the primary success signal."
+            ]
+        return super().invoke(invocation)
+
+
+def test_rejected_handoff_rewards_zero_and_routes_one_upstream_revision(
+    tmp_path, repo_root, settings, build_request
+) -> None:
+    frozen = frozen_fixture(tmp_path, repo_root, settings)
+    assert frozen is not None
+    result = DeliveryOrchestrator(
+        settings=settings,
+        adapter=RejectFirstModelHandoffAdapter(),
+        base_dir=tmp_path / "runs",
+    ).run(request=build_request, frozen=frozen, run_id="delivery_handoff_revision")
+    handoffs = RunStore.read_jsonl(result.store_root / "logs" / "handoff_rewards.jsonl")
+    first = next(row for row in handoffs if row["consumer_stage"] == Stage.MODEL.value)
+    assert first["reward"] == 0
+    assert first["revised"] is True
+    sense = [
+        row
+        for row in RunStore.read_jsonl(result.store_root / "logs" / "artifacts.jsonl")
+        if row["stage"] == Stage.SENSE.value and row["gate_status"] == "PASS"
+    ]
+    assert len(sense) == 2
+    negative = [
+        row
+        for row in RunStore.read_jsonl(
+            result.store_root / "logs" / "shadow_trust_updates.jsonl"
+        )
+        if row["reward"] == 0
+    ]
+    assert len(negative) == 6
+    assert all(row["proposed_delta"] < 0 for row in negative)
 
 
 def test_failed_run_resumes_from_last_committed_stage_without_duplicates(

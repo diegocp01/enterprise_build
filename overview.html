@@ -562,6 +562,27 @@
     .station-orb em { font-size: 15px; font-style: normal; font-weight: 950; }
     .station strong { display: block; font-size: 15px; line-height: 1; letter-spacing: -.02em; text-transform: uppercase; }
     .station small { display: block; margin-top: 7px; color: var(--muted); font-size: 8px; font-weight: 850; letter-spacing: .04em; text-transform: uppercase; }
+    .inference-learning {
+      position: absolute;
+      top: 286px;
+      left: 50%;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 13px;
+      border: 2px dashed var(--ink);
+      border-radius: 999px;
+      background: rgba(255,253,247,.9);
+      font-size: 7.5px;
+      font-weight: 950;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+    .inference-learning b { color: var(--coral); font-size: 12px; }
+    .inference-learning strong { color: var(--ink); }
+    .inference-learning .commit { color: #087964; }
 
     footer {
       display: flex;
@@ -588,7 +609,7 @@
     <main>
       <section class="story" aria-label="One human build request enters seven autonomous lifecycle cells and becomes a delivered product capability and demo">
         <div class="autonomy-zone" aria-hidden="true"><span class="zone-title">ZeroHandoff autonomous lifecycle engine</span></div>
-        <aside class="training-strip" aria-label="Before delivery, each of the seven teams tries to solve ten puzzles, one puzzle per team in each round. After every attempt, how much the two agents trust each other changes based on the outcome. After the tenth puzzle, that learned trust is kept fixed for the delivery pipeline.">
+        <aside class="training-strip" aria-label="Before delivery, each of the seven teams tries to solve ten puzzles. The immutable trained trust becomes the starting prior for a separate inference state.">
           <span class="training-label">Train once</span>
           <span class="training-puzzles">
             <span class="puzzle-count">10</span>
@@ -626,6 +647,7 @@
             <article class="station" aria-label="Execute creates the Autonomous Change"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Execute</strong><small>Autonomous change</small></article>
             <article class="station" aria-label="Observe creates Evidence and Learning"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Observe</strong><small>Evidence + learning</small></article>
           </div>
+          <div class="inference-learning" aria-label="During inference, the next team accepts or requests a revision. Trust changes are held in shadow and one night commit updates the next run."><strong>Next team</strong><span>✓ accept = 1 · ↩ revise = 0</span><b>→</b><span>shadow trust</span><b>→</b><span class="commit">one night commit after demo</span></div>
 
         </section>
 

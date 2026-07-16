@@ -13,11 +13,15 @@ from zerohandoff.models import (
     EventRecord,
     FrozenRelationshipSnapshot,
     GateResult,
+    HandoffAssessment,
+    InferenceLearningState,
+    InferenceNightOutput,
     NightCuratorOutput,
     RelationshipPolicy,
     RelationshipVector,
     RepairPacket,
     RunManifest,
+    ShadowTrustUpdate,
 )
 
 
@@ -33,11 +37,15 @@ SCHEMA_MODELS = {
         EventRecord,
         FrozenRelationshipSnapshot,
         GateResult,
+        HandoffAssessment,
+        InferenceLearningState,
+        InferenceNightOutput,
         NightCuratorOutput,
         RelationshipPolicy,
         RelationshipVector,
         RepairPacket,
         RunManifest,
+        ShadowTrustUpdate,
     )
 }
 

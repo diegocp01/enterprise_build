@@ -118,6 +118,16 @@ class FixtureAdapter:
                 "evidence": invocation.inputs.get("episode_ids", []),
                 "confidence": 1.0,
             }
+        if purpose == "inference_night_commit":
+            return {
+                "trust_commit_approved": True,
+                "memory_updates": invocation.inputs.get("proposed_memory_updates", {}),
+                "blocking_issues": [],
+                "resolved_issues": [],
+                "decision_reasons": ["Deterministic fixture approved the auditable commit."],
+                "evidence": invocation.inputs.get("evidence", []),
+                "confidence": 1.0,
+            }
         return {
             "summary": f"Fixture output for {invocation.stage} by {invocation.agent.name}",
             "content": invocation.objective,

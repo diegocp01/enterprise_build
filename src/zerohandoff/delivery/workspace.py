@@ -109,6 +109,7 @@ class ReactViteWorkspaceBuilder:
                 "import './styles.css';\n"
                 "ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>);\n"
             ),
+            "src/vite-env.d.ts": '/// <reference types="vite/client" />\n',
             "src/App.tsx": self._app_source(name, description),
             "src/styles.css": self._styles(),
             "tests/profile.test.mjs": (
@@ -173,6 +174,7 @@ class ReactViteWorkspaceBuilder:
             for path in workspace.rglob("*")
             if path.is_file()
             and "node_modules" not in path.parts
+            and "dist" not in path.relative_to(workspace).parts
             and path.suffix in {".html", ".js", ".json", ".ts", ".tsx"}
         )
         contract_items = implementation.get("contract_item_ids", [])

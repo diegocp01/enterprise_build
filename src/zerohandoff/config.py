@@ -32,6 +32,7 @@ class SettingsBundle:
     models: dict[str, Any]
     metaplasticity: dict[str, Any]
     delivery: dict[str, Any]
+    continual_learning: dict[str, Any]
     relationship_policy: dict[str, Any]
     digest: str
 
@@ -48,6 +49,7 @@ class SettingsBundle:
                 "models",
                 "metaplasticity",
                 "delivery",
+                "continual_learning",
                 "relationship_policy",
             )
         }
@@ -73,6 +75,20 @@ class SettingsBundle:
             teams[stage] = TeamDefinition(stage=stage, agents=agents)  # type: ignore[arg-type]
         if set(teams) != set(DELIVERY_STAGES) or len(names) != 14:
             raise ValueError("configuration must define seven teams and 14 agents")
+        continual = raw["continual_learning"]
+        supported_policies = {
+            "expected_success_scope": "directed_edge",
+            "handoff_acceptance_policy": "unanimous_receiver_pair",
+            "trust_update_scope": "producer_pair_and_receiver_to_producer",
+            "terminal_observe_reward": "none",
+            "transfer_training_memories": False,
+        }
+        for key, expected in supported_policies.items():
+            if continual.get(key) != expected:
+                raise ValueError(
+                    f"unsupported continual-learning policy {key}={continual.get(key)!r}; "
+                    f"expected {expected!r}"
+                )
         digest = digest_value(raw)
         return cls(
             repo_root=root,
@@ -82,6 +98,7 @@ class SettingsBundle:
             models=raw["models"],
             metaplasticity=raw["metaplasticity"],
             delivery=raw["delivery"],
+            continual_learning=raw["continual_learning"],
             relationship_policy=raw["relationship_policy"],
             digest=digest,
         )
@@ -101,6 +118,7 @@ class SettingsBundle:
             "models": self.models,
             "metaplasticity": self.metaplasticity,
             "delivery": self.delivery,
+            "continual_learning": self.continual_learning,
             "relationship_policy": self.relationship_policy,
             "digest": self.digest,
         }

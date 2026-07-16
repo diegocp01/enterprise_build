@@ -51,10 +51,13 @@ stage transition, lead, gate, or repair.
 
 - Training: `.zerohandoff/training/<run_id>/`
 - Frozen vectors: `.zerohandoff/frozen/latest.json`
+- Current inference relationships and memory: `.zerohandoff/learning/inference_relationships.json`
+- Versioned inference night commits: `.zerohandoff/learning/commits/` and `commits.jsonl`
 - Delivery: `.zerohandoff/runs/<run_id>/`
 - Canonical stream: `events.jsonl`
 - Focused evidence: `logs/*.jsonl`
 - Compiled non-trust guidance: `logs/relationship_policies.jsonl`
+- Inference rewards and shadow learning: `logs/handoff_rewards.jsonl` and `logs/shadow_trust_updates.jsonl`
 - Training summary tables: `.zerohandoff/training/<run_id>/training_results.json`
 - Resume: rerun the same delivery ID with `--resume`
 - Delivery output: `delivery_bundle/` and `delivery_bundle.zip`

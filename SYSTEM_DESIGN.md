@@ -38,7 +38,7 @@ Seven original two-agent delivery cells own those stages:
 
 The final output is a Delivery Bundle containing the runnable application,
 setup instructions, test and gate evidence, artifact history, append-only JSON
-logs, frozen relationship-vector snapshot, and a narrated video of the finished
+logs, immutable training snapshot, inference relationship lineage, and a narrated video of the finished
 product.
 
 ## 2. Experience decision
@@ -80,8 +80,9 @@ personalities from `.codex/agents/*.toml`, runtime settings from
    it never overwrites the evidence that caused the repair.
 4. **JSONL is the audit source of truth.** Mutable state and the UI database are
    rebuildable projections of append-only events.
-5. **Trust is trained separately and frozen for delivery.** Delivery never
-   mutates the relationship vector.
+5. **Training is immutable; inference learns on a separate timescale.** The
+   published training vectors are permanent priors. Delivery uses a run-start
+   copy, accumulates shadow trust deltas, and commits only after a completed prototype.
 6. **Codex is the only hackathon host.** GitHub Copilot and Claude Code
    portability remain future work and add no implementation burden to the
    hackathon path.
@@ -280,7 +281,7 @@ Every delivery cell uses two agents with isolated first judgments.
 1. Agent A and Agent B receive identical verified inputs, separately and in
    parallel. Neither sees the other proposal.
 2. Both return schema-valid independent proposals.
-3. The Trust Resolver selects the integration lead from the frozen directed
+3. The Trust Resolver selects the integration lead from the run-start directed
    trust values.
 4. The lead receives both proposals and produces one integrated candidate,
    explicitly recording accepted and rejected ideas with reasons.
@@ -322,8 +323,21 @@ coverage and evidence before the final gate.
 - Every compiled policy records its compiler version, selected dimensions,
   source-vector digest, and rendered guidance in
   `logs/relationship_policies.jsonl`.
-- The vector is copied into the run, marked `frozen=true`, hashed, and verified
-  before every stage. Delivery code has no mutation path for it.
+- The published training JSON remains immutable forever. Inference creates a
+  separate state: trained within-team edges retain their learned priors and all
+  untrained cross-team edges begin at `0.0`.
+- Prompt stance, authority, and the nine qualitative behavior signals use one
+  hashed run-start snapshot. Shadow updates never change behavior mid-run.
+- Every downstream pair assesses the immediately upstream artifact. Acceptance
+  yields reward `1`; any requested revision yields reward `0` and one bounded
+  repair is routed back to the producer.
+- Trust-only shadow updates use RPE with `α=0.05`, a `±0.1` step cap, and the
+  existing `[-1,+1]` range. The other nine dimensions remain frozen.
+- After the demo passes, one `xhigh` Inference Night Curator audits the evidence,
+  consolidates fast memory, and commits slow trust once. The next prototype
+  starts from that new inference state; the training source never changes.
+- Start state, end state, deltas from both the run start and training baseline,
+  handoff rewards, memories, curator output, timestamps, and digests are JSON logged.
 
 ## 7. Artifact and handoff contract
 
@@ -577,7 +591,9 @@ The implementation conforms to this design only when:
 - a gate failure demonstrates a bounded repair and immutable artifact history;
 - all run facts, trust snapshots, calls, commands, gates, repairs, artifacts,
   and outcomes are present in JSON logs;
-- delivery cannot mutate the frozen relationship vector;
+- delivery cannot mutate the immutable training relationship snapshot;
+- inference prompts remain stable within a run, while a successful end-of-run
+  night commit advances only the separate trust overlay and memory;
 - the repository includes the frozen vector snapshot and its digest so judges
   can run delivery without repeating training;
 - `$run-pipeline` accepts a Build Request and completes a fresh end-to-end Codex

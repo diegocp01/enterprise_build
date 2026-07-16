@@ -1,0 +1,27 @@
+{
+  "idea": "Build ShiftPulse, a lightweight shift-handoff board for a fictional regional manufacturing company. Supervisors capture unresolved operational issues before a shift ends, and the incoming shift can review ownership, urgency, status, and the next required action from one screen.",
+  "audience": "Manufacturing shift supervisors and facilities operations coordinators",
+  "outcome": "Reduce missed handoff items and make it immediately clear which operational issues need attention, who owns the next action, and what has already been completed.",
+  "constraints": [
+    "Use React, TypeScript, and Vite",
+    "Run entirely locally with no backend, authentication, network calls, or external services",
+    "Use fictional seeded data only and never include sensitive operational information",
+    "Be responsive and keyboard accessible",
+    "Keep the primary demo workflow understandable in under three minutes"
+  ],
+  "must_have_capabilities": [
+    "View all shift handoff items with owner, urgency, status, and next action",
+    "Filter handoff items by status and urgency",
+    "Advance an item from open to in progress to resolved",
+    "See summary counts for total, attention needed, and resolved items"
+  ],
+  "existing_assets": [],
+  "visual_direction": "A polished enterprise operations console with strong hierarchy, high contrast, clear status colors, and a calm industrial visual character.",
+  "out_of_scope": [
+    "User authentication and permissions",
+    "Backend persistence or databases",
+    "Notifications and third-party integrations",
+    "Deployment to an external host"
+  ],
+  "demo_preferences": "Show the queue, filter urgent work, advance one handoff item, and confirm the summary counts update."
+}

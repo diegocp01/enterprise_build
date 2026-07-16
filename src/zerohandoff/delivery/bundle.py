@@ -29,6 +29,10 @@ class DeliveryBundleAssembler:
             (store.root / "build_request.json", "evidence/build_request.json"),
             (store.root / "settings.snapshot.json", "evidence/settings.snapshot.json"),
             (store.root / "frozen_relationship_vectors.json", "evidence/frozen_relationship_vectors.json"),
+            (store.root / "inference_relationships.start.json", "evidence/inference_relationships.start.json"),
+            (store.root / "inference_relationships.end.json", "evidence/inference_relationships.end.json"),
+            (store.root / "inference_relationship_deltas.json", "evidence/inference_relationship_deltas.json"),
+            (store.root / "inference_night_commit.json", "evidence/inference_night_commit.json"),
             (store.root / "demo", "demo"),
         ):
             if source.exists():

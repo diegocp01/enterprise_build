@@ -281,10 +281,16 @@ frozen vectors, and one verified digest.
 
 1. Choose a small fictional non-banking enterprise and a Build Request that can
    be demonstrated clearly in under three minutes.
-2. Invoke `$run-pipeline` in Codex using the frozen vectors.
-3. Run SENSE through OBSERVE with no human decision handoffs.
+2. Invoke `$run-pipeline` in Codex using an inference copy whose trained edges
+   inherit the immutable vectors and whose new cross-team edges start at `0.0`.
+3. Run SENSE through OBSERVE with one stable run-start relationship snapshot and
+   no human decision handoffs. Each receiving team accepts (`1`) or requests a
+   revision (`0`); trust deltas remain shadow-only during the run.
 4. Build and verify the React/Vite application.
-5. Generate and validate the narrated demo and Delivery Bundle automatically.
+5. Generate and validate the narrated demo automatically, then use one `xhigh`
+   Night Curator call to commit reduced-plasticity trust (`α=0.05`, `±0.1`) and
+   fast memory before exporting the auditable Delivery Bundle. Never rewrite the
+   training snapshot or the nine frozen non-trust dimensions.
 
 Exit gate: every required gate passes and the exported app launches cleanly.
 

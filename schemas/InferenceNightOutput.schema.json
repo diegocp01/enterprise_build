@@ -1,0 +1,64 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "blocking_issues": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Blocking Issues",
+      "type": "array"
+    },
+    "confidence": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Confidence",
+      "type": "number"
+    },
+    "decision_reasons": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Decision Reasons",
+      "type": "array"
+    },
+    "evidence": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "memory_updates": {
+      "additionalProperties": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "title": "Memory Updates",
+      "type": "object"
+    },
+    "resolved_issues": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Resolved Issues",
+      "type": "array"
+    },
+    "trust_commit_approved": {
+      "title": "Trust Commit Approved",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "trust_commit_approved",
+    "memory_updates",
+    "blocking_issues",
+    "resolved_issues",
+    "decision_reasons",
+    "evidence",
+    "confidence"
+  ],
+  "title": "InferenceNightOutput",
+  "type": "object"
+}

@@ -1,0 +1,21 @@
+{
+  "trust_updates_enabled": true,
+  "training_snapshot_immutable": true,
+  "cross_team_initial_trust": 0.0,
+  "trust_alpha": 0.05,
+  "trust_step_max": 0.1,
+  "expected_success_initial": 0.5,
+  "expected_success_scope": "directed_edge",
+  "expectation_beta": 0.1,
+  "handoff_acceptance_policy": "unanimous_receiver_pair",
+  "trust_update_scope": "producer_pair_and_receiver_to_producer",
+  "terminal_observe_reward": "none",
+  "transfer_training_memories": false,
+  "commit_timing": "completed_prototype",
+  "shadow_updates_during_run": true,
+  "memory_updates_enabled": true,
+  "memory_max_lines_per_agent": 5,
+  "non_trust_dimensions_frozen": true,
+  "cross_stage_repair_budget": 1,
+  "commit_conflict_policy": "fail_closed"
+}

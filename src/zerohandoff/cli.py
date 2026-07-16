@@ -39,6 +39,11 @@ def _parser() -> argparse.ArgumentParser:
     run.add_argument("--run-id")
     run.add_argument("--resume", action="store_true")
     run.add_argument("--fault-stage", choices=[stage.value for stage in Stage])
+    repair_learning = commands.add_parser("repair-learning")
+    repair_learning.add_argument("--run-id", required=True)
+    repair_learning.add_argument("--reason", required=True)
+    repair_demo = commands.add_parser("repair-demo")
+    repair_demo.add_argument("--run-id", required=True)
     status = commands.add_parser("status")
     status.add_argument("run_id", nargs="?")
     serve = commands.add_parser("serve")
@@ -96,6 +101,12 @@ def main() -> int:
                 "video": result.demo.video_path,
             }
         )
+        return 0
+    if args.command == "repair-learning":
+        _json(service.invalidate_learning_commit(args.run_id, reason=args.reason))
+        return 0
+    if args.command == "repair-demo":
+        _json(service.repair_demo(args.run_id))
         return 0
     if args.command == "status":
         _json(service.run_summary(args.run_id) if args.run_id else service.list_runs())

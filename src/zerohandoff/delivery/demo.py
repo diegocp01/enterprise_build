@@ -3,11 +3,15 @@ from __future__ import annotations
 import json
 import shutil
 import subprocess
+import threading
 from dataclasses import dataclass
+from functools import partial
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
+from urllib.parse import quote
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageStat
 
 from zerohandoff.config import digest_file
 from zerohandoff.storage import RunStore
@@ -21,6 +25,8 @@ class DemoEvidence:
     duration_seconds: float
     has_video: bool
     has_audio: bool
+    visual_content: bool
+    capture_mode: str
     checksum: str
 
 
@@ -43,7 +49,10 @@ class DemoAssembler:
         video = demo_dir / "demo.mp4"
         plan_path.write_text(json.dumps(demo_plan, indent=2, sort_keys=True) + "\n")
         narration_text.write_text(narration_script.strip() + "\n")
-        self._capture(preview_html, screenshot, narration_script)
+        capture_mode = self._capture(preview_html, screenshot, narration_script)
+        visual_content = self._has_visual_content(screenshot)
+        if not visual_content:
+            raise RuntimeError("demo screenshot visual-content gate failed")
         audio_source = self._narrate(narration_script, audio)
         ffmpeg = shutil.which("ffmpeg")
         ffprobe = shutil.which("ffprobe")
@@ -126,6 +135,8 @@ class DemoAssembler:
             duration_seconds=duration,
             has_video=has_video,
             has_audio=has_audio,
+            visual_content=visual_content,
+            capture_mode=capture_mode,
             checksum=digest_file(video),
         )
         store.append_log(
@@ -138,13 +149,15 @@ class DemoAssembler:
                 "duration_seconds": duration,
                 "has_video": has_video,
                 "has_audio": has_audio,
+                "visual_content": visual_content,
+                "capture_mode": capture_mode,
                 "checksum": evidence.checksum,
             },
         )
         return evidence
 
     @staticmethod
-    def _capture(preview_html: Path, destination: Path, caption: str) -> None:
+    def _capture(preview_html: Path, destination: Path, caption: str) -> str:
         chrome_candidates = [
             Path("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"),
             Path(shutil.which("google-chrome") or "/nonexistent"),
@@ -152,23 +165,49 @@ class DemoAssembler:
         ]
         chrome = next((path for path in chrome_candidates if path.exists()), None)
         if chrome:
-            completed = subprocess.run(
-                [
-                    str(chrome),
-                    "--headless=new",
-                    "--disable-gpu",
-                    "--hide-scrollbars",
-                    "--window-size=1280,720",
-                    f"--screenshot={destination}",
-                    preview_html.resolve().as_uri(),
-                ],
-                capture_output=True,
-                text=True,
-                timeout=30,
-                check=False,
-            )
-            if completed.returncode == 0 and destination.exists():
-                return
+            class QuietHandler(SimpleHTTPRequestHandler):
+                def log_message(self, *_args: Any) -> None:
+                    return
+
+            handler = partial(QuietHandler, directory=str(preview_html.resolve().parent))
+            try:
+                server = ThreadingHTTPServer(("127.0.0.1", 0), handler)
+            except OSError:
+                server = None
+            if server is not None:
+                thread = threading.Thread(target=server.serve_forever, daemon=True)
+                thread.start()
+                try:
+                    url = (
+                        f"http://127.0.0.1:{server.server_port}/"
+                        f"{quote(preview_html.name)}"
+                    )
+                    completed = subprocess.run(
+                        [
+                            str(chrome),
+                            "--headless=new",
+                            "--disable-gpu",
+                            "--hide-scrollbars",
+                            "--window-size=1280,720",
+                            "--virtual-time-budget=3000",
+                            f"--screenshot={destination}",
+                            url,
+                        ],
+                        capture_output=True,
+                        text=True,
+                        timeout=30,
+                        check=False,
+                    )
+                finally:
+                    server.shutdown()
+                    server.server_close()
+                    thread.join(timeout=2)
+                if (
+                    completed.returncode == 0
+                    and destination.exists()
+                    and DemoAssembler._has_visual_content(destination)
+                ):
+                    return "browser"
         image = Image.new("RGB", (1280, 720), "#f6f1e7")
         draw = ImageDraw.Draw(image)
         draw.rectangle((70, 70, 1210, 650), fill="#ffffff", outline="#111827", width=5)
@@ -176,6 +215,20 @@ class DemoAssembler:
         draw.text((120, 200), caption[:140], fill="#334155")
         draw.text((120, 570), "Generated application preview", fill="#111827")
         image.save(destination)
+        return "fallback"
+
+    @staticmethod
+    def _has_visual_content(path: Path) -> bool:
+        try:
+            with Image.open(path) as source:
+                image = source.convert("RGB")
+                image.thumbnail((240, 135))
+                statistics = ImageStat.Stat(image)
+                colors = image.getcolors(maxcolors=240 * 135)
+                color_count = len(colors) if colors is not None else 240 * 135
+                return color_count >= 8 and max(statistics.stddev) >= 4.0
+        except (OSError, ValueError):
+            return False
 
     @staticmethod
     def _narrate(script: str, destination: Path) -> Path | None:
