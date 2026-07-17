@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "zerohandoff_inference_evolution_10",
+  "status": "in_progress",
+  "rules": {
+    "sequential": true,
+    "different_app_each_run": true,
+    "audit_all_seven_stages": true,
+    "audit_app_demo_logs_and_memory": true,
+    "architecture_changes_only_between_runs": true,
+    "trust_algorithm_changes_allowed": false,
+    "trust_invariant_failure_policy": "halt_and_report",
+    "required_progression": "Each run must pass hard gates and improve either score or a measurable efficiency/quality dimension."
+  },
+  "trust_baseline": {
+    "training_digest": "sha256:b0849f195010cbedca942a351f6005dc8e91959b8f276ab4dec86bfd9baef324",
+    "inference_start_digest": "sha256:85c7f5a8c7f89c5921705b4afdf63bc99a0755ce92c91506da9d71be5ae04b72",
+    "inference_start_commit_sequence": 1,
+    "algorithm_file_hashes": {
+      "settings/continual_learning.json": "e85aeea5b81b53efc3a843698747172f09f5f38bd85ac0423db3668989e4ada2",
+      "settings/relationship_policy.json": "a70bd7ef529725c2af926183d1c7fc5ca541a8f259d440f35b0bd9befb4343c4",
+      "src/zerohandoff/continual.py": "990ce957556b7efc73895a305a1544b10c93fbc8c4bf47d19e1cbc623edc181a",
+      "src/zerohandoff/trust.py": "159d9b5f1ed6932d761aa2e22ba2a1e98aee33f5c97320511f7bc527115ac352",
+      ".zerohandoff/frozen/latest.json": "26c253fe0ab9e2248bccc01b8603f764b061d6390a50def2a7aca7fc5bd59b66"
+    }
+  },
+  "experiments": [
+    {
+      "sequence": 1,
+      "id": "exp01_roomready",
+      "name": "RoomReady",
+      "difficulty": 1,
+      "score_floor": 78,
+      "status": "completed",
+      "run_id": "exp01_roomready_20260716",
+      "score": 90.0,
+      "audit": "experiments/reports/exp01_roomready_20260716/final_after_demo.json",
+      "end_commit_sequence": 2,
+      "end_relationship_digest": "sha256:08cd2c221e6136522529053bb439866a7e09e4748b5f2393131525603e7189ae",
+      "architecture_improvements": [
+        "live demos require two real mutations and two distinct UI states",
+        "capture actions and state digests are written to capture_report.json",
+        "fallback video cannot pass a Codex delivery run",
+        "contract IDs are conserved exactly after MODEL",
+        "OBSERVE proof references are machine-resolvable",
+        "Night must retain evidence-backed run memory for every agent",
+        "resume repair budgets and manifests reconstruct from append-only logs",
+        "bundles allowlist declared artifacts and advertise an honest HTTP launch"
+      ]
+    },
+    {
+      "sequence": 2,
+      "id": "exp02_stocksignal",
+      "name": "StockSignal",
+      "difficulty": 2,
+      "score_floor": 80,
+      "status": "completed",
+      "run_id": "exp02_stocksignal_20260716",
+      "score": 92.0,
+      "automated_score": 100.0,
+      "audit": "experiments/reports/exp02_stocksignal_20260716/final.json",
+      "video": ".zerohandoff/runs/exp02_stocksignal_20260716/demo/demo.mp4",
+      "bundle": ".zerohandoff/runs/exp02_stocksignal_20260716/delivery_bundle.nosync",
+      "end_commit_sequence": 3,
+      "end_relationship_digest": "sha256:7ebbd1aa83d5e497fa1c2af39ff29b24afca5d97cad5b5e0ec501a4907e0795e",
+      "architecture_improvements": [
+        "semantic browser-test failures cannot pass on exit code zero",
+        "browser acceptance requires a verified success receipt",
+        "resume passes prior gate findings and current command evidence back to agents",
+        "future apps require canonical numeric display, plain-language formulas, documented browser prerequisites, and full contract boundary tests",
+        "demo visuals are duration-synchronized to narration and use smaller overlays",
+        "bundle rebuilds are locked, staged, byte-materialized, exact-scope verified, and File-Provider-safe"
+      ]
+    },
+    {"sequence": 3, "id": "exp03_policyproof", "name": "PolicyProof", "difficulty": 3, "score_floor": 82, "status": "running", "run_id": "exp03_policyproof_20260716"},
+    {"sequence": 4, "id": "exp04_coveragecanvas", "name": "CoverageCanvas", "difficulty": 4, "score_floor": 84, "status": "pending"},
+    {"sequence": 5, "id": "exp05_incidentweave", "name": "IncidentWeave", "difficulty": 5, "score_floor": 86, "status": "pending"},
+    {"sequence": 6, "id": "exp06_bidlens", "name": "BidLens", "difficulty": 6, "score_floor": 88, "status": "pending"},
+    {"sequence": 7, "id": "exp07_routeguard", "name": "RouteGuard", "difficulty": 7, "score_floor": 90, "status": "pending"},
+    {"sequence": 8, "id": "exp08_capacitylab", "name": "CapacityLab", "difficulty": 8, "score_floor": 92, "status": "pending"},
+    {"sequence": 9, "id": "exp09_changegraph", "name": "ChangeGraph", "difficulty": 9, "score_floor": 94, "status": "pending"},
+    {"sequence": 10, "id": "exp10_resilienceroom", "name": "ResilienceRoom", "difficulty": 10, "score_floor": 95, "status": "pending"}
+  ]
+}

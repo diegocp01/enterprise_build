@@ -1,0 +1,24 @@
+{
+  "idea": "Build PolicyProof, a compliance-evidence readiness tracker that connects fictional controls to reviewable evidence records and produces a local JSON audit snapshot.",
+  "audience": "Internal compliance leads preparing an evidence-readiness review",
+  "outcome": "Evidence gaps become obvious, review progress is measurable, and a reproducible local snapshot can be exported without external services.",
+  "constraints": [
+    "Use React, TypeScript, and Vite",
+    "Run locally with fictional deterministic data and no backend, auth, database, analytics, APIs, or network calls",
+    "Generate exports entirely in the browser",
+    "Provide a visible deterministic reset",
+    "Be responsive and keyboard accessible with non-color-only status",
+    "Keep the demo under three minutes"
+  ],
+  "must_have_capabilities": [
+    "Trace every fictional control to zero or more evidence records",
+    "Filter controls by gap, pending, and reviewed state",
+    "Inspect a control and mark one evidence record reviewed",
+    "Update derived evidence-coverage percentage immediately",
+    "Download a deterministic JSON snapshot containing controls, evidence, status, and timestamp semantics"
+  ],
+  "existing_assets": [],
+  "visual_direction": "A trustworthy audit workspace with strong traceability, readable evidence detail, and restrained professional styling.",
+  "out_of_scope": ["Real compliance claims", "Document uploads", "Electronic signatures", "Backend persistence", "External integrations"],
+  "demo_preferences": "Filter to gaps, inspect one control and its evidence, mark evidence reviewed, show coverage changing, download the local JSON snapshot, and reset."
+}

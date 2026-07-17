@@ -5,6 +5,10 @@ import json
 from dataclasses import dataclass
 from typing import Any
 
+from zerohandoff.delivery.commands import (
+    approved_execute_commands,
+    project_command_manifest,
+)
 from zerohandoff.models import BuildRequest, Stage
 
 
@@ -216,12 +220,7 @@ def make_fixture_candidate(
             ],
             "data": {"storage": "seeded local state", "entities": ["OperationalRecord"]},
             "security": ["No secrets", "No external requests", "Escaped rendered content"],
-            "commands": {
-                "install": "npm install",
-                "dev": "npm run dev",
-                "test": "npm test",
-                "build": "npm run build",
-            },
+            "commands": project_command_manifest(),
             "diagram_html": _decision_graph_html(request.idea),
             "contract_item_ids": item_ids,
             "author": author,
@@ -251,10 +250,11 @@ def make_fixture_candidate(
             "author": author,
         }
     if stage == Stage.EXECUTE:
+        decide_commands = (previous.get(Stage.DECIDE) or {}).get("commands")
         return {
             "build_steps": ["Scaffold React/Vite", "Implement execution graph", "Prove output"],
             "files": [],
-            "commands": {},
+            "commands": approved_execute_commands(decide_commands) or {},
             "build_evidence": {},
             "contract_item_ids": item_ids,
             "author": author,
@@ -277,11 +277,27 @@ def make_fixture_candidate(
                     "route": "/",
                     "contract_item_ids": item_ids,
                     "expected": "The operational dashboard and primary workflow are visible.",
+                    "actions": [
+                        {
+                            "type": "click",
+                            "role": "button",
+                            "name": "Start",
+                            "value": "advance the first work item",
+                        },
+                        {
+                            "type": "click",
+                            "role": "button",
+                            "name": "Complete",
+                            "value": "complete the same work item",
+                        }
+                    ],
                 }
             ],
             "narration_script": (
-                f"ZeroHandoff received a request for {request.idea}. It autonomously mapped the "
-                "opportunity, modeled the outcome, composed the capability, executed the change, and verified it."
+                f"This is the finished application created from the request: {request.idea}. "
+                "Watch the primary workflow run in a real browser, from its initial input through "
+                "the user action and visible result. The final state is backed by the same tests "
+                "and evidence included in the delivery bundle."
             ),
             "author": author,
         }

@@ -1,0 +1,24 @@
+{
+  "idea": "Build BidLens, a transparent procurement bid-comparison tool for fictional industrial suppliers with adjustable criteria weights and explainable deterministic rankings.",
+  "audience": "Enterprise sourcing managers comparing a shortlist of supplier bids",
+  "outcome": "Managers can change evaluation priorities and understand exactly why rankings move without hiding the underlying math.",
+  "constraints": [
+    "Use React, TypeScript, and Vite",
+    "Local-only with deterministic fictional data and no backend, auth, database, analytics, APIs, or network calls",
+    "Criteria weights must total exactly 100 before rankings update",
+    "Document normalization, weighted scoring, rounding, and tie rules",
+    "Responsive and keyboard accessible with non-color-only state",
+    "Demo under three minutes"
+  ],
+  "must_have_capabilities": [
+    "Show supplier scores by criterion and an initial ranking",
+    "Edit criteria weights with exact-total validation",
+    "Calculate normalized weighted scores deterministically with an explicit tie rule",
+    "Explain the winning supplier's score by criterion",
+    "Reset weights and rankings to deterministic defaults"
+  ],
+  "existing_assets": [],
+  "visual_direction": "A high-trust sourcing analysis surface with clear tables, explainable math, restrained charts, and excellent validation feedback.",
+  "out_of_scope": ["Real suppliers", "Currency conversion", "Contracting", "Persistence", "External data"],
+  "demo_preferences": "Inspect the initial ranking, change two weights, handle an invalid total, restore 100, show ranking movement and explain the winning score, then reset."
+}

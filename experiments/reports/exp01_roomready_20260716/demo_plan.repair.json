@@ -1,0 +1,111 @@
+[
+  {
+    "step": 1,
+    "route": "/",
+    "expected": "The initial campus view shows six rooms, four ready, and two blocked.",
+    "actions": [
+      {
+        "type": "wait",
+        "role": "region",
+        "name": "Campus readiness totals",
+        "value": "initial totals"
+      }
+    ]
+  },
+  {
+    "step": 2,
+    "route": "/",
+    "expected": "Filtering by Blocked leaves Harbor 4A and Maple 3B in the inventory.",
+    "actions": [
+      {
+        "type": "select",
+        "role": "combobox",
+        "name": "Readiness",
+        "value": "Blocked"
+      },
+      {
+        "type": "wait",
+        "role": "heading",
+        "name": "Room inventory",
+        "value": "two rooms shown"
+      }
+    ]
+  },
+  {
+    "step": 3,
+    "route": "/",
+    "expected": "Harbor 4A opens with one failed Display connection check.",
+    "actions": [
+      {
+        "type": "click",
+        "role": "button",
+        "name": "Inspect Harbor 4A",
+        "value": "open room detail"
+      },
+      {
+        "type": "wait",
+        "role": "heading",
+        "name": "Harbor 4A",
+        "value": "room detail visible"
+      }
+    ]
+  },
+  {
+    "step": 4,
+    "route": "/",
+    "expected": "Resolving Display connection makes Harbor ready and updates totals to five ready and one blocked.",
+    "actions": [
+      {
+        "type": "click",
+        "role": "button",
+        "name": "Resolve Display connection for Harbor 4A",
+        "value": "resolve failed check"
+      },
+      {
+        "type": "wait",
+        "role": "",
+        "name": "",
+        "selector": "[data-check-status=\"display\"]",
+        "value": "Passed"
+      },
+      {
+        "type": "wait",
+        "role": "region",
+        "name": "Campus readiness totals",
+        "value": "updated totals"
+      }
+    ]
+  },
+  {
+    "step": 5,
+    "route": "/",
+    "expected": "The retained Harbor detail confirms Ready while Maple is the only blocked inventory result.",
+    "actions": [
+      {
+        "type": "wait",
+        "role": "heading",
+        "name": "Harbor 4A",
+        "value": "retained ready detail"
+      }
+    ]
+  },
+  {
+    "step": 6,
+    "route": "/",
+    "expected": "Reset restores the original six-room fixture and four-ready, two-blocked totals.",
+    "actions": [
+      {
+        "type": "click",
+        "role": "button",
+        "name": "Reset demo data",
+        "value": "restore deterministic fixture"
+      },
+      {
+        "type": "wait",
+        "role": "region",
+        "name": "Campus readiness totals",
+        "value": "restored totals"
+      }
+    ]
+  }
+]

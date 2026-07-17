@@ -27,6 +27,18 @@ class StoreError(RuntimeError):
     pass
 
 
+def _materialize_file(source: str | Path, target: str | Path) -> str:
+    """Copy bytes into a fresh inode without File Provider metadata or clone identity."""
+
+    source_path = Path(source)
+    target_path = Path(target)
+    target_path.parent.mkdir(parents=True, exist_ok=True)
+    with source_path.open("rb") as source_handle, target_path.open("wb") as target_handle:
+        shutil.copyfileobj(source_handle, target_handle, length=1024 * 1024)
+    target_path.chmod(source_path.stat().st_mode & 0o777)
+    return str(target_path)
+
+
 class RunStore:
     """Single-writer run store with append-only events and immutable artifacts."""
 
@@ -68,7 +80,9 @@ class RunStore:
         self.artifacts_dir = self.root / "artifacts"
         self.raw_dir = self.root / "raw"
         self.workspace_dir = self.root / "workspace"
-        self.bundle_dir = self.root / "delivery_bundle"
+        # `.nosync` prevents macOS Documents/iCloud File Provider from resurrecting
+        # conflict copies while a generated bundle is replaced after demo repair.
+        self.bundle_dir = self.root / "delivery_bundle.nosync"
         for directory in (
             self.root,
             self.logs_dir,
@@ -298,24 +312,45 @@ class RunStore:
         return digest_value(digest_input) == envelope.content_digest
 
     def copy_into_bundle(self, sources: Iterable[tuple[Path, str]]) -> None:
-        if self.bundle_dir.exists():
-            shutil.rmtree(self.bundle_dir)
-        self.bundle_dir.mkdir(parents=True)
-        for source, relative_target in sources:
-            target = (self.bundle_dir / relative_target).resolve()
-            if self.bundle_dir.resolve() not in target.parents:
-                raise StoreError("bundle target escapes bundle directory")
-            target.parent.mkdir(parents=True, exist_ok=True)
-            if source.is_dir():
-                ignore = (
-                    shutil.ignore_patterns(
-                        "node_modules",
-                        ".git",
-                        "*.tsbuildinfo",
+        staging = self.root / f".delivery_bundle.staging.{uuid.uuid4().hex}.nosync"
+        backup = self.root / f".delivery_bundle.backup.{uuid.uuid4().hex}.nosync"
+        staging.mkdir(parents=True)
+        try:
+            for source, relative_target in sources:
+                target = (staging / relative_target).resolve()
+                if staging.resolve() not in target.parents:
+                    raise StoreError("bundle target escapes bundle directory")
+                target.parent.mkdir(parents=True, exist_ok=True)
+                if source.is_dir():
+                    ignore = (
+                        shutil.ignore_patterns(
+                            "node_modules",
+                            ".git",
+                            ".DS_Store",
+                            ".playwright-mcp",
+                            "output",
+                            "*.tsbuildinfo",
+                        )
+                        if relative_target == "app"
+                        else None
                     )
-                    if relative_target == "app"
-                    else None
-                )
-                shutil.copytree(source, target, dirs_exist_ok=True, ignore=ignore)
-            else:
-                shutil.copy2(source, target)
+                    shutil.copytree(
+                        source,
+                        target,
+                        dirs_exist_ok=True,
+                        ignore=ignore,
+                        copy_function=_materialize_file,
+                    )
+                else:
+                    _materialize_file(source, target)
+            if self.bundle_dir.exists():
+                os.replace(self.bundle_dir, backup)
+            os.replace(staging, self.bundle_dir)
+            if backup.exists():
+                shutil.rmtree(backup)
+        except Exception:
+            if staging.exists():
+                shutil.rmtree(staging)
+            if backup.exists() and not self.bundle_dir.exists():
+                os.replace(backup, self.bundle_dir)
+            raise

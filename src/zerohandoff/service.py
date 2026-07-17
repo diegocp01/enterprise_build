@@ -7,10 +7,13 @@ import uuid
 from pathlib import Path
 from typing import Any, Literal
 
-from zerohandoff.config import SettingsBundle
+from zerohandoff.config import SettingsBundle, digest_value
 from zerohandoff.continual import InferenceLearningStore
 from zerohandoff.delivery.bundle import DeliveryBundleAssembler
-from zerohandoff.delivery.demo import DemoAssembler
+from zerohandoff.delivery.demo import (
+    DemoAssembler,
+    is_presenter_quality_narration,
+)
 from zerohandoff.delivery.orchestrator import DeliveryOrchestrator, DeliveryResult
 from zerohandoff.delivery.stages import contract_item_ids
 from zerohandoff.doctor import doctor
@@ -19,6 +22,7 @@ from zerohandoff.models import (
     ArtifactEnvelope,
     FrozenRelationshipSnapshot,
     InferenceLearningState,
+    RunManifest,
     RunStatus,
     Stage,
 )
@@ -222,7 +226,13 @@ class RunService:
         )
         return {**record, "preserved_run_files": preserved}
 
-    def repair_demo(self, run_id: str) -> dict[str, Any]:
+    def repair_demo(
+        self,
+        run_id: str,
+        *,
+        narration_override: str | None = None,
+        demo_plan_override: list[dict[str, Any]] | None = None,
+    ) -> dict[str, Any]:
         """Regenerate a completed run's demo without changing its learning commit."""
 
         store = RunStore(self.delivery_root, run_id, "delivery")
@@ -252,12 +262,15 @@ class RunService:
             if relative.endswith("evidence_and_learning.json")
         )
         observe = json.loads((store.root / observe_json).read_text())
+        demo_plan = demo_plan_override or observe["demo_plan"]
+        narration_script = narration_override or observe["narration_script"]
         demo = DemoAssembler().assemble(
             store=store,
             preview_html=store.workspace_dir / "app" / "dist" / "index.html",
-            demo_plan=observe["demo_plan"],
-            narration_script=observe["narration_script"],
+            demo_plan=demo_plan,
+            narration_script=narration_script,
             max_seconds=int(self.settings.delivery["max_demo_seconds"]),
+            require_interactive=True,
         )
         demo_versions = [
             int(row["version"])
@@ -280,11 +293,24 @@ class RunService:
                     "has_video": demo.has_video,
                     "has_audio": demo.has_audio,
                     "visual_content": demo.visual_content,
+                    "has_motion": demo.has_motion,
                     "capture_mode": demo.capture_mode,
+                    "narration_provider": demo.narration_provider,
+                    "capture_report": (
+                        str(demo.capture_report_path.relative_to(store.root))
+                        if demo.capture_report_path
+                        else None
+                    ),
+                    "mutating_actions_completed": demo.mutating_actions_completed,
+                    "unique_state_count": demo.unique_state_count,
                     "checksum": demo.checksum,
                 }
             },
-            input_digests={"observe": observe_envelope.content_digest},
+            input_digests={
+                "observe": observe_envelope.content_digest,
+                "demo_plan": digest_value(demo_plan),
+                "narration": digest_value(narration_script),
+            },
             contract_item_ids=contract_item_ids(observe),
         )
         store.append_log(
@@ -296,7 +322,17 @@ class RunService:
                     "demo.video_decodes": demo.has_video,
                     "demo.audio_present": demo.has_audio,
                     "demo.visual_content": demo.visual_content,
-                    "demo.browser_capture": demo.capture_mode == "browser",
+                    "demo.motion_present": demo.has_motion,
+                    "demo.interactive_browser_capture": (
+                        demo.capture_mode == "browser-interactive"
+                    ),
+                    "demo.presenter_quality_narration": (
+                        is_presenter_quality_narration(demo.narration_provider)
+                    ),
+                    "demo.mutating_actions_completed": (
+                        demo.mutating_actions_completed >= 2
+                    ),
+                    "demo.visible_state_changed": demo.unique_state_count >= 2,
                     "demo.duration_below_limit": (
                         demo.duration_seconds
                         < int(self.settings.delivery["max_demo_seconds"])
@@ -316,8 +352,14 @@ class RunService:
             output_refs=demo_envelope.content_files,
             payload={
                 "capture_mode": demo.capture_mode,
+                "has_motion": demo.has_motion,
+                "narration_provider": demo.narration_provider,
+                "mutating_actions_completed": demo.mutating_actions_completed,
+                "unique_state_count": demo.unique_state_count,
                 "visual_content": demo.visual_content,
                 "checksum": demo.checksum,
+                "narration_overridden": narration_override is not None,
+                "demo_plan_overridden": demo_plan_override is not None,
             },
         )
         manifest_path = store.root / "manifest.json"
@@ -325,14 +367,33 @@ class RunService:
         manifest.setdefault("artifact_checksums", {})[Stage.DEMO.value] = (
             demo_envelope.content_digest
         )
-        store.atomic_json("manifest.json", manifest)
-        bundle = DeliveryBundleAssembler().assemble(store, record_event=False)
+        store.write_manifest(RunManifest.model_validate(manifest))
+        assembler = DeliveryBundleAssembler()
+        assembler.assemble(store, record_event=True)
+        state["bundle"] = str(store.bundle_dir.relative_to(store.root))
+        store.write_state(state)
+        store.append_event(
+            event_type="delivery.bundle.repaired",
+            status="completed",
+            stage=Stage.BUNDLE.value,
+            output_refs=[state["bundle"]],
+            payload={
+                "demo_version": demo_envelope.version,
+                "checksums_scope_complete": True,
+            },
+        )
+        # Refresh once so the bundle contains its own post-repair BUNDLE gate/event.
+        bundle = assembler.assemble(store, record_event=False)
         return {
             "run_id": run_id,
             "demo_version": demo_envelope.version,
             "video": str(demo.video_path),
             "screenshot": str(demo.screenshot_path),
             "capture_mode": demo.capture_mode,
+            "has_motion": demo.has_motion,
+            "narration_provider": demo.narration_provider,
+            "mutating_actions_completed": demo.mutating_actions_completed,
+            "unique_state_count": demo.unique_state_count,
             "visual_content": demo.visual_content,
             "checksum": demo.checksum,
             "bundle": str(bundle.bundle_dir),
@@ -427,7 +488,10 @@ class RunService:
             "night_commit_count": len(night_commits),
             "event_count": len(events),
             "failure_reason": state.get("failure_reason") or manifest.get("failure_reason"),
-            "bundle_ready": (root / "delivery_bundle" / "delivery_manifest.json").exists(),
+            "bundle_ready": any(
+                (root / name / "delivery_manifest.json").exists()
+                for name in ("delivery_bundle.nosync", "delivery_bundle")
+            ),
             "preview_ready": (root / "workspace" / "app" / "dist" / "index.html").exists(),
             "video_ready": (root / "demo" / "demo.mp4").exists(),
             "updated_at": state_path.stat().st_mtime_ns if state_path.exists() else 0,
@@ -460,7 +524,8 @@ class RunService:
 
     def bundle_archive(self, run_id: str) -> Path:
         root = self._delivery_path(run_id)
-        bundle = root / "delivery_bundle"
+        preferred = root / "delivery_bundle.nosync"
+        bundle = preferred if preferred.is_dir() else root / "delivery_bundle"
         if not (bundle / "delivery_manifest.json").exists():
             raise FileNotFoundError("delivery bundle is not ready")
         archive = root / "delivery_bundle.zip"

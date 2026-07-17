@@ -1,0 +1,126 @@
+{
+  "app": {
+    "build_evidence_present": true,
+    "failed_commands": 1,
+    "final_validation_passed": true,
+    "latest_validation_commands": [
+      "build",
+      "install",
+      "test",
+      "typecheck"
+    ],
+    "recorded_commands": 5
+  },
+  "bundle": {
+    "failures": [
+      "delivery_bundle/checksums.json missing"
+    ],
+    "files": 0
+  },
+  "continual_learning": {
+    "end_commit_sequence": 1,
+    "end_digest": "sha256:85c7f5a8c7f89c5921705b4afdf63bc99a0755ce92c91506da9d71be5ae04b72",
+    "handoff_rewards": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "memory_agents_changed": 0,
+    "memory_lines_after": 24,
+    "memory_lines_before": 24,
+    "start_commit_sequence": 1,
+    "start_digest": "sha256:85c7f5a8c7f89c5921705b4afdf63bc99a0755ce92c91506da9d71be5ae04b72",
+    "trust_edges_changed": 0
+  },
+  "demo": {
+    "capture_mode": null,
+    "duration_seconds": null,
+    "has_audio": false,
+    "has_motion": false,
+    "has_video": false,
+    "neural_narration": false,
+    "visual_content": false
+  },
+  "final_outcome": "failed",
+  "non_trust_changes": [],
+  "repairs_total": 4,
+  "run_id": "exp01_roomready_20260716",
+  "schema_version": "1.0",
+  "score": 32.86,
+  "score_components": {
+    "bundle_integrity": 0.0,
+    "continual_memory": 0.0,
+    "deterministic_commands": 15.0,
+    "interactive_demo": 0.0,
+    "run_completion": 0.0,
+    "seven_stage_artifacts": 17.86,
+    "trust_invariants": 0.0
+  },
+  "stages": {
+    "COMPOSE": {
+      "artifact_present": true,
+      "files_present": true,
+      "latest_gate": "PASS",
+      "latest_version": 2,
+      "repairs": 1
+    },
+    "DECIDE": {
+      "artifact_present": true,
+      "files_present": true,
+      "latest_gate": "PASS",
+      "latest_version": 2,
+      "repairs": 1
+    },
+    "EXECUTE": {
+      "artifact_present": true,
+      "files_present": true,
+      "latest_gate": "REPAIR",
+      "latest_version": 1,
+      "repairs": 1
+    },
+    "MODEL": {
+      "artifact_present": true,
+      "files_present": true,
+      "latest_gate": "PASS",
+      "latest_version": 1,
+      "repairs": 0
+    },
+    "OBSERVE": {
+      "artifact_present": false,
+      "files_present": false,
+      "latest_gate": null,
+      "latest_version": 0,
+      "repairs": 0
+    },
+    "SENSE": {
+      "artifact_present": true,
+      "files_present": true,
+      "latest_gate": "PASS",
+      "latest_version": 2,
+      "repairs": 1
+    },
+    "SIMULATE": {
+      "artifact_present": true,
+      "files_present": true,
+      "latest_gate": "PASS",
+      "latest_version": 1,
+      "repairs": 0
+    }
+  },
+  "status": "repairing",
+  "trust_invariants": {
+    "algorithm_and_frozen_hashes_unchanged": true,
+    "all_trust_steps_within_cap": true,
+    "canonical_handoffs_six": false,
+    "canonical_shadow_updates_36": false,
+    "commit_incremented_once": false,
+    "frozen_baseline_digest_matches": true,
+    "incomplete_run_has_no_commit": true,
+    "incomplete_shadow_updates_consistent": true,
+    "lineage_unchanged": true,
+    "night_commit_approved": false,
+    "non_trust_dimensions_frozen": true
+  }
+}

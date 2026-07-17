@@ -1,0 +1,24 @@
+{
+  "idea": "Build StockSignal, a deterministic inventory replenishment calculator for fictional plant-maintenance parts. Planners adjust demand, lead time, and safety stock and immediately see reorder points, recommended quantities, and priority ranking.",
+  "audience": "Plant inventory planners and maintenance-material coordinators",
+  "outcome": "Planners can understand which parts require action and why, while invalid assumptions are caught before they affect a recommendation.",
+  "constraints": [
+    "Use React, TypeScript, and Vite",
+    "Run locally with no backend, authentication, database, analytics, external APIs, or runtime network calls",
+    "Use fictional deterministic seed data and provide a visible reset action",
+    "Document the reorder-point and recommended-quantity formulas in the interface",
+    "Be responsive, keyboard operable, visibly focused, and accessible without color-only status",
+    "Keep the primary demo under three minutes"
+  ],
+  "must_have_capabilities": [
+    "Select a maintenance part and edit weekly demand, lead time, and safety stock",
+    "Calculate reorder point and recommended quantity deterministically",
+    "Reject empty, negative, nonnumeric, and unreasonable inputs with actionable messages",
+    "Re-rank parts when valid assumptions change",
+    "Reset all values to deterministic seeded defaults"
+  ],
+  "existing_assets": [],
+  "visual_direction": "A precise planning workbench with readable numbers, compact comparison tables, clear formulas, and calm industrial styling.",
+  "out_of_scope": ["Purchase orders", "Supplier integrations", "Persistence", "Authentication", "Real inventory data"],
+  "demo_preferences": "Select a part, change demand and lead time, show its reorder point and ranking change, trigger and recover from an invalid input, then reset."
+}

@@ -1,0 +1,24 @@
+{
+  "idea": "Build ResilienceRoom, an enterprise continuity simulator connecting fictional disruptions, capability dependencies, mitigation choices, recovery metrics, authorization thresholds, and a downloadable local evidence record.",
+  "audience": "Enterprise resilience leads running a continuity planning exercise",
+  "outcome": "Leads can compare mitigations and authorize a recovery plan only when transparent deterministic thresholds are met.",
+  "constraints": [
+    "Use React, TypeScript, and Vite",
+    "Local-only with deterministic fictional data and no backend, auth, database, analytics, APIs, or runtime network calls",
+    "Document all metric formulas, thresholds, units, and rounding",
+    "Generate the evidence export entirely in the browser and provide reset",
+    "Responsive and keyboard accessible with accessible dependency and metric representations",
+    "Demo under three minutes"
+  ],
+  "must_have_capabilities": [
+    "Choose a disruption and show affected capability dependencies",
+    "Compare three mitigation choices with deterministic before-and-after metrics",
+    "Block authorization when recovery thresholds are not met and explain each failure",
+    "Authorize a sufficient plan and record the decision state",
+    "Download a deterministic local evidence record and reset the simulation"
+  ],
+  "existing_assets": [],
+  "visual_direction": "A judge-ready resilience command room balancing dependency clarity, explainable metrics, and confident enterprise visual polish.",
+  "out_of_scope": ["Real business continuity data", "Live risk feeds", "Optimization", "Persistence", "External integrations"],
+  "demo_preferences": "Choose a disruption, inspect affected capabilities, simulate an insufficient mitigation and show authorization blocked, choose a sufficient mitigation, verify thresholds, authorize, export evidence, then reset."
+}

@@ -1,0 +1,24 @@
+{
+  "idea": "Build RouteGuard, a local field-service sequence planner using a fictional travel-time matrix. It simulates one delay, propagates downstream ETAs and SLA risk, and lets schedulers reorder visits accessibly.",
+  "audience": "Regional field-service schedulers managing a technician's daily sequence",
+  "outcome": "Schedulers can understand cascading delay risk and improve the visit order while preserving an auditable deterministic calculation.",
+  "constraints": [
+    "Use React, TypeScript, and Vite",
+    "No maps, backend, authentication, database, analytics, APIs, or runtime network calls",
+    "Use a documented fictional deterministic travel-time matrix",
+    "Reordering must be keyboard accessible and support undo plus reset",
+    "State cannot rely on color alone and must work on narrow screens",
+    "Demo under three minutes"
+  ],
+  "must_have_capabilities": [
+    "Show ordered jobs, cumulative ETAs, SLA deadlines, and current risk",
+    "Apply one deterministic delay simulation and propagate downstream ETAs",
+    "Reorder visits using accessible controls",
+    "Update ETA and SLA-risk counts after reordering",
+    "Undo the reorder and reset the scenario"
+  ],
+  "existing_assets": [],
+  "visual_direction": "A sequence-first scheduling console with readable time math, clear before-and-after risk, and no map dependency.",
+  "out_of_scope": ["Geocoding", "Live traffic", "Maps", "Dispatch integrations", "Persistence"],
+  "demo_preferences": "Simulate a delay, show downstream SLA risks, reorder one visit, show ETAs and risk count improving, undo, then reset."
+}

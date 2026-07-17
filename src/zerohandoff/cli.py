@@ -44,6 +44,8 @@ def _parser() -> argparse.ArgumentParser:
     repair_learning.add_argument("--reason", required=True)
     repair_demo = commands.add_parser("repair-demo")
     repair_demo.add_argument("--run-id", required=True)
+    repair_demo.add_argument("--narration-file", type=Path)
+    repair_demo.add_argument("--plan-file", type=Path)
     status = commands.add_parser("status")
     status.add_argument("run_id", nargs="?")
     serve = commands.add_parser("serve")
@@ -106,7 +108,19 @@ def main() -> int:
         _json(service.invalidate_learning_commit(args.run_id, reason=args.reason))
         return 0
     if args.command == "repair-demo":
-        _json(service.repair_demo(args.run_id))
+        narration_override = (
+            args.narration_file.read_text() if args.narration_file else None
+        )
+        plan_override = (
+            json.loads(args.plan_file.read_text()) if args.plan_file else None
+        )
+        _json(
+            service.repair_demo(
+                args.run_id,
+                narration_override=narration_override,
+                demo_plan_override=plan_override,
+            )
+        )
         return 0
     if args.command == "status":
         _json(service.run_summary(args.run_id) if args.run_id else service.list_runs())

@@ -8,7 +8,52 @@ from pathlib import Path
 from typing import Any
 
 from zerohandoff.config import digest_file
+from zerohandoff.delivery.commands import project_command_manifest
 from zerohandoff.models import BuildRequest
+
+
+BROWSER_ACCEPTANCE_HARNESS_REQUIREMENTS = (
+    "The browser harness must build the current production bundle before starting its "
+    "preview and must test that fresh bundle in a real browser. When it drives CDP "
+    "directly, it must await every Input.dispatchKeyEvent call sequentially. Send Enter as "
+    "exactly one keyDown with text and unmodifiedText set to `\\r`, followed by keyUp. Send "
+    "non-text keys such as Tab or Escape as rawKeyDown followed by keyUp. Include "
+    "windowsVirtualKeyCode, code, key, location, and modifiers where the protocol requires "
+    "them, and omit nativeVirtualKeyCode. It must never fire-and-forget a key event or "
+    "insert a separate char event. "
+    "Before keyboard activation it must focus the intended control and assert that "
+    "document.activeElement is that exact element; a body-text match is not focus or "
+    "activation evidence. Repeated exports that reuse a deterministic filename must clear "
+    "or distinguish the prior file and correlate the new completed download rather than "
+    "treating an old file or unchanged filename as success. CDP/WebSocket connection, every "
+    "request, the overall journey, and browser/preview cleanup must each have bounded "
+    "timeouts. Every readiness or runtime fetch callback must carry its own AbortSignal or "
+    "AbortController deadline; an outer polling deadline is not a substitute for bounding "
+    "the awaited request. Pending requests must be rejected and child processes stopped in "
+    "finally. Network collection must begin before the initial navigation and remain active "
+    "through any explicit reload. Classify requests by origin, resource type, and initiator: "
+    "browser/parser-initiated same-origin preview documents and static assets may load, "
+    "including a same-origin favicon even when CDP labels it Other, but app-initiated Fetch, "
+    "XHR, WebSocket, EventSource, beacon, or script-driven HTTP and every external-origin "
+    "request must fail unless the Outcome Model explicitly permits it. Report permitted "
+    "preview loads separately from prohibited runtime requests; never clear the request "
+    "ledger or start monitoring after navigation to make a network assertion pass. After "
+    "completion, persist explicit permitted-preview and prohibited-runtime counts plus "
+    "their navigation/runtime phases; a combined request total or an implied zero is not "
+    "sufficient evidence. The declared npm test entrypoint must delete any prior success "
+    "receipt before unit tests, builds, or other fallible setup begin. It may publish a new "
+    "success receipt and ZEROHANDOFF_BROWSER_ACCEPTANCE_OK only after the browser client, "
+    "browser process, preview process, downloads, and temporary profile have all been "
+    "cleaned up successfully; cleanup failure is test failure and must leave no receipt. "
+    "After "
+    "real keyboard input, acceptance must prove that the exact active control "
+    "matches :focus-visible, is rendered, and has a nonzero computed outline, box-shadow, or "
+    "equivalent visible focus indicator; activeElement equality alone is insufficient. It "
+    "must also compute and assert at least 3:1 contrast between that indicator and every "
+    "adjacent light or dark surface exercised by the journey. "
+    "The harness may print ZEROHANDOFF_BROWSER_ACCEPTANCE_OK only after the real browser "
+    "journey and every required disk/browser assertion succeed."
+)
 
 
 @dataclass(frozen=True)
@@ -23,7 +68,9 @@ class BuildEvidence:
     @property
     def passed(self) -> bool:
         return all(self.checks.values()) and all(
-            result.get("exit_code") == 0 and not result.get("timed_out")
+            result.get("exit_code") == 0
+            and not result.get("timed_out")
+            and not result.get("reported_error")
             for result in self.command_results
         )
 
@@ -31,6 +78,105 @@ class BuildEvidence:
 def _product_name(idea: str) -> str:
     words = re.findall(r"[A-Za-z0-9]+", idea)
     return " ".join(words[:5]).title() or "Enterprise Operations"
+
+
+def _portable_dist_assets(workspace: Path) -> bool:
+    index = workspace / "dist" / "index.html"
+    if not index.is_file():
+        return False
+    for reference in re.findall(r'(?:src|href)=["\']([^"\']+)["\']', index.read_text(errors="ignore")):
+        clean = reference.split("?", 1)[0].split("#", 1)[0]
+        if not clean or clean.startswith(("#", "data:", "mailto:")):
+            continue
+        if clean.startswith(("/", "http://", "https://", "//")):
+            return False
+        target = (index.parent / clean).resolve()
+        if index.parent.resolve() not in target.parents or not target.is_file():
+            return False
+    return True
+
+
+def _node_module_links_are_local(workspace: Path) -> bool:
+    node_modules = workspace / "node_modules"
+    if node_modules.is_symlink():
+        return False
+    if not node_modules.exists():
+        return True
+    root = node_modules.resolve()
+    for path in node_modules.rglob("*"):
+        if not path.is_symlink():
+            continue
+        target = path.resolve(strict=False)
+        if root != target and root not in target.parents:
+            return False
+    return True
+
+
+def _test_harnesses_are_declared(workspace: Path, test_script: str) -> bool:
+    tests = workspace / "tests"
+    if not tests.is_dir():
+        return True
+    suspicious = [
+        path
+        for path in tests.rglob("*")
+        if path.is_file()
+        and (
+            path.suffix == ".sh"
+            or ("acceptance" in path.name.lower() and ".test." not in path.name)
+        )
+    ]
+    declared_surface = test_script
+    for _ in suspicious:
+        for path in suspicious:
+            relative = str(path.relative_to(workspace))
+            if relative in declared_surface:
+                declared_surface += "\n" + path.read_text(errors="ignore")
+    return all(
+        str(path.relative_to(workspace)) in declared_surface for path in suspicious
+    )
+
+
+def _browser_acceptance_required(workspace: Path) -> bool:
+    tests = workspace / "tests"
+    return tests.is_dir() and any(
+        path.is_file() and "acceptance" in path.name.lower()
+        for path in tests.rglob("*")
+    )
+
+
+def _browser_runtime_prerequisites_documented(workspace: Path) -> bool:
+    """Require an honest README when acceptance tests depend on a named browser."""
+
+    tests = workspace / "tests"
+    if not tests.is_dir():
+        return True
+    acceptance_surface = "\n".join(
+        path.read_text(errors="ignore")
+        for path in tests.rglob("*")
+        if path.is_file() and "acceptance" in path.name.lower()
+    )
+    browser_names = {
+        match.lower()
+        for match in re.findall(
+            r"--browser(?:=|\s+)([A-Za-z0-9_-]+)", acceptance_surface
+        )
+    }
+    if not browser_names:
+        return True
+    try:
+        readme = (workspace / "README.md").read_text(errors="ignore").lower()
+    except OSError:
+        return False
+    aliases = {
+        "chrome": ("chrome", "google chrome"),
+        "chromium": ("chromium",),
+        "firefox": ("firefox",),
+        "webkit": ("webkit", "safari"),
+    }
+    return all(
+        any(alias in readme for alias in aliases.get(name, (name,)))
+        for name in browser_names
+    )
 
 
 class ReactViteWorkspaceBuilder:
@@ -62,11 +208,38 @@ class ReactViteWorkspaceBuilder:
                 "test": "node --test tests/*.test.mjs",
                 "typecheck": "tsc -b --pretty false",
             },
-            "dependencies": {"@vitejs/plugin-react": "latest", "vite": "latest", "react": "latest", "react-dom": "latest"},
-            "devDependencies": {"typescript": "latest", "@types/react": "latest", "@types/react-dom": "latest"},
+            "dependencies": {
+                "@vitejs/plugin-react": "6.0.3",
+                "vite": "8.1.5",
+                "react": "19.2.7",
+                "react-dom": "19.2.7",
+            },
+            "devDependencies": {
+                "typescript": "7.0.2",
+                "@types/react": "19.2.17",
+                "@types/react-dom": "19.2.3",
+            },
         }
         files: dict[str, str] = {
             "package.json": json.dumps(package, indent=2) + "\n",
+            "package-lock.json": json.dumps(
+                {
+                    "name": package["name"],
+                    "version": package["version"],
+                    "lockfileVersion": 3,
+                    "requires": True,
+                    "packages": {
+                        "": {
+                            "name": package["name"],
+                            "version": package["version"],
+                            "dependencies": package["dependencies"],
+                            "devDependencies": package["devDependencies"],
+                        }
+                    },
+                },
+                indent=2,
+            )
+            + "\n",
             "index.html": (
                 '<!doctype html><html lang="en"><head><meta charset="UTF-8" />'
                 '<meta name="viewport" content="width=device-width,initial-scale=1.0" />'
@@ -100,7 +273,7 @@ class ReactViteWorkspaceBuilder:
             "vite.config.ts": (
                 "import { defineConfig } from 'vite';\n"
                 "import react from '@vitejs/plugin-react';\n"
-                "export default defineConfig({ plugins: [react()] });\n"
+                "export default defineConfig({ base: './', plugins: [react()] });\n"
             ),
             "src/main.tsx": (
                 "import React from 'react';\n"
@@ -122,14 +295,7 @@ class ReactViteWorkspaceBuilder:
                 "});\n"
             ),
             "project_commands.json": json.dumps(
-                {
-                    "install": "npm install",
-                    "test": "npm test",
-                    "typecheck": "npm run typecheck",
-                    "build": "npm run build",
-                    "start": "npm run dev -- --host 127.0.0.1",
-                    "healthcheck": "http://127.0.0.1:5173/",
-                },
+                project_command_manifest(),
                 indent=2,
             )
             + "\n",
@@ -178,6 +344,28 @@ class ReactViteWorkspaceBuilder:
             and path.suffix in {".html", ".js", ".json", ".ts", ".tsx"}
         )
         contract_items = implementation.get("contract_item_ids", [])
+        dependency_versions = [
+            *package.get("dependencies", {}).values(),
+            *package.get("devDependencies", {}).values(),
+        ]
+        scripts = package.get("scripts", {})
+        safe_scripts = {
+            "test": {
+                "node --test tests/*.test.mjs",
+                "vitest run",
+                "vitest run && bash tests/browser.acceptance.sh",
+                "bash tests/browser.acceptance.sh",
+            },
+            "typecheck": {"tsc -b --pretty false", "tsc -b", "tsc --noEmit"},
+            "build": {"tsc -b && vite build", "vite build"},
+        }
+        lock_root: dict[str, Any] = {}
+        try:
+            lock_root = json.loads((workspace / "package-lock.json").read_text()).get(
+                "packages", {}
+            ).get("", {})
+        except (OSError, json.JSONDecodeError, AttributeError):
+            pass
         checks = {
             "react_entry_exists": (workspace / "src/App.tsx").exists(),
             "vite_config_exists": (workspace / "vite.config.ts").exists(),
@@ -191,6 +379,40 @@ class ReactViteWorkspaceBuilder:
                 for item in contract_items
             ),
             "standalone_preview_exists": (workspace / "dist/index.html").exists(),
+            "package_lock_present": (workspace / "package-lock.json").is_file(),
+            "package_lock_matches_manifest": (
+                lock_root.get("dependencies", {}) == package.get("dependencies", {})
+                and lock_root.get("devDependencies", {})
+                == package.get("devDependencies", {})
+            ),
+            "dependencies_exactly_pinned": bool(dependency_versions)
+            and all(
+                isinstance(version, str)
+                and re.fullmatch(r"\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?", version)
+                for version in dependency_versions
+            ),
+            "node_module_links_local": _node_module_links_are_local(workspace),
+            "package_scripts_allowlisted": all(
+                scripts.get(name) in allowed for name, allowed in safe_scripts.items()
+            ),
+            "test_harnesses_declared": _test_harnesses_are_declared(
+                workspace, str(scripts.get("test", ""))
+            ),
+            "browser_acceptance_receipt_verified": (
+                not _browser_acceptance_required(workspace)
+                or (
+                    bool(command_results)
+                    and command_results[-1].get("command") == commands.get("test")
+                    and bool(
+                        command_results[-1].get("browser_acceptance_receipt")
+                    )
+                    and not command_results[-1].get("reported_error")
+                )
+            ),
+            "browser_runtime_prerequisites_documented": (
+                _browser_runtime_prerequisites_documented(workspace)
+            ),
+            "portable_dist_assets": _portable_dist_assets(workspace),
         }
         return BuildEvidence(
             profile="react-vite-local",

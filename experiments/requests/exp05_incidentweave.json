@@ -1,0 +1,24 @@
+{
+  "idea": "Build IncidentWeave, a tabletop incident-response board for a fictional enterprise incident with dependency-gated response actions and a chronological event timeline.",
+  "audience": "Enterprise incident commanders running a response exercise",
+  "outcome": "Commanders can see why an action is blocked, complete prerequisites in the correct order, and measure response readiness without bypassing dependencies.",
+  "constraints": [
+    "Use React, TypeScript, and Vite",
+    "Run locally with deterministic fictional data and no backend, auth, database, analytics, external APIs, or network calls",
+    "Action state is forward-only during a scenario; reset is the only full rollback",
+    "No real security or incident data",
+    "Responsive and keyboard accessible with non-color-only status",
+    "Demo under three minutes"
+  ],
+  "must_have_capabilities": [
+    "Show a seeded incident timeline and dependency-linked response actions",
+    "Explain every blocked action and name its incomplete prerequisite",
+    "Complete a prerequisite and unlock its dependent action",
+    "Update readiness and completion metrics deterministically",
+    "Reset the tabletop scenario"
+  ],
+  "existing_assets": [],
+  "visual_direction": "A serious but calm incident command board with strong causal hierarchy, readable timeline, and explicit action states.",
+  "out_of_scope": ["Live alerts", "Real infrastructure", "Chat", "External integrations", "Persistence"],
+  "demo_preferences": "Select the active incident, attempt a blocked action, complete its prerequisite, show the dependent action unlocking, complete it, verify metrics, then reset."
+}

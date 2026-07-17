@@ -1,0 +1,30 @@
+{
+  "idea": "Build RoomReady, a meeting-room readiness console for a fictional enterprise campus. Facilities coordinators need to see rooms, equipment checks, current readiness, and the exact blocker preventing a room from being usable.",
+  "audience": "Corporate facilities coordinators responsible for meeting-room readiness",
+  "outcome": "Blocked rooms can be found and restored quickly, with global readiness totals updating immediately when a failed equipment check is resolved.",
+  "constraints": [
+    "Use React, TypeScript, and Vite",
+    "Run entirely locally with no backend, authentication, database, analytics, external APIs, or runtime network calls",
+    "Use fictional deterministic seed data and provide a visible reset action",
+    "Be responsive from 320px through desktop",
+    "Be keyboard operable with visible focus and never communicate state by color alone",
+    "Keep the primary narrated demo under three minutes"
+  ],
+  "must_have_capabilities": [
+    "Show total, ready, and blocked room counts derived from seeded room and checklist state",
+    "Filter rooms by floor and readiness",
+    "Inspect a room's equipment checklist and identify its exact blocker",
+    "Resolve one failed checklist item and update both the room state and global totals",
+    "Reset all demo data to its deterministic initial state"
+  ],
+  "existing_assets": [],
+  "visual_direction": "A calm, polished enterprise facilities console with excellent hierarchy, generous spacing, accessible status labels, and clear before-and-after feedback.",
+  "out_of_scope": [
+    "Room booking or calendar integration",
+    "Authentication and permissions",
+    "Backend persistence",
+    "Notifications or external services",
+    "Real employee or facility data"
+  ],
+  "demo_preferences": "Start with the full readiness overview, filter to blocked rooms, open one room, resolve its failed equipment check, visibly show the room and global totals changing, then reset the app."
+}

@@ -1,0 +1,24 @@
+{
+  "idea": "Build CapacityLab, a manufacturing capacity scenario lab where planners adjust yield, downtime, available hours, and shifts, save two in-memory scenarios, and compare throughput visually and numerically.",
+  "audience": "Production planning managers evaluating short-term capacity scenarios",
+  "outcome": "Planners can see exactly how operating assumptions change throughput and compare two alternatives without spreadsheet ambiguity.",
+  "constraints": [
+    "Use React, TypeScript, and Vite",
+    "Local-only with fictional deterministic data and no backend, auth, database, analytics, APIs, or network calls",
+    "Document the throughput formula, units, validation bounds, and rounding",
+    "Charts need accessible text alternatives and numeric deltas",
+    "Responsive and keyboard accessible with visible focus",
+    "Demo under three minutes"
+  ],
+  "must_have_capabilities": [
+    "Edit and validate yield, downtime, hours, shifts, and nominal rate",
+    "Calculate throughput using a documented deterministic formula",
+    "Save exactly two independent in-memory scenarios",
+    "Compare them in an accessible chart and numeric delta summary",
+    "Reset all assumptions and saved scenarios"
+  ],
+  "existing_assets": [],
+  "visual_direction": "A sophisticated but uncluttered scenario lab with aligned inputs, accessible charts, strong number formatting, and clear comparison states.",
+  "out_of_scope": ["Optimization engine", "Real production data", "Persistence", "External chart services", "Forecast integrations"],
+  "demo_preferences": "Show the baseline, change yield, downtime, and shifts, save the alternative, compare both scenarios, show chart plus numeric deltas, then reset."
+}

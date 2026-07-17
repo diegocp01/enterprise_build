@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "run_id": "exp02_stocksignal_20260716",
+  "status": "completed",
+  "completed_at": "2026-07-17T01:38:38Z",
+  "score": 92.0,
+  "automated_score": 100.0,
+  "manual_scores": {
+    "application_and_demo": 93.0,
+    "backend_and_pipeline_evidence": 91.0
+  },
+  "progression": {
+    "previous_score": 90.0,
+    "improvement": 2.0,
+    "passed": true
+  },
+  "deliverables": {
+    "application": ".zerohandoff/runs/exp02_stocksignal_20260716/workspace/app",
+    "video": ".zerohandoff/runs/exp02_stocksignal_20260716/demo/demo.mp4",
+    "bundle": ".zerohandoff/runs/exp02_stocksignal_20260716/delivery_bundle.nosync",
+    "automated_audit": "experiments/audits/exp02_stocksignal_20260716.json"
+  },
+  "verified_outcomes": {
+    "seven_latest_stage_gates_pass": true,
+    "final_install_test_typecheck_build_pass": true,
+    "production_browser_receipt_verified": true,
+    "demo_duration_seconds": 93.52,
+    "demo_actions_completed": 35,
+    "demo_mutations_completed": 6,
+    "demo_unique_states": 9,
+    "demo_narration_synchronized": true,
+    "bundle_scoped_files": 118,
+    "bundle_unchecksummed_files": 0,
+    "bundle_checksums_valid": true,
+    "full_repository_tests_passed": 58
+  },
+  "continual_learning": {
+    "start_commit_sequence": 2,
+    "end_commit_sequence": 3,
+    "start_digest": "sha256:08cd2c221e6136522529053bb439866a7e09e4748b5f2393131525603e7189ae",
+    "end_digest": "sha256:7ebbd1aa83d5e497fa1c2af39ff29b24afca5d97cad5b5e0ec501a4907e0795e",
+    "canonical_handoffs": 6,
+    "canonical_shadow_updates": 36,
+    "night_commits": 1,
+    "memory_agents_consolidated": 14,
+    "trust_alpha": 0.05,
+    "maximum_observed_step": 0.020250000000000046
+  },
+  "trust_invariants": {
+    "algorithm_and_frozen_hashes_unchanged": true,
+    "frozen_baseline_digest_matches": true,
+    "lineage_unchanged": true,
+    "commit_incremented_once": true,
+    "non_trust_dimensions_frozen": true,
+    "night_commit_approved": true,
+    "demo_and_audit_created_no_learning_commit": true
+  },
+  "architecture_improvements": [
+    "semantic Playwright error markers now fail commands even when the process exits zero",
+    "production-browser acceptance requires an explicit success receipt",
+    "resumed OBSERVE calls receive prior gate findings and hydrated command evidence",
+    "demo action vocabulary, wait semantics, and accessible roles fail closed",
+    "numeric normalization, formula explanations, browser prerequisites, and full boundary matrices are required in future implementation reviews",
+    "browser capture is time-scaled within a bounded honest range so narration and workflow finish together",
+    "demo overlays are smaller and no longer obscure primary UI state",
+    "bundle reconstruction is cross-process locked, staged, byte-materialized, checksum-scope exact, and File-Provider-safe",
+    "demo repair appends updated manifest and BUNDLE evidence without issuing trust rewards"
+  ],
+  "residual_findings": [
+    "local narration is clear but remains macOS system speech",
+    "some supporting application text is small at 720p",
+    "the completed StockSignal artifact predates the new canonical-input, formula-copy, browser-prerequisite, and full contract-matrix safeguards",
+    "historical failed repair attempts remain honestly visible in append-only command logs"
+  ]
+}

@@ -455,7 +455,7 @@ logs/demo.jsonl
 raw/<adapter>/<invocation>.jsonl
 artifacts/<stage>/<artifact>/<version>/
 workspace/app/
-delivery_bundle/
+delivery_bundle.nosync/          # File-Provider-safe generated delivery bundle
 ```
 
 Every event includes:

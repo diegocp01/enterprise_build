@@ -1,0 +1,24 @@
+{
+  "idea": "Build ChangeGraph, a plant change-impact explorer showing fictional system dependencies, impacted nodes, required checks, approval blockers, and a local event history.",
+  "audience": "Industrial change-control engineers reviewing a proposed plant change",
+  "outcome": "Reviewers can understand downstream impact and cannot approve a change until every required check is complete.",
+  "constraints": [
+    "Use React, TypeScript, and Vite",
+    "Local-only with deterministic fictional data and no backend, auth, database, analytics, APIs, or network calls",
+    "The dependency view must have an accessible nonvisual representation",
+    "Record local event history deterministically and provide reset",
+    "Responsive and keyboard accessible with explicit blocker text",
+    "Demo under three minutes"
+  ],
+  "must_have_capabilities": [
+    "Select a proposed change and show its downstream dependency impact",
+    "Highlight impacted nodes and provide the same information as accessible text",
+    "Block approval while named required checks remain incomplete",
+    "Complete checks, approve the change, and append local event history",
+    "Reset the full review state"
+  ],
+  "existing_assets": [],
+  "visual_direction": "A crisp engineering change-control surface with a simple dependency graph, synchronized detail, and audit-friendly history.",
+  "out_of_scope": ["Real industrial systems", "Workflow integrations", "Electronic signatures", "Persistence", "Network graph libraries requiring external services"],
+  "demo_preferences": "Select a change, show affected dependencies, attempt approval and reveal blockers, complete checks, approve, show event history, then reset."
+}

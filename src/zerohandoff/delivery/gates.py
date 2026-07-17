@@ -3,8 +3,25 @@ from __future__ import annotations
 import re
 from typing import Any
 
-from zerohandoff.delivery.stages import STAGE_SPECS
+from zerohandoff.delivery.commands import is_canonical_project_command_manifest
+from zerohandoff.delivery.stages import STAGE_SPECS, contract_item_ids
 from zerohandoff.models import BuildRequest, GateDecision, GateResult, ReviewFinding, Stage
+
+
+DEMO_ACCESSIBLE_ROLES = {
+    "", "alert", "alertdialog", "application", "article", "banner", "blockquote",
+    "button", "caption", "cell", "checkbox", "code", "columnheader", "combobox",
+    "complementary", "contentinfo", "definition", "deletion", "dialog", "directory",
+    "document", "emphasis", "feed", "figure", "form", "generic", "grid", "gridcell",
+    "group", "heading", "img", "insertion", "link", "list", "listbox", "listitem",
+    "log", "main", "marquee", "math", "meter", "menu", "menubar", "menuitem",
+    "menuitemcheckbox", "menuitemradio", "navigation", "none", "note", "option",
+    "paragraph", "presentation", "progressbar", "radio", "radiogroup", "region", "row",
+    "rowgroup", "rowheader", "scrollbar", "search", "searchbox", "separator", "slider",
+    "spinbutton", "status", "strong", "subscript", "superscript", "switch", "tab",
+    "table", "tablist", "tabpanel", "term", "textbox", "time", "timer", "toolbar",
+    "tooltip", "tree", "treegrid", "treeitem",
+}
 
 
 class GateEngine:
@@ -65,6 +82,9 @@ class GateEngine:
         stage: Stage,
         candidate: dict[str, Any],
         peer_findings: list[ReviewFinding],
+        *,
+        expected_contract_ids: list[str] | None = None,
+        valid_evidence_refs: set[str] | None = None,
     ) -> GateResult:
         spec = STAGE_SPECS[stage]
         rule_results = {}
@@ -81,6 +101,30 @@ class GateEngine:
                         rule_id=rule_id,
                         severity="high",
                         message=f"Required stage field failed: {rule_id.rsplit('.', 1)[-1]}",
+                    )
+                )
+        if expected_contract_ids is not None:
+            traceability_exact = set(contract_item_ids(candidate)) == set(
+                expected_contract_ids
+            )
+            rule_results[f"{stage.value.lower()}.contract_traceability_exact"] = (
+                traceability_exact
+            )
+            if not traceability_exact:
+                findings.append(
+                    ReviewFinding(
+                        rule_id=(
+                            f"{stage.value.lower()}.contract_traceability_exact"
+                        ),
+                        severity="critical",
+                        message=(
+                            "The stage must preserve exactly every Outcome Model contract ID; "
+                            "IDs may not be dropped, invented, or silently restored later."
+                        ),
+                        evidence=[
+                            f"expected={','.join(sorted(expected_contract_ids))}",
+                            f"actual={','.join(contract_item_ids(candidate))}",
+                        ],
                     )
                 )
         if stage == Stage.OBSERVE:
@@ -100,6 +144,104 @@ class GateEngine:
                         message="Every must-have outcome item needs passing evidence.",
                     )
                 )
+            if expected_contract_ids is not None:
+                proof_ids = {
+                    str(row.get("contract_item_id"))
+                    for row in ledger
+                    if isinstance(row, dict) and row.get("contract_item_id")
+                }
+                exact_proof_coverage = proof_ids == set(expected_contract_ids)
+                rule_results["observe.contract_coverage_exact"] = exact_proof_coverage
+                if not exact_proof_coverage:
+                    findings.append(
+                        ReviewFinding(
+                            rule_id="observe.contract_coverage_exact",
+                            severity="critical",
+                            message="Proof entries must cover every Outcome Model ID exactly.",
+                        )
+                    )
+            if valid_evidence_refs is not None:
+                evidence_refs = [
+                    str(reference)
+                    for row in ledger
+                    if isinstance(row, dict)
+                    for reference in row.get("evidence", [])
+                ]
+                evidence_resolves = bool(evidence_refs) and all(
+                    reference in valid_evidence_refs for reference in evidence_refs
+                ) and all(
+                    bool(row.get("evidence"))
+                    for row in ledger
+                    if isinstance(row, dict)
+                )
+                rule_results["observe.evidence_refs_resolve"] = evidence_resolves
+                if not evidence_resolves:
+                    findings.append(
+                        ReviewFinding(
+                            rule_id="observe.evidence_refs_resolve",
+                            severity="critical",
+                            message=(
+                                "Every proof entry must cite recorded command or file-digest "
+                                "evidence that resolves inside this run."
+                            ),
+                        )
+                    )
+            demo_plan = candidate.get("demo_plan", [])
+            demo_actions = [
+                action
+                for step in demo_plan
+                if isinstance(step, dict)
+                for action in step.get("actions", [])
+                if isinstance(action, dict)
+            ]
+            mutating_demo_actions = [
+                action
+                for action in demo_actions
+                if action.get("type") in {"click", "select", "fill"}
+            ]
+            executable_demo = bool(demo_plan) and all(
+                isinstance(step, dict)
+                and bool(str(step.get("expected", "")).strip())
+                and bool(step.get("actions"))
+                and all(
+                    isinstance(action, dict)
+                    and action.get("type") in {"click", "select", "fill", "scroll", "wait"}
+                    and all(field in action for field in ("role", "name", "value"))
+                    and str(action.get("role", "")) in DEMO_ACCESSIBLE_ROLES
+                    and (
+                        action.get("type") != "wait"
+                        or str(action.get("value", "")).strip().isdigit()
+                    )
+                    for action in step.get("actions", [])
+                )
+                for step in demo_plan
+            ) and len(mutating_demo_actions) >= 2
+            presenter_copy = len(str(candidate.get("narration_script", "")).split()) >= 20
+            rule_results["observe.demo_plan_executable"] = executable_demo
+            rule_results["observe.narration_presenter_ready"] = presenter_copy
+            if not executable_demo:
+                findings.append(
+                    ReviewFinding(
+                        rule_id="observe.demo_plan_executable",
+                        severity="high",
+                        message=(
+                            "The demo plan needs an expected state for every step and at least "
+                            "two accessible click, select, or fill actions. Supported actions "
+                            "are click/select/fill/scroll/wait, and wait values must be numeric "
+                            "milliseconds with observable text in name or selector. Roles must "
+                            "be real Playwright ARIA roles; use an empty role for visible text "
+                            "and the selector field for CSS."
+                        ),
+                    )
+                )
+            if not presenter_copy:
+                findings.append(
+                    ReviewFinding(
+                        rule_id="observe.narration_presenter_ready",
+                        severity="high",
+                        message="The narration must be polished presenter copy of at least 20 words.",
+                    )
+                )
         if stage == Stage.MODEL:
             contract_items = candidate.get("contract_items", [])
             ids = [row.get("id") for row in contract_items if isinstance(row, dict)]
@@ -115,7 +257,39 @@ class GateEngine:
                         message="Outcome Model items need unique IDs and acceptance checks.",
                     )
                 )
+        if stage == Stage.DECIDE:
+            approved_commands = is_canonical_project_command_manifest(
+                candidate.get("commands")
+            )
+            rule_results["decide.commands_approved"] = approved_commands
+            if not approved_commands:
+                findings.append(
+                    ReviewFinding(
+                        rule_id="decide.commands_approved",
+                        severity="critical",
+                        message=(
+                            "DECIDE commands must exactly match the generated-app command "
+                            "policy; arbitrary names, values, omissions, and additions are "
+                            "not executable authority."
+                        ),
+                    )
+                )
         if stage == Stage.EXECUTE:
+            approved_commands = is_canonical_project_command_manifest(
+                candidate.get("commands")
+            )
+            rule_results["execute.command_contract_approved"] = approved_commands
+            if not approved_commands:
+                findings.append(
+                    ReviewFinding(
+                        rule_id="execute.command_contract_approved",
+                        severity="critical",
+                        message=(
+                            "EXECUTE must carry the canonical command contract hydrated "
+                            "from the approved DECIDE map."
+                        ),
+                    )
+                )
             build_evidence = candidate.get("build_evidence", {})
             verified = bool(build_evidence.get("passed")) and bool(
                 build_evidence.get("command_results")
