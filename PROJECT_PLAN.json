@@ -1,7 +1,7 @@
 {
   "project": "ZeroHandoff — Autonomous Software Delivery",
-  "last_updated": "2026-07-16",
-  "current_step": 11,
+  "last_updated": "2026-07-17",
+  "current_step": 12,
   "status_values": [
     "pending",
     "done"
@@ -188,7 +188,22 @@
       "owner": "codex",
       "task": "Review smoke-test, training, and inference evidence; make the necessary corrections and iterations; and rerun affected checks until the agreed quality gates pass.",
       "depends_on": [10],
-      "status": "pending"
+      "status": "done",
+      "scope_decision": "The user reduced the planned ten-run campaign to recovery of Experiment 3 plus exactly one additional experiment; Experiments 5-10 were cancelled.",
+      "outputs": [
+        "experiments/audits/exp03_policyproof_corrected_20260717.json",
+        "experiments/audits/exp04_coveragecanvas_20260717.json",
+        ".zerohandoff/runs/exp03_policyproof_corrected_20260717/",
+        ".zerohandoff/runs/exp04_coveragecanvas_20260717/"
+      ],
+      "verification": {
+        "lineage_recovery": "Invalid Experiment 3 inference commit 4 was preserved as superseded, verified sequence 3 was restored, and corrected PolicyProof committed exactly once as sequence 4.",
+        "atomic_handoffs": "Every assessment is durable before repair; rejection reward 0 survives successful revision; pre-Night requires current producer artifact, evidence, ancestry, six rewards, and 36 matching shadows.",
+        "policyproof": "Corrected PolicyProof scored 100/100 with rewards [1,1,1,1,0,1] and all trust invariants passing.",
+        "coveragecanvas": "CoverageCanvas scored 100/100, produced a 54.04-second interactive narrated demo and 117-file verified bundle, and committed inference sequence 5 only after all gates passed.",
+        "continual_learning": "CoverageCanvas changed 36 trust edges, updated memory for all 14 agents, and left all nine non-trust dimensions and the immutable training snapshot unchanged.",
+        "protected_context": "No context/ files changed."
+      }
     },
     {
       "id": 12,

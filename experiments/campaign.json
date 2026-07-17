@@ -1,7 +1,13 @@
 {
   "schema_version": "1.0",
   "campaign_id": "zerohandoff_inference_evolution_10",
-  "status": "in_progress",
+  "status": "completed_after_approved_scope_reduction",
+  "scope_decision": {
+    "approved_on": "2026-07-17",
+    "completed_experiments": 4,
+    "cancelled_experiments": 6,
+    "reason": "User approved recovery of Experiment 3 and exactly one additional experiment instead of the originally planned ten."
+  },
   "rules": {
     "sequential": true,
     "different_app_each_run": true,
@@ -72,13 +78,60 @@
         "bundle rebuilds are locked, staged, byte-materialized, exact-scope verified, and File-Provider-safe"
       ]
     },
-    {"sequence": 3, "id": "exp03_policyproof", "name": "PolicyProof", "difficulty": 3, "score_floor": 82, "status": "running", "run_id": "exp03_policyproof_20260716"},
-    {"sequence": 4, "id": "exp04_coveragecanvas", "name": "CoverageCanvas", "difficulty": 4, "score_floor": 84, "status": "pending"},
-    {"sequence": 5, "id": "exp05_incidentweave", "name": "IncidentWeave", "difficulty": 5, "score_floor": 86, "status": "pending"},
-    {"sequence": 6, "id": "exp06_bidlens", "name": "BidLens", "difficulty": 6, "score_floor": 88, "status": "pending"},
-    {"sequence": 7, "id": "exp07_routeguard", "name": "RouteGuard", "difficulty": 7, "score_floor": 90, "status": "pending"},
-    {"sequence": 8, "id": "exp08_capacitylab", "name": "CapacityLab", "difficulty": 8, "score_floor": 92, "status": "pending"},
-    {"sequence": 9, "id": "exp09_changegraph", "name": "ChangeGraph", "difficulty": 9, "score_floor": 94, "status": "pending"},
-    {"sequence": 10, "id": "exp10_resilienceroom", "name": "ResilienceRoom", "difficulty": 10, "score_floor": 95, "status": "pending"}
+    {
+      "sequence": 3,
+      "id": "exp03_policyproof",
+      "name": "PolicyProof",
+      "difficulty": 3,
+      "score_floor": 82,
+      "status": "completed_after_lineage_recovery",
+      "invalidated_run_id": "exp03_policyproof_20260716",
+      "run_id": "exp03_policyproof_corrected_20260717",
+      "score": 100.0,
+      "audit": "experiments/audits/exp03_policyproof_corrected_20260717.json",
+      "video": ".zerohandoff/runs/exp03_policyproof_corrected_20260717/demo/demo.mp4",
+      "bundle": ".zerohandoff/runs/exp03_policyproof_corrected_20260717/delivery_bundle.nosync",
+      "end_commit_sequence": 4,
+      "end_relationship_digest": "sha256:5e1fb459927be430ef5abd6e28cf859aa2da754cff3836560d17d08c8402f7c3",
+      "handoff_rewards": [1, 1, 1, 1, 0, 1],
+      "architecture_improvements": [
+        "every receiver assessment is durably written before repair starts",
+        "a rejected handoff keeps reward 0 after successful repair while delivery may continue",
+        "canonical reward and shadow rows use the latest current-artifact lineage",
+        "the pre-Night gate rejects stale producer digests, evidence, shadows, or artifact ancestry",
+        "the invalid sequence-4 commit is preserved as superseded and live inference was restored to verified sequence 3"
+      ]
+    },
+    {
+      "sequence": 4,
+      "id": "exp04_coveragecanvas",
+      "name": "CoverageCanvas",
+      "difficulty": 4,
+      "score_floor": 84,
+      "status": "completed",
+      "run_id": "exp04_coveragecanvas_20260717",
+      "score": 100.0,
+      "audit": "experiments/audits/exp04_coveragecanvas_20260717.json",
+      "video": ".zerohandoff/runs/exp04_coveragecanvas_20260717/demo/demo.mp4",
+      "bundle": ".zerohandoff/runs/exp04_coveragecanvas_20260717/delivery_bundle.nosync",
+      "end_commit_sequence": 5,
+      "end_relationship_digest": "sha256:a92542ed79162ddc9826ae73cae67c0fa597ae74be8db646fa1c41112503c6af",
+      "handoff_rewards": [1, 1, 1, 1, 1, 1],
+      "architecture_improvements": [
+        "a manually corrected failed EXECUTE workspace starts a new digest-proven repair epoch on resume",
+        "CDP readiness probes normalize object results before return-by-value",
+        "browser proof rejects transparent focus surfaces and covers every distinct reset transition",
+        "inserted interfaces receive deterministic logical focus and the harness proves application-driven focus",
+        "browser startup failures terminate children before the outer caller receives a handle",
+        "script-driven HTTP classification has no same-origin static-resource false-negative",
+        "demo observations can use stable accessible names instead of text-node whitespace"
+      ]
+    },
+    {"sequence": 5, "id": "exp05_incidentweave", "name": "IncidentWeave", "difficulty": 5, "score_floor": 86, "status": "cancelled_by_scope_change"},
+    {"sequence": 6, "id": "exp06_bidlens", "name": "BidLens", "difficulty": 6, "score_floor": 88, "status": "cancelled_by_scope_change"},
+    {"sequence": 7, "id": "exp07_routeguard", "name": "RouteGuard", "difficulty": 7, "score_floor": 90, "status": "cancelled_by_scope_change"},
+    {"sequence": 8, "id": "exp08_capacitylab", "name": "CapacityLab", "difficulty": 8, "score_floor": 92, "status": "cancelled_by_scope_change"},
+    {"sequence": 9, "id": "exp09_changegraph", "name": "ChangeGraph", "difficulty": 9, "score_floor": 94, "status": "cancelled_by_scope_change"},
+    {"sequence": 10, "id": "exp10_resilienceroom", "name": "ResilienceRoom", "difficulty": 10, "score_floor": 95, "status": "cancelled_by_scope_change"}
   ]
 }

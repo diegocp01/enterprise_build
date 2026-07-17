@@ -233,11 +233,9 @@ class DeliveryOrchestrator:
         )
         shadow_state = self._restore_shadow_state(store, learning_start)
         handoffs = self._load_handoffs(store)
-        proposed_memories = {
-            agent: list(lines) for agent, lines in learning_start.memories.items()
-        }
-        for handoff in handoffs:
-            self._accumulate_memories(proposed_memories, handoff)
+        proposed_memories = self._rebuild_proposed_memories(
+            learning_start, handoffs
+        )
         try:
             for stage in DELIVERY_STAGES:
                 if stage.value in state["completed_stages"]:
@@ -282,7 +280,74 @@ class DeliveryOrchestrator:
                     upstream_pair=upstream_pair,
                 )
                 if producer_stage is not None:
-                    existing_assessment = next(
+                    assessment = self._handoff_assessment(
+                        run_id,
+                        producer_stage,
+                        stage,
+                        artifacts[producer_stage],
+                        pair_result,
+                    )
+                    # Persist the receiver pair's first judgment before attempting a
+                    # cross-stage repair. A failed repair or process interruption must
+                    # never erase a real revision request on resume.
+                    store.append_log(
+                        "handoff_assessments", assessment.model_dump(mode="json")
+                    )
+                    observations = self._handoff_observations(
+                        store, producer_stage, stage
+                    )
+                    if self._handoff_needs_repair(observations):
+                        rejected = self._effective_handoff_assessment(
+                            observations,
+                            artifacts[producer_stage],
+                        )
+                        previous_digest = self._repair_rejected_handoff(
+                            store=store,
+                            request=request,
+                            previous=previous,
+                            artifacts=artifacts,
+                            producer_stage=producer_stage,
+                            consumer_stage=stage,
+                            assessment=rejected,
+                            pair_runner=pair_runner,
+                        )
+                        pair_result = pair_runner.run(
+                            stage=stage,
+                            request=request,
+                            previous=previous,
+                            attempt=2,
+                            upstream_pair=upstream_pair,
+                        )
+                        accepted = self._handoff_assessment(
+                            run_id,
+                            producer_stage,
+                            stage,
+                            artifacts[producer_stage],
+                            pair_result,
+                        )
+                        store.append_log(
+                            "handoff_assessments",
+                            accepted.model_dump(mode="json"),
+                        )
+                        if accepted.reward != 1:
+                            raise RuntimeError(
+                                f"{stage.value} still rejects {producer_stage.value} after bounded repair"
+                            )
+                    observations = self._handoff_observations(
+                        store, producer_stage, stage
+                    )
+                    if not self._handoff_has_current_acceptance(
+                        observations, artifacts[producer_stage].content_digest
+                    ):
+                        raise RuntimeError(
+                            f"{stage.value} has not accepted the current "
+                            f"{producer_stage.value} artifact"
+                        )
+                    finalized = self._effective_handoff_assessment(
+                        observations,
+                        artifacts[producer_stage],
+                    )
+                    existing = next(
                         (
                             handoff
                             for handoff in handoffs
@@ -291,46 +356,16 @@ class DeliveryOrchestrator:
                         ),
                         None,
                     )
-                    if existing_assessment is not None:
-                        # A resumed stage must not teach the same handoff twice. The first
-                        # completed downstream assessment is the canonical reward.
-                        continue_handoff_learning = False
-                    else:
-                        continue_handoff_learning = True
-                    assessment = self._handoff_assessment(
-                        run_id,
-                        producer_stage,
-                        stage,
-                        artifacts[producer_stage],
-                        pair_result,
+                    lineage_changed = (
+                        existing is None
+                        or existing.producer_artifact_digest
+                        != finalized.producer_artifact_digest
+                        or existing.reward != finalized.reward
+                        or existing.revised != finalized.revised
                     )
-                    if continue_handoff_learning and assessment.reward == 0:
-                        previous_digest = self._repair_rejected_handoff(
-                            store=store,
-                            request=request,
-                            previous=previous,
-                            artifacts=artifacts,
-                            producer_stage=producer_stage,
-                            consumer_stage=stage,
-                            assessment=assessment,
-                            pair_runner=pair_runner,
-                        )
-                        assessment.revised = True
-                        pair_result = pair_runner.run(
-                            stage=stage,
-                            request=request,
-                            previous=previous,
-                            attempt=2,
-                            upstream_pair=upstream_pair,
-                        )
-                        if not all(pair_result.upstream_assessments.values()):
-                            raise RuntimeError(
-                                f"{stage.value} still rejects {producer_stage.value} after bounded repair"
-                            )
-                    if continue_handoff_learning:
-                        handoffs.append(assessment)
+                    if lineage_changed:
                         store.append_log(
-                            "handoff_rewards", assessment.model_dump(mode="json")
+                            "handoff_rewards", finalized.model_dump(mode="json")
                         )
                         store.append_event(
                             event_type="delivery.handoff.rewarded",
@@ -340,28 +375,30 @@ class DeliveryOrchestrator:
                             payload={
                                 "producer_stage": producer_stage.value,
                                 "consumer_stage": stage.value,
-                                "reward": assessment.reward,
-                                "revised": assessment.revised,
+                                "reward": finalized.reward,
+                                "revised": finalized.revised,
+                                "producer_artifact_digest": (
+                                    finalized.producer_artifact_digest
+                                ),
                             },
                         )
-                        updates = propose_handoff_updates(
-                            shadow_state,
-                            assessment,
-                            producer_lead=artifacts[producer_stage].lead,
-                            producer_peer=artifacts[producer_stage].peer,
-                            alpha=float(self.settings.continual_learning["trust_alpha"]),
-                            step_max=float(
-                                self.settings.continual_learning["trust_step_max"]
-                            ),
-                            expectation_beta=float(
-                                self.settings.continual_learning["expectation_beta"]
-                            ),
+                        handoffs = self._load_handoffs(store)
+                        updates = self._recomputed_shadow_updates_for_transition(
+                            learning_start,
+                            handoffs,
+                            producer_stage,
+                            stage,
                         )
                         for update in updates:
                             store.append_log(
                                 "shadow_trust_updates", update.model_dump(mode="json")
                             )
-                        self._accumulate_memories(proposed_memories, assessment)
+                        shadow_state = self._restore_shadow_state(
+                            store, learning_start
+                        )
+                        proposed_memories = self._rebuild_proposed_memories(
+                            learning_start, handoffs
+                        )
                 candidate = dict(pair_result.candidate)
                 build_evidence: BuildEvidence | None = None
                 build_review_findings = []
@@ -670,6 +707,14 @@ class DeliveryOrchestrator:
             self._verify_frozen_snapshot(frozen, Stage.BUNDLE)
             shadow_rows = self._canonical_shadow_rows(store)
             handoff_rows = self._canonical_handoff_rows(store)
+            self._verify_pre_night_lineage(
+                artifacts=artifacts,
+                artifact_rows=RunStore.read_jsonl(
+                    store.logs_dir / "artifacts.jsonl"
+                ),
+                handoff_rows=handoff_rows,
+                shadow_rows=shadow_rows,
+            )
             store.atomic_jsonl(
                 "logs/handoff_rewards.canonical.jsonl",
                 handoff_rows,
@@ -817,6 +862,102 @@ class DeliveryOrchestrator:
             revision_requests=result.revision_requests,
             reward=reward,
             evidence=[*producer.content_files],
+            producer_artifact_digest=producer.content_digest,
+        )
+
+    @staticmethod
+    def _handoff_observations(
+        store: RunStore,
+        producer_stage: Stage,
+        consumer_stage: Stage,
+    ) -> list[HandoffAssessment]:
+        observations: list[HandoffAssessment] = []
+        for row in RunStore.read_jsonl(store.logs_dir / "handoff_assessments.jsonl"):
+            if (
+                row.get("producer_stage") != producer_stage.value
+                or row.get("consumer_stage") != consumer_stage.value
+            ):
+                continue
+            payload = {
+                key: value
+                for key, value in row.items()
+                if key not in {"phase", "timestamp"}
+            }
+            observations.append(HandoffAssessment.model_validate(payload))
+        return observations
+
+    @staticmethod
+    def _handoff_needs_repair(
+        observations: list[HandoffAssessment],
+    ) -> bool:
+        pending_digest: str | None = None
+        for observation in observations:
+            if observation.reward == 0:
+                pending_digest = observation.producer_artifact_digest
+            elif (
+                pending_digest is not None
+                and observation.producer_artifact_digest != pending_digest
+            ):
+                pending_digest = None
+        return pending_digest is not None
+
+    @staticmethod
+    def _handoff_has_current_acceptance(
+        observations: list[HandoffAssessment],
+        producer_digest: str,
+    ) -> bool:
+        return any(
+            observation.reward == 1
+            and observation.producer_artifact_digest == producer_digest
+            for observation in observations
+        )
+
+    @staticmethod
+    def _effective_handoff_assessment(
+        observations: list[HandoffAssessment],
+        producer: ArtifactEnvelope,
+    ) -> HandoffAssessment:
+        if not observations:
+            raise RuntimeError("cannot finalize an unobserved handoff")
+        latest = observations[-1]
+        consumer_agents = list(
+            dict.fromkeys(
+                agent
+                for observation in observations
+                for agent in observation.consumer_agents
+            )
+        )
+        assessments = {
+            agent: all(
+                observation.assessments.get(agent, True)
+                for observation in observations
+            )
+            for agent in consumer_agents
+        }
+        revision_requests: dict[str, list[str]] = {}
+        for agent in consumer_agents:
+            revision_requests[agent] = list(
+                dict.fromkeys(
+                    request
+                    for observation in observations
+                    for request in observation.revision_requests.get(agent, [])
+                )
+            )
+        reward = min(observation.reward for observation in observations)
+        return HandoffAssessment(
+            run_id=latest.run_id,
+            producer_stage=latest.producer_stage,
+            consumer_stage=latest.consumer_stage,
+            producer_agents=[producer.lead, producer.peer],
+            consumer_agents=consumer_agents,
+            assessments=assessments,
+            revision_requests=revision_requests,
+            reward=reward,
+            revised=reward == 0 or any(
+                observation.revised for observation in observations
+            ),
+            evidence=[*producer.content_files],
+            producer_artifact_digest=producer.content_digest,
         )
 
     def _repair_rejected_handoff(
@@ -977,6 +1118,55 @@ class DeliveryOrchestrator:
             )
         return sign_state(shadow)
 
+    def _recomputed_shadow_updates_for_transition(
+        self,
+        start: InferenceLearningState,
+        handoffs: list[HandoffAssessment],
+        producer_stage: Stage,
+        consumer_stage: Stage,
+    ) -> list[Any]:
+        shadow = start.model_copy(deep=True)
+        selected: list[Any] | None = None
+        for handoff in handoffs:
+            if len(handoff.producer_agents) != 2:
+                raise RuntimeError(
+                    "handoff learning requires exactly two producer agents"
+                )
+            updates = propose_handoff_updates(
+                shadow,
+                handoff,
+                producer_lead=handoff.producer_agents[0],
+                producer_peer=handoff.producer_agents[1],
+                alpha=float(self.settings.continual_learning["trust_alpha"]),
+                step_max=float(
+                    self.settings.continual_learning["trust_step_max"]
+                ),
+                expectation_beta=float(
+                    self.settings.continual_learning["expectation_beta"]
+                ),
+            )
+            if (
+                handoff.producer_stage == producer_stage
+                and handoff.consumer_stage == consumer_stage
+            ):
+                selected = updates
+        if selected is None:
+            raise RuntimeError(
+                f"missing finalized handoff for {producer_stage.value}->{consumer_stage.value}"
+            )
+        return selected
+
+    @classmethod
+    def _rebuild_proposed_memories(
+        cls,
+        start: InferenceLearningState,
+        handoffs: list[HandoffAssessment],
+    ) -> dict[str, list[str]]:
+        memories = {agent: list(lines) for agent, lines in start.memories.items()}
+        for handoff in handoffs:
+            cls._accumulate_memories(memories, handoff)
+        return memories
+
     @staticmethod
     def _load_handoffs(store: RunStore) -> list[HandoffAssessment]:
         handoffs: list[HandoffAssessment] = []
@@ -990,8 +1180,12 @@ class DeliveryOrchestrator:
         canonical: dict[tuple[str, str], dict[str, Any]] = {}
         for row in RunStore.read_jsonl(store.logs_dir / "handoff_rewards.jsonl"):
             key = (str(row["producer_stage"]), str(row["consumer_stage"]))
-            canonical.setdefault(key, row)
-        return list(canonical.values())
+            canonical[key] = row
+        order = {stage.value: index for index, stage in enumerate(DELIVERY_STAGES)}
+        return sorted(
+            canonical.values(),
+            key=lambda row: order[str(row["consumer_stage"])],
+        )
 
     @staticmethod
     def _canonical_shadow_rows(store: RunStore) -> list[dict[str, Any]]:
@@ -1005,8 +1199,107 @@ class DeliveryOrchestrator:
                 str(row["source"]),
                 str(row["target"]),
             )
-            canonical.setdefault(key, row)
-        return list(canonical.values())
+            canonical[key] = row
+        order = {stage.value: index for index, stage in enumerate(DELIVERY_STAGES)}
+        return sorted(
+            canonical.values(),
+            key=lambda row: (
+                order[str(row["consumer_stage"])],
+                str(row["source"]),
+                str(row["target"]),
+            ),
+        )
+
+    @staticmethod
+    def _verify_pre_night_lineage(
+        *,
+        artifacts: dict[Stage, ArtifactEnvelope],
+        artifact_rows: list[dict[str, Any]],
+        handoff_rows: list[dict[str, Any]],
+        shadow_rows: list[dict[str, Any]],
+    ) -> None:
+        expected = [
+            (DELIVERY_STAGES[index], DELIVERY_STAGES[index + 1])
+            for index in range(len(DELIVERY_STAGES) - 1)
+        ]
+        handoffs = {
+            (str(row["producer_stage"]), str(row["consumer_stage"])): row
+            for row in handoff_rows
+        }
+        expected_keys = {
+            (producer.value, consumer.value) for producer, consumer in expected
+        }
+        if set(handoffs) != expected_keys:
+            raise RuntimeError(
+                "pre-Night lineage gate: finalized handoffs do not match all six transitions"
+            )
+        if len(shadow_rows) != len(expected) * 6:
+            raise RuntimeError(
+                "pre-Night lineage gate: expected exactly six shadow edges per transition"
+            )
+        for producer_stage, consumer_stage in expected:
+            producer = artifacts[producer_stage]
+            consumer = artifacts[consumer_stage]
+            key = (producer_stage.value, consumer_stage.value)
+            handoff = handoffs[key]
+            if handoff.get("producer_artifact_digest") != producer.content_digest:
+                raise RuntimeError(
+                    f"pre-Night lineage gate: stale producer digest for {producer_stage.value}->{consumer_stage.value}"
+                )
+            if set(handoff.get("evidence", [])) != set(producer.content_files):
+                raise RuntimeError(
+                    f"pre-Night lineage gate: stale producer evidence for {producer_stage.value}->{consumer_stage.value}"
+                )
+            if not DeliveryOrchestrator._artifact_descends_from(
+                artifact_rows,
+                consumer.content_digest,
+                producer.content_digest,
+            ):
+                raise RuntimeError(
+                    f"pre-Night lineage gate: consumer ancestry does not reach final {producer_stage.value} artifact"
+                )
+            transition_shadows = [
+                row
+                for row in shadow_rows
+                if row.get("producer_stage") == producer_stage.value
+                and row.get("consumer_stage") == consumer_stage.value
+            ]
+            if len(transition_shadows) != 6:
+                raise RuntimeError(
+                    f"pre-Night lineage gate: wrong shadow edge count for {producer_stage.value}->{consumer_stage.value}"
+                )
+            for shadow in transition_shadows:
+                if (
+                    shadow.get("reward") != handoff.get("reward")
+                    or set(shadow.get("evidence", []))
+                    != set(handoff.get("evidence", []))
+                ):
+                    raise RuntimeError(
+                        f"pre-Night lineage gate: shadow learning is stale for {producer_stage.value}->{consumer_stage.value}"
+                    )
+
+    @staticmethod
+    def _artifact_descends_from(
+        artifact_rows: list[dict[str, Any]],
+        consumer_digest: str,
+        producer_digest: str,
+    ) -> bool:
+        ancestry = {
+            str(row["content_digest"]): str(
+                row.get("input_digests", {}).get("previous", "")
+            )
+            for row in artifact_rows
+            if row.get("gate_status") == GateDecision.PASS.value
+            and row.get("content_digest")
+        }
+        current = consumer_digest
+        visited: set[str] = set()
+        while current and current not in visited:
+            if current == producer_digest:
+                return True
+            visited.add(current)
+            current = ancestry.get(current, "")
+        return False
 
     @staticmethod
     def _accumulate_memories(
@@ -1166,9 +1459,31 @@ class DeliveryOrchestrator:
         """
 
         completed = list(state.get("completed_stages", []))
-        if Stage.EXECUTE.value not in completed:
-            return previous_digest
-        execute = previous.get(Stage.EXECUTE, {})
+        execute_completed = Stage.EXECUTE.value in completed
+        execute = previous.get(Stage.EXECUTE, {}) if execute_completed else {}
+        if not execute_completed:
+            # A manually repaired workspace can also be newer than the latest
+            # immutable REPAIR artifact when EXECUTE never passed. Treat that
+            # verified drift as a fresh repair epoch instead of permanently
+            # trapping an explicitly resumed run behind its exhausted budget.
+            execute_rows = [
+                row
+                for row in RunStore.read_jsonl(store.logs_dir / "artifacts.jsonl")
+                if row.get("stage") == Stage.EXECUTE.value
+            ]
+            if not execute_rows:
+                return previous_digest
+            latest = max(execute_rows, key=lambda row: int(row.get("version", 0)))
+            content_files = latest.get("content_files", [])
+            if not content_files:
+                return previous_digest
+            artifact_path = store.root / str(content_files[0])
+            if not artifact_path.is_file():
+                return previous_digest
+            try:
+                execute = json.loads(artifact_path.read_text())
+            except (OSError, json.JSONDecodeError):
+                return previous_digest
         expected = execute.get("build_evidence", {}).get("file_digests")
         if not isinstance(expected, dict) or not expected:
             # Older/fixture artifacts without a workspace digest cannot prove drift and
@@ -1185,9 +1500,7 @@ class DeliveryOrchestrator:
             Stage.DEMO.value,
             Stage.BUNDLE.value,
         }
-        state["completed_stages"] = [
-            stage for stage in completed if stage not in invalidated
-        ]
+        state["completed_stages"] = [stage for stage in completed if stage not in invalidated]
         state["current_stage"] = Stage.EXECUTE.value
         for stage in (Stage.EXECUTE, Stage.OBSERVE, Stage.DEMO, Stage.BUNDLE):
             artifacts.pop(stage, None)

@@ -1,4 +1,8 @@
-# Ten-run inference scorecard
+# Inference experiment scorecard
+
+The campaign originally targeted ten runs. On 2026-07-17 the user approved a
+scope reduction: recover Experiment 3, run exactly one additional experiment,
+then stop. Experiments 5–10 are cancelled, not incomplete.
 
 Every experiment is audited after completion and before the next run. Ratings are
 `0` missing or wrong, `1` major gaps, `2` partial, `3` complete and reproducible,
@@ -39,3 +43,17 @@ regression and improve a measurable efficiency or quality dimension.
 - Exactly one Night Curator commit occurs after a completed prototype and passing demo.
 - Audit or architecture work cannot issue rewards or trigger a Night commit.
 - Any failure halts the campaign and is reported instead of changing trust mechanics.
+
+## Completed results
+
+| Experiment | Result | Learning commit | Handoff rewards | Evidence |
+|---|---:|---:|---|---|
+| RoomReady | 90/100 | 2 | 6 accepted | Original campaign report |
+| StockSignal | 92/100 (automated 100) | 3 | 6 accepted | Original campaign report |
+| PolicyProof (corrected) | 100/100 | 4 | `1,1,1,1,0,1` | Rejection remained 0 after revision; stale original commit archived |
+| CoverageCanvas | 100/100 | 5 | `1,1,1,1,1,1` | 54.04s interactive demo; 117-file verified bundle |
+
+The final two independent audits report unchanged trust code and frozen training
+hashes, exactly one Night commit per completed prototype, 36 canonical shadow
+updates, current artifact lineage, and zero changes to the nine non-trust
+relationship dimensions.

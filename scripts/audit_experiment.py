@@ -39,6 +39,28 @@ def digest(path: Path) -> str:
     return "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def artifact_descends_from(
+    artifacts: list[dict[str, Any]],
+    consumer_digest: str,
+    producer_digest: str,
+) -> bool:
+    ancestry = {
+        str(row["content_digest"]): str(
+            row.get("input_digests", {}).get("previous", "")
+        )
+        for row in artifacts
+        if row.get("gate_status") == "PASS" and row.get("content_digest")
+    }
+    current = consumer_digest
+    visited: set[str] = set()
+    while current and current not in visited:
+        if current == producer_digest:
+            return True
+        visited.add(current)
+        current = ancestry.get(current, "")
+    return False
+
+
 def command_kind(row: dict[str, Any]) -> str | None:
     command = str(row.get("command", ""))
     if command.startswith("npm install") or command.startswith("npm ci"):
@@ -131,9 +153,12 @@ def audit(repo: Path, run_id: str) -> dict[str, Any]:
     completed = state.get("status") == "completed"
 
     stage_evidence: dict[str, Any] = {}
+    latest_artifacts: dict[str, dict[str, Any]] = {}
     for stage in STAGES:
         rows = [row for row in artifacts if row.get("stage") == stage]
         latest = max(rows, key=lambda row: int(row.get("version", 0))) if rows else None
+        if latest:
+            latest_artifacts[stage] = latest
         stage_evidence[stage] = {
             "artifact_present": bool(latest),
             "latest_version": int(latest.get("version", 0)) if latest else 0,
@@ -194,6 +219,45 @@ def audit(repo: Path, run_id: str) -> dict[str, Any]:
         for relative in expected_hashes
         if (repo / relative).is_file()
     }
+    expected_transitions = list(zip(STAGES, STAGES[1:]))
+    handoff_map = {
+        (str(row.get("producer_stage")), str(row.get("consumer_stage"))): row
+        for row in handoffs
+    }
+    handoff_lineage_current = set(handoff_map) == set(expected_transitions)
+    shadow_lineage_current = len(shadows) == 36
+    for producer_stage, consumer_stage in expected_transitions:
+        producer = latest_artifacts.get(producer_stage, {})
+        consumer = latest_artifacts.get(consumer_stage, {})
+        handoff = handoff_map.get((producer_stage, consumer_stage), {})
+        transition_shadows = [
+            row
+            for row in shadows
+            if row.get("producer_stage") == producer_stage
+            and row.get("consumer_stage") == consumer_stage
+        ]
+        handoff_lineage_current = handoff_lineage_current and all(
+            (
+                bool(producer),
+                bool(consumer),
+                handoff.get("producer_artifact_digest")
+                == producer.get("content_digest"),
+                set(handoff.get("evidence", []))
+                == set(producer.get("content_files", [])),
+                artifact_descends_from(
+                    artifacts,
+                    str(consumer.get("content_digest", "")),
+                    str(producer.get("content_digest", "")),
+                ),
+            )
+        )
+        shadow_lineage_current = shadow_lineage_current and len(
+            transition_shadows
+        ) == 6 and all(
+            row.get("reward") == handoff.get("reward")
+            and set(row.get("evidence", [])) == set(handoff.get("evidence", []))
+            for row in transition_shadows
+        )
     trust_invariants = {
         "algorithm_and_frozen_hashes_unchanged": actual_hashes == expected_hashes,
         "frozen_baseline_digest_matches": (
@@ -210,6 +274,8 @@ def audit(repo: Path, run_id: str) -> dict[str, Any]:
         and bool(night.get("night_workspace", {}).get("trust_commit_approved")),
         "canonical_handoffs_six": len(handoffs) == 6,
         "canonical_shadow_updates_36": len(shadows) == 36,
+        "final_handoff_artifact_lineage_current": handoff_lineage_current,
+        "shadow_learning_lineage_current": shadow_lineage_current,
         "incomplete_shadow_updates_consistent": completed
         or len(shadows) == 6 * len(handoffs),
         "all_trust_steps_within_cap": all(

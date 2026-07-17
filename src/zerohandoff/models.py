@@ -198,6 +198,7 @@ class HandoffAssessment(Contract):
     reward: int = Field(ge=0, le=1)
     revised: bool = False
     evidence: list[str] = Field(default_factory=list)
+    producer_artifact_digest: str | None = None
     created_at: datetime = Field(default_factory=utc_now)
 
 

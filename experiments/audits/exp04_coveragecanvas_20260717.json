@@ -1,0 +1,129 @@
+{
+  "app": {
+    "build_evidence_present": true,
+    "failed_commands": 4,
+    "final_validation_passed": true,
+    "latest_validation_commands": [
+      "build",
+      "install",
+      "test",
+      "typecheck"
+    ],
+    "recorded_commands": 46
+  },
+  "bundle": {
+    "failures": [],
+    "files": 117
+  },
+  "continual_learning": {
+    "end_commit_sequence": 5,
+    "end_digest": "sha256:a92542ed79162ddc9826ae73cae67c0fa597ae74be8db646fa1c41112503c6af",
+    "handoff_rewards": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "memory_agents_changed": 14,
+    "memory_lines_after": 62,
+    "memory_lines_before": 48,
+    "start_commit_sequence": 4,
+    "start_digest": "sha256:5e1fb459927be430ef5abd6e28cf859aa2da754cff3836560d17d08c8402f7c3",
+    "trust_edges_changed": 36
+  },
+  "demo": {
+    "capture_mode": "browser-interactive",
+    "duration_seconds": 54.04,
+    "has_audio": true,
+    "has_motion": true,
+    "has_video": true,
+    "narration_provider": "macos-enhanced:com.apple.voice.enhanced.en-US.Samantha",
+    "neural_narration": false,
+    "presenter_quality_narration": true,
+    "visual_content": true
+  },
+  "final_outcome": "delivery_bundle_ready",
+  "non_trust_changes": [],
+  "repairs_total": 5,
+  "run_id": "exp04_coveragecanvas_20260717",
+  "schema_version": "1.0",
+  "score": 100.0,
+  "score_components": {
+    "bundle_integrity": 10.0,
+    "continual_memory": 10.0,
+    "deterministic_commands": 15.0,
+    "interactive_demo": 15.0,
+    "run_completion": 10.0,
+    "seven_stage_artifacts": 25.0,
+    "trust_invariants": 15.0
+  },
+  "stages": {
+    "COMPOSE": {
+      "artifact_present": true,
+      "files_present": true,
+      "latest_gate": "PASS",
+      "latest_version": 2,
+      "repairs": 1
+    },
+    "DECIDE": {
+      "artifact_present": true,
+      "files_present": true,
+      "latest_gate": "PASS",
+      "latest_version": 1,
+      "repairs": 0
+    },
+    "EXECUTE": {
+      "artifact_present": true,
+      "files_present": true,
+      "latest_gate": "PASS",
+      "latest_version": 8,
+      "repairs": 4
+    },
+    "MODEL": {
+      "artifact_present": true,
+      "files_present": true,
+      "latest_gate": "PASS",
+      "latest_version": 1,
+      "repairs": 0
+    },
+    "OBSERVE": {
+      "artifact_present": true,
+      "files_present": true,
+      "latest_gate": "PASS",
+      "latest_version": 2,
+      "repairs": 0
+    },
+    "SENSE": {
+      "artifact_present": true,
+      "files_present": true,
+      "latest_gate": "PASS",
+      "latest_version": 1,
+      "repairs": 0
+    },
+    "SIMULATE": {
+      "artifact_present": true,
+      "files_present": true,
+      "latest_gate": "PASS",
+      "latest_version": 1,
+      "repairs": 0
+    }
+  },
+  "status": "completed",
+  "trust_invariants": {
+    "algorithm_and_frozen_hashes_unchanged": true,
+    "all_trust_steps_within_cap": true,
+    "canonical_handoffs_six": true,
+    "canonical_shadow_updates_36": true,
+    "commit_incremented_once": true,
+    "final_handoff_artifact_lineage_current": true,
+    "frozen_baseline_digest_matches": true,
+    "incomplete_run_has_no_commit": true,
+    "incomplete_shadow_updates_consistent": true,
+    "lineage_unchanged": true,
+    "night_commit_approved": true,
+    "non_trust_dimensions_frozen": true,
+    "shadow_learning_lineage_current": true
+  }
+}

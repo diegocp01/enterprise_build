@@ -93,6 +93,35 @@ class DemoAssembler:
                 "enhanced macOS voice, explicitly opt in to Edge TTS, or supply audio "
                 "with declared provenance"
             )
+        if (
+            require_interactive
+            and narration_provider.startswith("macos-enhanced:")
+            and os.getenv("ZEROHANDOFF_NARRATION_AUDIO") is None
+        ):
+            local_rate = int(os.getenv("ZEROHANDOFF_SAY_RATE", "165"))
+            for _ in range(2):
+                try:
+                    self._capture_pacing_scale(demo_plan, narration_duration)
+                    break
+                except RuntimeError:
+                    pass
+                adaptive_rate = self._adaptive_say_rate(
+                    demo_plan,
+                    narration_duration,
+                    base_rate=local_rate,
+                )
+                local_rate = adaptive_rate
+                audio_source, narration_provider = self._narrate(
+                    narration_script,
+                    audio,
+                    prefer_presenter_quality=True,
+                    local_rate=adaptive_rate,
+                )
+                narration_duration = (
+                    self._media_duration(ffprobe, audio_source)
+                    if audio_source
+                    else 0.0
+                )
         pacing_scale = (
             self._capture_pacing_scale(demo_plan, narration_duration)
             if require_interactive
@@ -474,6 +503,7 @@ class DemoAssembler:
         destination: Path,
         *,
         prefer_presenter_quality: bool = False,
+        local_rate: int | None = None,
     ) -> tuple[Path | None, str]:
         destination.unlink(missing_ok=True)
         destination.with_suffix(".aiff").unlink(missing_ok=True)
@@ -524,7 +554,7 @@ class DemoAssembler:
                     default_local_voice,
                 ),
                 "-r",
-                os.getenv("ZEROHANDOFF_SAY_RATE", "165"),
+                str(local_rate or int(os.getenv("ZEROHANDOFF_SAY_RATE", "165"))),
                 "-o",
                 str(aiff),
                 script,
@@ -574,6 +604,18 @@ class DemoAssembler:
 
         if narration_duration <= 0:
             raise RuntimeError("demo timing preflight requires narrated audio")
+        choreography = DemoAssembler._capture_choreography_seconds(demo_plan)
+        fixed_overhead = 8.0
+        scale = (narration_duration - fixed_overhead) / choreography
+        if not 0.45 <= scale <= 1.8:
+            raise RuntimeError(
+                "demo plan and narration fail timing preflight; revise their relative detail "
+                "before browser capture"
+            )
+        return scale
+
+    @staticmethod
+    def _capture_choreography_seconds(demo_plan: list[dict[str, Any]]) -> float:
         steps = len(demo_plan)
         actions = [
             action
@@ -595,7 +637,6 @@ class DemoAssembler:
             for step in demo_plan
         )
         passive_waits = max(0, waits - showcased_waits)
-        fixed_overhead = 8.0
         choreography = (
             steps * 1.28
             + interactive * 1.37
@@ -604,13 +645,22 @@ class DemoAssembler:
         )
         if choreography <= 0:
             raise RuntimeError("demo timing preflight found no recordable choreography")
-        scale = (narration_duration - fixed_overhead) / choreography
-        if not 0.45 <= scale <= 1.8:
-            raise RuntimeError(
-                "demo plan and narration fail timing preflight; revise their relative detail "
-                "before browser capture"
-            )
-        return scale
+        return choreography
+
+    @staticmethod
+    def _adaptive_say_rate(
+        demo_plan: list[dict[str, Any]],
+        narration_duration: float,
+        *,
+        base_rate: int,
+    ) -> int:
+        target_duration = 8.0 + 1.65 * DemoAssembler._capture_choreography_seconds(
+            demo_plan
+        )
+        if narration_duration <= 0 or target_duration <= 0:
+            raise RuntimeError("cannot adapt an invalid narration duration")
+        calculated = round(base_rate * narration_duration / target_duration)
+        return max(180, min(320, calculated))
 
     @staticmethod
     def _media_duration(ffprobe: str, path: Path) -> float:

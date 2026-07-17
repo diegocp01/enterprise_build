@@ -55,6 +55,28 @@ def test_demo_synchronization_scales_visuals_to_narration() -> None:
     assert ratio == pytest.approx(0.786638, rel=1e-5)
 
 
+def test_demo_adaptive_local_voice_rate_targets_natural_choreography() -> None:
+    plan = [
+        {
+            "actions": [
+                {"type": "click"},
+                {"type": "wait"},
+                {"type": "wait"},
+            ]
+        }
+        for _ in range(7)
+    ]
+
+    rate = DemoAssembler._adaptive_say_rate(
+        plan,
+        95.665941,
+        base_rate=165,
+    )
+
+    assert 180 <= rate <= 320
+    assert rate == 320
+
+
 @pytest.mark.parametrize(
     ("provider", "neural", "presenter_quality"),
     [
@@ -378,6 +400,88 @@ def test_resume_workspace_drift_durably_invalidates_execute_and_downstream(
         {"stage": Stage.EXECUTE.value, "repair_id": "handoff_repair_current"},
     )
     assert DeliveryOrchestrator._repairs_used(store, Stage.EXECUTE) == 1
+
+
+def test_resume_workspace_drift_starts_fresh_epoch_when_execute_never_passed(
+    tmp_path, settings
+) -> None:
+    base = tmp_path / "runs"
+    store = RunStore(base, "resume_failed_execute_drift", "delivery")
+    app = store.workspace_dir / "app"
+    source = app / "src" / "App.tsx"
+    source.parent.mkdir(parents=True)
+    source.write_text("export default function App() { return <main>failed</main> }\n")
+    expected = DeliveryOrchestrator._workspace_file_digests(app)
+    simulate = store.commit_artifact(
+        stage=Stage.SIMULATE,
+        artifact_id="scenario_model",
+        artifact_type="scenario_model",
+        version=1,
+        producer_pair=Stage.SIMULATE.value,
+        lead="Cato",
+        peer="Mira",
+        files={"scenario_model.json": {"contract_item_ids": ["MODEL-01"]}},
+        gate_status=GateDecision.PASS,
+    )
+    store.commit_artifact(
+        stage=Stage.EXECUTE,
+        artifact_id="autonomous_change",
+        artifact_type="autonomous_change",
+        version=1,
+        producer_pair=Stage.EXECUTE.value,
+        lead="Rook",
+        peer="Ember",
+        files={"autonomous_change.json": {"build_evidence": {"file_digests": expected}}},
+        gate_status=GateDecision.REPAIR,
+    )
+    store.append_log(
+        "repairs", {"stage": Stage.EXECUTE.value, "repair_id": "exhausted_repair"}
+    )
+    state = {
+        "run_id": store.run_id,
+        "status": RunStatus.FAILED.value,
+        "current_stage": Stage.EXECUTE.value,
+        "completed_stages": [Stage.SIMULATE.value],
+        "settings_digest": settings.digest,
+        "relationship_vector_digest": "sha256:start",
+        "failure_reason": "repair budget exhausted for EXECUTE",
+    }
+    manifest = RunManifest(
+        run_id=store.run_id,
+        run_type="delivery",
+        status=RunStatus.RUNNING,
+        settings_digest=settings.digest,
+        relationship_vector_digest="sha256:start",
+        adapter="fixture",
+        model_settings=settings.models,
+        stage_outcomes={Stage.SIMULATE.value: "PASS"},
+        artifact_checksums={Stage.SIMULATE.value: simulate.content_digest},
+    )
+    artifacts = {Stage.SIMULATE: simulate}
+    previous = {Stage.SIMULATE: {"contract_item_ids": ["MODEL-01"]}}
+    source.write_text("export default function App() { return <main>manually repaired</main> }\n")
+
+    returned_digest = DeliveryOrchestrator(
+        settings=settings,
+        adapter=FixtureAdapter(),
+        base_dir=base,
+    )._reconcile_resume_workspace_drift(
+        store=store,
+        state=state,
+        manifest=manifest,
+        artifacts=artifacts,
+        previous=previous,
+        previous_digest=simulate.content_digest,
+    )
+
+    assert returned_digest == simulate.content_digest
+    assert state["current_stage"] == Stage.EXECUTE.value
+    assert state["status"] == RunStatus.REPAIRING.value
+    assert "failure_reason" not in state
+    assert RunStore.read_jsonl(store.root / "events.jsonl")[-1]["event_type"] == (
+        "delivery.resume.workspace_drift_detected"
+    )
+    assert DeliveryOrchestrator._repairs_used(store, Stage.EXECUTE) == 0
 
 
 def test_execute_schema_carries_only_the_canonical_upstream_command_contract(
@@ -906,21 +1010,65 @@ def test_inference_night_schema_requires_every_named_agent_memory() -> None:
 
 def test_resume_learning_rows_are_canonicalized_by_handoff(tmp_path) -> None:
     store = RunStore(tmp_path, "resume_dedup", "delivery")
-    handoff = {
+    first_handoff = {
         "producer_stage": "MODEL",
         "consumer_stage": "COMPOSE",
         "reward": 1,
+        "producer_artifact_digest": "sha256:first",
     }
-    shadow = {
-        **handoff,
+    latest_handoff = {
+        **first_handoff,
+        "reward": 0,
+        "producer_artifact_digest": "sha256:latest",
+    }
+    first_shadow = {
+        **first_handoff,
         "source": "Aster",
         "target": "Juno",
     }
-    for _ in range(3):
-        store.append_log("handoff_rewards", handoff)
-        store.append_log("shadow_trust_updates", shadow)
-    assert len(DeliveryOrchestrator._canonical_handoff_rows(store)) == 1
-    assert len(DeliveryOrchestrator._canonical_shadow_rows(store)) == 1
+    latest_shadow = {
+        **latest_handoff,
+        "source": "Aster",
+        "target": "Juno",
+    }
+    store.append_log("handoff_rewards", first_handoff)
+    store.append_log("shadow_trust_updates", first_shadow)
+    store.append_log("handoff_rewards", latest_handoff)
+    store.append_log("shadow_trust_updates", latest_shadow)
+    handoffs = DeliveryOrchestrator._canonical_handoff_rows(store)
+    shadows = DeliveryOrchestrator._canonical_shadow_rows(store)
+    assert len(handoffs) == 1
+    assert len(shadows) == 1
+    assert handoffs[0]["reward"] == 0
+    assert handoffs[0]["producer_artifact_digest"] == "sha256:latest"
+    assert shadows[0]["reward"] == 0
+    assert shadows[0]["producer_artifact_digest"] == "sha256:latest"
+
+
+def test_pre_night_lineage_accepts_repaired_artifact_ancestry() -> None:
+    rows = [
+        {
+            "content_digest": "sha256:consumer-v2",
+            "input_digests": {"previous": "sha256:consumer-v1"},
+            "gate_status": "PASS",
+        },
+        {
+            "content_digest": "sha256:consumer-v1",
+            "input_digests": {"previous": "sha256:producer-final"},
+            "gate_status": "PASS",
+        },
+    ]
+
+    assert DeliveryOrchestrator._artifact_descends_from(
+        rows,
+        "sha256:consumer-v2",
+        "sha256:producer-final",
+    )
+    assert not DeliveryOrchestrator._artifact_descends_from(
+        rows,
+        "sha256:consumer-v2",
+        "sha256:obsolete-producer",
+    )
 
 
 def test_delivery_reaches_bundle_with_media_logs_and_valid_checksums(
@@ -946,10 +1094,14 @@ def test_delivery_reaches_bundle_with_media_logs_and_valid_checksums(
     assert len(policies) == 30
     assert all(row["policy"]["source_vector_digest"] for row in policies)
     handoffs = RunStore.read_jsonl(result.store_root / "logs" / "handoff_rewards.jsonl")
+    observations = RunStore.read_jsonl(
+        result.store_root / "logs" / "handoff_assessments.jsonl"
+    )
     shadows = RunStore.read_jsonl(
         result.store_root / "logs" / "shadow_trust_updates.jsonl"
     )
     assert len(handoffs) == 6
+    assert len(observations) == 6
     assert all(row["reward"] == 1 for row in handoffs)
     assert len(shadows) == 36
     assert len(
@@ -962,6 +1114,17 @@ def test_delivery_reaches_bundle_with_media_logs_and_valid_checksums(
             result.store_root / "logs" / "shadow_trust_updates.canonical.jsonl"
         )
     ) == 36
+    stale_handoffs = [dict(row) for row in handoffs]
+    stale_handoffs[0]["producer_artifact_digest"] = "sha256:obsolete"
+    with pytest.raises(RuntimeError, match="pre-Night lineage gate"):
+        DeliveryOrchestrator._verify_pre_night_lineage(
+            artifacts=result.artifacts,
+            artifact_rows=RunStore.read_jsonl(
+                result.store_root / "logs" / "artifacts.jsonl"
+            ),
+            handoff_rows=stale_handoffs,
+            shadow_rows=shadows,
+        )
     start = json.loads((result.store_root / "inference_relationships.start.json").read_text())
     end = json.loads((result.store_root / "inference_relationships.end.json").read_text())
     assert start["content_digest"] != end["content_digest"]
@@ -1627,6 +1790,9 @@ def test_rejected_handoff_rewards_zero_and_routes_one_upstream_revision(
         base_dir=tmp_path / "runs",
     ).run(request=build_request, frozen=frozen, run_id="delivery_handoff_revision")
     handoffs = RunStore.read_jsonl(result.store_root / "logs" / "handoff_rewards.jsonl")
+    observations = RunStore.read_jsonl(
+        result.store_root / "logs" / "handoff_assessments.jsonl"
+    )
     first = next(row for row in handoffs if row["consumer_stage"] == Stage.MODEL.value)
     assert first["reward"] == 0
     assert first["revised"] is True
@@ -1636,6 +1802,13 @@ def test_rejected_handoff_rewards_zero_and_routes_one_upstream_revision(
         if row["stage"] == Stage.SENSE.value and row["gate_status"] == "PASS"
     ]
     assert len(sense) == 2
+    sense_observations = [
+        row for row in observations if row["consumer_stage"] == Stage.MODEL.value
+    ]
+    assert [row["reward"] for row in sense_observations] == [0, 1]
+    assert first["producer_artifact_digest"] == sense[-1]["content_digest"]
+    model = result.artifacts[Stage.MODEL]
+    assert model.input_digests["previous"] == sense[-1]["content_digest"]
     negative = [
         row
         for row in RunStore.read_jsonl(
@@ -1645,6 +1818,72 @@ def test_rejected_handoff_rewards_zero_and_routes_one_upstream_revision(
     ]
     assert len(negative) == 6
     assert all(row["proposed_delta"] < 0 for row in negative)
+
+
+def test_rejected_handoff_survives_interrupted_repair_and_resume(
+    tmp_path, repo_root, settings, build_request, monkeypatch
+) -> None:
+    frozen = frozen_fixture(tmp_path, repo_root, settings)
+    assert frozen is not None
+    base = tmp_path / "runs"
+    original_repair = PairRunner.repair
+    interruptions = 0
+
+    def interrupt_first_handoff_repair(self, *args, **kwargs):
+        nonlocal interruptions
+        packet = kwargs["packet"]
+        if packet.stage == Stage.SENSE and interruptions == 0:
+            interruptions += 1
+            raise RuntimeError("simulated interruption after durable rejection")
+        return original_repair(self, *args, **kwargs)
+
+    monkeypatch.setattr(PairRunner, "repair", interrupt_first_handoff_repair)
+    with pytest.raises(RuntimeError, match="durable rejection"):
+        DeliveryOrchestrator(
+            settings=settings,
+            adapter=RejectFirstModelHandoffAdapter(),
+            base_dir=base,
+        ).run(
+            request=build_request,
+            frozen=frozen,
+            run_id="delivery_handoff_interrupted",
+        )
+    run_root = base / "delivery_handoff_interrupted"
+    interrupted_observations = RunStore.read_jsonl(
+        run_root / "logs" / "handoff_assessments.jsonl"
+    )
+    assert [row["reward"] for row in interrupted_observations] == [0]
+    assert not (run_root / "inference_relationships.end.json").exists()
+
+    monkeypatch.setattr(PairRunner, "repair", original_repair)
+    resumed = DeliveryOrchestrator(
+        settings=settings,
+        adapter=FixtureAdapter(),
+        base_dir=base,
+    ).run(
+        request=build_request,
+        frozen=frozen,
+        run_id="delivery_handoff_interrupted",
+        resume=True,
+    )
+    final_handoff = next(
+        row
+        for row in DeliveryOrchestrator._canonical_handoff_rows(
+            RunStore(base, "delivery_handoff_interrupted", "delivery")
+        )
+        if row["consumer_stage"] == Stage.MODEL.value
+    )
+    passing_sense = [
+        row
+        for row in RunStore.read_jsonl(resumed.store_root / "logs" / "artifacts.jsonl")
+        if row["stage"] == Stage.SENSE.value and row["gate_status"] == "PASS"
+    ]
+    assert final_handoff["reward"] == 0
+    assert final_handoff["revised"] is True
+    assert final_handoff["producer_artifact_digest"] == passing_sense[-1]["content_digest"]
+    assert resumed.artifacts[Stage.MODEL].input_digests["previous"] == passing_sense[-1][
+        "content_digest"
+    ]
 
 
 def test_failed_run_resumes_from_last_committed_stage_without_duplicates(

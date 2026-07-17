@@ -59,6 +59,7 @@ class RunStore:
         "forgotten",
         "puzzle_validation",
         "run_manifests",
+        "handoff_assessments",
         "handoff_rewards",
         "shadow_trust_updates",
         "inference_night_commits",

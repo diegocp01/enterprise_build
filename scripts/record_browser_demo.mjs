@@ -183,6 +183,19 @@ function plannedLocator(action) {
   return page.getByLabel(action.name, { exact: false }).first();
 }
 
+async function plannedActionLocator(action) {
+  if (!action.selector && action.role) {
+    const openDialog = page.locator('dialog[open]').last();
+    if (await openDialog.count()) {
+      const dialogTarget = openDialog.getByRole(action.role, {
+        name: action.name ? new RegExp(escapePattern(action.name), 'i') : undefined,
+      });
+      if (await dialogTarget.count()) return dialogTarget.first();
+    }
+  }
+  return plannedLocator(action);
+}
+
 async function stateSnapshot() {
   const state = await page.evaluate(() => ({
     title: document.title,
@@ -255,6 +268,13 @@ async function runPlannedFlow(plan) {
             locator = page.getByText(action.name, { exact: false }).first();
           }
           if (!(await locator.count()) && action.name) {
+            // Compact metric cards often split their visible phrase across
+            // nested label/value/suffix elements. A stable accessible name is
+            // valid observation evidence and avoids whitespace-coupled demos.
+            locator = page.getByLabel(action.name, { exact: false }).first();
+            actionReport.match_mode = 'accessible-name-fallback';
+          }
+          if (!(await locator.count()) && action.name) {
             const withoutTrailingPunctuation = action.name.replace(/[.!?]+$/, '');
             if (withoutTrailingPunctuation !== action.name) {
               locator = page.getByText(withoutTrailingPunctuation, { exact: false }).first();
@@ -298,7 +318,7 @@ async function runPlannedFlow(plan) {
         actionReport.state = await rememberState(`step-${step.step ?? ''}-wait-${actionIndex + 1}`);
         continue;
       }
-      const locator = plannedLocator(action);
+      const locator = await plannedActionLocator(action);
       if (!(await locator.count())) throw new Error(`Demo target not found: ${action.role || ''} ${action.name || action.selector || ''}`);
       await focusTarget(locator);
       let verifiedDownload = null;
