@@ -2,6 +2,10 @@
 
 **One short build request in. A working, tested application and narrated demo out.**
 
+[![ZeroHandoff training, delivery, and continual-learning overview](docs/images/overview-learning-system.png)](overview.html#learning-system)
+
+[![ZeroHandoff seven-step autonomous software-delivery pipeline](docs/images/overview-delivery-pipeline.png)](overview.html#delivery-pipeline)
+
 ZeroHandoff is an autonomous software-delivery pipeline for the OpenAI Build Week
 Developer Tools track. A person describes only what they want built, for whom,
 the desired outcome, and any constraints. Codex turns that request into a
