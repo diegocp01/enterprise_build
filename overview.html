@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A one-screen visual map of ZeroHandoff turning one build request into an auditable software-delivery bundle.">
-  <title>ZeroHandoff — From Request to Product</title>
+  <meta name="description" content="A two-part visual map of ZeroHandoff: train trusted agent pairs, deliver software autonomously, and keep learning between runs.">
+  <title>ZeroHandoff — Train, Deliver, Learn</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' fill='%23101820'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-size='29' font-weight='800' fill='%23f7cd46'%3EZ%3C/text%3E%3C/svg%3E">
   <style>
     :root {
@@ -20,9 +20,31 @@
     }
 
     * { box-sizing: border-box; }
-    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #191f25; }
-    body { display: grid; place-items: center; }
+    html {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      background: #191f25;
+    }
+    body { width: 100%; min-height: 100%; margin: 0; background: #191f25; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    .deck { width: 100%; }
+    .viewport-page {
+      position: relative;
+      display: grid;
+      width: 100%;
+      height: 100vh;
+      min-height: 520px;
+      place-items: center;
+      overflow: hidden;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      background: #191f25;
+    }
 
     .board {
       position: absolute;
@@ -594,12 +616,404 @@
     .footnote { color: var(--muted); font-size: 7.5px; font-weight: 800; letter-spacing: .06em; text-align: right; text-transform: uppercase; }
     .footnote strong { display: block; margin-bottom: 4px; color: var(--ink); font-size: 8.5px; }
 
-    @media (prefers-reduced-motion: reduce) { .flow-pulse { animation: none; left: calc(50% - 9px); } }
-    @media print { .board { transform: translate(-50%, -50%) !important; } }
+    /* Page one: the complete learning system. */
+    .learning-board main { height: 667px; padding-top: 22px; }
+    .learning-board .headline h1 { font-size: 43px; }
+    .learning-board .score { gap: 15px; }
+    .system-map { position: relative; height: 625px; }
+    .chapter-label {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 950;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .chapter-label b {
+      display: grid;
+      width: 27px;
+      height: 27px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--cream);
+      background: var(--ink);
+      font-size: 9px;
+    }
+    .system-flow {
+      position: absolute;
+      top: 52px;
+      right: 0;
+      left: 0;
+      display: grid;
+      grid-template-columns: 485px 54px 338px 54px 519px;
+      align-items: stretch;
+      height: 405px;
+    }
+    .system-card {
+      position: relative;
+      padding: 20px;
+      border: 3px solid var(--ink);
+      border-radius: 24px;
+      background: var(--cream);
+      box-shadow: 7px 7px 0 var(--ink);
+    }
+    .train-card { box-shadow: 7px 7px 0 var(--yellow); }
+    .delivery-card { box-shadow: 7px 7px 0 var(--blue); }
+    .learning-card { box-shadow: 7px 7px 0 var(--mint); }
+    .card-heading { display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 11px; }
+    .card-number {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--yellow);
+      font-size: 13px;
+      font-weight: 950;
+    }
+    .delivery-card .card-number { background: var(--blue); }
+    .learning-card .card-number { background: var(--mint); }
+    .card-heading strong { display: block; font-size: 18px; line-height: 1; letter-spacing: -.02em; text-transform: uppercase; }
+    .card-heading small { display: block; margin-top: 6px; color: var(--muted); font-size: 8px; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
+    .mode-pill {
+      padding: 7px 9px;
+      border-radius: 999px;
+      color: var(--cream);
+      background: var(--ink);
+      font-size: 7px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .flow-arrow {
+      position: relative;
+      display: grid;
+      place-items: center;
+      color: var(--coral);
+      font-size: 37px;
+      font-weight: 950;
+    }
+
+    .training-visual {
+      display: grid;
+      grid-template-columns: 105px 24px 105px 24px 1fr;
+      align-items: center;
+      margin-top: 24px;
+    }
+    .visual-node { text-align: center; }
+    .visual-icon {
+      display: grid;
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 10px;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 18px;
+      background: rgba(247,205,70,.38);
+      font-size: 23px;
+      font-weight: 950;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+    .visual-node strong { display: block; font-size: 10px; line-height: 1.2; text-transform: uppercase; }
+    .visual-node small { display: block; margin-top: 5px; color: var(--muted); font-size: 7.5px; font-weight: 800; line-height: 1.25; }
+    .mini-arrow { color: var(--coral); font-size: 22px; font-weight: 950; text-align: center; }
+    .trust-meter {
+      padding: 14px 12px;
+      border-radius: 16px;
+      background: rgba(125,168,248,.23);
+      text-align: center;
+    }
+    .trust-pair { display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+    .trust-pair b {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--cream);
+      font-size: 9px;
+    }
+    .trust-pair i { width: 16px; height: 8px; margin: 0 2px; border-radius: 4px; background: var(--coral); }
+    .trust-pair i:nth-of-type(2) { background: var(--yellow); }
+    .trust-pair i:nth-of-type(3) { background: var(--mint); }
+    .trust-meter strong { display: block; font-size: 10px; text-transform: uppercase; }
+    .trust-meter small { display: block; margin-top: 5px; color: var(--muted); font-size: 7.5px; font-weight: 800; line-height: 1.25; }
+    .curator-line {
+      display: grid;
+      grid-template-columns: 43px 1fr auto;
+      align-items: center;
+      gap: 11px;
+      margin-top: 21px;
+      padding: 12px 14px;
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      background: var(--paper);
+    }
+    .curator-icon { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 50%; color: var(--cream); background: var(--ink); font-size: 17px; }
+    .curator-line strong { display: block; font-size: 9px; text-transform: uppercase; }
+    .curator-line small { display: block; margin-top: 4px; color: var(--muted); font-size: 7.5px; font-weight: 800; }
+    .lock-pill { padding: 8px 10px; border-radius: 999px; background: var(--mint); font-size: 7px; font-weight: 950; text-transform: uppercase; }
+
+    .delivery-visual { display: grid; gap: 15px; margin-top: 26px; }
+    .delivery-node {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      background: var(--paper);
+    }
+    .delivery-node b { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 10px; background: var(--yellow); font-size: 15px; }
+    .delivery-node:nth-child(3) b { background: var(--mint); }
+    .delivery-node strong { display: block; font-size: 10px; text-transform: uppercase; }
+    .delivery-node small { display: block; margin-top: 4px; color: var(--muted); font-size: 7.5px; font-weight: 800; line-height: 1.25; }
+    .seven-pairs {
+      padding: 14px 12px;
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      background: rgba(125,168,248,.32);
+      text-align: center;
+    }
+    .pair-dots { display: flex; justify-content: center; gap: 5px; margin-bottom: 8px; }
+    .pair-dots i { width: 25px; height: 25px; border: 2px solid var(--ink); border-radius: 50%; background: var(--yellow); }
+    .pair-dots i:nth-child(n+4):nth-child(-n+5) { background: var(--blue); }
+    .pair-dots i:nth-child(n+6) { background: var(--mint); }
+    .seven-pairs strong { display: block; font-size: 10px; text-transform: uppercase; }
+    .seven-pairs small { display: block; margin-top: 4px; color: var(--muted); font-size: 7.5px; font-weight: 800; }
+    .stable-run { margin-top: 15px; color: var(--muted); font-size: 7.5px; font-weight: 900; line-height: 1.35; text-align: center; text-transform: uppercase; }
+
+    .learning-visual { display: grid; grid-template-columns: 1fr 27px 1fr; align-items: stretch; gap: 9px; margin-top: 21px; }
+    .feedback-box,
+    .shadow-box {
+      padding: 13px;
+      border: 2px solid var(--ink);
+      border-radius: 15px;
+      background: var(--paper);
+    }
+    .feedback-box strong,
+    .shadow-box strong { display: block; font-size: 9px; text-transform: uppercase; }
+    .feedback-box small,
+    .shadow-box small { display: block; margin-top: 6px; color: var(--muted); font-size: 7.5px; font-weight: 800; line-height: 1.35; }
+    .reward-row { display: flex; gap: 7px; margin-top: 12px; }
+    .reward-row span { flex: 1; padding: 8px 5px; border: 2px solid var(--ink); border-radius: 9px; font-size: 7.5px; font-weight: 950; text-align: center; text-transform: uppercase; }
+    .reward-row span:first-child { background: var(--mint); }
+    .reward-row span:last-child { background: var(--coral); }
+    .shadow-bars { display: flex; align-items: end; gap: 5px; height: 38px; margin-top: 10px; padding-bottom: 4px; border-bottom: 2px solid var(--ink); }
+    .shadow-bars i { width: 10px; border-radius: 4px 4px 0 0; background: var(--blue); }
+    .shadow-bars i:nth-child(1) { height: 15px; }
+    .shadow-bars i:nth-child(2) { height: 29px; background: var(--coral); }
+    .shadow-bars i:nth-child(3) { height: 22px; background: var(--yellow); }
+    .shadow-bars i:nth-child(4) { height: 34px; background: var(--mint); }
+    .learn-arrow { display: grid; place-items: center; color: var(--coral); font-size: 22px; font-weight: 950; }
+    .night-commit {
+      display: grid;
+      grid-template-columns: 44px 1fr auto;
+      align-items: center;
+      gap: 11px;
+      margin-top: 13px;
+      padding: 11px 13px;
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      background: rgba(101,217,189,.28);
+    }
+    .night-commit > b { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 50%; color: var(--cream); background: var(--ink); font-size: 16px; }
+    .night-commit strong { display: block; font-size: 9px; text-transform: uppercase; }
+    .night-commit small { display: block; margin-top: 4px; color: var(--muted); font-size: 7px; font-weight: 800; }
+    .commit-meta { text-align: right; }
+    .commit-meta b { display: block; color: #087964; font-size: 8px; text-transform: uppercase; }
+    .commit-meta span { display: block; margin-top: 4px; color: var(--muted); font-size: 6.5px; font-weight: 900; text-transform: uppercase; }
+    .timescales { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 13px; }
+    .timescale { padding: 10px 12px; border-radius: 12px; background: var(--ink); color: var(--cream); }
+    .timescale b { display: block; color: var(--yellow); font-size: 9px; text-transform: uppercase; }
+    .timescale:last-child b { color: var(--mint); }
+    .timescale small { display: block; margin-top: 4px; font-size: 7px; font-weight: 750; line-height: 1.3; }
+
+    .state-rail {
+      position: absolute;
+      right: 0;
+      bottom: 69px;
+      left: 0;
+      display: grid;
+      grid-template-columns: 1fr 34px 1fr 34px 1fr;
+      align-items: center;
+      height: 88px;
+      padding: 13px 18px;
+      border: 2px dashed rgba(16,24,32,.55);
+      border-radius: 20px;
+      background: rgba(255,253,247,.65);
+    }
+    .state-item { display: grid; grid-template-columns: 37px 1fr; align-items: center; gap: 10px; }
+    .state-item > b { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 10px; color: var(--cream); background: var(--ink); font-size: 14px; }
+    .state-item strong { display: block; font-size: 9px; text-transform: uppercase; }
+    .state-item small { display: block; margin-top: 4px; color: var(--muted); font-size: 7px; font-weight: 800; }
+    .state-arrow { color: var(--coral); font-size: 20px; font-weight: 950; text-align: center; }
+    .scroll-cue {
+      position: absolute;
+      right: 0;
+      bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--cream);
+      color: var(--ink);
+      font-size: 8px;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .scroll-cue b { display: grid; width: 21px; height: 21px; place-items: center; border-radius: 50%; background: var(--yellow); font-size: 12px; }
+    .delivery-board .chapter-label { top: 2px; z-index: 8; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; scroll-snap-type: y proximity; }
+      .flow-pulse { animation: none; left: calc(50% - 9px); }
+    }
+    @media print {
+      html, body { overflow: visible; background: white; }
+      .viewport-page { width: 1600px; height: 900px; min-height: 0; page-break-after: always; }
+      .board { top: 0; left: 0; transform: none !important; }
+    }
   </style>
 </head>
 <body>
-  <article class="board" aria-labelledby="page-title">
+  <div class="deck">
+    <section class="viewport-page" id="learning-system" aria-labelledby="learning-title">
+      <article class="board learning-board">
+        <header>
+          <div class="brand" aria-label="ZeroHandoff"><span class="brand-mark" aria-hidden="true">Z</span><strong>ZEROHANDOFF</strong></div>
+          <div class="headline"><small>The complete autonomous learning loop</small><h1 id="learning-title"><span>Train.</span> Deliver. Learn. Repeat.</h1></div>
+          <div class="score" aria-label="One immutable training baseline and one evolving inference state"><span>Training stays immutable</span><span>Inference keeps learning</span></div>
+        </header>
+
+        <main>
+          <section class="system-map" aria-label="ZeroHandoff trains seven agent pairs, uses them to deliver software, then learns from each completed run">
+            <span class="chapter-label"><b>01</b> The whole system</span>
+
+            <div class="system-flow">
+              <article class="system-card train-card" aria-label="Training in detail">
+                <div class="card-heading">
+                  <span class="card-number">01</span>
+                  <span><strong>Train the pairs</strong><small>Learn who to trust before delivery</small></span>
+                  <span class="mode-pill">One time</span>
+                </div>
+
+                <div class="training-visual" aria-hidden="true">
+                  <div class="visual-node">
+                    <span class="visual-icon">7×2</span>
+                    <strong>7 teams</strong>
+                    <small>14 fixed specialist personalities</small>
+                  </div>
+                  <span class="mini-arrow">→</span>
+                  <div class="visual-node">
+                    <span class="visual-icon">10</span>
+                    <strong>Puzzles</strong>
+                    <small>Each pair solves all ten together</small>
+                  </div>
+                  <span class="mini-arrow">→</span>
+                  <div class="trust-meter">
+                    <span class="trust-pair"><b>A</b><i></i><i></i><i></i><b>B</b></span>
+                    <strong>Trust learns through reward surprise</strong>
+                    <small>Solved = 1 · not solved = 0<br>RPE updates trust after each valid try</small>
+                  </div>
+                </div>
+
+                <div class="curator-line">
+                  <span class="curator-icon" aria-hidden="true">◐</span>
+                  <span><strong>1 Curator call per agent · 14 each round</strong><small>Updates the other 9 dimensions + consolidates memory</small></span>
+                  <span class="lock-pill">❄ Baseline locked</span>
+                </div>
+              </article>
+
+              <span class="flow-arrow" aria-hidden="true">→</span>
+
+              <article class="system-card delivery-card" aria-label="Software delivery at a high level">
+                <div class="card-heading">
+                  <span class="card-number">02</span>
+                  <span><strong>Deliver</strong><small>One autonomous software run</small></span>
+                </div>
+
+                <div class="delivery-visual">
+                  <div class="delivery-node"><b aria-hidden="true">✦</b><span><strong>Strategic intent</strong><small>Outcome · users · guardrails</small></span></div>
+                  <div class="seven-pairs">
+                    <span class="pair-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                    <strong>7 paired lifecycle teams</strong>
+                    <small>One stable relationship state for the entire run</small>
+                  </div>
+                  <div class="delivery-node"><b aria-hidden="true">✓</b><span><strong>Product capability</strong><small>Working app · proof · narrated demo</small></span></div>
+                </div>
+                <p class="stable-run">No trust changes are committed mid-handoff</p>
+              </article>
+
+              <span class="flow-arrow" aria-hidden="true">→</span>
+
+              <article class="system-card learning-card" aria-label="Continual learning in detail">
+                <div class="card-heading">
+                  <span class="card-number">03</span>
+                  <span><strong>Learn from delivery</strong><small>Fast memory · slow trust</small></span>
+                  <span class="mode-pill">Every run</span>
+                </div>
+
+                <div class="learning-visual">
+                  <div class="feedback-box">
+                    <strong>Next team judges the handoff</strong>
+                    <small>Acceptance becomes the software-delivery reward.</small>
+                    <span class="reward-row"><span>✓ Accept = 1</span><span>↩ Revise = 0</span></span>
+                  </div>
+                  <span class="learn-arrow" aria-hidden="true">→</span>
+                  <div class="shadow-box">
+                    <strong>Hold trust changes in shadow</strong>
+                    <small>Reduced plasticity: α .05 · step capped at ±.10</small>
+                    <span class="shadow-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                  </div>
+                </div>
+
+                <div class="night-commit">
+                  <b aria-hidden="true">◐</b>
+                  <span><strong>One Night commit after the prototype</strong><small>Validate current lineage, save the diff, advance inference state</small></span>
+                  <span class="commit-meta"><b>Auditable JSONL</b><span>Never rewrites training</span></span>
+                </div>
+
+                <div class="timescales">
+                  <span class="timescale"><b>Memory · fast</b><small>Evidence accumulates during the run; Night consolidates and commits persistent memory.</small></span>
+                  <span class="timescale"><b>Trust · slow</b><small>Commits once per completed run; the other 9 dimensions stay fixed.</small></span>
+                </div>
+              </article>
+            </div>
+
+            <div class="state-rail" aria-label="Training remains immutable while each inference run starts from that prior and saves an evolving state separately">
+              <span class="state-item"><b aria-hidden="true">❄</b><span><strong>Immutable training snapshot</strong><small>The original 10-puzzle relationship vectors are preserved forever.</small></span></span>
+              <span class="state-arrow" aria-hidden="true">→</span>
+              <span class="state-item"><b aria-hidden="true">↗</b><span><strong>Inference starts from the prior</strong><small>Trained pair edges carry forward; new cross-team edges begin at 0.0.</small></span></span>
+              <span class="state-arrow" aria-hidden="true">→</span>
+              <span class="state-item"><b aria-hidden="true">↻</b><span><strong>Next run starts wiser</strong><small>Its separate state includes committed trust diffs and consolidated memory.</small></span></span>
+            </div>
+
+            <a class="scroll-cue" href="#delivery-pipeline"><span>Scroll for the 7-step delivery pipeline</span><b aria-hidden="true">↓</b></a>
+          </section>
+        </main>
+
+        <footer>
+          <div class="footnote"><strong>Two timescales · one auditable loop</strong>Training baseline preserved · Inference state evolves separately</div>
+        </footer>
+      </article>
+    </section>
+
+    <section class="viewport-page" id="delivery-pipeline" aria-labelledby="page-title">
+  <article class="board delivery-board">
     <header>
       <div class="brand" aria-label="ZeroHandoff"><span class="brand-mark" aria-hidden="true">Z</span><strong>ZEROHANDOFF</strong></div>
       <div class="headline"><small>Autonomous software delivery</small><h1 id="page-title">One request. <span>One autonomous run.</span> Finished software.</h1></div>
@@ -608,6 +1022,7 @@
 
     <main>
       <section class="story" aria-label="One human build request enters seven autonomous lifecycle cells and becomes a delivered product capability and demo">
+        <span class="chapter-label"><b>02</b> The seven-step delivery pipeline</span>
         <div class="autonomy-zone" aria-hidden="true"><span class="zone-title">ZeroHandoff autonomous lifecycle engine</span></div>
         <aside class="training-strip" aria-label="Before delivery, each of the seven teams tries to solve ten puzzles. The immutable trained trust becomes the starting prior for a separate inference state.">
           <span class="training-label">Train once</span>
@@ -673,15 +1088,20 @@
       <div class="footnote"><strong>Original ZeroHandoff implementation</strong>Inspired by BMad role structure · Independent · No affiliation</div>
     </footer>
   </article>
+    </section>
+  </div>
 
   <script>
-    const board = document.querySelector('.board');
-    function fitBoard() {
-      const scale = Math.min(innerWidth / 1600, innerHeight / 900);
-      board.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    const boards = document.querySelectorAll('.board');
+    function fitBoards() {
+      boards.forEach((board) => {
+        const page = board.closest('.viewport-page');
+        const scale = Math.min(page.clientWidth / 1600, page.clientHeight / 900);
+        board.style.transform = `translate(-50%, -50%) scale(${scale})`;
+      });
     }
-    fitBoard();
-    addEventListener('resize', fitBoard, { passive: true });
+    fitBoards();
+    addEventListener('resize', fitBoards, { passive: true });
   </script>
 </body>
 </html>

@@ -1,0 +1,14 @@
+{
+  "agent_calls": 431,
+  "difficulty_expectations": {
+    "easy": 0.5950000000000001,
+    "expert": 0.5071428571428571,
+    "hard": 0.6148071428571429,
+    "medium": 0.6355000000000001
+  },
+  "episodes": 70,
+  "productive_disagreements": 3,
+  "rounds_completed": 10,
+  "valid_episodes": 70,
+  "wins": 63
+}

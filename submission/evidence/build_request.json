@@ -1,0 +1,30 @@
+{
+  "audience": "Field-service dispatchers planning a daily technician shift",
+  "constraints": [
+    "Use React, TypeScript, and Vite",
+    "Local-only with deterministic fictional data and no backend, auth, database, analytics, APIs, or network calls",
+    "Provide undo and deterministic reset",
+    "The coverage matrix must remain usable on narrow screens",
+    "Keyboard operable with visible focus and text explanations for every status",
+    "Demo under three minutes"
+  ],
+  "demo_preferences": "Show an uncovered certified role, attempt an invalid assignment and explain it, make a valid assignment, show totals improving, undo, then reset.",
+  "existing_assets": [],
+  "idea": "Build CoverageCanvas, a shift coverage planner that assigns fictional field technicians to zones while enforcing availability, double-booking, and required-certification constraints.",
+  "must_have_capabilities": [
+    "Show shift-by-zone coverage requirements and current assignments",
+    "Assign an available technician to an uncovered role",
+    "Prevent double-booking and certification mismatches with specific explanations",
+    "Update filled and uncovered totals after a valid assignment",
+    "Undo the latest valid assignment and reset the full plan"
+  ],
+  "out_of_scope": [
+    "Maps",
+    "Live GPS",
+    "Employee records",
+    "Scheduling integrations",
+    "Persistence"
+  ],
+  "outcome": "Dispatchers can fill uncovered work safely, understand assignment conflicts, and undo changes without losing the original plan.",
+  "visual_direction": "A responsive dispatch canvas with a legible matrix, clear people-and-skill labels, and excellent negative-state feedback."
+}

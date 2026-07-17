@@ -1,0 +1,41 @@
+{
+  "adapter": "codex",
+  "artifact_checksums": {},
+  "completed_at": "2026-07-15T03:17:37.816711Z",
+  "failure_reason": null,
+  "final_outcome": "frozen",
+  "model_settings": {
+    "day": {
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "medium"
+    },
+    "delivery": {
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "high"
+    },
+    "night": {
+      "model": "gpt-5.6-sol",
+      "reasoning_effort": "xhigh"
+    }
+  },
+  "relationship_vector_digest": "sha256:b0849f195010cbedca942a351f6005dc8e91959b8f276ab4dec86bfd9baef324",
+  "repair_counts": {},
+  "run_id": "live_train_20260714_v2",
+  "run_type": "training",
+  "schema_version": "1.0",
+  "settings_digest": "sha256:3469228786186b355630b19d740cd91e07fba62d6f0eb6b226ea0421662bb227",
+  "stage_outcomes": {
+    "round_1": "completed",
+    "round_10": "completed",
+    "round_2": "completed",
+    "round_3": "completed",
+    "round_4": "completed",
+    "round_5": "completed",
+    "round_6": "completed",
+    "round_7": "completed",
+    "round_8": "completed",
+    "round_9": "completed"
+  },
+  "started_at": "2026-07-15T03:17:37.816697Z",
+  "status": "completed"
+}

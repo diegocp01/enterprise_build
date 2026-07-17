@@ -1,0 +1,356 @@
+{
+  "ok": true,
+  "browser": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "browserConfiguration": {
+    "executableOverride": "BROWSER_EXECUTABLE",
+    "freshTemporaryProfile": true,
+    "extensionsDisabled": true
+  },
+  "viewport": {
+    "desktop": "browser default",
+    "narrow": {
+      "width": 320,
+      "height": 800,
+      "deviceScaleFactor": 1
+    }
+  },
+  "productionBuild": {
+    "command": "npm run build",
+    "server": "vite preview",
+    "testedUrl": "http://127.0.0.1:55179/"
+  },
+  "elapsedDemoMs": 504,
+  "permittedPreview": {
+    "count": 8,
+    "phases": {
+      "navigation": 4,
+      "runtime": 0,
+      "reload": 4
+    },
+    "classifications": [
+      "Document:other",
+      "Other:other",
+      "Script:parser",
+      "Stylesheet:parser"
+    ]
+  },
+  "prohibitedRuntime": {
+    "count": 0,
+    "phases": {
+      "navigation": 0,
+      "runtime": 0,
+      "reload": 0
+    },
+    "classifications": []
+  },
+  "browserInternalServiceWorkers": {
+    "count": 0
+  },
+  "focusObservations": [
+    {
+      "selector": "[data-focus-target=\"slot-m-n-safety\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 240, 213)",
+          "contrastRatio": 4.27
+        }
+      ]
+    },
+    {
+      "selector": "[data-technician-id=\"priya\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 254, 250)",
+          "contrastRatio": 4.76
+        }
+      ]
+    },
+    {
+      "selector": "[data-focus-target=\"slot-m-n-safety\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 240, 213)",
+          "contrastRatio": 4.27
+        }
+      ]
+    },
+    {
+      "selector": "[data-technician-id=\"priya\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 254, 250)",
+          "contrastRatio": 4.76
+        }
+      ]
+    },
+    {
+      "selector": "[data-technician-id=\"theo\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 254, 250)",
+          "contrastRatio": 4.76
+        }
+      ]
+    },
+    {
+      "selector": ".commit-button",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 254, 250)",
+          "contrastRatio": 4.76
+        }
+      ]
+    },
+    {
+      "selector": ".commit-button",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 254, 250)",
+          "contrastRatio": 4.76
+        }
+      ]
+    },
+    {
+      "selector": "button.button.ghost",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(233, 231, 223)",
+          "contrastRatio": 3.88
+        }
+      ]
+    },
+    {
+      "selector": "[data-focus-target=\"slot-m-n-safety\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 240, 213)",
+          "contrastRatio": 4.27
+        }
+      ]
+    },
+    {
+      "selector": "[data-technician-id=\"amara\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 254, 250)",
+          "contrastRatio": 4.76
+        }
+      ]
+    },
+    {
+      "selector": ".commit-button",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 254, 250)",
+          "contrastRatio": 4.76
+        }
+      ]
+    },
+    {
+      "selector": "[data-focus-target=\"undo\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(233, 231, 223)",
+          "contrastRatio": 3.88
+        }
+      ]
+    },
+    {
+      "selector": "button.button.ghost",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(233, 231, 223)",
+          "contrastRatio": 3.88
+        }
+      ]
+    },
+    {
+      "selector": "[data-focus-target=\"slot-m-n-safety\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 240, 213)",
+          "contrastRatio": 4.27
+        }
+      ]
+    },
+    {
+      "selector": "[data-technician-id=\"priya\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 254, 250)",
+          "contrastRatio": 4.76
+        }
+      ]
+    },
+    {
+      "selector": "[data-focus-target=\"undo\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(233, 231, 223)",
+          "contrastRatio": 3.88
+        }
+      ]
+    },
+    {
+      "selector": "[data-focus-target=\"slot-m-n-safety\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 240, 213)",
+          "contrastRatio": 4.27
+        }
+      ]
+    },
+    {
+      "selector": "button.button.ghost",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(233, 231, 223)",
+          "contrastRatio": 3.88
+        }
+      ]
+    },
+    {
+      "selector": "[data-focus-target=\"slot-m-n-safety\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 240, 213)",
+          "contrastRatio": 4.27
+        }
+      ]
+    },
+    {
+      "selector": "[data-focus-target=\"slot-m-n-safety\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 240, 213)",
+          "contrastRatio": 4.27
+        }
+      ]
+    },
+    {
+      "selector": ".text-button",
+      "indicatorColor": "rgb(255, 191, 134)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(7, 29, 45) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(7, 29, 45)",
+          "contrastRatio": 10.67
+        }
+      ]
+    },
+    {
+      "selector": "[data-focus-target=\"slot-m-n-safety\"]",
+      "indicatorColor": "rgb(185, 85, 18)",
+      "indicatorWidthPx": 4,
+      "indicatorOffsetPx": 4,
+      "boxShadow": "rgb(255, 254, 250) 0px 0px 0px 2px",
+      "adjacentSurfaces": [
+        {
+          "surface": "rgb(255, 240, 213)",
+          "contrastRatio": 4.27
+        }
+      ]
+    }
+  ],
+  "artifacts": {
+    "receipt": "tests/.browser-acceptance-success.json",
+    "productionBundle": "dist/"
+  },
+  "assertions": [
+    "application-owned focus into first technician",
+    "keyboard cancellation and immediate reopen",
+    "two-cause rejection",
+    "reset directly from rejection",
+    "valid assignment",
+    "reset directly from committed state",
+    "latest-valid undo",
+    "reset after undo",
+    "repeated reset determinism",
+    "320px layout",
+    "reload equivalence",
+    "focus visibility and contrast",
+    "storage and network isolation"
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "content_digest": "sha256:b0849f195010cbedca942a351f6005dc8e91959b8f276ab4dec86bfd9baef324",
+  "frozen": true,
+  "frozen_at": "2026-07-15T03:17:35.225205Z",
+  "schema_version": "1.0",
+  "training_run_id": "live_train_20260714_v2",
+  "vectors": {
+    "Aster->Juno": {
+      "source": "Aster",
+      "target": "Juno",
+      "vector": {
+        "affection": 0.13,
+        "confidence": 0.52,
+        "dominance": -0.09,
+        "openness": 0.38,
+        "patience": 0.09,
+        "reliability": 0.56,
+        "resentment": 0.0,
+        "respect": 0.44999999999999996,
+        "trust": 0.23889999999999992,
+        "warmth": 0.15
+      }
+    },
+    "Betty->Peter": {
+      "source": "Betty",
+      "target": "Peter",
+      "vector": {
+        "affection": 0.16999999999999998,
+        "confidence": 0.54,
+        "dominance": 0.19999999999999998,
+        "openness": 0.44999999999999996,
+        "patience": 0.26,
+        "reliability": 0.61,
+        "resentment": -0.22999999999999998,
+        "respect": 0.6000000000000001,
+        "trust": 0.31694999999999995,
+        "warmth": 0.22
+      }
+    },
+    "Ember->Rook": {
+      "source": "Ember",
+      "target": "Rook",
+      "vector": {
+        "affection": 0.10999999999999999,
+        "confidence": 0.6900000000000002,
+        "dominance": -0.15000000000000002,
+        "openness": 0.43999999999999995,
+        "patience": 0.11,
+        "reliability": 0.73,
+        "resentment": 0.0,
+        "respect": 0.6200000000000001,
+        "trust": 0.4524499999999999,
+        "warmth": 0.10999999999999999
+      }
+    },
+    "Flint->Sable": {
+      "source": "Flint",
+      "target": "Sable",
+      "vector": {
+        "affection": 0.12999999999999998,
+        "confidence": 0.6000000000000001,
+        "dominance": -0.16000000000000003,
+        "openness": 0.4700000000000001,
+        "patience": 0.14999999999999997,
+        "reliability": 0.7000000000000002,
+        "resentment": 0.0,
+        "respect": 0.56,
+        "trust": 0.2659999999999999,
+        "warmth": 0.13999999999999999
+      }
+    },
+    "Juno->Aster": {
+      "source": "Juno",
+      "target": "Aster",
+      "vector": {
+        "affection": 0.11999999999999998,
+        "confidence": 0.45999999999999996,
+        "dominance": 0.02,
+        "openness": 0.3600000000000001,
+        "patience": 0.16999999999999998,
+        "reliability": 0.4999999999999999,
+        "resentment": 0.0,
+        "respect": 0.41000000000000003,
+        "trust": 0.2659999999999999,
+        "warmth": 0.18000000000000002
+      }
+    },
+    "Kestrel->Rowan": {
+      "source": "Kestrel",
+      "target": "Rowan",
+      "vector": {
+        "affection": 0.12499999999999999,
+        "confidence": 0.6200000000000001,
+        "dominance": -0.14500000000000002,
+        "openness": 0.4,
+        "patience": 0.14500000000000002,
+        "reliability": 0.6750000000000002,
+        "resentment": 0.0,
+        "respect": 0.51,
+        "trust": 0.28889999999999993,
+        "warmth": 0.195
+      }
+    },
+    "Mira->Zephyr": {
+      "source": "Mira",
+      "target": "Zephyr",
+      "vector": {
+        "affection": 0.14,
+        "confidence": 0.6600000000000001,
+        "dominance": -0.10999999999999999,
+        "openness": 0.46,
+        "patience": 0.17000000000000004,
+        "reliability": 0.7200000000000002,
+        "resentment": -0.14,
+        "respect": 0.58,
+        "trust": 0.4524499999999999,
+        "warmth": 0.21000000000000002
+      }
+    },
+    "Niko->Tundra": {
+      "source": "Niko",
+      "target": "Tundra",
+      "vector": {
+        "affection": 0.10999999999999999,
+        "confidence": 0.6100000000000001,
+        "dominance": -0.13,
+        "openness": 0.41,
+        "patience": 0.19999999999999998,
+        "reliability": 0.71,
+        "resentment": 0.0,
+        "respect": 0.5700000000000001,
+        "trust": 0.32939999999999997,
+        "warmth": 0.18
+      }
+    },
+    "Peter->Betty": {
+      "source": "Peter",
+      "target": "Betty",
+      "vector": {
+        "affection": 0.15000000000000002,
+        "confidence": 0.63,
+        "dominance": -0.15000000000000002,
+        "openness": 0.44999999999999996,
+        "patience": 0.19999999999999998,
+        "reliability": 0.7200000000000001,
+        "resentment": 0.0,
+        "respect": 0.6000000000000001,
+        "trust": 0.38795,
+        "warmth": 0.2
+      }
+    },
+    "Rook->Ember": {
+      "source": "Rook",
+      "target": "Ember",
+      "vector": {
+        "affection": 0.13,
+        "confidence": 0.53,
+        "dominance": 0.1,
+        "openness": 0.49999999999999994,
+        "patience": 0.30000000000000004,
+        "reliability": 0.53,
+        "resentment": -0.14,
+        "respect": 0.55,
+        "trust": 0.4524499999999999,
+        "warmth": 0.24
+      }
+    },
+    "Rowan->Kestrel": {
+      "source": "Rowan",
+      "target": "Kestrel",
+      "vector": {
+        "affection": 0.08,
+        "confidence": 0.48,
+        "dominance": 0.01,
+        "openness": 0.37,
+        "patience": 0.18000000000000002,
+        "reliability": 0.55,
+        "resentment": 0.0,
+        "respect": 0.41,
+        "trust": 0.4159999999999999,
+        "warmth": 0.13999999999999999
+      }
+    },
+    "Sable->Flint": {
+      "source": "Sable",
+      "target": "Flint",
+      "vector": {
+        "affection": 0.13,
+        "confidence": 0.45,
+        "dominance": 0.0,
+        "openness": 0.43000000000000005,
+        "patience": 0.21999999999999997,
+        "reliability": 0.4799999999999999,
+        "resentment": 0.0,
+        "respect": 0.42000000000000004,
+        "trust": 0.23889999999999992,
+        "warmth": 0.21999999999999997
+      }
+    },
+    "Tundra->Niko": {
+      "source": "Tundra",
+      "target": "Niko",
+      "vector": {
+        "affection": 0.09999999999999999,
+        "confidence": 0.39,
+        "dominance": 0.0,
+        "openness": 0.29000000000000004,
+        "patience": 0.175,
+        "reliability": 0.445,
+        "resentment": -0.11,
+        "respect": 0.3700000000000001,
+        "trust": 0.37549999999999994,
+        "warmth": 0.15500000000000003
+      }
+    },
+    "Zephyr->Mira": {
+      "source": "Zephyr",
+      "target": "Mira",
+      "vector": {
+        "affection": 0.10999999999999999,
+        "confidence": 0.45999999999999996,
+        "dominance": 0.09,
+        "openness": 0.33000000000000007,
+        "patience": 0.19999999999999998,
+        "reliability": 0.4999999999999999,
+        "resentment": 0.0,
+        "respect": 0.43999999999999995,
+        "trust": 0.4524499999999999,
+        "warmth": 0.19
+      }
+    }
+  }
+}

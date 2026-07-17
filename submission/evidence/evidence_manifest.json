@@ -1,0 +1,318 @@
+{
+  "assembled_from_completed_run_at": "2026-07-17T17:08:10.606124Z",
+  "canonical_run_id": "exp04_coveragecanvas_20260717",
+  "files": [
+    {
+      "bytes": 2022,
+      "path": "submission/COMPLIANCE_CHECKLIST.md",
+      "sha256": "sha256:5a65b792a382849f56508ac659ef7e2d620605636de04f0be5a95ae9433c6b9b"
+    },
+    {
+      "bytes": 1958,
+      "path": "submission/DEMO_SCRIPT.md",
+      "sha256": "sha256:6be96330f735159295d9b0f2acbac86bfdc9ae32e92b08397258cc3ea646c464"
+    },
+    {
+      "bytes": 4415,
+      "path": "submission/DEVPOST_SUBMISSION.md",
+      "sha256": "sha256:0de5ff7a9f033052c02a90ec2b18f07b359d5149c54bf0607a122ef639858be4"
+    },
+    {
+      "bytes": 1056,
+      "path": "submission/README.md",
+      "sha256": "sha256:490f38f85c22b9fc80a6577210a6df859d2dec39cb950b3afa7d22d31ed00770"
+    },
+    {
+      "bytes": 1674,
+      "path": "submission/evidence/build_request.json",
+      "sha256": "sha256:b38ae388d1ad85f282b796dd3e1db3957e6bfa786044ceb869292be83a395f1f"
+    },
+    {
+      "bytes": 14895,
+      "path": "submission/evidence/delivery_checksums.json",
+      "sha256": "sha256:55b82038d2ae34211d6327e7fd4f8cc2bbfdfe7407b00d9f1524cccfebd60ac3"
+    },
+    {
+      "bytes": 6805,
+      "path": "submission/evidence/delivery_manifest.json",
+      "sha256": "sha256:18f83bc4dcc62762b1010299989b1c985fbdab67c04a36c33cf31af2b3586a22"
+    },
+    {
+      "bytes": 59880,
+      "path": "submission/evidence/demo_capture_report.json",
+      "sha256": "sha256:415505a7e628b78fb49ed662de86ab82e76b9d6f18bb6bd7ff140cfa14f175fc"
+    },
+    {
+      "bytes": 3305,
+      "path": "submission/evidence/experiment_audit.json",
+      "sha256": "sha256:29b2ae8d036f0a1ec111533737b99c27df6009c11cb2ded49c4e2751b7440b4d"
+    },
+    {
+      "bytes": 6539,
+      "path": "submission/evidence/frozen_relationship_vectors.json",
+      "sha256": "sha256:26c253fe0ab9e2248bccc01b8603f764b061d6390a50def2a7aca7fc5bd59b66"
+    },
+    {
+      "bytes": 3971,
+      "path": "submission/evidence/handoff_rewards.canonical.jsonl",
+      "sha256": "sha256:bee5ee845d4d8bffed87bd629d854d4f0719c4b46b2d71c19e201ecb3c184665"
+    },
+    {
+      "bytes": 13489,
+      "path": "submission/evidence/inference_night_commit.json",
+      "sha256": "sha256:1ed84ec91404315585d78084d6f671f1e16a9cc3c44cbb944a17e9e7c8fef4de"
+    },
+    {
+      "bytes": 6720,
+      "path": "submission/evidence/inference_relationship_deltas.json",
+      "sha256": "sha256:1c574a3abc6d5e6582d06c9435d5d03d75196d9d4ec354781c2e2a95c946e7f9"
+    },
+    {
+      "bytes": 1916,
+      "path": "submission/evidence/run_manifest.json",
+      "sha256": "sha256:c9045382f49d8614cc77e75e314d19cf8c0935ac1a385b1a4d5ba085b4305656"
+    },
+    {
+      "bytes": 640,
+      "path": "submission/evidence/run_state.json",
+      "sha256": "sha256:6b9dfe0efe1ee7915867a5e22dc83b63ac29f455f9c809ab8b5610d1df8c5904"
+    },
+    {
+      "bytes": 24434,
+      "path": "submission/evidence/shadow_trust_updates.canonical.jsonl",
+      "sha256": "sha256:63e0fbe3b17b3dbdfd18cd17a6ac49071e10c14d8fcbe26b4402ddc63408c8a6"
+    },
+    {
+      "bytes": 1138,
+      "path": "submission/evidence/training_manifest.json",
+      "sha256": "sha256:4a7d7a4618f4c901173a1f4289f199aedce03b44f22e7126cbb6c39c55434e48"
+    },
+    {
+      "bytes": 307,
+      "path": "submission/evidence/training_metrics.json",
+      "sha256": "sha256:2e881ee9fd0f55c685e43c415527a6ca2d693e287a4ec8d0f170a4f9d8d3b1b3"
+    },
+    {
+      "bytes": 193739,
+      "path": "submission/evidence/training_results.json",
+      "sha256": "sha256:b3084d92b345f00bab4453d50c7403d8ee8972e8b8491b7d3253c3506280b850"
+    },
+    {
+      "bytes": 5314495,
+      "path": "submission/media/coveragecanvas-generated-demo.mp4",
+      "sha256": "sha256:6bebc06cfdcd8aab6564ff3847318002ff55bc85f0688808d1a803a1f2ffdd80"
+    },
+    {
+      "bytes": 912,
+      "path": "submission/media/coveragecanvas-narration.txt",
+      "sha256": "sha256:2cab84b39cd741d626ccb6a3b11d9ebf632c4fcea75b05743f83b729a89e651e"
+    },
+    {
+      "bytes": 96244,
+      "path": "submission/media/coveragecanvas-preview.png",
+      "sha256": "sha256:fa10dad6c0bd995d9113d56307da047ffc312efd56618e6d6c6988059fa2160d"
+    },
+    {
+      "bytes": 7442622,
+      "path": "submission/media/zerohandoff-submission-demo.mp4",
+      "sha256": "sha256:644b1018bb6f59e6331cb7ebe2ac09019a7064d9f4b20e7b8c83cde2ff91ab47"
+    },
+    {
+      "bytes": 1545,
+      "path": "submission/media/zerohandoff-submission-narration.txt",
+      "sha256": "sha256:9ec57cce9383c279c24fb0e8b5291eabad06ae1c3d106a26fb526e232e9f4d0f"
+    },
+    {
+      "bytes": 2874,
+      "path": "submission/sandbox/coveragecanvas/README.md",
+      "sha256": "sha256:44a34d30a31fa8358edb5e5dea6e0dcf20b89db01cd9e8625a98ae9823871bda"
+    },
+    {
+      "bytes": 9406,
+      "path": "submission/sandbox/coveragecanvas/artifacts/browser/browser-acceptance-receipt.json",
+      "sha256": "sha256:5d6d788748b9c490610b02817823310afffe0f6116d668570da0a4c4dd759172"
+    },
+    {
+      "bytes": 205790,
+      "path": "submission/sandbox/coveragecanvas/dist/assets/index-BY9jf8tC.js",
+      "sha256": "sha256:71f4e31ee5cf7b628a6ec76346b0f61864392c6f77386a2b9fa6b092bdd6a78a"
+    },
+    {
+      "bytes": 11994,
+      "path": "submission/sandbox/coveragecanvas/dist/assets/index-BaLuTtbX.css",
+      "sha256": "sha256:d6d1f2567ebc54c30f050df3292926eda2e3a445e460dbabad947f418788b73b"
+    },
+    {
+      "bytes": 385,
+      "path": "submission/sandbox/coveragecanvas/dist/index.html",
+      "sha256": "sha256:59ed5cf6344ec4665d585fe4aeedb23fda40d2472fd509225243e1fcd891a0c9"
+    },
+    {
+      "bytes": 284,
+      "path": "submission/sandbox/coveragecanvas/index.html",
+      "sha256": "sha256:25c989a7f611e7b62d7efd6fb0ba786837462f34c48a7893e831c1dcb64be281"
+    },
+    {
+      "bytes": 56068,
+      "path": "submission/sandbox/coveragecanvas/package-lock.json",
+      "sha256": "sha256:7edd7a8b7155bbff7ca4169fc872eac19bc2268d1e6da0707964b08e9766ce8b"
+    },
+    {
+      "bytes": 586,
+      "path": "submission/sandbox/coveragecanvas/package.json",
+      "sha256": "sha256:6940efd303cd4f218b6180bf4237d57848b493784167c8056c9ea568b7ecd6e1"
+    },
+    {
+      "bytes": 206,
+      "path": "submission/sandbox/coveragecanvas/project_commands.json",
+      "sha256": "sha256:02c133442ad80533ac02642ac9da1aeb9ad8ca747c210fcf25f63200bc244e7c"
+    },
+    {
+      "bytes": 2779,
+      "path": "submission/sandbox/coveragecanvas/src/App.tsx",
+      "sha256": "sha256:6cd362397db7513b4ccb883fff18c239672528388fa455138ec831db6029dc74"
+    },
+    {
+      "bytes": 3975,
+      "path": "submission/sandbox/coveragecanvas/src/components/AssignmentPanel.tsx",
+      "sha256": "sha256:0403938e28476b5b6bc8ffdb261950def8730d45baa307b70b604d28a951c897"
+    },
+    {
+      "bytes": 1409,
+      "path": "submission/sandbox/coveragecanvas/src/components/CoverageMatrix.tsx",
+      "sha256": "sha256:fddc7a8f32e9fe269d81d3ad7326ba59e19ffcd0049d754fa5042fc12ffe145d"
+    },
+    {
+      "bytes": 1258,
+      "path": "submission/sandbox/coveragecanvas/src/components/CoverageSummary.tsx",
+      "sha256": "sha256:f9bb139725d883249c586b62f33f30d8663796df2ad4b8e362d52c8b8c14f581"
+    },
+    {
+      "bytes": 513,
+      "path": "submission/sandbox/coveragecanvas/src/components/FeedbackRegion.tsx",
+      "sha256": "sha256:d9c9664d55fc79e297c675b95334600258bcab01f369716a7d31ed37060ecb25"
+    },
+    {
+      "bytes": 1663,
+      "path": "submission/sandbox/coveragecanvas/src/components/RoleCard.tsx",
+      "sha256": "sha256:7eba66ef817c83b27df2fb51ecfa3f230416e897e12fda2b447848153039a5d8"
+    },
+    {
+      "bytes": 1736,
+      "path": "submission/sandbox/coveragecanvas/src/domain/coverage.test.ts",
+      "sha256": "sha256:2f4e09309fd708ceb58fb6f3b0363b742a97d8d0ab260f7f64d24fe10bc42af4"
+    },
+    {
+      "bytes": 377,
+      "path": "submission/sandbox/coveragecanvas/src/domain/coverage.ts",
+      "sha256": "sha256:c38a1eb6d34562243051dc30404daf495f50df7ffea03629548a5bd1a0b4dcf5"
+    },
+    {
+      "bytes": 1970,
+      "path": "submission/sandbox/coveragecanvas/src/domain/eligibility.ts",
+      "sha256": "sha256:f7b097deb49d26ef65ae398e482cc8e4bafde0572e682ba33b27e691d65a3208"
+    },
+    {
+      "bytes": 3190,
+      "path": "submission/sandbox/coveragecanvas/src/domain/fixture.ts",
+      "sha256": "sha256:50a7f827d7b46413351105f392a38ccf3cc0c265cd45cc85c2c8b6c78d774984"
+    },
+    {
+      "bytes": 4943,
+      "path": "submission/sandbox/coveragecanvas/src/domain/plannerReducer.test.ts",
+      "sha256": "sha256:629e3c6abbd2fd4401e88d906311d34a94a98850a4b94332575c49b5658d9ea5"
+    },
+    {
+      "bytes": 4798,
+      "path": "submission/sandbox/coveragecanvas/src/domain/plannerReducer.ts",
+      "sha256": "sha256:2c7516aea4786d0f31a5b56039c585825803757706d6c685c8e1ca692e2ec21e"
+    },
+    {
+      "bytes": 1339,
+      "path": "submission/sandbox/coveragecanvas/src/domain/types.ts",
+      "sha256": "sha256:e990e76403375343e2ac198821d7eeb9b986720730d8b4f38b6c870f2cb81dc0"
+    },
+    {
+      "bytes": 794,
+      "path": "submission/sandbox/coveragecanvas/src/hooks/useFocusCoordinator.ts",
+      "sha256": "sha256:c3c09ef15a2e9d26992305d3bddfffe9b6353c8aae3010032786dfb2c8f4f542"
+    },
+    {
+      "bytes": 224,
+      "path": "submission/sandbox/coveragecanvas/src/main.tsx",
+      "sha256": "sha256:1bc19ec2f6e0b2f3a0a3febc84b659394812943c83b2364b5e8be91890a00049"
+    },
+    {
+      "bytes": 13960,
+      "path": "submission/sandbox/coveragecanvas/src/styles.css",
+      "sha256": "sha256:a331bc0471e6c9acc4301ff76e9f620530064efb9f9806826e133e2bb2f29028"
+    },
+    {
+      "bytes": 38,
+      "path": "submission/sandbox/coveragecanvas/src/vite-env.d.ts",
+      "sha256": "sha256:65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "bytes": 9406,
+      "path": "submission/sandbox/coveragecanvas/tests/.browser-acceptance-success.json",
+      "sha256": "sha256:5d6d788748b9c490610b02817823310afffe0f6116d668570da0a4c4dd759172"
+    },
+    {
+      "bytes": 34704,
+      "path": "submission/sandbox/coveragecanvas/tests/browser.acceptance.mjs",
+      "sha256": "sha256:093a4f6b84ce4cac9e90615253a767825458a0c1462e65c32d77b37a12624f74"
+    },
+    {
+      "bytes": 925,
+      "path": "submission/sandbox/coveragecanvas/tests/browser.acceptance.sh",
+      "sha256": "sha256:14fe9d38f08d6ad0e8a8868417e71374ec7c119a834f9be8e051941afa5800a3"
+    },
+    {
+      "bytes": 539,
+      "path": "submission/sandbox/coveragecanvas/tsconfig.json",
+      "sha256": "sha256:56408a39654cd1e24d3c32f95ada8e0dd2e1e7502041704a7f48d68b55179ca1"
+    },
+    {
+      "bytes": 144,
+      "path": "submission/sandbox/coveragecanvas/vite.config.ts",
+      "sha256": "sha256:4ebe818953bbeb45b4a7da57fbe0208307d4de01b5bbd7c77b06d31bf711bcd9"
+    }
+  ],
+  "package": "ZeroHandoff OpenAI Build Week submission",
+  "schema_version": "1.0",
+  "summary": {
+    "canonical_demo": {
+      "available": true,
+      "duration_seconds": 54.04,
+      "has_audio": true,
+      "has_video": true,
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video"
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio"
+        }
+      ]
+    },
+    "delivery": {
+      "audit_score": 100.0,
+      "canonical_handoffs": 6,
+      "final_outcome": "delivery_bundle_ready",
+      "learning_commit_sequence": 5,
+      "night_commits": 1,
+      "run_id": "exp04_coveragecanvas_20260717",
+      "shadow_updates": 36,
+      "status": "completed"
+    },
+    "training": {
+      "episodes": 70,
+      "frozen_digest": "sha256:b0849f195010cbedca942a351f6005dc8e91959b8f276ab4dec86bfd9baef324",
+      "rounds": 10,
+      "run_id": "live_train_20260714_v2",
+      "wins": 63
+    }
+  }
+}

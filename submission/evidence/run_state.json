@@ -1,0 +1,21 @@
+{
+  "baseline_relationship_digest": "sha256:b0849f195010cbedca942a351f6005dc8e91959b8f276ab4dec86bfd9baef324",
+  "bundle": "delivery_bundle.nosync",
+  "completed_stages": [
+    "SENSE",
+    "MODEL",
+    "COMPOSE",
+    "DECIDE",
+    "SIMULATE",
+    "EXECUTE",
+    "OBSERVE",
+    "DEMO",
+    "BUNDLE"
+  ],
+  "current_stage": "BUNDLE",
+  "learning_commit_sequence": 5,
+  "relationship_vector_digest": "sha256:a92542ed79162ddc9826ae73cae67c0fa597ae74be8db646fa1c41112503c6af",
+  "run_id": "exp04_coveragecanvas_20260717",
+  "settings_digest": "sha256:36d0c61f1aae4b422ce158c4ece8a4454d178d55c44b9d7c27541e042dabc26b",
+  "status": "completed"
+}

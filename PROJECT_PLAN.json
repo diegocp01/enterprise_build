@@ -1,7 +1,7 @@
 {
   "project": "ZeroHandoff — Autonomous Software Delivery",
   "last_updated": "2026-07-17",
-  "current_step": 12,
+  "current_step": 13,
   "status_values": [
     "pending",
     "done"
@@ -210,7 +210,34 @@
       "owner": "codex",
       "task": "Prepare and verify the complete hackathon package: runnable application, source and setup instructions, automated tests and quality evidence, representative append-only JSON logs, narrated video demo, submission copy, and rules-compliance checklist.",
       "depends_on": [11],
-      "status": "pending"
+      "status": "done",
+      "outputs": [
+        "JUDGE_GUIDE.md",
+        "LICENSE",
+        "THIRD_PARTY_NOTICES.md",
+        "submission/README.md",
+        "submission/DEVPOST_SUBMISSION.md",
+        "submission/DEMO_SCRIPT.md",
+        "submission/COMPLIANCE_CHECKLIST.md",
+        "submission/sandbox/coveragecanvas/",
+        "submission/evidence/",
+        "submission/media/zerohandoff-submission-demo.mp4",
+        "submission/media/coveragecanvas-generated-demo.mp4",
+        "scripts/submission_package.py",
+        "scripts/record_submission_overview.mjs",
+        "scripts/assemble_submission_demo.py"
+      ],
+      "verification": {
+        "package": "55 files checksummed and independently reverified; representative training, delivery, trust-lineage, audit, media, and bundle evidence included",
+        "submission_video": "73.942-second English H.264/AAC video with presenter-quality narration, system overview, seven-stage pipeline, and real interactive CoverageCanvas workflow",
+        "generated_demo": "54.04-second autonomous CoverageCanvas demo retained separately with audio, motion, interaction evidence, and no music",
+        "judge_sandbox": "Fresh temporary copy installed from package-lock with 0 vulnerabilities; 9 unit/browser tests, two production builds, and real Chrome acceptance passed",
+        "repository": "88 Python tests passed; Control Room typecheck and Vite production build passed; pip check and npm audits passed",
+        "runtime": "Codex CLI 0.144.4, authentication, 14 agent configs, 3 chat skills, Chrome, FFmpeg, settings, and puzzle corpus doctor checks passed",
+        "evidence": "Canonical exp04_coveragecanvas_20260717 audit remains 100/100 with six rewards, 36 shadow updates, one Night commit, and every trust invariant true",
+        "security_and_ip": "Focused credential scan found no secrets; MIT license and direct dependency notices added; demo uses original visuals, fictional data, and no music",
+        "protected_context": "No context/ files changed"
+      }
     },
     {
       "id": 13,

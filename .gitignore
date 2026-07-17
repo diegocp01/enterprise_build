@@ -17,6 +17,7 @@ output/
 !.zerohandoff/frozen/latest.json
 !fixtures/
 *.mp4
+!submission/media/*.mp4
 *.webm
 *.aiff
 *.wav

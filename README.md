@@ -27,6 +27,13 @@ Every run produces an auditable delivery bundle:
   and the final outcome; and
 - a generated narrated video demo.
 
+**Judge quick start:** serve the checked-in product from a real autonomous run—no
+install or rebuild—with
+`python3 -m http.server 8000 --directory submission/sandbox/coveragecanvas/dist`,
+then open `http://127.0.0.1:8000`. Full installation, supported platforms,
+fixture testing, live Codex invocation, and evidence paths are in the
+[judge guide](JUDGE_GUIDE.md).
+
 Trust training supports the pipeline; it is not the product itself. Before
 delivery, a separate ten-round, solver-validated puzzle pilot trains asymmetric
 directed trust through reward prediction error and one single-prompt Night
@@ -45,12 +52,17 @@ commits reduced-plasticity trust (`α=0.05`, step cap `±0.1`) and consolidated
 memory once the prototype completes. The nine non-trust dimensions and the
 original training JSON remain unchanged forever.
 
-Codex is the reference runtime for the hackathon. ZeroHandoff’s roles, protocols,
-artifacts, gates, and state remain host-neutral so adapters can later support
-GitHub Copilot and Claude Code without redesigning the workflow.
+Codex was both the build environment and the hackathon reference runtime. It
+accelerated the typed contracts, orchestration engine, agent configurations,
+gates, repair/resume logic, browser proof, demos, and regression suite; GPT-5.6
+Sol powers the fourteen specialists and Curators. The human chose the learning
+rules, immutable-training/evolving-inference boundary, seven agent-native
+artifacts, reduced-plasticity continual learning, zero post-authorization human
+handoffs, and Codex-only hackathon scope. The deeper build story and ready-to-use
+submission copy are in [`submission/`](submission/README.md).
 
-Use the three repo skills from Codex chat. Setup, fixture verification, internal
-engine commands, and the Control Room are documented in the [local runbook](RUNBOOK.md).
+Use `$run-pipeline`, `$pipeline-status`, and `$train-trust` from Codex chat.
+Internal commands and the Control Room are documented in the [runbook](RUNBOOK.md).
 
 ZeroHandoff is an independent original implementation conceptually inspired by the
 [BMad Method](https://github.com/bmad-code-org/BMAD-METHOD). It does not copy or
@@ -59,4 +71,6 @@ and is not affiliated with or endorsed by BMad Code, LLC.
 
 **Explore:** [visual pipeline](overview.html) · [system design](SYSTEM_DESIGN.md) ·
 [execution plan](EXECUTION_PLAN.md) · [trust architecture](context/trust_moa.html) ·
-[project idea](context/idea.md) · [tracked constraints](HACKATHON_CONSTRAINTS.md)
+[judge guide](JUDGE_GUIDE.md) · [submission package](submission/README.md) ·
+[project idea](context/idea.md) · [tracked constraints](HACKATHON_CONSTRAINTS.md) ·
+[MIT license](LICENSE)

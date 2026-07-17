@@ -1,0 +1,128 @@
+{
+  "commit_sequence": 5,
+  "end_digest": "sha256:a92542ed79162ddc9826ae73cae67c0fa597ae74be8db646fa1c41112503c6af",
+  "night_workspace": {
+    "blocking_issues": [],
+    "confidence": 0.99,
+    "decision_reasons": [
+      "All six canonical handoffs have unanimous consumer acceptance, reward 1, no revision requests, and artifact evidence matching the producer stage.",
+      "Every shadow update satisfies delta = alpha \u00d7 (reward \u2212 expected_success_before): 0.05 \u00d7 (1 \u2212 0.67195) = 0.0164025, or 0.05 \u00d7 (1 \u2212 0.57195) = 0.0214025 for the EXECUTE handoff.",
+      "Every shadow_trust_after equals trust_before plus the proposed delta, allowing only ordinary floating-point representation differences.",
+      "The proposed persistent memories preserve evidence-specific learning and give every agent at least one entry containing the exact token [run:exp04_coveragecanvas_20260717]."
+    ],
+    "evidence": [
+      "logs/handoff_rewards.canonical.jsonl#1",
+      "logs/handoff_rewards.canonical.jsonl#2",
+      "logs/handoff_rewards.canonical.jsonl#3",
+      "logs/handoff_rewards.canonical.jsonl#4",
+      "logs/handoff_rewards.canonical.jsonl#5",
+      "logs/handoff_rewards.canonical.jsonl#6",
+      "artifacts/sense/opportunity_model/1/opportunity_model.json",
+      "artifacts/model/outcome_model/1/outcome_model.json",
+      "artifacts/compose/capability_graph/2/capability_graph.json",
+      "artifacts/decide/decision_graph/1/decision_graph.json",
+      "artifacts/simulate/scenario_model/1/scenario_model.json",
+      "artifacts/execute/autonomous_change/8/autonomous_change.json"
+    ],
+    "memory_updates": {
+      "Aster": [
+        "[run:exp02_stocksignal_20260716][evidence:artifacts/compose/capability_graph/4/capability_graph.json] DECIDE gave our COMPOSE handoff reward 1.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/model/outcome_model/1/outcome_model.json] During COMPOSE, I accepted MODEL.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/compose/capability_graph/2/capability_graph.json] DECIDE gave our COMPOSE handoff reward 1.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/model/outcome_model/1/outcome_model.json] During COMPOSE, I accepted MODEL.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/compose/capability_graph/2/capability_graph.json] DECIDE gave our COMPOSE handoff reward 1."
+      ],
+      "Betty": [
+        "[run:exp02_stocksignal_20260716][evidence:artifacts/execute/autonomous_change/3/autonomous_change.json] During OBSERVE, I accepted EXECUTE.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/execute/autonomous_change/7/autonomous_change.json] During OBSERVE, I accepted EXECUTE.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/execute/autonomous_change/8/autonomous_change.json] During OBSERVE, I accepted EXECUTE."
+      ],
+      "Ember": [
+        "[run:exp02_stocksignal_20260716][evidence:artifacts/execute/autonomous_change/3/autonomous_change.json] OBSERVE gave our EXECUTE handoff reward 1.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/simulate/scenario_model/2/scenario_model.json] During EXECUTE, I accepted SIMULATE.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/execute/autonomous_change/7/autonomous_change.json] OBSERVE gave our EXECUTE handoff reward 1.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/simulate/scenario_model/1/scenario_model.json] During EXECUTE, I accepted SIMULATE.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/execute/autonomous_change/8/autonomous_change.json] OBSERVE gave our EXECUTE handoff reward 1."
+      ],
+      "Flint": [
+        "[run:exp02_stocksignal_20260716][evidence:artifacts/decide/decision_graph/1/decision_graph.json] SIMULATE gave our DECIDE handoff reward 1.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/compose/capability_graph/2/capability_graph.json] During DECIDE, I accepted COMPOSE.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/decide/decision_graph/1/decision_graph.json] SIMULATE gave our DECIDE handoff reward 1.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/compose/capability_graph/2/capability_graph.json] During DECIDE, I accepted COMPOSE.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/decide/decision_graph/1/decision_graph.json] SIMULATE gave our DECIDE handoff reward 1."
+      ],
+      "Juno": [
+        "[run:exp02_stocksignal_20260716][evidence:artifacts/compose/capability_graph/4/capability_graph.json] DECIDE gave our COMPOSE handoff reward 1.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/model/outcome_model/1/outcome_model.json] During COMPOSE, I accepted MODEL.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/compose/capability_graph/2/capability_graph.json] DECIDE gave our COMPOSE handoff reward 1.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/model/outcome_model/1/outcome_model.json] During COMPOSE, I accepted MODEL.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/compose/capability_graph/2/capability_graph.json] DECIDE gave our COMPOSE handoff reward 1."
+      ],
+      "Kestrel": [
+        "[run:exp02_stocksignal_20260716][evidence:artifacts/model/outcome_model/2/outcome_model.json] COMPOSE gave our MODEL handoff reward 1.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/sense/opportunity_model/1/opportunity_model.json] During MODEL, I accepted SENSE.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/model/outcome_model/1/outcome_model.json] COMPOSE gave our MODEL handoff reward 1.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/sense/opportunity_model/1/opportunity_model.json] During MODEL, I accepted SENSE.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/model/outcome_model/1/outcome_model.json] COMPOSE gave our MODEL handoff reward 1."
+      ],
+      "Mira": [
+        "[run:exp02_stocksignal_20260716][evidence:artifacts/sense/opportunity_model/1/opportunity_model.json] MODEL gave our SENSE handoff reward 1.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/sense/opportunity_model/1/opportunity_model.json] MODEL gave our SENSE handoff reward 1.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/sense/opportunity_model/1/opportunity_model.json] MODEL gave our SENSE handoff reward 1."
+      ],
+      "Niko": [
+        "[run:exp02_stocksignal_20260716][evidence:artifacts/simulate/scenario_model/1/scenario_model.json] EXECUTE gave our SIMULATE handoff reward 1.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/decide/decision_graph/1/decision_graph.json] During SIMULATE, I accepted DECIDE.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/simulate/scenario_model/2/scenario_model.json] EXECUTE gave our SIMULATE handoff reward 0.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/decide/decision_graph/1/decision_graph.json] During SIMULATE, I accepted DECIDE.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/simulate/scenario_model/1/scenario_model.json] EXECUTE gave our SIMULATE handoff reward 1."
+      ],
+      "Peter": [
+        "[run:exp02_stocksignal_20260716][evidence:artifacts/execute/autonomous_change/3/autonomous_change.json] During OBSERVE, I accepted EXECUTE.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/execute/autonomous_change/7/autonomous_change.json] During OBSERVE, I accepted EXECUTE.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/execute/autonomous_change/8/autonomous_change.json] During OBSERVE, I accepted EXECUTE."
+      ],
+      "Rook": [
+        "[run:exp02_stocksignal_20260716][evidence:artifacts/execute/autonomous_change/3/autonomous_change.json] OBSERVE gave our EXECUTE handoff reward 1.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/simulate/scenario_model/2/scenario_model.json] During EXECUTE, I requested a revision to SIMULATE. Reason: Provide a successful recorded npm test receipt after removing or documenting the hard-coded Chrome dependency and supporting an explicit browser executable override.; Provide a successful recorded npm run build receipt and repair every TypeScript, Vite, dependency, or asset failure that currently blocks it.; Provide a successful npm audit --audit-level=critical --json receipt with no unresolved critical advisory.; Extend the browser network gate to monitor WebSocket construction and connection attempts in addition to fetch, XMLHttpRequest, EventSource, beacon, and resource requests; fail on unexpected traffic.; Add production-browser evidence that keyboard focus visibly lands on the Mark EV-001 reviewed action with sufficient contrast before activation.; Update README.md with the named supported-browser prerequisite, browser executable configuration, and reproducible validation commands.; Record a verified browser acceptance receipt for the complete gap-to-pending review, 50% coverage, deterministic download, reset, focus recovery, responsive layout, and zero-prohibited-network journey.; Return complete successful evidence for install, typecheck, test, build, local start, health check, audit, and browser acceptance before requesting EXECUTE acceptance.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/execute/autonomous_change/7/autonomous_change.json] OBSERVE gave our EXECUTE handoff reward 1.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/simulate/scenario_model/1/scenario_model.json] During EXECUTE, I accepted SIMULATE.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/execute/autonomous_change/8/autonomous_change.json] OBSERVE gave our EXECUTE handoff reward 1."
+      ],
+      "Rowan": [
+        "[run:exp02_stocksignal_20260716][evidence:artifacts/model/outcome_model/2/outcome_model.json] COMPOSE gave our MODEL handoff reward 1.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/sense/opportunity_model/1/opportunity_model.json] During MODEL, I accepted SENSE.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/model/outcome_model/1/outcome_model.json] COMPOSE gave our MODEL handoff reward 1.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/sense/opportunity_model/1/opportunity_model.json] During MODEL, I accepted SENSE.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/model/outcome_model/1/outcome_model.json] COMPOSE gave our MODEL handoff reward 1."
+      ],
+      "Sable": [
+        "[run:exp02_stocksignal_20260716][evidence:artifacts/decide/decision_graph/1/decision_graph.json] SIMULATE gave our DECIDE handoff reward 1.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/compose/capability_graph/2/capability_graph.json] During DECIDE, I accepted COMPOSE.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/decide/decision_graph/1/decision_graph.json] SIMULATE gave our DECIDE handoff reward 1.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/compose/capability_graph/2/capability_graph.json] During DECIDE, I accepted COMPOSE.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/decide/decision_graph/1/decision_graph.json] SIMULATE gave our DECIDE handoff reward 1."
+      ],
+      "Tundra": [
+        "[run:exp02_stocksignal_20260716][evidence:artifacts/simulate/scenario_model/1/scenario_model.json] EXECUTE gave our SIMULATE handoff reward 1.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/decide/decision_graph/1/decision_graph.json] During SIMULATE, I accepted DECIDE.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/simulate/scenario_model/2/scenario_model.json] EXECUTE gave our SIMULATE handoff reward 0.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/decide/decision_graph/1/decision_graph.json] During SIMULATE, I accepted DECIDE.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/simulate/scenario_model/1/scenario_model.json] EXECUTE gave our SIMULATE handoff reward 1."
+      ],
+      "Zephyr": [
+        "[run:exp02_stocksignal_20260716][evidence:artifacts/sense/opportunity_model/1/opportunity_model.json] MODEL gave our SENSE handoff reward 1.",
+        "[run:exp03_policyproof_corrected_20260717][evidence:artifacts/sense/opportunity_model/1/opportunity_model.json] MODEL gave our SENSE handoff reward 1.",
+        "[run:exp04_coveragecanvas_20260717][evidence:artifacts/sense/opportunity_model/1/opportunity_model.json] MODEL gave our SENSE handoff reward 1."
+      ]
+    },
+    "resolved_issues": [
+      "Confirmed all six handoff records are internally consistent across assessments, rewards, revisions, stages, and evidence.",
+      "Confirmed all 36 shadow trust updates use the stated alpha, reward, prediction error, delta, and resulting trust consistently.",
+      "Confirmed proposed memory consolidation retains exact run-specific evidence for all 14 agents."
+    ],
+    "trust_commit_approved": true
+  },
+  "run_id": "exp04_coveragecanvas_20260717",
+  "start_digest": "sha256:5e1fb459927be430ef5abd6e28cf859aa2da754cff3836560d17d08c8402f7c3"
+}
