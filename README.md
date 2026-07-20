@@ -31,12 +31,98 @@ Every run produces an auditable delivery bundle:
   and the final outcome; and
 - a generated narrated video demo.
 
-**Judge quick start:** serve the checked-in product from a real autonomous run—no
-install or rebuild—with
-`python3 -m http.server 8000 --directory submission/sandbox/echoledger/dist`,
-then open `http://127.0.0.1:8000`. Full installation, supported platforms,
-fixture testing, live Codex invocation, and evidence paths are in the
-[judge guide](JUDGE_GUIDE.md).
+## Setup and running
+
+**Supported platforms.** The full ZeroHandoff engine supports macOS and Linux
+with Python 3.11+, Node.js 22+, npm, Chrome/Chromium, FFmpeg, and Codex CLI
+0.144.0+ authenticated with GPT-5.6 Sol access. The prebuilt EchoLedger sandbox
+works on any desktop with a modern browser and a local static-file server.
+
+### Fastest judge test — no install or rebuild
+
+The repository includes the production build from the final autonomous run:
+
+```bash
+python3 -m http.server 8000 --directory submission/sandbox/echoledger/dist
+```
+
+Open `http://127.0.0.1:8000`. EchoLedger requires no account, backend, API key,
+network service, or rebuild. Select **Complaint · 02:31**, redact evidence
+`EV-015`, inspect the recurring signal, assign its action, export the local case
+brief, and reset the fictional experience.
+
+### Install the complete engine
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -e '.[dev]'
+cd ui
+npm ci
+npm run build
+cd ..
+.venv/bin/python -m zerohandoff.cli --repo . doctor --live
+```
+
+### Run without model calls
+
+This deterministic path exercises training, orchestration, gates, repair,
+artifact handoffs, demo assembly, and bundling without spending model credits:
+
+```bash
+.venv/bin/python -m pytest -q
+.venv/bin/python -m zerohandoff.cli --repo . puzzles validate
+.venv/bin/python -m zerohandoff.cli --repo . train --adapter fixture --rounds 10
+.venv/bin/python -m zerohandoff.cli --repo . run \
+  --request tests/fixtures/build_request.json --adapter fixture
+```
+
+### Run the real Codex pipeline
+
+The checked-in trained baseline means judges do not need to retrain. Open the
+repository in Codex and enter:
+
+```text
+$run-pipeline
+Build a local React application for [audience] that [desired outcome].
+Constraints: [non-negotiable boundaries].
+```
+
+The skill collects one Build Request, validates the frozen baseline and current
+inference lineage, then runs all seven stages, demo generation, and bundling with
+GPT-5.6 Sol. Use `$pipeline-status` to inspect progress. To observe delivery in
+the local Control Room, run:
+
+```bash
+.venv/bin/python -m zerohandoff.cli --repo . serve --port 8765
+```
+
+Then open `http://127.0.0.1:8765`.
+
+### Sample data, outputs, and verification
+
+- `tests/fixtures/build_request.json` is the agent-free sample request.
+- `data/puzzles.jsonl` and `data/puzzle_stats.json` are the deterministic
+  ten-puzzle training corpus and validation summary.
+- `.zerohandoff/frozen/latest.json` is the checked-in immutable relationship
+  baseline; real delivery starts from it rather than retraining.
+- `submission/sandbox/echoledger/src/domain.ts` and
+  `submission/sandbox/echoledger/public/audio/echoledger-el1042.wav` contain
+  EchoLedger's entirely fictional local transcript/domain fixtures and synthetic
+  recording. No real customer information is included.
+- Each run is written to `.zerohandoff/runs/<run_id>/`, including versioned
+  artifacts, `logs/*.jsonl`, the runnable app, narrated demo, checksums, and
+  `delivery_bundle.nosync/`. Versioned continual-learning commits are under
+  `.zerohandoff/learning/commits/`.
+
+Verify the tracked judge package, training/run completion, trust invariants,
+checksums, sandbox, and media streams with:
+
+```bash
+python3 scripts/submission_package.py verify
+```
+
+More internal commands and recovery behavior are in the [judge guide](JUDGE_GUIDE.md)
+and [runbook](RUNBOOK.md).
 
 Trust training supports the pipeline; it is not the product itself. Before
 delivery, a separate ten-round, solver-validated puzzle pilot trains asymmetric
