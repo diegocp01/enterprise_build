@@ -554,7 +554,12 @@
       grid-template-columns: repeat(7, 1fr);
       gap: 8px;
     }
-    .station { min-width: 0; text-align: center; }
+    .station {
+      position: relative;
+      min-width: 0;
+      text-align: center;
+      outline: none;
+    }
     .station-orb {
       display: grid;
       grid-template-columns: 31px 17px 31px;
@@ -584,6 +589,54 @@
     .station-orb em { font-size: 15px; font-style: normal; font-weight: 950; }
     .station strong { display: block; font-size: 15px; line-height: 1; letter-spacing: -.02em; text-transform: uppercase; }
     .station small { display: block; margin-top: 7px; color: var(--muted); font-size: 10px; font-weight: 850; letter-spacing: .035em; text-transform: uppercase; }
+    .station[data-deliverable]::after {
+      content: attr(data-deliverable);
+      position: absolute;
+      z-index: 30;
+      top: calc(100% + 12px);
+      left: 50%;
+      width: 225px;
+      padding: 12px 14px;
+      border: 2px solid var(--ink);
+      border-radius: 9px;
+      color: var(--cream);
+      background: var(--ink);
+      box-shadow: 5px 5px 0 var(--coral);
+      font-size: 12.5px;
+      font-weight: 750;
+      line-height: 1.4;
+      letter-spacing: 0;
+      text-align: left;
+      text-transform: none;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translate(-50%, -5px);
+      transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+    }
+    .station:first-child[data-deliverable]::after { left: 0; transform: translate(0, -5px); }
+    .station:last-child[data-deliverable]::after { right: 0; left: auto; transform: translate(0, -5px); }
+    .station[data-deliverable]:hover,
+    .station[data-deliverable]:focus-visible { z-index: 30; }
+    .station[data-deliverable]:hover::after,
+    .station[data-deliverable]:focus-visible::after {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+    }
+    .station:first-child[data-deliverable]:hover::after,
+    .station:first-child[data-deliverable]:focus-visible::after,
+    .station:last-child[data-deliverable]:hover::after,
+    .station:last-child[data-deliverable]:focus-visible::after { transform: translate(0, 0); }
+    .station[data-deliverable]:focus-visible .station-orb {
+      outline: 4px solid var(--coral);
+      outline-offset: 5px;
+    }
+    .stations:has(.station:hover) .station:focus-visible:not(:hover)::after {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .stations:has(.station:hover) .station:focus-visible:not(:hover) .station-orb { outline: none; }
     .inference-learning {
       position: absolute;
       top: 286px;
@@ -1406,13 +1459,13 @@
           <span class="flow-pulse" aria-hidden="true"></span>
 
           <div class="stations">
-            <article class="station" aria-label="Sense creates the Opportunity Model"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Sense</strong><small>Opportunity model</small></article>
-            <article class="station" aria-label="Model creates the Outcome Model"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Model</strong><small>Outcome model</small></article>
-            <article class="station" aria-label="Compose creates the Capability Graph"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Compose</strong><small>Capability graph</small></article>
-            <article class="station" aria-label="Decide creates the Decision Graph"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Decide</strong><small>Decision graph</small></article>
-            <article class="station" aria-label="Simulate creates the Scenario Model"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Simulate</strong><small>Scenario model</small></article>
-            <article class="station" aria-label="Execute creates the Autonomous Change"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Execute</strong><small>Autonomous change</small></article>
-            <article class="station" aria-label="Observe creates Evidence and Learning"><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Observe</strong><small>Evidence + learning</small></article>
+            <article class="station" tabindex="0" data-deliverable="Opportunity Model — Who the user is, their problem, and what should improve." aria-label="Sense creates the Opportunity Model: who the user is, their problem, and what should improve."><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Sense</strong><small>Opportunity model</small></article>
+            <article class="station" tabindex="0" data-deliverable="Outcome Model — What the finished product must accomplish to succeed." aria-label="Model creates the Outcome Model: what the finished product must accomplish to succeed."><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Model</strong><small>Outcome model</small></article>
+            <article class="station" tabindex="0" data-deliverable="Capability Graph — Required features, screens, and how they connect." aria-label="Compose creates the Capability Graph: required features, screens, and how they connect."><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Compose</strong><small>Capability graph</small></article>
+            <article class="station" tabindex="0" data-deliverable="Decision Graph — Architecture, data flow, technology, and key technical choices." aria-label="Decide creates the Decision Graph: architecture, data flow, technology, and key technical choices."><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Decide</strong><small>Decision graph</small></article>
+            <article class="station" tabindex="0" data-deliverable="Scenario Model — Step-by-step build and testing plan." aria-label="Simulate creates the Scenario Model: the step-by-step build and testing plan."><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Simulate</strong><small>Scenario model</small></article>
+            <article class="station" tabindex="0" data-deliverable="Autonomous Change — The actual working application, source code, and tests." aria-label="Execute creates the Autonomous Change: the actual working application, source code, and tests."><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Execute</strong><small>Autonomous change</small></article>
+            <article class="station" tabindex="0" data-deliverable="Evidence + Learning — Proof it works, what was repaired, and lessons for future runs." aria-label="Observe creates Evidence and Learning: proof it works, what was repaired, and lessons for future runs."><span class="station-orb"><span class="agent">A</span><em>↔</em><span class="agent">B</span></span><strong>Observe</strong><small>Evidence + learning</small></article>
           </div>
           <div class="inference-learning" aria-label="During inference, the next team accepts or requests a revision. Trust changes are held in shadow and one night commit updates the next run."><strong>Next team</strong><span>✓ accept = 1 · ↩ revise = 0</span><b>→</b><span>shadow trust</span><b>→</b><span class="commit">one night commit after demo</span></div>
 
