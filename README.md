@@ -78,8 +78,15 @@ artifact handoffs, demo assembly, and bundling without spending model credits:
 
 ### Run the real Codex pipeline
 
-The checked-in trained baseline means judges do not need to retrain. Open the
-repository in Codex and enter:
+The checked-in trained baseline means judges do not need to retrain. From the
+cloned repository root, activate the installed environment and launch Codex:
+
+```bash
+source .venv/bin/activate
+codex
+```
+
+Then, **inside the Codex chat**, enter:
 
 ```text
 $run-pipeline
@@ -87,10 +94,12 @@ Build a local React application for [audience] that [desired outcome].
 Constraints: [non-negotiable boundaries].
 ```
 
-The skill collects one Build Request, validates the frozen baseline and current
-inference lineage, then runs all seven stages, demo generation, and bundling with
-GPT-5.6 Sol. Use `$pipeline-status` to inspect progress. To observe delivery in
-the local Control Room, run:
+Do not run the internal Python delivery command manually. The `$run-pipeline`
+skill collects one Build Request, validates the frozen baseline and current
+inference lineage, then invokes the engine and runs all seven stages, demo
+generation, and bundling with GPT-5.6 Sol. Use `$pipeline-status` inside Codex
+to inspect progress. To observe delivery in the local Control Room, open a
+second terminal from the repository and run:
 
 ```bash
 .venv/bin/python -m zerohandoff.cli --repo . serve --port 8765
