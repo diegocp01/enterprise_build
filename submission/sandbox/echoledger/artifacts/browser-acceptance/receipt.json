@@ -1,0 +1,823 @@
+{
+  "schema": "echoledger-browser-acceptance-v1",
+  "success": true,
+  "marker": "ZEROHANDOFF_BROWSER_ACCEPTANCE_OK",
+  "browserExecutable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "commandResults": {
+    "domainTests": "passed-before-browser-launch",
+    "productionBuild": "passed-before-browser-launch",
+    "browserJourney": "passed"
+  },
+  "permittedPreview": [
+    {
+      "url": "http://127.0.0.1:4173/",
+      "type": "Document",
+      "initiator": "other",
+      "phase": "initial-navigation",
+      "permittedModelAsset": false
+    },
+    {
+      "url": "http://127.0.0.1:4173/assets/index-C3VGxPMf.js",
+      "type": "Script",
+      "initiator": "parser",
+      "phase": "initial-navigation",
+      "permittedModelAsset": false
+    },
+    {
+      "url": "http://127.0.0.1:4173/assets/index-zx0n__zT.css",
+      "type": "Stylesheet",
+      "initiator": "parser",
+      "phase": "initial-navigation",
+      "permittedModelAsset": false
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/echoledger-el1042.wav",
+      "type": "Media",
+      "initiator": "other",
+      "phase": "initial-navigation",
+      "permittedModelAsset": true
+    },
+    {
+      "url": "http://127.0.0.1:4173/favicon.ico",
+      "type": "Other",
+      "initiator": "other",
+      "phase": "initial-navigation",
+      "permittedModelAsset": false
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/echoledger-el1042.wav",
+      "type": "Media",
+      "initiator": "script",
+      "phase": "runtime",
+      "permittedModelAsset": true
+    },
+    {
+      "url": "http://127.0.0.1:4173/favicon.ico",
+      "type": "Other",
+      "initiator": "other",
+      "phase": "runtime",
+      "permittedModelAsset": false
+    },
+    {
+      "url": "http://127.0.0.1:4173/",
+      "type": "Document",
+      "initiator": "other",
+      "phase": "reload",
+      "permittedModelAsset": false
+    },
+    {
+      "url": "http://127.0.0.1:4173/assets/index-C3VGxPMf.js",
+      "type": "Script",
+      "initiator": "parser",
+      "phase": "reload",
+      "permittedModelAsset": false
+    },
+    {
+      "url": "http://127.0.0.1:4173/assets/index-zx0n__zT.css",
+      "type": "Stylesheet",
+      "initiator": "parser",
+      "phase": "reload",
+      "permittedModelAsset": false
+    },
+    {
+      "url": "http://127.0.0.1:4173/audio/echoledger-el1042.wav",
+      "type": "Media",
+      "initiator": "other",
+      "phase": "reload",
+      "permittedModelAsset": true
+    },
+    {
+      "url": "http://127.0.0.1:4173/favicon.ico",
+      "type": "Other",
+      "initiator": "other",
+      "phase": "reload",
+      "permittedModelAsset": false
+    }
+  ],
+  "prohibitedRuntime": [],
+  "browserInternals": [],
+  "assertions": [
+    "full 06:18 intelligible spoken fixture decoded and played across every canonical segment boundary",
+    "native range bounds, Arrow seeking, and every transcript fixture boundary synchronized",
+    "06:18 bundled WAV, native media position, visible timeline, and SEG-14 synchronized at 02:31",
+    "SEG-22 synchronized at 04:12",
+    "complaint and commitment independently exercised confirmed, rejected, and pending states",
+    "EV-015 presentation redacted with stable evidence history",
+    "Product action assigned to Priya Nolen with three exact links and seven ordered field-level changes",
+    "repeated deterministic downloads correlated, accepted URLs revoked, and one pending URL retained for reset",
+    "Escape, immediate reopen, and confirm restored the visible baseline",
+    "320px responsive parity, 44px targets, full workflow reachability, and no horizontal overflow"
+  ],
+  "focus": [
+    {
+      "label": "keyboard focus [data-testid=\"play\"]",
+      "selector": "[data-testid=\"play\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus native playback range",
+      "selector": "[data-testid=\"timeline\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 2
+    },
+    {
+      "label": "keyboard focus .transcript-row[aria-label*=\"SEG-05\"]",
+      "selector": ".transcript-row[aria-label*=\"SEG-05\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus .transcript-row[aria-label*=\"SEG-08\"]",
+      "selector": ".transcript-row[aria-label*=\"SEG-08\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus .transcript-row[aria-label*=\"SEG-13\"]",
+      "selector": ".transcript-row[aria-label*=\"SEG-13\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus .transcript-row[aria-label*=\"SEG-15\"]",
+      "selector": ".transcript-row[aria-label*=\"SEG-15\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus .transcript-row[aria-label*=\"SEG-18\"]",
+      "selector": ".transcript-row[aria-label*=\"SEG-18\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus .transcript-row[aria-label*=\"SEG-25\"]",
+      "selector": ".transcript-row[aria-label*=\"SEG-25\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus .transcript-row[aria-label*=\"SEG-29\"]",
+      "selector": ".transcript-row[aria-label*=\"SEG-29\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"complaint-marker\"]",
+      "selector": "[data-testid=\"complaint-marker\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"play\"]",
+      "selector": "[data-testid=\"play\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"play\"]",
+      "selector": "[data-testid=\"play\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"commitment-marker\"]",
+      "selector": "[data-testid=\"commitment-marker\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"complaint-confirm\"]",
+      "selector": "[data-testid=\"complaint-confirm\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 2
+    },
+    {
+      "label": "confirmed finding recovery",
+      "selector": "[data-testid=\"complaint-pending\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 2
+    },
+    {
+      "label": "keyboard focus [data-testid=\"complaint-pending\"]",
+      "selector": "[data-testid=\"complaint-pending\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 2
+    },
+    {
+      "label": "keyboard focus [data-testid=\"complaint-reject\"]",
+      "selector": "[data-testid=\"complaint-reject\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 2
+    },
+    {
+      "label": "rejected finding recovery",
+      "selector": "[data-testid=\"complaint-pending\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 2
+    },
+    {
+      "label": "keyboard focus [data-testid=\"complaint-pending\"]",
+      "selector": "[data-testid=\"complaint-pending\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 2
+    },
+    {
+      "label": "keyboard focus [data-testid=\"commitment-confirm\"]",
+      "selector": "[data-testid=\"commitment-confirm\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 2
+    },
+    {
+      "label": "confirmed commitment recovery",
+      "selector": "[data-testid=\"commitment-pending\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 2
+    },
+    {
+      "label": "keyboard focus [data-testid=\"commitment-pending\"]",
+      "selector": "[data-testid=\"commitment-pending\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 2
+    },
+    {
+      "label": "keyboard focus [data-testid=\"commitment-reject\"]",
+      "selector": "[data-testid=\"commitment-reject\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 2
+    },
+    {
+      "label": "rejected commitment recovery",
+      "selector": "[data-testid=\"commitment-pending\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 2
+    },
+    {
+      "label": "keyboard focus [data-testid=\"commitment-pending\"]",
+      "selector": "[data-testid=\"commitment-pending\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 2
+    },
+    {
+      "label": "keyboard focus [data-testid=\"redact\"]",
+      "selector": "[data-testid=\"redact\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "redaction recovery",
+      "selector": "[data-testid=\"restore\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"restore\"]",
+      "selector": "[data-testid=\"restore\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"redact\"]",
+      "selector": "[data-testid=\"redact\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"history-0\"]",
+      "selector": "[data-testid=\"history-0\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "historical dialog entry",
+      "selector": "[data-testid=\"close-history\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 0
+    },
+    {
+      "label": "keyboard focus [data-testid=\"history-0\"]",
+      "selector": "[data-testid=\"history-0\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"close-history\"]",
+      "selector": "[data-testid=\"close-history\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 0
+    },
+    {
+      "label": "keyboard focus [data-testid=\"history-1\"]",
+      "selector": "[data-testid=\"history-1\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"close-history\"]",
+      "selector": "[data-testid=\"close-history\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 0
+    },
+    {
+      "label": "keyboard focus [data-testid=\"signal-reject\"]",
+      "selector": "[data-testid=\"signal-reject\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"signal-pending\"]",
+      "selector": "[data-testid=\"signal-pending\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"signal-confirm\"]",
+      "selector": "[data-testid=\"signal-confirm\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "confirmed signal recovery",
+      "selector": "[data-testid=\"signal-pending\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"team\"]",
+      "selector": "[data-testid=\"team\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"team\"]",
+      "selector": "[data-testid=\"team\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"owner\"]",
+      "selector": "[data-testid=\"owner\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus textarea[data-testid=\"rationale\"]",
+      "selector": "textarea[data-testid=\"rationale\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"save-action\"]",
+      "selector": "[data-testid=\"save-action\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 0
+    },
+    {
+      "label": "keyboard focus [data-testid=\"team\"]",
+      "selector": "[data-testid=\"team\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"team\"]",
+      "selector": "[data-testid=\"team\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"action-status\"]",
+      "selector": "[data-testid=\"action-status\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"save-action\"]",
+      "selector": "[data-testid=\"save-action\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 0
+    },
+    {
+      "label": "keyboard focus [data-testid=\"action-status\"]",
+      "selector": "[data-testid=\"action-status\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"save-action\"]",
+      "selector": "[data-testid=\"save-action\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.691494778784538,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "251,252,253",
+      "transparentLayers": 0
+    },
+    {
+      "label": "keyboard focus [data-testid=\"export\"]",
+      "selector": "[data-testid=\"export\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 10.013053249445445,
+      "indicator": "rgb(255, 209, 102)",
+      "adjacentSurface": "20,42,72",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"export\"]",
+      "selector": "[data-testid=\"export\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 10.013053249445445,
+      "indicator": "rgb(255, 209, 102)",
+      "adjacentSurface": "20,42,72",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"export\"]",
+      "selector": "[data-testid=\"export\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 10.013053249445445,
+      "indicator": "rgb(255, 209, 102)",
+      "adjacentSurface": "20,42,72",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"open-reset\"]",
+      "selector": "[data-testid=\"open-reset\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 10.013053249445445,
+      "indicator": "rgb(255, 209, 102)",
+      "adjacentSurface": "20,42,72",
+      "transparentLayers": 1
+    },
+    {
+      "label": "reset dialog entry",
+      "selector": "[data-testid=\"confirm-reset\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"open-reset\"]",
+      "selector": "[data-testid=\"open-reset\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 10.013053249445445,
+      "indicator": "rgb(255, 209, 102)",
+      "adjacentSurface": "20,42,72",
+      "transparentLayers": 1
+    },
+    {
+      "label": "keyboard focus [data-testid=\"confirm-reset\"]",
+      "selector": "[data-testid=\"confirm-reset\"]",
+      "ok": true,
+      "reason": "visible focus proven",
+      "contrast": 4.818996910960904,
+      "indicator": "rgb(43, 111, 215)",
+      "adjacentSurface": "255,255,255",
+      "transparentLayers": 1
+    }
+  ],
+  "downloads": [
+    {
+      "guid": "7eefa37e-6666-4f7d-b04d-6fc2fecca375",
+      "filename": "EchoLedger_EL-1042_case-brief.json",
+      "state": "began"
+    },
+    {
+      "guid": "7eefa37e-6666-4f7d-b04d-6fc2fecca375",
+      "state": "completed"
+    },
+    {
+      "guid": "4b5c305b-b46c-449b-bc20-84657f915378",
+      "filename": "EchoLedger_EL-1042_case-brief.json",
+      "state": "began"
+    },
+    {
+      "guid": "4b5c305b-b46c-449b-bc20-84657f915378",
+      "state": "completed"
+    },
+    {
+      "guid": "63139921-44b7-4b17-9379-7be9f3a9f07d",
+      "filename": "EchoLedger_EL-1042_case-brief.json",
+      "state": "began"
+    },
+    {
+      "guid": "63139921-44b7-4b17-9379-7be9f3a9f07d",
+      "state": "completed"
+    }
+  ],
+  "downloadCorrelations": [
+    {
+      "attempt": 1,
+      "browserAcceptedBeforeRevocation": true,
+      "productOwnedRevocation": true
+    },
+    {
+      "attempt": 2,
+      "browserAcceptedBeforeRevocation": true,
+      "productOwnedRevocation": true
+    },
+    {
+      "attempt": 3,
+      "browserAccepted": false,
+      "blobUrlLiveUntilReset": true
+    }
+  ],
+  "fullRecordingInspection": {
+    "asset": "public/audio/echoledger-el1042.wav",
+    "fixtureSource": "scripts/generate-synthetic-call.mjs",
+    "authoringMethod": "offline macOS spoken voices from exact pre-authored fixture lines",
+    "durationSeconds": 378,
+    "startSeconds": 0,
+    "endSeconds": 378,
+    "playbackRate": 8,
+    "muted": false,
+    "volume": 1,
+    "canonicalWindowsTraversed": 10,
+    "transcriptEndSegment": "SEG-29",
+    "result": "passed"
+  },
+  "cleanup": {
+    "browserClient": true,
+    "browserProcess": true,
+    "previewProcess": true,
+    "temporaryFiles": true
+  },
+  "testedBuild": {
+    "indexSha256": "17d3986994e52ac75816a5fe5ac83d0cd96386905f2eb98857e4eb233088e73c",
+    "bundleSha256": "47b55e0ac3da6bb10417fd0d2621e327f375c6715c30e91c496755b4242f6e22",
+    "assets": [
+      "index-C3VGxPMf.js",
+      "index-zx0n__zT.css"
+    ]
+  },
+  "baselineBeforeJourney": {
+    "timeline": "0",
+    "activeSegment": "SEG-01",
+    "sensitivePresentation": "“You can reach me at mara.chen@example.test after the review.”",
+    "complaintConfirmDisabled": false,
+    "complaintPendingDisabled": true,
+    "commitmentConfirmDisabled": false,
+    "commitmentPendingDisabled": true,
+    "signalConfirmDisabled": false,
+    "signalPendingDisabled": true,
+    "team": "Product",
+    "owner": "Priya Nolen",
+    "rationale": "",
+    "status": "Assigned",
+    "privacyHistoryCount": 1,
+    "findingHistoryCount": 0,
+    "signalHistoryCount": 0,
+    "actionHistoryCount": 0,
+    "savedActionPresent": false,
+    "liveDownloadUrls": 0,
+    "acceptedDownloads": 0,
+    "revokedDownloadUrls": 0
+  },
+  "baselineAfterReset": {
+    "timeline": "0",
+    "activeSegment": "SEG-01",
+    "sensitivePresentation": "“You can reach me at mara.chen@example.test after the review.”",
+    "complaintConfirmDisabled": false,
+    "complaintPendingDisabled": true,
+    "commitmentConfirmDisabled": false,
+    "commitmentPendingDisabled": true,
+    "signalConfirmDisabled": false,
+    "signalPendingDisabled": true,
+    "team": "Product",
+    "owner": "Priya Nolen",
+    "rationale": "",
+    "status": "Assigned",
+    "privacyHistoryCount": 1,
+    "findingHistoryCount": 0,
+    "signalHistoryCount": 0,
+    "actionHistoryCount": 0,
+    "savedActionPresent": false,
+    "liveDownloadUrls": 0,
+    "acceptedDownloads": 0,
+    "revokedDownloadUrls": 0
+  },
+  "resetStateEquivalent": true,
+  "mobile": {
+    "undersized": [],
+    "unreachable": []
+  },
+  "durationMs": 68273,
+  "counts": {
+    "permittedPreview": 12,
+    "prohibitedRuntime": 0,
+    "permittedByPhase": {
+      "initial-navigation": 5,
+      "runtime": 2,
+      "reload": 5
+    },
+    "prohibitedByPhase": {
+      "initial-navigation": 0,
+      "runtime": 0,
+      "reload": 0
+    }
+  }
+}

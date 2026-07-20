@@ -4,35 +4,38 @@ Target duration: approximately 90 seconds. No music or third-party media.
 
 ## Narration
 
-ZeroHandoff turns one short Build Request into working software with no human
-handoffs. Fourteen GPT-5.6 Sol specialists first train as seven pairs on ten
-split-clue puzzles. Binary outcomes update directed trust through reward
-prediction error. One Curator call per agent updates the other relationship
-dimensions and memory. The trained baseline is frozen and hashed.
+ZeroHandoff turns one Build Request into working software without human
+handoffs. Fourteen GPT-5.6 Sol specialists train as seven pairs on ten
+split-clue puzzles, producing an immutable relationship baseline. Codex then
+orchestrates seven agent-native stages from opportunity through evidence.
+Downstream acceptance teaches trust slowly; one end-of-run Night commit
+consolidates trust and memory for the next prototype.
 
-Codex then orchestrates SENSE, MODEL, COMPOSE, DECIDE, SIMULATE, EXECUTE, and
-OBSERVE. Together they define the opportunity and outcomes, design the product,
-decide the system, plan execution, build the application, verify it, and create
-the demo. Every artifact is versioned. Deterministic gates record evidence and
-route failed checks through bounded repair instead of human approval.
+This final run created EchoLedger for enterprise Customer Experience, Product,
+Support, and Legal teams. Everything shown is fictional, deterministic, and
+local. One click jumps to the complaint at two minutes thirty-one seconds. The
+exact speaker-labelled segment becomes Now Playing while the bundled synthetic
+recording follows the same position. Redacting the email-like value masks the
+ordinary view, but stable evidence EV-zero-fifteen and its complete decision
+history remain intact and reversible.
 
-At each handoff, the next team accepts with reward one or requests revision with
-zero. Trust changes remain in shadow so the active run stays stable. After the
-prototype, one Night commit consolidates fast memory and slow trust for the next
-run without touching the immutable training source.
+The export-stall signal is presented as a contestable hypothesis, not an
+unquestionable fact. Its three evidence links open complete historical call
+context. A reviewer records the decision, then routes an action to Product owner
+Priya Nolen. Blank rationale is rejected. The corrected action is saved with
+field-level history and exact evidence; a later unsaved Legal draft cannot
+silently change that committed decision.
 
-This run created CoverageCanvas for field-service dispatchers. It rejects Theo
-because he lacks OSHA-thirty and is already booked. Assigning Amara fills the
-last uncovered role and updates coverage immediately. Undo restores the prior
-state, and Reset returns the deterministic baseline.
-
-Codex and GPT-5.6 produced the app, tests, browser proof, JSON audit trail,
-verified bundle, and narrated demo. The human supplied the intent and learning
-rules. ZeroHandoff handled everything between them.
+Export creates consistently ordered case-brief JSON entirely in the browser.
+Reset reconstructs the immutable fictional baseline. Codex and GPT-5.6 produced
+the application, tests, real-browser proof, append-only logs, trust lineage,
+verified bundle, and this narrated demo. The human supplied only the intent and
+the learning rules. ZeroHandoff handled everything between them.
 
 ## Visual sequence
 
 1. ZeroHandoff system overview: training, delivery, and continual learning.
 2. Scroll to the seven-stage Build Request-to-delivery pipeline.
-3. Play the canonical CoverageCanvas browser demo from input through blocked
-   assignment, successful assignment, Undo, and Reset.
+3. Play the canonical EchoLedger browser demo from complaint synchronization
+   through reversible redaction, evidence inspection, accountable action,
+   local export, and deterministic Reset.

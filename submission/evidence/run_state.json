@@ -13,9 +13,9 @@
     "BUNDLE"
   ],
   "current_stage": "BUNDLE",
-  "learning_commit_sequence": 5,
-  "relationship_vector_digest": "sha256:a92542ed79162ddc9826ae73cae67c0fa597ae74be8db646fa1c41112503c6af",
-  "run_id": "exp04_coveragecanvas_20260717",
+  "learning_commit_sequence": 6,
+  "relationship_vector_digest": "sha256:853c2c99be7d3c250a3a0dfa6abcb8062a89671b0c468d719d8f9f6efbbc2f86",
+  "run_id": "step13_echoledger_live_20260718",
   "settings_digest": "sha256:36d0c61f1aae4b422ce158c4ece8a4454d178d55c44b9d7c27541e042dabc26b",
   "status": "completed"
 }

@@ -1,254 +1,254 @@
 {
   "Aster->Juno": {
     "baseline": 0.23889999999999992,
-    "delta_from_training_baseline": 0.10237749999999998,
-    "delta_this_run": 0.016402499999999987,
-    "end": 0.3412774999999999,
-    "start": 0.3248749999999999
+    "delta_from_training_baseline": 0.11713974999999996,
+    "delta_this_run": 0.014762249999999977,
+    "end": 0.3560397499999999,
+    "start": 0.3412774999999999
   },
   "Aster->Kestrel": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Aster->Rowan": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Betty->Ember": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Betty->Rook": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Ember->Niko": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.0573775,
-    "delta_this_run": 0.021402499999999998,
-    "end": 0.0573775,
-    "start": 0.035975
+    "delta_from_training_baseline": 0.026639749999999993,
+    "delta_this_run": -0.030737750000000005,
+    "end": 0.026639749999999993,
+    "start": 0.0573775
   },
   "Ember->Rook": {
     "baseline": 0.4524499999999999,
-    "delta_from_training_baseline": 0.10237750000000012,
-    "delta_this_run": 0.016402499999999987,
-    "end": 0.5548275,
-    "start": 0.538425
+    "delta_from_training_baseline": 0.1171397500000001,
+    "delta_this_run": 0.014762249999999977,
+    "end": 0.56958975,
+    "start": 0.5548275
   },
   "Ember->Tundra": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.0573775,
-    "delta_this_run": 0.021402499999999998,
-    "end": 0.0573775,
-    "start": 0.035975
+    "delta_from_training_baseline": 0.026639749999999993,
+    "delta_this_run": -0.030737750000000005,
+    "end": 0.026639749999999993,
+    "start": 0.0573775
   },
   "Flint->Aster": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Flint->Juno": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Flint->Sable": {
     "baseline": 0.2659999999999999,
-    "delta_from_training_baseline": 0.10237750000000001,
-    "delta_this_run": 0.016402499999999987,
-    "end": 0.3683774999999999,
-    "start": 0.3519749999999999
+    "delta_from_training_baseline": 0.11713974999999999,
+    "delta_this_run": 0.014762249999999977,
+    "end": 0.3831397499999999,
+    "start": 0.3683774999999999
   },
   "Juno->Aster": {
     "baseline": 0.2659999999999999,
-    "delta_from_training_baseline": 0.10237750000000001,
-    "delta_this_run": 0.016402499999999987,
-    "end": 0.3683774999999999,
-    "start": 0.3519749999999999
+    "delta_from_training_baseline": 0.11713974999999999,
+    "delta_this_run": 0.014762249999999977,
+    "end": 0.3831397499999999,
+    "start": 0.3683774999999999
   },
   "Juno->Kestrel": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Juno->Rowan": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Kestrel->Mira": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Kestrel->Rowan": {
     "baseline": 0.28889999999999993,
-    "delta_from_training_baseline": 0.10237750000000001,
-    "delta_this_run": 0.016402499999999987,
-    "end": 0.39127749999999994,
-    "start": 0.37487499999999996
+    "delta_from_training_baseline": 0.11713974999999999,
+    "delta_this_run": 0.014762249999999977,
+    "end": 0.4060397499999999,
+    "start": 0.39127749999999994
   },
   "Kestrel->Zephyr": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Mira->Zephyr": {
     "baseline": 0.4524499999999999,
-    "delta_from_training_baseline": 0.10237750000000012,
-    "delta_this_run": 0.016402499999999987,
-    "end": 0.5548275,
-    "start": 0.538425
+    "delta_from_training_baseline": 0.1171397500000001,
+    "delta_this_run": 0.014762249999999977,
+    "end": 0.56958975,
+    "start": 0.5548275
   },
   "Niko->Flint": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Niko->Sable": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Niko->Tundra": {
     "baseline": 0.32939999999999997,
-    "delta_from_training_baseline": 0.057377500000000026,
-    "delta_this_run": 0.02140249999999999,
-    "end": 0.3867775,
-    "start": 0.365375
+    "delta_from_training_baseline": 0.026639750000000018,
+    "delta_this_run": -0.030737750000000008,
+    "end": 0.35603975,
+    "start": 0.3867775
   },
   "Peter->Ember": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Peter->Rook": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Rook->Ember": {
     "baseline": 0.4524499999999999,
-    "delta_from_training_baseline": 0.10237750000000012,
-    "delta_this_run": 0.016402499999999987,
-    "end": 0.5548275,
-    "start": 0.538425
+    "delta_from_training_baseline": 0.1171397500000001,
+    "delta_this_run": 0.014762249999999977,
+    "end": 0.56958975,
+    "start": 0.5548275
   },
   "Rook->Niko": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.0573775,
-    "delta_this_run": 0.021402499999999998,
-    "end": 0.0573775,
-    "start": 0.035975
+    "delta_from_training_baseline": 0.026639749999999993,
+    "delta_this_run": -0.030737750000000005,
+    "end": 0.026639749999999993,
+    "start": 0.0573775
   },
   "Rook->Tundra": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.0573775,
-    "delta_this_run": 0.021402499999999998,
-    "end": 0.0573775,
-    "start": 0.035975
+    "delta_from_training_baseline": 0.026639749999999993,
+    "delta_this_run": -0.030737750000000005,
+    "end": 0.026639749999999993,
+    "start": 0.0573775
   },
   "Rowan->Kestrel": {
     "baseline": 0.4159999999999999,
-    "delta_from_training_baseline": 0.10237750000000001,
-    "delta_this_run": 0.016402499999999987,
-    "end": 0.5183774999999999,
-    "start": 0.501975
+    "delta_from_training_baseline": 0.11713974999999999,
+    "delta_this_run": 0.014762249999999977,
+    "end": 0.5331397499999999,
+    "start": 0.5183774999999999
   },
   "Rowan->Mira": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Rowan->Zephyr": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Sable->Aster": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Sable->Flint": {
     "baseline": 0.23889999999999992,
-    "delta_from_training_baseline": 0.10237749999999998,
-    "delta_this_run": 0.016402499999999987,
-    "end": 0.3412774999999999,
-    "start": 0.3248749999999999
+    "delta_from_training_baseline": 0.11713974999999996,
+    "delta_this_run": 0.014762249999999977,
+    "end": 0.3560397499999999,
+    "start": 0.3412774999999999
   },
   "Sable->Juno": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Tundra->Flint": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Tundra->Niko": {
     "baseline": 0.37549999999999994,
-    "delta_from_training_baseline": 0.057377500000000026,
-    "delta_this_run": 0.02140249999999999,
-    "end": 0.43287749999999997,
-    "start": 0.411475
+    "delta_from_training_baseline": 0.026639750000000018,
+    "delta_this_run": -0.030737750000000008,
+    "end": 0.40213974999999996,
+    "start": 0.43287749999999997
   },
   "Tundra->Sable": {
     "baseline": 0.0,
-    "delta_from_training_baseline": 0.1023775,
-    "delta_this_run": 0.0164025,
-    "end": 0.1023775,
-    "start": 0.085975
+    "delta_from_training_baseline": 0.11713975,
+    "delta_this_run": 0.014762250000000005,
+    "end": 0.11713975,
+    "start": 0.1023775
   },
   "Zephyr->Mira": {
     "baseline": 0.4524499999999999,
-    "delta_from_training_baseline": 0.10237750000000012,
-    "delta_this_run": 0.016402499999999987,
-    "end": 0.5548275,
-    "start": 0.538425
+    "delta_from_training_baseline": 0.1171397500000001,
+    "delta_this_run": 0.014762249999999977,
+    "end": 0.56958975,
+    "start": 0.5548275
   }
 }

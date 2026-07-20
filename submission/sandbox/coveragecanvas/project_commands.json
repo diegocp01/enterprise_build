@@ -1,8 +1,0 @@
-{
-  "install": "npm install",
-  "test": "npm test",
-  "typecheck": "npm run typecheck",
-  "build": "npm run build",
-  "start": "npm run dev -- --host 127.0.0.1",
-  "healthcheck": "http://127.0.0.1:5173/"
-}

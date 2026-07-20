@@ -60,9 +60,9 @@ await page.waitForTimeout(3500);
 await page.evaluate(() => { document.querySelector('#submission-title').style.opacity = '0'; });
 await page.waitForTimeout(700);
 await page.evaluate(() => document.querySelector('#submission-title')?.remove());
-await page.waitForTimeout(5200);
+await page.waitForTimeout(7000);
 await page.locator('.scroll-cue').click();
-await page.waitForTimeout(9000);
+await page.waitForTimeout(13000);
 
 await page.close();
 await video.saveAs(output);

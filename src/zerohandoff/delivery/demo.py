@@ -319,8 +319,58 @@ class DemoAssembler:
         if chrome and runtime and recorder.is_file():
             node, node_modules = runtime
             class QuietHandler(SimpleHTTPRequestHandler):
+                _byte_range: tuple[int, int] | None = None
+
                 def log_message(self, *_args: Any) -> None:
                     return
+
+                def send_head(self):  # type: ignore[no-untyped-def]
+                    range_header = self.headers.get("Range", "")
+                    path = Path(self.translate_path(self.path))
+                    if not range_header.startswith("bytes=") or not path.is_file():
+                        return super().send_head()
+                    try:
+                        size = path.stat().st_size
+                        start_text, end_text = range_header[6:].split("-", 1)
+                        if start_text:
+                            start = int(start_text)
+                            end = int(end_text) if end_text else size - 1
+                        else:
+                            suffix = int(end_text)
+                            start = max(0, size - suffix)
+                            end = size - 1
+                        if start < 0 or start >= size or end < start:
+                            raise ValueError("invalid byte range")
+                        end = min(end, size - 1)
+                        source = path.open("rb")
+                    except (OSError, ValueError):
+                        self.send_error(416, "Requested Range Not Satisfiable")
+                        return None
+                    self.send_response(206)
+                    self.send_header("Content-type", self.guess_type(str(path)))
+                    self.send_header("Accept-Ranges", "bytes")
+                    self.send_header("Content-Range", f"bytes {start}-{end}/{size}")
+                    self.send_header("Content-Length", str(end - start + 1))
+                    self.send_header("Last-Modified", self.date_time_string(path.stat().st_mtime))
+                    self.end_headers()
+                    source.seek(start)
+                    self._byte_range = (start, end)
+                    return source
+
+                def copyfile(self, source, outputfile):  # type: ignore[no-untyped-def]
+                    if self._byte_range is None:
+                        return super().copyfile(source, outputfile)
+                    start, end = self._byte_range
+                    remaining = end - start + 1
+                    try:
+                        while remaining > 0:
+                            chunk = source.read(min(64 * 1024, remaining))
+                            if not chunk:
+                                break
+                            outputfile.write(chunk)
+                            remaining -= len(chunk)
+                    except (BrokenPipeError, ConnectionResetError):
+                        return
 
             handler = partial(QuietHandler, directory=str(preview_html.resolve().parent))
             try:

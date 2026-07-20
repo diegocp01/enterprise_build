@@ -1,69 +1,69 @@
 {
   "schema_version": "1.0",
-  "url": "http://127.0.0.1:55782/index.html",
-  "started_at": "2026-07-17T17:04:51.945Z",
+  "url": "http://127.0.0.1:50432/index.html",
+  "started_at": "2026-07-19T02:42:43.846Z",
   "completed": true,
-  "plan_steps": 9,
-  "planned_actions": 31,
-  "mutating_actions_planned": 10,
-  "mutating_actions_completed": 10,
-  "unique_state_count": 15,
+  "plan_steps": 8,
+  "planned_actions": 48,
+  "mutating_actions_planned": 19,
+  "mutating_actions_completed": 19,
+  "unique_state_count": 22,
   "actions": [
     {
       "step": 1,
       "index": 1,
       "type": "wait",
-      "role": "article",
-      "name": "Filled 7 of 8 roles",
+      "role": "heading",
+      "name": "From the exact moment to accountable action.",
       "value": "900",
       "status": "completed",
-      "started_ms": 4468,
+      "started_ms": 5233,
       "showcased": true,
-      "observed_text": "FILLED 7 of 8 roles",
-      "completed_ms": 6031,
+      "observed_text": "From the exact moment to accountable action.",
+      "completed_ms": 6980,
       "state": {
-        "digest": "000ac6bc473603977d6402289499f84e4c9c831a1ec347b2586f59eb95f9bee9",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
+        "digest": "9a55e1c7c3d5b790caa3e6885071ce20a22230caf4380019fb71b7f3bccb2c04",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
       }
     },
     {
       "step": 1,
       "index": 2,
       "type": "wait",
-      "role": "article",
-      "name": "Uncovered 1 needs dispatch",
+      "role": "",
+      "name": "Deterministic prototype",
       "value": "900",
       "status": "completed",
-      "started_ms": 6034,
+      "started_ms": 6984,
       "showcased": false,
-      "observed_text": "UNCOVERED 1 needs dispatch",
-      "completed_ms": 6106,
+      "observed_text": "Deterministic prototype",
+      "completed_ms": 7074,
       "state": {
-        "digest": "000ac6bc473603977d6402289499f84e4c9c831a1ec347b2586f59eb95f9bee9",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
+        "digest": "9a55e1c7c3d5b790caa3e6885071ce20a22230caf4380019fb71b7f3bccb2c04",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
       }
     },
     {
       "step": 1,
       "index": 3,
       "type": "wait",
-      "role": "heading",
-      "name": "Safety inspection",
+      "role": "",
+      "name": "Local only",
       "value": "900",
       "status": "completed",
-      "started_ms": 6109,
+      "started_ms": 7076,
       "showcased": false,
-      "observed_text": "Safety inspection",
-      "completed_ms": 6182,
+      "observed_text": "● Local only",
+      "completed_ms": 7162,
       "state": {
-        "digest": "000ac6bc473603977d6402289499f84e4c9c831a1ec347b2586f59eb95f9bee9",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
+        "digest": "9a55e1c7c3d5b790caa3e6885071ce20a22230caf4380019fb71b7f3bccb2c04",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
       }
     },
     {
@@ -71,759 +71,1191 @@
       "index": 1,
       "type": "click",
       "role": "button",
-      "name": "Select technician for Safety inspection, North zone",
+      "name": "Complaint 02:31",
       "value": "",
       "status": "completed",
-      "started_ms": 7941,
-      "completed_ms": 10197,
-      "observed_text": "Select technician",
+      "started_ms": 9236,
+      "completed_ms": 11801,
+      "observed_text": "◆ Complaint 02:31",
       "state": {
-        "digest": "4d183b72a66afe7516ff7bfa23f0c1db7c0911a3fe777db1ef19e95e3602a4cc",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 02 ASSIGNMENT DESK Cover Safety inspection Cancel Esc SHIFT Morning ZONE North CERTIFICATION OSHA-30 Choose a fictional technician PS Priya Shah BLOCKED Available: Morning"
+        "digest": "996a75b1d60e0b968262c3ae55d308432ec3030438e02f6ea162a511c8f38d76",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
       }
     },
     {
       "step": 2,
       "index": 2,
       "type": "wait",
-      "role": "heading",
-      "name": "Cover Safety inspection",
+      "role": "",
+      "name": "02:31 / 06:18",
       "value": "900",
       "status": "completed",
-      "started_ms": 10206,
+      "started_ms": 11813,
       "showcased": true,
-      "observed_text": "Cover Safety inspection",
-      "completed_ms": 11739,
+      "observed_text": "02:31 / 06:18",
+      "completed_ms": 13571,
       "state": {
-        "digest": "4d183b72a66afe7516ff7bfa23f0c1db7c0911a3fe777db1ef19e95e3602a4cc",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 02 ASSIGNMENT DESK Cover Safety inspection Cancel Esc SHIFT Morning ZONE North CERTIFICATION OSHA-30 Choose a fictional technician PS Priya Shah BLOCKED Available: Morning"
+        "digest": "996a75b1d60e0b968262c3ae55d308432ec3030438e02f6ea162a511c8f38d76",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
       }
     },
     {
       "step": 2,
       "index": 3,
       "type": "wait",
-      "role": "group",
-      "name": "Choose a fictional technician",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 11742,
-      "showcased": false,
-      "observed_text": "Choose a fictional technician PS Priya Shah BLOCKED Available: Morning, Evening · Certifications: Electrical L2 Blocked — missing OSHA-30; already assigned to Electrical inspection in North during Morning. TB Theo Brooks BLOCKED Available: Morning, Midday · Certifications: EPA 608 Blocked — missing OSHA-30; already assigned to HVAC call in Central during Morning. KL Kian Lee BLOCKED Available: Morning, Evening · Certifications: Fiber Splicing, Generator Blocked — missing OSHA-30; already assigne",
-      "completed_ms": 11813,
-      "state": {
-        "digest": "4d183b72a66afe7516ff7bfa23f0c1db7c0911a3fe777db1ef19e95e3602a4cc",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 02 ASSIGNMENT DESK Cover Safety inspection Cancel Esc SHIFT Morning ZONE North CERTIFICATION OSHA-30 Choose a fictional technician PS Priya Shah BLOCKED Available: Morning"
-      }
-    },
-    {
-      "step": 3,
-      "index": 1,
-      "type": "click",
-      "role": "radio",
-      "name": "Theo Brooks Blocked Available: Morning, Midday · Certifications: EPA 608 Blocked — missing OSHA-30; already assigned to HVAC call in Central during Morning.",
-      "value": "",
-      "status": "completed",
-      "started_ms": 13569,
-      "completed_ms": 15798,
-      "observed_text": "",
-      "state": {
-        "digest": "3d305f8ea1feafce1da8393db7e7a7657b8532d46366b7a896d08b783ec608f8",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 02 ASSIGNMENT DESK Cover Safety inspection Cancel Esc SHIFT Morning ZONE North CERTIFICATION OSHA-30 Choose a fictional technician PS Priya Shah BLOCKED Available: Morning"
-      }
-    },
-    {
-      "step": 3,
-      "index": 2,
-      "type": "click",
-      "role": "button",
-      "name": "Attempt assignment to Theo Brooks",
-      "value": "",
-      "status": "completed",
-      "started_ms": 15817,
-      "completed_ms": 18038,
-      "observed_text": "Attempt assignment to Theo Brooks",
-      "state": {
-        "digest": "c51bfdc9477d10dc29583824ba6a39c1251cc81c8661a7d8f069cd32b258f085",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ! Assignment blocked Assignment not made. Theo Brooks is missing OSHA-30; already assigned to HVAC call in Central during Morning. Safety inspection remains uncovered. 02 "
-      }
-    },
-    {
-      "step": 3,
-      "index": 3,
-      "type": "wait",
       "role": "",
-      "name": "Assignment not made. Theo Brooks is missing OSHA-30; already assigned to HVAC call in Central during Morning. Safety inspection remains uncovered.",
+      "name": "Now playing",
       "value": "900",
       "status": "completed",
-      "started_ms": 18050,
-      "showcased": true,
-      "observed_text": "Assignment not made. Theo Brooks is missing OSHA-30; already assigned to HVAC call in Central during Morning. Safety inspection remains uncovered.",
-      "completed_ms": 19574,
-      "state": {
-        "digest": "c51bfdc9477d10dc29583824ba6a39c1251cc81c8661a7d8f069cd32b258f085",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ! Assignment blocked Assignment not made. Theo Brooks is missing OSHA-30; already assigned to HVAC call in Central during Morning. Safety inspection remains uncovered. 02 "
-      }
-    },
-    {
-      "step": 4,
-      "index": 1,
-      "type": "wait",
-      "role": "article",
-      "name": "Filled 7 of 8 roles",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 21334,
-      "showcased": true,
-      "observed_text": "FILLED 7 of 8 roles",
-      "completed_ms": 22857,
-      "state": {
-        "digest": "6b8d9c6fc31d55d13e9e7f3797ae88d48f7e63ebf00775db4059507c77893aec",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ! Assignment blocked Assignment not made. Theo Brooks is missing OSHA-30; already assigned to HVAC call in Central during Morning. Safety inspection remains uncovered. 02 "
-      }
-    },
-    {
-      "step": 4,
-      "index": 2,
-      "type": "wait",
-      "role": "article",
-      "name": "Uncovered 1 needs dispatch",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 22860,
+      "started_ms": 13574,
       "showcased": false,
-      "observed_text": "UNCOVERED 1 needs dispatch",
-      "completed_ms": 22929,
+      "observed_text": "▶ NOW PLAYING",
+      "completed_ms": 13662,
       "state": {
-        "digest": "6b8d9c6fc31d55d13e9e7f3797ae88d48f7e63ebf00775db4059507c77893aec",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ! Assignment blocked Assignment not made. Theo Brooks is missing OSHA-30; already assigned to HVAC call in Central during Morning. Safety inspection remains uncovered. 02 "
+        "digest": "996a75b1d60e0b968262c3ae55d308432ec3030438e02f6ea162a511c8f38d76",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
       }
     },
     {
-      "step": 4,
-      "index": 3,
-      "type": "wait",
-      "role": "button",
-      "name": "Select technician for Safety inspection, North zone",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 22932,
-      "showcased": false,
-      "observed_text": "Select technician",
-      "completed_ms": 23000,
-      "state": {
-        "digest": "6b8d9c6fc31d55d13e9e7f3797ae88d48f7e63ebf00775db4059507c77893aec",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ! Assignment blocked Assignment not made. Theo Brooks is missing OSHA-30; already assigned to HVAC call in Central during Morning. Safety inspection remains uncovered. 02 "
-      }
-    },
-    {
-      "step": 5,
-      "index": 1,
-      "type": "click",
-      "role": "radio",
-      "name": "Amara Cole Eligible Available: Morning, Midday · Certifications: OSHA-30, First Aid Eligible — available for Morning, certified, and not booked in this shift.",
-      "value": "",
-      "status": "completed",
-      "started_ms": 24756,
-      "completed_ms": 26968,
-      "observed_text": "",
-      "state": {
-        "digest": "f072055ce0033ee99f1e89a77cc14ed34cf5abb326f0a5f54c4b8b3f22d37d9f",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 02 ASSIGNMENT DESK Cover Safety inspection Cancel Esc SHIFT Morning ZONE North CERTIFICATION OSHA-30 Choose a fictional technician PS Priya Shah BLOCKED Available: Morning"
-      }
-    },
-    {
-      "step": 5,
-      "index": 2,
-      "type": "click",
-      "role": "button",
-      "name": "Assign Amara Cole",
-      "value": "",
-      "status": "completed",
-      "started_ms": 26976,
-      "completed_ms": 29188,
-      "observed_text": "",
-      "state": {
-        "digest": "2023d00a29882adaaa1863420b2cf700c7c93a6fcbd00d598847cc7a2ec4f4b4",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 8 of 8 roles UNCOVERED 0 needs dispatch Undo assignment Reset plan ✓ Plan updated Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift. 01 COVERAGE MATRIX Today’s service plan All people and assig"
-      }
-    },
-    {
-      "step": 5,
-      "index": 3,
-      "type": "wait",
-      "role": "",
-      "name": "Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift.",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 29192,
-      "showcased": true,
-      "observed_text": "Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift.",
-      "completed_ms": 30722,
-      "state": {
-        "digest": "2023d00a29882adaaa1863420b2cf700c7c93a6fcbd00d598847cc7a2ec4f4b4",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 8 of 8 roles UNCOVERED 0 needs dispatch Undo assignment Reset plan ✓ Plan updated Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift. 01 COVERAGE MATRIX Today’s service plan All people and assig"
-      }
-    },
-    {
-      "step": 6,
-      "index": 1,
-      "type": "wait",
-      "role": "article",
-      "name": "Filled 8 of 8 roles",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 32481,
-      "showcased": true,
-      "observed_text": "FILLED 8 of 8 roles",
-      "completed_ms": 34003,
-      "state": {
-        "digest": "a48d30a07e2ef8fc27abeda83ab983d210fccbb4487a6c82dc5bb94b0526c86c",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 8 of 8 roles UNCOVERED 0 needs dispatch Undo assignment Reset plan ✓ Plan updated Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift. 01 COVERAGE MATRIX Today’s service plan All people and assig"
-      }
-    },
-    {
-      "step": 6,
-      "index": 2,
-      "type": "wait",
-      "role": "article",
-      "name": "Uncovered 0 needs dispatch",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 34006,
-      "showcased": false,
-      "observed_text": "UNCOVERED 0 needs dispatch",
-      "completed_ms": 34075,
-      "state": {
-        "digest": "a48d30a07e2ef8fc27abeda83ab983d210fccbb4487a6c82dc5bb94b0526c86c",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 8 of 8 roles UNCOVERED 0 needs dispatch Undo assignment Reset plan ✓ Plan updated Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift. 01 COVERAGE MATRIX Today’s service plan All people and assig"
-      }
-    },
-    {
-      "step": 6,
-      "index": 3,
-      "type": "wait",
-      "role": "button",
-      "name": "Undo assignment",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 34077,
-      "showcased": false,
-      "observed_text": "Undo assignment",
-      "completed_ms": 34144,
-      "state": {
-        "digest": "a48d30a07e2ef8fc27abeda83ab983d210fccbb4487a6c82dc5bb94b0526c86c",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 8 of 8 roles UNCOVERED 0 needs dispatch Undo assignment Reset plan ✓ Plan updated Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift. 01 COVERAGE MATRIX Today’s service plan All people and assig"
-      }
-    },
-    {
-      "step": 7,
-      "index": 1,
-      "type": "click",
-      "role": "button",
-      "name": "Undo assignment",
-      "value": "",
-      "status": "completed",
-      "started_ms": 35901,
-      "completed_ms": 38118,
-      "observed_text": "Undo assignment",
-      "state": {
-        "digest": "45c92cc2982a8743db859cda7d93eef9e15be9b5ba4d63c3fa1ecefeeea987fb",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ✓ Plan updated Safety inspection is uncovered again. The latest valid assignment was undone. 01 COVERAGE MATRIX Today’s service plan All people and assignments are fiction"
-      }
-    },
-    {
-      "step": 7,
-      "index": 2,
-      "type": "wait",
-      "role": "",
-      "name": "Safety inspection is uncovered again. The latest valid assignment was undone.",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 38124,
-      "showcased": true,
-      "observed_text": "Safety inspection is uncovered again. The latest valid assignment was undone.",
-      "completed_ms": 39656,
-      "state": {
-        "digest": "45c92cc2982a8743db859cda7d93eef9e15be9b5ba4d63c3fa1ecefeeea987fb",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ✓ Plan updated Safety inspection is uncovered again. The latest valid assignment was undone. 01 COVERAGE MATRIX Today’s service plan All people and assignments are fiction"
-      }
-    },
-    {
-      "step": 7,
-      "index": 3,
-      "type": "wait",
-      "role": "article",
-      "name": "Filled 7 of 8 roles",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 39659,
-      "showcased": false,
-      "observed_text": "FILLED 7 of 8 roles",
-      "completed_ms": 39725,
-      "state": {
-        "digest": "45c92cc2982a8743db859cda7d93eef9e15be9b5ba4d63c3fa1ecefeeea987fb",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ✓ Plan updated Safety inspection is uncovered again. The latest valid assignment was undone. 01 COVERAGE MATRIX Today’s service plan All people and assignments are fiction"
-      }
-    },
-    {
-      "step": 7,
+      "step": 2,
       "index": 4,
-      "type": "wait",
-      "role": "article",
-      "name": "Uncovered 1 needs dispatch",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 39727,
-      "showcased": false,
-      "observed_text": "UNCOVERED 1 needs dispatch",
-      "completed_ms": 39794,
-      "state": {
-        "digest": "45c92cc2982a8743db859cda7d93eef9e15be9b5ba4d63c3fa1ecefeeea987fb",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ✓ Plan updated Safety inspection is uncovered again. The latest valid assignment was undone. 01 COVERAGE MATRIX Today’s service plan All people and assignments are fiction"
-      }
-    },
-    {
-      "step": 8,
-      "index": 1,
       "type": "click",
       "role": "button",
-      "name": "Select technician for Safety inspection, North zone",
+      "name": "Play fictional call",
       "value": "",
       "status": "completed",
-      "started_ms": 41552,
-      "completed_ms": 43769,
-      "observed_text": "Select technician",
-      "state": {
-        "digest": "4d89e0279b211c4af9a20f04205bd22cb06299c6644fb74d109875d14245c2aa",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 02 ASSIGNMENT DESK Cover Safety inspection Cancel Esc SHIFT Morning ZONE North CERTIFICATION OSHA-30 Choose a fictional technician PS Priya Shah BLOCKED Available: Morning"
-      }
-    },
-    {
-      "step": 8,
-      "index": 2,
-      "type": "click",
-      "role": "radio",
-      "name": "Amara Cole Eligible Available: Morning, Midday · Certifications: OSHA-30, First Aid Eligible — available for Morning, certified, and not booked in this shift.",
-      "value": "",
-      "status": "completed",
-      "started_ms": 43776,
-      "completed_ms": 45982,
+      "started_ms": 13665,
+      "completed_ms": 16228,
       "observed_text": "",
       "state": {
-        "digest": "1ff346433056c6392b9e916c3409d8fd66e5d1898b0c72979ccbc9b6c2f6299a",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 02 ASSIGNMENT DESK Cover Safety inspection Cancel Esc SHIFT Morning ZONE North CERTIFICATION OSHA-30 Choose a fictional technician PS Priya Shah BLOCKED Available: Morning"
+        "digest": "0e5e3c12b416cb759d0f2500de4757400035463b46e026883968852ee5b9a55b",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
       }
     },
     {
-      "step": 8,
-      "index": 3,
-      "type": "click",
-      "role": "button",
-      "name": "Assign Amara Cole",
-      "value": "",
-      "status": "completed",
-      "started_ms": 45991,
-      "completed_ms": 48201,
-      "observed_text": "",
-      "state": {
-        "digest": "c9d3d0e73c6c85a8bff1ce577c67f3e8086c765d99d509694d88750727d67ceb",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 8 of 8 roles UNCOVERED 0 needs dispatch Undo assignment Reset plan ✓ Plan updated Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift. 01 COVERAGE MATRIX Today’s service plan All people and assig"
-      }
-    },
-    {
-      "step": 8,
-      "index": 4,
-      "type": "wait",
-      "role": "article",
-      "name": "Filled 8 of 8 roles",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 48206,
-      "showcased": true,
-      "observed_text": "FILLED 8 of 8 roles",
-      "completed_ms": 49737,
-      "state": {
-        "digest": "c9d3d0e73c6c85a8bff1ce577c67f3e8086c765d99d509694d88750727d67ceb",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 8 of 8 roles UNCOVERED 0 needs dispatch Undo assignment Reset plan ✓ Plan updated Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift. 01 COVERAGE MATRIX Today’s service plan All people and assig"
-      }
-    },
-    {
-      "step": 9,
-      "index": 1,
-      "type": "click",
-      "role": "button",
-      "name": "Reset plan",
-      "value": "",
-      "status": "completed",
-      "started_ms": 51491,
-      "completed_ms": 53718,
-      "observed_text": "Reset plan",
-      "state": {
-        "digest": "d7d9110f6e62fe3eb5578079afacde25b1a40fd1595b6593f0be6217181433d3",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
-      }
-    },
-    {
-      "step": 9,
-      "index": 2,
-      "type": "wait",
-      "role": "article",
-      "name": "Filled 7 of 8 roles",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 53724,
-      "showcased": true,
-      "observed_text": "FILLED 7 of 8 roles",
-      "completed_ms": 55251,
-      "state": {
-        "digest": "d7d9110f6e62fe3eb5578079afacde25b1a40fd1595b6593f0be6217181433d3",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
-      }
-    },
-    {
-      "step": 9,
-      "index": 3,
-      "type": "wait",
-      "role": "article",
-      "name": "Uncovered 1 needs dispatch",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 55254,
-      "showcased": false,
-      "observed_text": "UNCOVERED 1 needs dispatch",
-      "completed_ms": 55329,
-      "state": {
-        "digest": "d7d9110f6e62fe3eb5578079afacde25b1a40fd1595b6593f0be6217181433d3",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
-      }
-    },
-    {
-      "step": 9,
-      "index": 4,
-      "type": "wait",
-      "role": "",
-      "name": "Technician required for this shift.",
-      "value": "900",
-      "status": "completed",
-      "started_ms": 55332,
-      "showcased": false,
-      "observed_text": "Technician required for this shift.",
-      "completed_ms": 55403,
-      "state": {
-        "digest": "d7d9110f6e62fe3eb5578079afacde25b1a40fd1595b6593f0be6217181433d3",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
-      }
-    },
-    {
-      "step": 9,
+      "step": 2,
       "index": 5,
       "type": "wait",
       "role": "button",
-      "name": "Select technician for Safety inspection, North zone",
+      "name": "Pause fictional call",
       "value": "900",
       "status": "completed",
-      "started_ms": 55406,
+      "started_ms": 16235,
       "showcased": false,
-      "observed_text": "Select technician",
-      "completed_ms": 55477,
+      "observed_text": "Ⅱ",
+      "completed_ms": 16319,
       "state": {
-        "digest": "d7d9110f6e62fe3eb5578079afacde25b1a40fd1595b6593f0be6217181433d3",
-        "title": "Build Coveragecanvas A Shift Coverage",
-        "url": "http://127.0.0.1:55782/index.html",
-        "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
+        "digest": "0e5e3c12b416cb759d0f2500de4757400035463b46e026883968852ee5b9a55b",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 2,
+      "index": 6,
+      "type": "click",
+      "role": "button",
+      "name": "Pause fictional call",
+      "value": "",
+      "status": "completed",
+      "started_ms": 16323,
+      "completed_ms": 18881,
+      "observed_text": "",
+      "state": {
+        "digest": "56ba9373d069291ce7408ffa171c0f3e58c1db6d25a41158067d8faa8974664b",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 3,
+      "index": 1,
+      "type": "scroll",
+      "role": "heading",
+      "name": "Protect presentation. Preserve provenance.",
+      "value": "center",
+      "status": "completed",
+      "started_ms": 20947,
+      "completed_ms": 23499,
+      "observed_text": "Protect presentation. Preserve provenance.",
+      "state": {
+        "digest": "0d86e6e21ad2158c985c4c32440366c71ad38835f24dd2fe40249a5d19466bff",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 3,
+      "index": 2,
+      "type": "click",
+      "role": "button",
+      "name": "Redact presentation",
+      "value": "",
+      "status": "completed",
+      "started_ms": 23508,
+      "completed_ms": 26069,
+      "observed_text": "Redact presentation",
+      "state": {
+        "digest": "44ec22852162e6f5f6ddd2ac2d3eb3e95df1365143a827f4943c6b15a4d989ad",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 3,
+      "index": 3,
+      "type": "wait",
+      "role": "",
+      "name": "[REDACTED — email-like fictional value]",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 26079,
+      "showcased": true,
+      "observed_text": "Mara Chen SEG-15 · 02:48 “[REDACTED — email-like fictional value]”SENSITIVE CANDIDATE",
+      "completed_ms": 27827,
+      "state": {
+        "digest": "44ec22852162e6f5f6ddd2ac2d3eb3e95df1365143a827f4943c6b15a4d989ad",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 3,
+      "index": 4,
+      "type": "wait",
+      "role": "",
+      "name": "Stable identity EV-015 · deterministic candidate",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 27830,
+      "showcased": false,
+      "observed_text": "Stable identity EV-015 · deterministic candidate",
+      "completed_ms": 27922,
+      "state": {
+        "digest": "44ec22852162e6f5f6ddd2ac2d3eb3e95df1365143a827f4943c6b15a4d989ad",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 3,
+      "index": 5,
+      "type": "wait",
+      "role": "button",
+      "name": "Restore presentation",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 27924,
+      "showcased": false,
+      "observed_text": "Restore presentation",
+      "completed_ms": 28008,
+      "state": {
+        "digest": "44ec22852162e6f5f6ddd2ac2d3eb3e95df1365143a827f4943c6b15a4d989ad",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 4,
+      "index": 1,
+      "type": "scroll",
+      "role": "heading",
+      "name": "Trace the pattern before trusting it.",
+      "value": "center",
+      "status": "completed",
+      "started_ms": 30069,
+      "completed_ms": 32614,
+      "observed_text": "Trace the pattern before trusting it.",
+      "state": {
+        "digest": "60dd8c29ff934767fcca8edf3197e843f861c7ec9af57117b4ddd53502197950",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 4,
+      "index": 2,
+      "type": "click",
+      "role": "button",
+      "name": "Open complete bundled context",
+      "value": "",
+      "status": "completed",
+      "started_ms": 32622,
+      "completed_ms": 35189,
+      "observed_text": "Open complete bundled context →",
+      "state": {
+        "digest": "71f53af395e5c36aaace1ce399b3395ec1e272ee571069345cd3b3cd9ccc0e25",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 4,
+      "index": 3,
+      "type": "wait",
+      "role": "dialog",
+      "name": "Harborline Systems · EL-1017",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 35198,
+      "showcased": true,
+      "observed_text": "⌁ COMPLETE BUNDLED HISTORICAL TRANSCRIPT Harborline Systems · EL-1017 05:02 fictional transcript fixture · cited evidence highlighted EL-1017 · SEG-01 · Nia Ford · 00:00 “This is a bundled fictional follow-up about the operations workspace archive.” EL-1017 · SEG-04 · Imani Reed · 00:44 “We tested the archive twice in the local training fixture and saw the same final-step behavior.” EL-1017 · SEG-07 · Nia Ford · 01:43 “I am documenting each fictional attempt and the progress stage where it stopp",
+      "completed_ms": 36941,
+      "state": {
+        "digest": "71f53af395e5c36aaace1ce399b3395ec1e272ee571069345cd3b3cd9ccc0e25",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 4,
+      "index": 4,
+      "type": "wait",
+      "role": "",
+      "name": "Exact cited segment",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 36945,
+      "showcased": false,
+      "observed_text": "EXACT CITED SEGMENT",
+      "completed_ms": 37036,
+      "state": {
+        "digest": "71f53af395e5c36aaace1ce399b3395ec1e272ee571069345cd3b3cd9ccc0e25",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 4,
+      "index": 5,
+      "type": "click",
+      "role": "button",
+      "name": "Close context",
+      "value": "",
+      "status": "completed",
+      "started_ms": 37040,
+      "completed_ms": 39606,
+      "observed_text": "",
+      "state": {
+        "digest": "60dd8c29ff934767fcca8edf3197e843f861c7ec9af57117b4ddd53502197950",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 4,
+      "index": 6,
+      "type": "click",
+      "role": "button",
+      "name": "Confirm signal",
+      "value": "",
+      "status": "completed",
+      "started_ms": 39614,
+      "completed_ms": 42188,
+      "observed_text": "Confirm signal",
+      "state": {
+        "digest": "156f8276560c788f20bdc6b72cf613da88c795e88705113641dc91295ff8521e",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 4,
+      "index": 7,
+      "type": "wait",
+      "role": "",
+      "name": "Confirmed",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 42198,
+      "showcased": false,
+      "observed_text": "✓ CONFIRMED",
+      "completed_ms": 42281,
+      "state": {
+        "digest": "156f8276560c788f20bdc6b72cf613da88c795e88705113641dc91295ff8521e",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 4,
+      "index": 8,
+      "type": "wait",
+      "role": "",
+      "name": "Deterministic basis · EXPORT_STALL_V1",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 42283,
+      "showcased": false,
+      "observed_text": "Deterministic basis · EXPORT_STALL_V1",
+      "completed_ms": 42369,
+      "state": {
+        "digest": "156f8276560c788f20bdc6b72cf613da88c795e88705113641dc91295ff8521e",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 5,
+      "index": 1,
+      "type": "scroll",
+      "role": "heading",
+      "name": "Name the owner. Keep the evidence beside them.",
+      "value": "center",
+      "status": "completed",
+      "started_ms": 44430,
+      "completed_ms": 46998,
+      "observed_text": "Name the owner. Keep the evidence beside them.",
+      "state": {
+        "digest": "459260b8e52fd2e7d2237f02c2fb12641672ad7452c7c6919d6ddca3f50a5272",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 5,
+      "index": 2,
+      "type": "select",
+      "role": "combobox",
+      "name": "Accountable team",
+      "value": "Legal",
+      "status": "completed",
+      "started_ms": 47007,
+      "completed_ms": 49551,
+      "observed_text": "Customer Experience Product Support Legal",
+      "state": {
+        "digest": "5893430cc1bf5bd144d2e3e14e0ee9b67679da09fe6fa6b2588fe5b7dcfa5aaa",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 5,
+      "index": 3,
+      "type": "select",
+      "role": "combobox",
+      "name": "Fictional owner",
+      "value": "Leena Shah",
+      "status": "completed",
+      "started_ms": 49559,
+      "completed_ms": 52097,
+      "observed_text": "Noah Perrin Leena Shah",
+      "state": {
+        "digest": "5893430cc1bf5bd144d2e3e14e0ee9b67679da09fe6fa6b2588fe5b7dcfa5aaa",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 5,
+      "index": 4,
+      "type": "fill",
+      "role": "textbox",
+      "name": "Rationale Required",
+      "value": "   ",
+      "status": "completed",
+      "started_ms": 52106,
+      "completed_ms": 54654,
+      "observed_text": "",
+      "state": {
+        "digest": "5893430cc1bf5bd144d2e3e14e0ee9b67679da09fe6fa6b2588fe5b7dcfa5aaa",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 5,
+      "index": 5,
+      "type": "wait",
+      "role": "",
+      "name": "Save requires the linked signal, three evidence items, an eligible team and owner, rationale, and status. Add a rationale to continue.",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 54663,
+      "showcased": true,
+      "observed_text": "Save requires the linked signal, three evidence items, an eligible team and owner, rationale, and status. Add a rationale to continue.",
+      "completed_ms": 56405,
+      "state": {
+        "digest": "5893430cc1bf5bd144d2e3e14e0ee9b67679da09fe6fa6b2588fe5b7dcfa5aaa",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 5,
+      "index": 6,
+      "type": "select",
+      "role": "combobox",
+      "name": "Accountable team",
+      "value": "Product",
+      "status": "completed",
+      "started_ms": 56406,
+      "completed_ms": 58931,
+      "observed_text": "Customer Experience Product Support Legal",
+      "state": {
+        "digest": "459260b8e52fd2e7d2237f02c2fb12641672ad7452c7c6919d6ddca3f50a5272",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 5,
+      "index": 7,
+      "type": "fill",
+      "role": "textbox",
+      "name": "Rationale Required",
+      "value": "Review the reproducible export-stall evidence and document the Product follow-up decision.",
+      "status": "completed",
+      "started_ms": 58942,
+      "completed_ms": 61467,
+      "observed_text": "",
+      "state": {
+        "digest": "f3343c81efdd5cbf83af9fd0da6bbeb9c0edb9d0f2c3b42ee6160ae38ba7c86b",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 5,
+      "index": 8,
+      "type": "select",
+      "role": "combobox",
+      "name": "Status",
+      "value": "In progress",
+      "status": "completed",
+      "started_ms": 61476,
+      "completed_ms": 64020,
+      "observed_text": "Assigned In progress Completed",
+      "state": {
+        "digest": "f3343c81efdd5cbf83af9fd0da6bbeb9c0edb9d0f2c3b42ee6160ae38ba7c86b",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 5,
+      "index": 9,
+      "type": "wait",
+      "role": "",
+      "name": "Ready to commit: signal, three evidence links, team, owner, rationale, and status are valid.",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 64029,
+      "showcased": false,
+      "observed_text": "Ready to commit: signal, three evidence links, team, owner, rationale, and status are valid.",
+      "completed_ms": 64112,
+      "state": {
+        "digest": "f3343c81efdd5cbf83af9fd0da6bbeb9c0edb9d0f2c3b42ee6160ae38ba7c86b",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 5,
+      "index": 10,
+      "type": "click",
+      "role": "button",
+      "name": "Save accountable action",
+      "value": "",
+      "status": "completed",
+      "started_ms": 64113,
+      "completed_ms": 66637,
+      "observed_text": "",
+      "state": {
+        "digest": "04da8c5e75acc50a37763ca5f28609f47c9142912c5424b70aa8335c51669a5e",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 5,
+      "index": 11,
+      "type": "wait",
+      "role": "status",
+      "name": "Action saved locally for Priya Nolen. No external action was executed.",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 66645,
+      "showcased": false,
+      "observed_text": "Action saved locally for Priya Nolen. No external action was executed.",
+      "completed_ms": 66731,
+      "state": {
+        "digest": "04da8c5e75acc50a37763ca5f28609f47c9142912c5424b70aa8335c51669a5e",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 6,
+      "index": 1,
+      "type": "select",
+      "role": "combobox",
+      "name": "Accountable team",
+      "value": "Legal",
+      "status": "completed",
+      "started_ms": 68795,
+      "completed_ms": 71347,
+      "observed_text": "Customer Experience Product Support Legal",
+      "state": {
+        "digest": "10a2b2c0dd372d22b7820ffcc53e7434398790093feb36df2071f12b73c6fa7c",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 6,
+      "index": 2,
+      "type": "wait",
+      "role": "",
+      "name": "Product · 5 ordered events",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 71355,
+      "showcased": true,
+      "observed_text": "Product · 5 ordered events",
+      "completed_ms": 73110,
+      "state": {
+        "digest": "10a2b2c0dd372d22b7820ffcc53e7434398790093feb36df2071f12b73c6fa7c",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 6,
+      "index": 3,
+      "type": "wait",
+      "role": "",
+      "name": "Committed rationale: Review the reproducible export-stall evidence and document the Product follow-up decision.",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 73114,
+      "showcased": false,
+      "observed_text": "Committed rationale: Review the reproducible export-stall evidence and document the Product follow-up decision.",
+      "completed_ms": 73202,
+      "state": {
+        "digest": "10a2b2c0dd372d22b7820ffcc53e7434398790093feb36df2071f12b73c6fa7c",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 6,
+      "index": 4,
+      "type": "select",
+      "role": "combobox",
+      "name": "Accountable team",
+      "value": "Product",
+      "status": "completed",
+      "started_ms": 73205,
+      "completed_ms": 75746,
+      "observed_text": "Customer Experience Product Support Legal",
+      "state": {
+        "digest": "c22b7e013531717f8399824b0dabc106cd5b765337c4981bf09cd9ea57bcdceb",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 7,
+      "index": 1,
+      "type": "scroll",
+      "role": "heading",
+      "name": "Leave with an audit trail. Return to a clean baseline.",
+      "value": "center",
+      "status": "completed",
+      "started_ms": 77815,
+      "completed_ms": 80380,
+      "observed_text": "Leave with an audit trail. Return to a clean baseline.",
+      "state": {
+        "digest": "b09a27c6370a3e25993b9c0a4696398d895a5a6d1f38c644471641866b4f7387",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 7,
+      "index": 2,
+      "type": "click",
+      "role": "button",
+      "name": "Export local brief",
+      "value": "",
+      "status": "completed",
+      "started_ms": 80389,
+      "download": {
+        "suggested_filename": "EchoLedger_EL-1042_case-brief.json"
+      },
+      "completed_ms": 84411,
+      "observed_text": "Export local brief",
+      "state": {
+        "digest": "7163cee5570a9f1f177faf65c01d92c44074ae1a0217753e789912820f003bce",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 7,
+      "index": 3,
+      "type": "wait",
+      "role": "status",
+      "name": "Export 1 prepared locally — its temporary Blob URL remains live until correlated browser acceptance.",
+      "value": "1200",
+      "status": "completed",
+      "started_ms": 84422,
+      "showcased": true,
+      "observed_text": "",
+      "completed_ms": 86171,
+      "state": {
+        "digest": "1575204ceba5be3d25a0471e76510039aafb62f64b7f9192f5adbaf3cb5aa8bb",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 7,
+      "index": 4,
+      "type": "wait",
+      "role": "status",
+      "name": "Export 1 completed its local browser handoff — temporary Blob URL revoked.",
+      "value": "5200",
+      "status": "completed",
+      "started_ms": 86175,
+      "showcased": false,
+      "observed_text": "Export 1 completed its local browser handoff — temporary Blob URL revoked.",
+      "completed_ms": 86265,
+      "state": {
+        "digest": "1575204ceba5be3d25a0471e76510039aafb62f64b7f9192f5adbaf3cb5aa8bb",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 8,
+      "index": 1,
+      "type": "click",
+      "role": "button",
+      "name": "Reset fictional experience",
+      "value": "",
+      "status": "completed",
+      "started_ms": 88325,
+      "completed_ms": 90906,
+      "observed_text": "Reset fictional experience",
+      "state": {
+        "digest": "e9a7a31ac4c1873723300baf8b61cc533c98b117c37fef9bb4ccc637e22b6e10",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 8,
+      "index": 2,
+      "type": "wait",
+      "role": "dialog",
+      "name": "Reset the fictional experience?",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 90917,
+      "showcased": true,
+      "observed_text": "↺ CONTROLLED RESET Reset the fictional experience? This rebuilds every mutable field from the immutable fixture baseline. A downloaded brief stays on this device. Cancel Confirm reset",
+      "completed_ms": 92654,
+      "state": {
+        "digest": "e9a7a31ac4c1873723300baf8b61cc533c98b117c37fef9bb4ccc637e22b6e10",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 8,
+      "index": 3,
+      "type": "click",
+      "role": "button",
+      "name": "Confirm reset",
+      "value": "",
+      "status": "completed",
+      "started_ms": 92658,
+      "completed_ms": 95221,
+      "observed_text": "",
+      "state": {
+        "digest": "1e6ee26159b16d109f922b944fdf0a32c379d6cae0c0a620fcf82a9a8f59b889",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 8,
+      "index": 4,
+      "type": "wait",
+      "role": "status",
+      "name": "Reset complete — the deterministic fictional baseline is restored.",
+      "value": "1200",
+      "status": "completed",
+      "started_ms": 95230,
+      "showcased": false,
+      "observed_text": "Reset complete — the deterministic fictional baseline is restored.",
+      "completed_ms": 95314,
+      "state": {
+        "digest": "1e6ee26159b16d109f922b944fdf0a32c379d6cae0c0a620fcf82a9a8f59b889",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 8,
+      "index": 5,
+      "type": "wait",
+      "role": "",
+      "name": "00:00 / 06:18",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 95315,
+      "showcased": false,
+      "observed_text": "00:00 / 06:18",
+      "completed_ms": 95392,
+      "state": {
+        "digest": "1e6ee26159b16d109f922b944fdf0a32c379d6cae0c0a620fcf82a9a8f59b889",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 8,
+      "index": 6,
+      "type": "wait",
+      "role": "",
+      "name": "You can reach me at mara.chen@example.test after the review.",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 95393,
+      "showcased": false,
+      "observed_text": "Mara Chen SEG-15 · 02:48 “You can reach me at mara.chen@example.test after the review.”SENSITIVE CANDIDATE",
+      "completed_ms": 95465,
+      "state": {
+        "digest": "1e6ee26159b16d109f922b944fdf0a32c379d6cae0c0a620fcf82a9a8f59b889",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+      }
+    },
+    {
+      "step": 8,
+      "index": 7,
+      "type": "wait",
+      "role": "",
+      "name": "Save requires the linked signal, three evidence items, an eligible team and owner, rationale, and status. Add a rationale to continue.",
+      "value": "900",
+      "status": "completed",
+      "started_ms": 95468,
+      "showcased": false,
+      "observed_text": "Save requires the linked signal, three evidence items, an eligible team and owner, rationale, and status. Add a rationale to continue.",
+      "completed_ms": 95551,
+      "state": {
+        "digest": "1e6ee26159b16d109f922b944fdf0a32c379d6cae0c0a620fcf82a9a8f59b889",
+        "title": "EchoLedger · Evidence intelligence",
+        "url": "http://127.0.0.1:50432/index.html",
+        "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
       }
     }
   ],
   "state_digests": [
     {
       "label": "initial",
-      "digest": "24463066ace71e24227e42f0208a72c4019c0f0572d601e5ce64ca56a6c7bf95",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
+      "digest": "0b07353c09930303d210a98a4da8fd04d420127f1c4c3bced615750c2e997c33",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-1-wait-1",
-      "digest": "000ac6bc473603977d6402289499f84e4c9c831a1ec347b2586f59eb95f9bee9",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
+      "digest": "9a55e1c7c3d5b790caa3e6885071ce20a22230caf4380019fb71b7f3bccb2c04",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-1-wait-2",
-      "digest": "000ac6bc473603977d6402289499f84e4c9c831a1ec347b2586f59eb95f9bee9",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
+      "digest": "9a55e1c7c3d5b790caa3e6885071ce20a22230caf4380019fb71b7f3bccb2c04",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-1-wait-3",
-      "digest": "000ac6bc473603977d6402289499f84e4c9c831a1ec347b2586f59eb95f9bee9",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
+      "digest": "9a55e1c7c3d5b790caa3e6885071ce20a22230caf4380019fb71b7f3bccb2c04",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-2-click-1",
-      "digest": "4d183b72a66afe7516ff7bfa23f0c1db7c0911a3fe777db1ef19e95e3602a4cc",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 02 ASSIGNMENT DESK Cover Safety inspection Cancel Esc SHIFT Morning ZONE North CERTIFICATION OSHA-30 Choose a fictional technician PS Priya Shah BLOCKED Available: Morning"
+      "digest": "996a75b1d60e0b968262c3ae55d308432ec3030438e02f6ea162a511c8f38d76",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-2-wait-2",
-      "digest": "4d183b72a66afe7516ff7bfa23f0c1db7c0911a3fe777db1ef19e95e3602a4cc",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 02 ASSIGNMENT DESK Cover Safety inspection Cancel Esc SHIFT Morning ZONE North CERTIFICATION OSHA-30 Choose a fictional technician PS Priya Shah BLOCKED Available: Morning"
+      "digest": "996a75b1d60e0b968262c3ae55d308432ec3030438e02f6ea162a511c8f38d76",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-2-wait-3",
-      "digest": "4d183b72a66afe7516ff7bfa23f0c1db7c0911a3fe777db1ef19e95e3602a4cc",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 02 ASSIGNMENT DESK Cover Safety inspection Cancel Esc SHIFT Morning ZONE North CERTIFICATION OSHA-30 Choose a fictional technician PS Priya Shah BLOCKED Available: Morning"
+      "digest": "996a75b1d60e0b968262c3ae55d308432ec3030438e02f6ea162a511c8f38d76",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
-      "label": "step-3-click-1",
-      "digest": "3d305f8ea1feafce1da8393db7e7a7657b8532d46366b7a896d08b783ec608f8",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 02 ASSIGNMENT DESK Cover Safety inspection Cancel Esc SHIFT Morning ZONE North CERTIFICATION OSHA-30 Choose a fictional technician PS Priya Shah BLOCKED Available: Morning"
+      "label": "step-2-click-4",
+      "digest": "0e5e3c12b416cb759d0f2500de4757400035463b46e026883968852ee5b9a55b",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-2-wait-5",
+      "digest": "0e5e3c12b416cb759d0f2500de4757400035463b46e026883968852ee5b9a55b",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-2-click-6",
+      "digest": "56ba9373d069291ce7408ffa171c0f3e58c1db6d25a41158067d8faa8974664b",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-3-scroll-1",
+      "digest": "0d86e6e21ad2158c985c4c32440366c71ad38835f24dd2fe40249a5d19466bff",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-3-click-2",
-      "digest": "c51bfdc9477d10dc29583824ba6a39c1251cc81c8661a7d8f069cd32b258f085",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ! Assignment blocked Assignment not made. Theo Brooks is missing OSHA-30; already assigned to HVAC call in Central during Morning. Safety inspection remains uncovered. 02 "
+      "digest": "44ec22852162e6f5f6ddd2ac2d3eb3e95df1365143a827f4943c6b15a4d989ad",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-3-wait-3",
-      "digest": "c51bfdc9477d10dc29583824ba6a39c1251cc81c8661a7d8f069cd32b258f085",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ! Assignment blocked Assignment not made. Theo Brooks is missing OSHA-30; already assigned to HVAC call in Central during Morning. Safety inspection remains uncovered. 02 "
+      "digest": "44ec22852162e6f5f6ddd2ac2d3eb3e95df1365143a827f4943c6b15a4d989ad",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
-      "label": "step-4-wait-1",
-      "digest": "6b8d9c6fc31d55d13e9e7f3797ae88d48f7e63ebf00775db4059507c77893aec",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ! Assignment blocked Assignment not made. Theo Brooks is missing OSHA-30; already assigned to HVAC call in Central during Morning. Safety inspection remains uncovered. 02 "
+      "label": "step-3-wait-4",
+      "digest": "44ec22852162e6f5f6ddd2ac2d3eb3e95df1365143a827f4943c6b15a4d989ad",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
-      "label": "step-4-wait-2",
-      "digest": "6b8d9c6fc31d55d13e9e7f3797ae88d48f7e63ebf00775db4059507c77893aec",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ! Assignment blocked Assignment not made. Theo Brooks is missing OSHA-30; already assigned to HVAC call in Central during Morning. Safety inspection remains uncovered. 02 "
+      "label": "step-3-wait-5",
+      "digest": "44ec22852162e6f5f6ddd2ac2d3eb3e95df1365143a827f4943c6b15a4d989ad",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-4-scroll-1",
+      "digest": "60dd8c29ff934767fcca8edf3197e843f861c7ec9af57117b4ddd53502197950",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-4-click-2",
+      "digest": "71f53af395e5c36aaace1ce399b3395ec1e272ee571069345cd3b3cd9ccc0e25",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-4-wait-3",
-      "digest": "6b8d9c6fc31d55d13e9e7f3797ae88d48f7e63ebf00775db4059507c77893aec",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ! Assignment blocked Assignment not made. Theo Brooks is missing OSHA-30; already assigned to HVAC call in Central during Morning. Safety inspection remains uncovered. 02 "
+      "digest": "71f53af395e5c36aaace1ce399b3395ec1e272ee571069345cd3b3cd9ccc0e25",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
-      "label": "step-5-click-1",
-      "digest": "f072055ce0033ee99f1e89a77cc14ed34cf5abb326f0a5f54c4b8b3f22d37d9f",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 02 ASSIGNMENT DESK Cover Safety inspection Cancel Esc SHIFT Morning ZONE North CERTIFICATION OSHA-30 Choose a fictional technician PS Priya Shah BLOCKED Available: Morning"
+      "label": "step-4-wait-4",
+      "digest": "71f53af395e5c36aaace1ce399b3395ec1e272ee571069345cd3b3cd9ccc0e25",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
-      "label": "step-5-click-2",
-      "digest": "2023d00a29882adaaa1863420b2cf700c7c93a6fcbd00d598847cc7a2ec4f4b4",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 8 of 8 roles UNCOVERED 0 needs dispatch Undo assignment Reset plan ✓ Plan updated Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift. 01 COVERAGE MATRIX Today’s service plan All people and assig"
+      "label": "step-4-click-5",
+      "digest": "60dd8c29ff934767fcca8edf3197e843f861c7ec9af57117b4ddd53502197950",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
-      "label": "step-5-wait-3",
-      "digest": "2023d00a29882adaaa1863420b2cf700c7c93a6fcbd00d598847cc7a2ec4f4b4",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 8 of 8 roles UNCOVERED 0 needs dispatch Undo assignment Reset plan ✓ Plan updated Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift. 01 COVERAGE MATRIX Today’s service plan All people and assig"
+      "label": "step-4-click-6",
+      "digest": "156f8276560c788f20bdc6b72cf613da88c795e88705113641dc91295ff8521e",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
-      "label": "step-6-wait-1",
-      "digest": "a48d30a07e2ef8fc27abeda83ab983d210fccbb4487a6c82dc5bb94b0526c86c",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 8 of 8 roles UNCOVERED 0 needs dispatch Undo assignment Reset plan ✓ Plan updated Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift. 01 COVERAGE MATRIX Today’s service plan All people and assig"
+      "label": "step-4-wait-7",
+      "digest": "156f8276560c788f20bdc6b72cf613da88c795e88705113641dc91295ff8521e",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-4-wait-8",
+      "digest": "156f8276560c788f20bdc6b72cf613da88c795e88705113641dc91295ff8521e",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-5-scroll-1",
+      "digest": "459260b8e52fd2e7d2237f02c2fb12641672ad7452c7c6919d6ddca3f50a5272",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-5-select-2",
+      "digest": "5893430cc1bf5bd144d2e3e14e0ee9b67679da09fe6fa6b2588fe5b7dcfa5aaa",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-5-select-3",
+      "digest": "5893430cc1bf5bd144d2e3e14e0ee9b67679da09fe6fa6b2588fe5b7dcfa5aaa",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-5-fill-4",
+      "digest": "5893430cc1bf5bd144d2e3e14e0ee9b67679da09fe6fa6b2588fe5b7dcfa5aaa",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-5-wait-5",
+      "digest": "5893430cc1bf5bd144d2e3e14e0ee9b67679da09fe6fa6b2588fe5b7dcfa5aaa",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-5-select-6",
+      "digest": "459260b8e52fd2e7d2237f02c2fb12641672ad7452c7c6919d6ddca3f50a5272",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-5-fill-7",
+      "digest": "f3343c81efdd5cbf83af9fd0da6bbeb9c0edb9d0f2c3b42ee6160ae38ba7c86b",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-5-select-8",
+      "digest": "f3343c81efdd5cbf83af9fd0da6bbeb9c0edb9d0f2c3b42ee6160ae38ba7c86b",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-5-wait-9",
+      "digest": "f3343c81efdd5cbf83af9fd0da6bbeb9c0edb9d0f2c3b42ee6160ae38ba7c86b",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-5-click-10",
+      "digest": "04da8c5e75acc50a37763ca5f28609f47c9142912c5424b70aa8335c51669a5e",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-5-wait-11",
+      "digest": "04da8c5e75acc50a37763ca5f28609f47c9142912c5424b70aa8335c51669a5e",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-6-select-1",
+      "digest": "10a2b2c0dd372d22b7820ffcc53e7434398790093feb36df2071f12b73c6fa7c",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-6-wait-2",
-      "digest": "a48d30a07e2ef8fc27abeda83ab983d210fccbb4487a6c82dc5bb94b0526c86c",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 8 of 8 roles UNCOVERED 0 needs dispatch Undo assignment Reset plan ✓ Plan updated Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift. 01 COVERAGE MATRIX Today’s service plan All people and assig"
+      "digest": "10a2b2c0dd372d22b7820ffcc53e7434398790093feb36df2071f12b73c6fa7c",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-6-wait-3",
-      "digest": "a48d30a07e2ef8fc27abeda83ab983d210fccbb4487a6c82dc5bb94b0526c86c",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 8 of 8 roles UNCOVERED 0 needs dispatch Undo assignment Reset plan ✓ Plan updated Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift. 01 COVERAGE MATRIX Today’s service plan All people and assig"
+      "digest": "10a2b2c0dd372d22b7820ffcc53e7434398790093feb36df2071f12b73c6fa7c",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
-      "label": "step-7-click-1",
-      "digest": "45c92cc2982a8743db859cda7d93eef9e15be9b5ba4d63c3fa1ecefeeea987fb",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ✓ Plan updated Safety inspection is uncovered again. The latest valid assignment was undone. 01 COVERAGE MATRIX Today’s service plan All people and assignments are fiction"
+      "label": "step-6-select-4",
+      "digest": "c22b7e013531717f8399824b0dabc106cd5b765337c4981bf09cd9ea57bcdceb",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
-      "label": "step-7-wait-2",
-      "digest": "45c92cc2982a8743db859cda7d93eef9e15be9b5ba4d63c3fa1ecefeeea987fb",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ✓ Plan updated Safety inspection is uncovered again. The latest valid assignment was undone. 01 COVERAGE MATRIX Today’s service plan All people and assignments are fiction"
+      "label": "step-7-scroll-1",
+      "digest": "b09a27c6370a3e25993b9c0a4696398d895a5a6d1f38c644471641866b4f7387",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
+    },
+    {
+      "label": "step-7-click-2",
+      "digest": "7163cee5570a9f1f177faf65c01d92c44074ae1a0217753e789912820f003bce",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-7-wait-3",
-      "digest": "45c92cc2982a8743db859cda7d93eef9e15be9b5ba4d63c3fa1ecefeeea987fb",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ✓ Plan updated Safety inspection is uncovered again. The latest valid assignment was undone. 01 COVERAGE MATRIX Today’s service plan All people and assignments are fiction"
+      "digest": "1575204ceba5be3d25a0471e76510039aafb62f64b7f9192f5adbaf3cb5aa8bb",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-7-wait-4",
-      "digest": "45c92cc2982a8743db859cda7d93eef9e15be9b5ba4d63c3fa1ecefeeea987fb",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan ✓ Plan updated Safety inspection is uncovered again. The latest valid assignment was undone. 01 COVERAGE MATRIX Today’s service plan All people and assignments are fiction"
+      "digest": "1575204ceba5be3d25a0471e76510039aafb62f64b7f9192f5adbaf3cb5aa8bb",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-8-click-1",
-      "digest": "4d89e0279b211c4af9a20f04205bd22cb06299c6644fb74d109875d14245c2aa",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 02 ASSIGNMENT DESK Cover Safety inspection Cancel Esc SHIFT Morning ZONE North CERTIFICATION OSHA-30 Choose a fictional technician PS Priya Shah BLOCKED Available: Morning"
+      "digest": "e9a7a31ac4c1873723300baf8b61cc533c98b117c37fef9bb4ccc637e22b6e10",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
-      "label": "step-8-click-2",
-      "digest": "1ff346433056c6392b9e916c3409d8fd66e5d1898b0c72979ccbc9b6c2f6299a",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 02 ASSIGNMENT DESK Cover Safety inspection Cancel Esc SHIFT Morning ZONE North CERTIFICATION OSHA-30 Choose a fictional technician PS Priya Shah BLOCKED Available: Morning"
+      "label": "step-8-wait-2",
+      "digest": "e9a7a31ac4c1873723300baf8b61cc533c98b117c37fef9bb4ccc637e22b6e10",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-8-click-3",
-      "digest": "c9d3d0e73c6c85a8bff1ce577c67f3e8086c765d99d509694d88750727d67ceb",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 8 of 8 roles UNCOVERED 0 needs dispatch Undo assignment Reset plan ✓ Plan updated Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift. 01 COVERAGE MATRIX Today’s service plan All people and assig"
+      "digest": "1e6ee26159b16d109f922b944fdf0a32c379d6cae0c0a620fcf82a9a8f59b889",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "step-8-wait-4",
-      "digest": "c9d3d0e73c6c85a8bff1ce577c67f3e8086c765d99d509694d88750727d67ceb",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 8 of 8 roles UNCOVERED 0 needs dispatch Undo assignment Reset plan ✓ Plan updated Assignment complete. Amara Cole now covers Safety inspection in North during the Morning shift. 01 COVERAGE MATRIX Today’s service plan All people and assig"
+      "digest": "1e6ee26159b16d109f922b944fdf0a32c379d6cae0c0a620fcf82a9a8f59b889",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
-      "label": "step-9-click-1",
-      "digest": "d7d9110f6e62fe3eb5578079afacde25b1a40fd1595b6593f0be6217181433d3",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
+      "label": "step-8-wait-5",
+      "digest": "1e6ee26159b16d109f922b944fdf0a32c379d6cae0c0a620fcf82a9a8f59b889",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
-      "label": "step-9-wait-2",
-      "digest": "d7d9110f6e62fe3eb5578079afacde25b1a40fd1595b6593f0be6217181433d3",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
+      "label": "step-8-wait-6",
+      "digest": "1e6ee26159b16d109f922b944fdf0a32c379d6cae0c0a620fcf82a9a8f59b889",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
-      "label": "step-9-wait-3",
-      "digest": "d7d9110f6e62fe3eb5578079afacde25b1a40fd1595b6593f0be6217181433d3",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
-    },
-    {
-      "label": "step-9-wait-4",
-      "digest": "d7d9110f6e62fe3eb5578079afacde25b1a40fd1595b6593f0be6217181433d3",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
-    },
-    {
-      "label": "step-9-wait-5",
-      "digest": "d7d9110f6e62fe3eb5578079afacde25b1a40fd1595b6593f0be6217181433d3",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
+      "label": "step-8-wait-7",
+      "digest": "1e6ee26159b16d109f922b944fdf0a32c379d6cae0c0a620fcf82a9a8f59b889",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     },
     {
       "label": "final",
-      "digest": "a1bd1091558a47cbe5f4ac71dfb980a3dcf2a94b3b2049df7a5eda6818e35046",
-      "title": "Build Coveragecanvas A Shift Coverage",
-      "url": "http://127.0.0.1:55782/index.html",
-      "text_excerpt": "CoverageCanvas PLANNING WORKSPACE TUESDAY · FICTIONAL SERVICE DAY DAILY DISPATCH · LOCAL-ONLY DEMO Put every shift within reach. Review eight field-service roles, resolve coverage gaps with clear eligibility evidence, and recover changes with confidence. FILLED 7 of 8 roles UNCOVERED 1 needs dispatch Undo assignment Reset plan 01 COVERAGE MATRIX Today’s service plan All people and assignments are fictional. Morning 6:00 AM–12:00 PM MORNING · NORTH ZONE FILLED Electrical inspection REQUIRED Elect"
+      "digest": "3c24dd27fddbe73376a1598bc21f61ac029deb1f27a954c97eba60b483941baa",
+      "title": "EchoLedger · Evidence intelligence",
+      "url": "http://127.0.0.1:50432/index.html",
+      "text_excerpt": "E EchoLedger EVIDENCE INTELLIGENCE ACTIVE INVESTIGATION EL-1042 · Northstar Labs CM Casey Morgan PROTOTYPE REVIEWER Deterministic prototype Transcription, sensitive candidates, classifications, recurrence, confidence values, and proposed actions are fictional fixed behavior requiring human review — not production AI. ● Local only CUSTOMER CONVERSATION / CASE EL-1042 From the exact moment to accountable action. Review one fictional support call, preserve its privacy treatment, and carry exact evi"
     }
   ],
   "error": null,
-  "pacing_scale": 1.36561092,
-  "showcased_waits": 9,
-  "completed_at": "2026-07-17T17:05:51.457Z"
+  "pacing_scale": 1.60242302,
+  "showcased_waits": 8,
+  "completed_at": "2026-07-19T02:44:24.081Z"
 }

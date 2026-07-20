@@ -1,0 +1,35 @@
+{
+  "idea": "Build EchoLedger, an internal enterprise customer-call intelligence product for a fictional global technology company. It converts a bundled fictional support-call recording into a synchronized speaker-labelled transcript, visibly redacted evidence, recurring product signals, accountable follow-up actions, and an auditable case brief.",
+  "audience": "Customer Experience, Product, Support, and Legal teams investigating recurring customer issues and coordinating accountable follow-up",
+  "outcome": "Enterprise teams can move from one customer conversation to traceable product insight and accountable action without losing the exact evidence, privacy treatment, or review history behind each conclusion.",
+  "constraints": [
+    "Use React, TypeScript, and Vite",
+    "Run entirely locally with no backend, authentication, database, analytics, runtime network calls, external APIs, or third-party integrations",
+    "Use only fictional deterministic customer, call, transcript, signal, and action data; bundle a local synthetic call recording and never use real customer information",
+    "Be explicit that transcription, redaction, and analysis are deterministic prototype behavior rather than production AI claims",
+    "Make every signal and proposed action traceable to exact transcript segments and timestamps",
+    "Provide visible redaction states, a deterministic reset, and entirely local case-brief export",
+    "Be responsive from 320px through desktop, keyboard operable, visibly focused, and understandable without color-only status",
+    "Keep the primary narrated demo workflow under three minutes"
+  ],
+  "must_have_capabilities": [
+    "Play and seek a bundled fictional support-call recording while highlighting the synchronized speaker-labelled transcript segment",
+    "Identify candidate sensitive information and visibly redact or restore it without destroying the underlying audit record",
+    "Detect complaints, commitments, and recurring product signals and show confidence or review state without presenting them as unquestionable facts",
+    "Trace every signal and proposed action to exact transcript evidence and timestamps",
+    "Route an accountable follow-up action to Customer Experience, Product, Support, or Legal with owner, rationale, and status",
+    "Export a deterministic auditable case brief containing the call, redactions, signals, evidence, actions, and review decisions",
+    "Reset the complete prototype to its original fictional state"
+  ],
+  "existing_assets": [],
+  "visual_direction": "A polished enterprise intelligence workspace with an audio timeline, synchronized transcript, evidence rail, signal clusters, and an accountable action queue. It should feel precise, calm, privacy-aware, and presentation-ready rather than like a generic dashboard.",
+  "out_of_scope": [
+    "Real speech-to-text or model inference",
+    "Real customer recordings or personal data",
+    "Uploading arbitrary audio",
+    "Authentication, permissions, or production retention policy enforcement",
+    "CRM, ticketing, messaging, or data-warehouse integrations",
+    "Backend persistence, deployment, or production compliance claims"
+  ],
+  "demo_preferences": "Open the fictional call, play or seek to a complaint, show transcript synchronization, redact a sensitive segment, inspect a recurring product signal and its exact evidence, assign one accountable follow-up action, export the local case brief, and reset the experience."
+}

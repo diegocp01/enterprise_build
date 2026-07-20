@@ -1,6 +1,6 @@
 {
-  "assembled_from_completed_run_at": "2026-07-17T17:08:10.606124Z",
-  "canonical_run_id": "exp04_coveragecanvas_20260717",
+  "assembled_from_completed_run_at": "2026-07-19T02:45:48.107537Z",
+  "canonical_run_id": "step13_echoledger_live_20260718",
   "files": [
     {
       "bytes": 2022,
@@ -8,44 +8,44 @@
       "sha256": "sha256:5a65b792a382849f56508ac659ef7e2d620605636de04f0be5a95ae9433c6b9b"
     },
     {
-      "bytes": 1958,
+      "bytes": 2201,
       "path": "submission/DEMO_SCRIPT.md",
-      "sha256": "sha256:6be96330f735159295d9b0f2acbac86bfdc9ae32e92b08397258cc3ea646c464"
+      "sha256": "sha256:36752414b2f15af30d7e3b910370bebd67f475548181337b700dc867aad13ee8"
     },
     {
-      "bytes": 4415,
+      "bytes": 4728,
       "path": "submission/DEVPOST_SUBMISSION.md",
-      "sha256": "sha256:0de5ff7a9f033052c02a90ec2b18f07b359d5149c54bf0607a122ef639858be4"
+      "sha256": "sha256:bc99937ce53037ba575dcd7d6d1bb020c440f2a122619e22740b06b1414c1b9b"
     },
     {
-      "bytes": 1056,
+      "bytes": 1269,
       "path": "submission/README.md",
-      "sha256": "sha256:490f38f85c22b9fc80a6577210a6df859d2dec39cb950b3afa7d22d31ed00770"
+      "sha256": "sha256:0fa582536cc36b20c7b1898f0b47e6997004b6a3a15d360600d731d8c2c4336d"
     },
     {
-      "bytes": 1674,
+      "bytes": 3488,
       "path": "submission/evidence/build_request.json",
-      "sha256": "sha256:b38ae388d1ad85f282b796dd3e1db3957e6bfa786044ceb869292be83a395f1f"
+      "sha256": "sha256:5bc97e0fdbd90e01720aa8e2dfe481afc4dbb0230b6beb91723ed3c9c572e7b4"
     },
     {
-      "bytes": 14895,
+      "bytes": 19538,
       "path": "submission/evidence/delivery_checksums.json",
-      "sha256": "sha256:55b82038d2ae34211d6327e7fd4f8cc2bbfdfe7407b00d9f1524cccfebd60ac3"
+      "sha256": "sha256:fe062729c1c2d9f862eba239a03a337dd83644474fc51ad0e0984551ee2cf72d"
     },
     {
-      "bytes": 6805,
+      "bytes": 9260,
       "path": "submission/evidence/delivery_manifest.json",
-      "sha256": "sha256:18f83bc4dcc62762b1010299989b1c985fbdab67c04a36c33cf31af2b3586a22"
+      "sha256": "sha256:374ddb378f2479899ce7bbdd5867611bda2d86e96a34687a03a407892a688ee6"
     },
     {
-      "bytes": 59880,
+      "bytes": 91416,
       "path": "submission/evidence/demo_capture_report.json",
-      "sha256": "sha256:415505a7e628b78fb49ed662de86ab82e76b9d6f18bb6bd7ff140cfa14f175fc"
+      "sha256": "sha256:1bc969d482a666cd2f282b787d007b1c49d8d30dc660f5956f76862e5b95fe93"
     },
     {
-      "bytes": 3305,
+      "bytes": 3311,
       "path": "submission/evidence/experiment_audit.json",
-      "sha256": "sha256:29b2ae8d036f0a1ec111533737b99c27df6009c11cb2ded49c4e2751b7440b4d"
+      "sha256": "sha256:070c70c2bb3eddd3473afd5750b7b225421d22ee3339502ca41bc2cc7d84178f"
     },
     {
       "bytes": 6539,
@@ -53,34 +53,34 @@
       "sha256": "sha256:26c253fe0ab9e2248bccc01b8603f764b061d6390a50def2a7aca7fc5bd59b66"
     },
     {
-      "bytes": 3971,
+      "bytes": 5023,
       "path": "submission/evidence/handoff_rewards.canonical.jsonl",
-      "sha256": "sha256:bee5ee845d4d8bffed87bd629d854d4f0719c4b46b2d71c19e201ecb3c184665"
+      "sha256": "sha256:0bde1395ebfde59f951e4429998d4d1941c35e6107dff2140c4d2bb29621804a"
     },
     {
-      "bytes": 13489,
+      "bytes": 13293,
       "path": "submission/evidence/inference_night_commit.json",
-      "sha256": "sha256:1ed84ec91404315585d78084d6f671f1e16a9cc3c44cbb944a17e9e7c8fef4de"
+      "sha256": "sha256:948a31977b40f516bc88bae7d74860ed19f29875edf5c90d3d7fe9f7eadfdad3"
     },
     {
-      "bytes": 6720,
+      "bytes": 7126,
       "path": "submission/evidence/inference_relationship_deltas.json",
-      "sha256": "sha256:1c574a3abc6d5e6582d06c9435d5d03d75196d9d4ec354781c2e2a95c946e7f9"
+      "sha256": "sha256:91d62b3319ae7b547ae8254aa88af6d13c7f706cd049556db841e6c31f9f487d"
     },
     {
-      "bytes": 1916,
+      "bytes": 1917,
       "path": "submission/evidence/run_manifest.json",
-      "sha256": "sha256:c9045382f49d8614cc77e75e314d19cf8c0935ac1a385b1a4d5ba085b4305656"
+      "sha256": "sha256:de2353874859708cf99a72285077070fad7c468a1ed783b81c0605a59f78195f"
     },
     {
-      "bytes": 640,
+      "bytes": 642,
       "path": "submission/evidence/run_state.json",
-      "sha256": "sha256:6b9dfe0efe1ee7915867a5e22dc83b63ac29f455f9c809ab8b5610d1df8c5904"
+      "sha256": "sha256:33f0617b3204744b22af66fce532710cbe579d8c9be241a9714b786e98bbaab0"
     },
     {
-      "bytes": 24434,
+      "bytes": 24150,
       "path": "submission/evidence/shadow_trust_updates.canonical.jsonl",
-      "sha256": "sha256:63e0fbe3b17b3dbdfd18cd17a6ac49071e10c14d8fcbe26b4402ddc63408c8a6"
+      "sha256": "sha256:a16263c4cf4e32b2fe6d48c0e0de75084a018b11a15248b032df15a6d970932c"
     },
     {
       "bytes": 1138,
@@ -98,183 +98,138 @@
       "sha256": "sha256:b3084d92b345f00bab4453d50c7403d8ee8972e8b8491b7d3253c3506280b850"
     },
     {
-      "bytes": 5314495,
-      "path": "submission/media/coveragecanvas-generated-demo.mp4",
-      "sha256": "sha256:6bebc06cfdcd8aab6564ff3847318002ff55bc85f0688808d1a803a1f2ffdd80"
+      "bytes": 6060097,
+      "path": "submission/media/echoledger-generated-demo.mp4",
+      "sha256": "sha256:ad28d767d81d0b7a19007bdcec71752c5ab73270b440f02d3bea8e9d99a95abd"
     },
     {
-      "bytes": 912,
-      "path": "submission/media/coveragecanvas-narration.txt",
-      "sha256": "sha256:2cab84b39cd741d626ccb6a3b11d9ebf632c4fcea75b05743f83b729a89e651e"
+      "bytes": 1697,
+      "path": "submission/media/echoledger-narration.txt",
+      "sha256": "sha256:1ec83ee9960ddfba2913552a5db4976cbc622bc7664d2b85354773a37951d344"
     },
     {
-      "bytes": 96244,
-      "path": "submission/media/coveragecanvas-preview.png",
-      "sha256": "sha256:fa10dad6c0bd995d9113d56307da047ffc312efd56618e6d6c6988059fa2160d"
+      "bytes": 118001,
+      "path": "submission/media/echoledger-preview.png",
+      "sha256": "sha256:9763964b38253836d49616e44662c8deb711133752e341e4eb13207699dcb81c"
     },
     {
-      "bytes": 7442622,
+      "bytes": 8625680,
       "path": "submission/media/zerohandoff-submission-demo.mp4",
-      "sha256": "sha256:644b1018bb6f59e6331cb7ebe2ac09019a7064d9f4b20e7b8c83cde2ff91ab47"
+      "sha256": "sha256:658eb218f53fe41f0783b6abfede8c7fd152b3e159309832c437e4f8ab2dc975"
     },
     {
-      "bytes": 1545,
+      "bytes": 1728,
       "path": "submission/media/zerohandoff-submission-narration.txt",
-      "sha256": "sha256:9ec57cce9383c279c24fb0e8b5291eabad06ae1c3d106a26fb526e232e9f4d0f"
+      "sha256": "sha256:287fc1d77ae75e9bc24dcaa2cdab1e8a39ceca3eb150828ee61921cd92eb4367"
     },
     {
-      "bytes": 2874,
-      "path": "submission/sandbox/coveragecanvas/README.md",
-      "sha256": "sha256:44a34d30a31fa8358edb5e5dea6e0dcf20b89db01cd9e8625a98ae9823871bda"
+      "bytes": 2961,
+      "path": "submission/sandbox/echoledger/README.md",
+      "sha256": "sha256:125b645079975829f5f37e6b315e6c6f52657a050ccfafd3129d1364713451da"
     },
     {
-      "bytes": 9406,
-      "path": "submission/sandbox/coveragecanvas/artifacts/browser/browser-acceptance-receipt.json",
-      "sha256": "sha256:5d6d788748b9c490610b02817823310afffe0f6116d668570da0a4c4dd759172"
+      "bytes": 26346,
+      "path": "submission/sandbox/echoledger/artifacts/browser-acceptance/receipt.json",
+      "sha256": "sha256:f574f848a57f8679ee0600fb3706d1f67cf6e5bd999860d63559d30c205caaab"
     },
     {
-      "bytes": 205790,
-      "path": "submission/sandbox/coveragecanvas/dist/assets/index-BY9jf8tC.js",
-      "sha256": "sha256:71f4e31ee5cf7b628a6ec76346b0f61864392c6f77386a2b9fa6b092bdd6a78a"
+      "bytes": 227413,
+      "path": "submission/sandbox/echoledger/dist/assets/index-C3VGxPMf.js",
+      "sha256": "sha256:887b6aedc3552ab2acaad6bc2c5e15a14e6700a38b7ea9e337a6b423e1e145f4"
     },
     {
-      "bytes": 11994,
-      "path": "submission/sandbox/coveragecanvas/dist/assets/index-BaLuTtbX.css",
-      "sha256": "sha256:d6d1f2567ebc54c30f050df3292926eda2e3a445e460dbabad947f418788b73b"
+      "bytes": 20339,
+      "path": "submission/sandbox/echoledger/dist/assets/index-zx0n__zT.css",
+      "sha256": "sha256:031528ea88e5abadab4074d303c98f1fc26f4f996dc5c364956f3a80c1b051aa"
     },
     {
-      "bytes": 385,
-      "path": "submission/sandbox/coveragecanvas/dist/index.html",
-      "sha256": "sha256:59ed5cf6344ec4665d585fe4aeedb23fda40d2472fd509225243e1fcd891a0c9"
+      "bytes": 12096044,
+      "path": "submission/sandbox/echoledger/dist/audio/echoledger-el1042.wav",
+      "sha256": "sha256:625056643c97f0f6467c62e5024c930b822bf7eaf5e0b47bb24f5ed7fccac86b"
     },
     {
-      "bytes": 284,
-      "path": "submission/sandbox/coveragecanvas/index.html",
-      "sha256": "sha256:25c989a7f611e7b62d7efd6fb0ba786837462f34c48a7893e831c1dcb64be281"
+      "bytes": 524,
+      "path": "submission/sandbox/echoledger/dist/index.html",
+      "sha256": "sha256:17d3986994e52ac75816a5fe5ac83d0cd96386905f2eb98857e4eb233088e73c"
     },
     {
-      "bytes": 56068,
-      "path": "submission/sandbox/coveragecanvas/package-lock.json",
-      "sha256": "sha256:7edd7a8b7155bbff7ca4169fc872eac19bc2268d1e6da0707964b08e9766ce8b"
+      "bytes": 423,
+      "path": "submission/sandbox/echoledger/index.html",
+      "sha256": "sha256:543711b4a710d591a39d67d527c3e6e9b0d82a4f48c71f29dc6639a0cc366879"
     },
     {
-      "bytes": 586,
-      "path": "submission/sandbox/coveragecanvas/package.json",
-      "sha256": "sha256:6940efd303cd4f218b6180bf4237d57848b493784167c8056c9ea568b7ecd6e1"
+      "bytes": 43080,
+      "path": "submission/sandbox/echoledger/package-lock.json",
+      "sha256": "sha256:aca920b153c5b58c6070a179d489a404c786b695c75fa6b11f78ae50ace6f32f"
+    },
+    {
+      "bytes": 533,
+      "path": "submission/sandbox/echoledger/package.json",
+      "sha256": "sha256:3c26be4a8b42fca9f565a8494af860efc2301fb48e55710df6443602ca16d0b8"
     },
     {
       "bytes": 206,
-      "path": "submission/sandbox/coveragecanvas/project_commands.json",
+      "path": "submission/sandbox/echoledger/project_commands.json",
       "sha256": "sha256:02c133442ad80533ac02642ac9da1aeb9ad8ca747c210fcf25f63200bc244e7c"
     },
     {
-      "bytes": 2779,
-      "path": "submission/sandbox/coveragecanvas/src/App.tsx",
-      "sha256": "sha256:6cd362397db7513b4ccb883fff18c239672528388fa455138ec831db6029dc74"
+      "bytes": 12096044,
+      "path": "submission/sandbox/echoledger/public/audio/echoledger-el1042.wav",
+      "sha256": "sha256:625056643c97f0f6467c62e5024c930b822bf7eaf5e0b47bb24f5ed7fccac86b"
     },
     {
-      "bytes": 3975,
-      "path": "submission/sandbox/coveragecanvas/src/components/AssignmentPanel.tsx",
-      "sha256": "sha256:0403938e28476b5b6bc8ffdb261950def8730d45baa307b70b604d28a951c897"
+      "bytes": 4451,
+      "path": "submission/sandbox/echoledger/scripts/generate-synthetic-call.mjs",
+      "sha256": "sha256:1d5828abb151b59d7c1bb590de4d3f21defa658b71928ecdd94c030d9833d8dc"
     },
     {
-      "bytes": 1409,
-      "path": "submission/sandbox/coveragecanvas/src/components/CoverageMatrix.tsx",
-      "sha256": "sha256:fddc7a8f32e9fe269d81d3ad7326ba59e19ffcd0049d754fa5042fc12ffe145d"
+      "bytes": 33552,
+      "path": "submission/sandbox/echoledger/src/App.tsx",
+      "sha256": "sha256:f15afcff3086502675067ecb659712a4b85c7362464d2de96f056f1287fc5673"
     },
     {
-      "bytes": 1258,
-      "path": "submission/sandbox/coveragecanvas/src/components/CoverageSummary.tsx",
-      "sha256": "sha256:f9bb139725d883249c586b62f33f30d8663796df2ad4b8e362d52c8b8c14f581"
-    },
-    {
-      "bytes": 513,
-      "path": "submission/sandbox/coveragecanvas/src/components/FeedbackRegion.tsx",
-      "sha256": "sha256:d9c9664d55fc79e297c675b95334600258bcab01f369716a7d31ed37060ecb25"
-    },
-    {
-      "bytes": 1663,
-      "path": "submission/sandbox/coveragecanvas/src/components/RoleCard.tsx",
-      "sha256": "sha256:7eba66ef817c83b27df2fb51ecfa3f230416e897e12fda2b447848153039a5d8"
-    },
-    {
-      "bytes": 1736,
-      "path": "submission/sandbox/coveragecanvas/src/domain/coverage.test.ts",
-      "sha256": "sha256:2f4e09309fd708ceb58fb6f3b0363b742a97d8d0ab260f7f64d24fe10bc42af4"
-    },
-    {
-      "bytes": 377,
-      "path": "submission/sandbox/coveragecanvas/src/domain/coverage.ts",
-      "sha256": "sha256:c38a1eb6d34562243051dc30404daf495f50df7ffea03629548a5bd1a0b4dcf5"
-    },
-    {
-      "bytes": 1970,
-      "path": "submission/sandbox/coveragecanvas/src/domain/eligibility.ts",
-      "sha256": "sha256:f7b097deb49d26ef65ae398e482cc8e4bafde0572e682ba33b27e691d65a3208"
-    },
-    {
-      "bytes": 3190,
-      "path": "submission/sandbox/coveragecanvas/src/domain/fixture.ts",
-      "sha256": "sha256:50a7f827d7b46413351105f392a38ccf3cc0c265cd45cc85c2c8b6c78d774984"
-    },
-    {
-      "bytes": 4943,
-      "path": "submission/sandbox/coveragecanvas/src/domain/plannerReducer.test.ts",
-      "sha256": "sha256:629e3c6abbd2fd4401e88d906311d34a94a98850a4b94332575c49b5658d9ea5"
-    },
-    {
-      "bytes": 4798,
-      "path": "submission/sandbox/coveragecanvas/src/domain/plannerReducer.ts",
-      "sha256": "sha256:2c7516aea4786d0f31a5b56039c585825803757706d6c685c8e1ca692e2ec21e"
-    },
-    {
-      "bytes": 1339,
-      "path": "submission/sandbox/coveragecanvas/src/domain/types.ts",
-      "sha256": "sha256:e990e76403375343e2ac198821d7eeb9b986720730d8b4f38b6c870f2cb81dc0"
-    },
-    {
-      "bytes": 794,
-      "path": "submission/sandbox/coveragecanvas/src/hooks/useFocusCoordinator.ts",
-      "sha256": "sha256:c3c09ef15a2e9d26992305d3bddfffe9b6353c8aae3010032786dfb2c8f4f542"
+      "bytes": 13140,
+      "path": "submission/sandbox/echoledger/src/domain.ts",
+      "sha256": "sha256:0b01b6c2b5cd4a4fe98072a1f6a99d8343d4e05ab0b0751e0c6149b692eaec35"
     },
     {
       "bytes": 224,
-      "path": "submission/sandbox/coveragecanvas/src/main.tsx",
+      "path": "submission/sandbox/echoledger/src/main.tsx",
       "sha256": "sha256:1bc19ec2f6e0b2f3a0a3febc84b659394812943c83b2364b5e8be91890a00049"
     },
     {
-      "bytes": 13960,
-      "path": "submission/sandbox/coveragecanvas/src/styles.css",
-      "sha256": "sha256:a331bc0471e6c9acc4301ff76e9f620530064efb9f9806826e133e2bb2f29028"
+      "bytes": 20679,
+      "path": "submission/sandbox/echoledger/src/styles.css",
+      "sha256": "sha256:2b095235107913cfa531cd516fcbaaedc49b970547c8c76740c97f2c62762964"
     },
     {
       "bytes": 38,
-      "path": "submission/sandbox/coveragecanvas/src/vite-env.d.ts",
+      "path": "submission/sandbox/echoledger/src/vite-env.d.ts",
       "sha256": "sha256:65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
     },
     {
-      "bytes": 9406,
-      "path": "submission/sandbox/coveragecanvas/tests/.browser-acceptance-success.json",
-      "sha256": "sha256:5d6d788748b9c490610b02817823310afffe0f6116d668570da0a4c4dd759172"
+      "bytes": 47511,
+      "path": "submission/sandbox/echoledger/tests/browser.acceptance.mjs",
+      "sha256": "sha256:8c877cd4a77585a10463b0c3b36278a5f73114c410de39ad3f1e01071f5adf05"
     },
     {
-      "bytes": 34704,
-      "path": "submission/sandbox/coveragecanvas/tests/browser.acceptance.mjs",
-      "sha256": "sha256:093a4f6b84ce4cac9e90615253a767825458a0c1462e65c32d77b37a12624f74"
+      "bytes": 574,
+      "path": "submission/sandbox/echoledger/tests/browser.acceptance.sh",
+      "sha256": "sha256:410f8e7ba8cf2112bc4ca5c0dd4f333114029f764a377e55d04644d3d36ce652"
     },
     {
-      "bytes": 925,
-      "path": "submission/sandbox/coveragecanvas/tests/browser.acceptance.sh",
-      "sha256": "sha256:14fe9d38f08d6ad0e8a8868417e71374ec7c119a834f9be8e051941afa5800a3"
+      "bytes": 5373,
+      "path": "submission/sandbox/echoledger/tests/domain.test.mjs",
+      "sha256": "sha256:01cc2f0ca117812814eb518f91e40dcd37a093084ce6ecc0af8dde848840808a"
     },
     {
       "bytes": 539,
-      "path": "submission/sandbox/coveragecanvas/tsconfig.json",
+      "path": "submission/sandbox/echoledger/tsconfig.json",
       "sha256": "sha256:56408a39654cd1e24d3c32f95ada8e0dd2e1e7502041704a7f48d68b55179ca1"
     },
     {
       "bytes": 144,
-      "path": "submission/sandbox/coveragecanvas/vite.config.ts",
+      "path": "submission/sandbox/echoledger/vite.config.ts",
       "sha256": "sha256:4ebe818953bbeb45b4a7da57fbe0208307d4de01b5bbd7c77b06d31bf711bcd9"
     }
   ],
@@ -283,7 +238,7 @@
   "summary": {
     "canonical_demo": {
       "available": true,
-      "duration_seconds": 54.04,
+      "duration_seconds": 87.4,
       "has_audio": true,
       "has_video": true,
       "streams": [
@@ -301,9 +256,9 @@
       "audit_score": 100.0,
       "canonical_handoffs": 6,
       "final_outcome": "delivery_bundle_ready",
-      "learning_commit_sequence": 5,
+      "learning_commit_sequence": 6,
       "night_commits": 1,
-      "run_id": "exp04_coveragecanvas_20260717",
+      "run_id": "step13_echoledger_live_20260718",
       "shadow_updates": 36,
       "status": "completed"
     },

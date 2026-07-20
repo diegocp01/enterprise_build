@@ -291,6 +291,42 @@ async function runPlannedFlow(plan) {
               ? `${actionReport.match_mode}+flexible-decimal-text`
               : 'flexible-decimal-text';
           }
+          if (!(await locator.count()) && action.name) {
+            // A visual elapsed/total output can be split across nested text
+            // nodes while the synchronized native range exposes the same
+            // observation as one stable aria-valuetext value.
+            const timePair = action.name.match(/^(\d{2}:\d{2})\s*\/\s*(\d{2}:\d{2})$/);
+            if (timePair) {
+              const toSeconds = (token) => {
+                const [minutes, seconds] = token.split(':').map(Number);
+                return minutes * 60 + seconds;
+              };
+              const slider = page.getByRole('slider', { name: /Playback position/i }).first();
+              if (await slider.count()) {
+                try {
+                  await page.waitForFunction(
+                    ({ elapsed, total }) => {
+                      const element = document.querySelector('input[type="range"][aria-valuetext]');
+                      return Boolean(element)
+                        && Number(element.value) === elapsed
+                        && Number(element.max) === total;
+                    },
+                    { elapsed: toSeconds(timePair[1]), total: toSeconds(timePair[2]) },
+                    { timeout: 10_000 },
+                  );
+                } catch {
+                  const actual = await slider.evaluate((element) => ({
+                    value: element.value,
+                    max: element.max,
+                    ariaValueText: element.getAttribute('aria-valuetext'),
+                  }));
+                  throw new Error(`Playback observation mismatch for ${action.name}: ${JSON.stringify(actual)}`);
+                }
+                locator = slider;
+                actionReport.match_mode = 'native-range-time-pair';
+              }
+            }
+          }
           if (!(await locator.count())) {
             throw new Error(`Demo observation not found: ${action.role || ''} ${action.name || action.selector || ''}`);
           }
@@ -358,6 +394,16 @@ try {
   ]);
   await page.goto(args.url, { waitUntil: 'networkidle', timeout: 30_000 });
   await installDemoLayer();
+  // Demo choreography can seek immediately. Wait for bundled media metadata so
+  // an early seek cannot be reset to zero by a later metadata event.
+  if (await page.locator('[data-testid="bundled-audio"]').count()) {
+    await page.waitForFunction(() => {
+      const audio = document.querySelector('[data-testid="bundled-audio"]');
+      return Boolean(audio)
+        && Number.isFinite(audio.duration)
+        && audio.duration >= 377.9;
+    }, null, { timeout: 30_000 });
+  }
   await page.mouse.move(86, 88, { steps: 8 });
 
   const payload = JSON.parse(await fs.readFile(args.plan, 'utf8'));

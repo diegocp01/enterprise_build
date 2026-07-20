@@ -33,7 +33,7 @@ Every run produces an auditable delivery bundle:
 
 **Judge quick start:** serve the checked-in product from a real autonomous run—no
 install or rebuild—with
-`python3 -m http.server 8000 --directory submission/sandbox/coveragecanvas/dist`,
+`python3 -m http.server 8000 --directory submission/sandbox/echoledger/dist`,
 then open `http://127.0.0.1:8000`. Full installation, supported platforms,
 fixture testing, live Codex invocation, and evidence paths are in the
 [judge guide](JUDGE_GUIDE.md).

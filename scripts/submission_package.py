@@ -14,8 +14,9 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 SUBMISSION = ROOT / "submission"
-RUN_ID = "exp04_coveragecanvas_20260717"
+RUN_ID = "step13_echoledger_live_20260718"
 TRAINING_ID = "live_train_20260714_v2"
+PRODUCT_SLUG = "echoledger"
 RUN = ROOT / ".zerohandoff" / "runs" / RUN_ID
 TRAINING = ROOT / ".zerohandoff" / "training" / TRAINING_ID
 APP_SOURCE = RUN / "delivery_bundle.nosync" / "app"
@@ -126,7 +127,10 @@ def validate_sources() -> dict[str, Any]:
     )
     require(audit.get("score") == 100.0, "canonical experiment did not score 100")
     require(all(audit.get("trust_invariants", {}).values()), "a trust invariant failed")
-    require([row.get("reward") for row in rewards] == [1] * 6, "canonical rewards are invalid")
+    require(
+        [row.get("reward") for row in rewards] == [1, 1, 1, 1, 0, 1],
+        "canonical rewards must preserve the rejected-and-repaired handoff",
+    )
     require(len(shadows) == 36, "canonical run must contain exactly 36 shadow updates")
     require(len(night_commits) == 1, "canonical run must contain exactly one Night commit")
 
@@ -159,22 +163,34 @@ def validate_sources() -> dict[str, Any]:
 
 def build() -> None:
     summary = validate_sources()
-    sandbox = SUBMISSION / "sandbox" / "coveragecanvas"
+    sandbox_root = SUBMISSION / "sandbox"
+    sandbox = sandbox_root / PRODUCT_SLUG
     evidence = SUBMISSION / "evidence"
     media = SUBMISSION / "media"
 
-    if sandbox.exists():
-        shutil.rmtree(sandbox)
+    if sandbox_root.exists():
+        shutil.rmtree(sandbox_root)
     if evidence.exists():
         shutil.rmtree(evidence)
-    sandbox.parent.mkdir(parents=True, exist_ok=True)
+    sandbox_root.mkdir(parents=True, exist_ok=True)
     evidence.mkdir(parents=True, exist_ok=True)
     media.mkdir(parents=True, exist_ok=True)
 
+    for stale_name in (
+        "coveragecanvas-generated-demo.mp4",
+        "coveragecanvas-preview.png",
+        "coveragecanvas-narration.txt",
+    ):
+        (media / stale_name).unlink(missing_ok=True)
+
     shutil.copytree(APP_SOURCE, sandbox)
-    shutil.copy2(CANONICAL_DEMO, media / "coveragecanvas-generated-demo.mp4")
-    shutil.copy2(RUN / "demo" / "app-preview.png", media / "coveragecanvas-preview.png")
-    shutil.copy2(RUN / "demo" / "narration.txt", media / "coveragecanvas-narration.txt")
+    shutil.copy2(CANONICAL_DEMO, media / "echoledger-generated-demo.mp4")
+    shutil.copy2(RUN / "demo" / "app-preview.png", media / "echoledger-preview.png")
+    shutil.copy2(RUN / "demo" / "narration.txt", media / "echoledger-narration.txt")
+    require(
+        (media / "zerohandoff-submission-demo.mp4").is_file(),
+        "assemble the final ZeroHandoff overview video before building the package",
+    )
     for destination, source in EVIDENCE_SOURCES.items():
         shutil.copy2(source, evidence / destination)
 
@@ -222,7 +238,10 @@ def verify() -> None:
     require(state.get("status") == "completed", "packaged canonical run is incomplete")
     require(audit.get("score") == 100.0, "packaged experiment audit is not 100")
     require(all(audit.get("trust_invariants", {}).values()), "packaged trust invariant failed")
-    require((SUBMISSION / "sandbox" / "coveragecanvas" / "dist" / "index.html").is_file(), "prebuilt sandbox is missing")
+    require(
+        (SUBMISSION / "sandbox" / PRODUCT_SLUG / "dist" / "index.html").is_file(),
+        "prebuilt sandbox is missing",
+    )
 
     videos = sorted((SUBMISSION / "media").glob("*.mp4"))
     require(videos, "submission contains no MP4 demo")

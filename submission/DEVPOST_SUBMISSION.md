@@ -52,11 +52,15 @@ After the completed demo, one Night Curator validates lineage, consolidates
 evidence-backed memory, commits slow trust once, and leaves the immutable
 training JSON and nine non-trust dimensions unchanged.
 
-The canonical run built CoverageCanvas, a local shift-coverage planner, from a
-short request. It produced a responsive React application, deterministic tests,
-browser acceptance evidence, append-only JSON logs, a verified delivery bundle,
-and a narrated 54-second interactive demo. The independent audit scored the run
-100/100 while preserving all trust invariants.
+The final run built EchoLedger, a local enterprise customer-call intelligence
+product, from a short request. It synchronizes a bundled fictional call with its
+speaker-labelled transcript, preserves reversible redaction history, traces
+recurring signals to exact evidence, routes accountable actions, and exports an
+auditable case brief. The run produced a responsive React application,
+deterministic tests, real-browser acceptance evidence, append-only JSON logs, a
+verified 147-file delivery bundle, and a narrated 87-second interactive demo.
+Its independent audit scored 100/100 while preserving every trust invariant and
+the real rejected-and-repaired handoff in its lineage.
 
 ## How Codex and GPT-5.6 were used
 

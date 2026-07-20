@@ -1,6 +1,6 @@
 {
   "project": "ZeroHandoff — Autonomous Software Delivery",
-  "last_updated": "2026-07-17",
+  "last_updated": "2026-07-18",
   "current_step": 13,
   "status_values": [
     "pending",
@@ -241,10 +241,56 @@
     },
     {
       "id": 13,
-      "owner": "user",
-      "task": "Review the final package and submit the ZeroHandoff project to the OpenAI Build Week hackathon.",
+      "owner": "shared",
+      "task": "Run the final enterprise-product demo experiment, refresh and verify the submission package around its evidence, then have the user review and submit ZeroHandoff to the OpenAI Build Week hackathon.",
       "depends_on": [12],
-      "status": "pending"
+      "status": "pending",
+      "execution_status": "ready_for_user_review_and_submission",
+      "demo_experiment": {
+        "product_name": "EchoLedger",
+        "product_type": "Internal enterprise customer-call intelligence product",
+        "requesting_company": "A fictional global technology company",
+        "audience": "Customer Experience, Product, Support, and Legal teams",
+        "build_request": "Build EchoLedger, an enterprise customer-call intelligence product that converts support recordings into synchronized transcripts, redacted evidence, recurring product signals, accountable follow-up actions, and auditable case briefs.",
+        "core_capabilities": [
+          "Synchronize a fictional local call recording with speaker-labelled transcript segments",
+          "Identify and visibly redact sensitive information",
+          "Detect complaints, commitments, and recurring product signals",
+          "Trace every insight and proposed action to exact transcript evidence",
+          "Route accountable follow-up actions to the appropriate enterprise team",
+          "Export an auditable case brief"
+        ],
+        "architecture_scope": "Model the production path from audio ingestion through transcription, redaction, analysis, evidence storage, and enterprise-system handoff while implementing an honest deterministic local React, TypeScript, and Vite prototype for the hackathon demo.",
+        "data_entities": [
+          "Call",
+          "Speaker",
+          "TranscriptSegment",
+          "Signal",
+          "Evidence",
+          "Action",
+          "ReviewDecision"
+        ],
+        "continual_learning_start": "Used the valid committed sequence-5 inference state, including evolved trust and consolidated memories; committed sequence 6 only after the verified completed run."
+      },
+      "outputs": [
+        ".zerohandoff/runs/step13_echoledger_live_20260718/",
+        "experiments/audits/step13_echoledger_live_20260718.json",
+        ".zerohandoff/learning/commits/000006_step13_echoledger_live_20260718.json",
+        "submission/sandbox/echoledger/",
+        "submission/media/echoledger-generated-demo.mp4",
+        "submission/media/zerohandoff-submission-demo.mp4",
+        "submission/evidence/"
+      ],
+      "verification": {
+        "pipeline": "EchoLedger completed SENSE, MODEL, COMPOSE, DECIDE, SIMULATE, EXECUTE, OBSERVE, DEMO, and BUNDLE with 81 agent calls, 32 gates, and 18 persisted repairs.",
+        "application": "The packaged React, TypeScript, and Vite product passed a clean npm install, five focused checks, production build, and full real-browser acceptance in an independent temporary judge copy.",
+        "audit": "Independent run audit scored 100/100; the canonical reward sequence [1, 1, 1, 1, 0, 1] preserves the rejected-and-repaired handoff, exactly 36 shadow trust updates, and one Night commit.",
+        "continual_learning": "Inference advanced exactly once from sequence 5 to 6; all 14 memories changed, trust stayed within the reduced-plasticity cap, all nine non-trust dimensions stayed frozen, and the immutable training digest remained unchanged.",
+        "delivery_bundle": "The verified EchoLedger delivery bundle contains 147 files, including runnable source, tests, evidence, logs, preview, and the 87.4-second run-native narrated demo.",
+        "submission_package": "The refreshed judge package contains 46 independently checksummed files, a prebuilt EchoLedger sandbox, canonical evidence, an 87.4-second product demo, and a 112.94-second system-plus-product submission video; both videos contain audio and video and remain under three minutes.",
+        "remaining_user_action": "Review the final video and Devpost copy, publish the repository/video as required, provide the Codex feedback session ID, and submit before the deadline.",
+        "protected_context": "No context/ files changed."
+      }
     }
   ],
   "implementation_gate": {

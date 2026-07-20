@@ -19,18 +19,21 @@ created by one real autonomous run.
 Serve the product created by the canonical autonomous run:
 
 ```bash
-python3 -m http.server 8000 --directory submission/sandbox/coveragecanvas/dist
+python3 -m http.server 8000 --directory submission/sandbox/echoledger/dist
 ```
 
-Open `http://127.0.0.1:8000`. In CoverageCanvas:
+Open `http://127.0.0.1:8000`. In EchoLedger:
 
-1. Open **Morning · North · Safety inspection**.
-2. Attempt to assign **Theo Brooks** and inspect the two specific blockers.
-3. Assign **Amara Cole** and confirm coverage changes from **7/8** to **8/8**.
-4. Use **Undo**, then **Reset plan**, and confirm deterministic recovery.
+1. Select **Complaint · 02:31** and confirm the transcript synchronizes to the
+   exact speaker-labelled segment.
+2. Use **Redact presentation** on evidence `EV-015`; its stable evidence identity
+   and decision history remain visible.
+3. Inspect the recurring export-stall signal and its three exact evidence links.
+4. Assign the action to **Product · Priya Nolen**, export the local case brief,
+   then use **Reset fictional experience** to restore the deterministic baseline.
 
-The same real run's 54-second generated browser demo is at
-`submission/media/coveragecanvas-generated-demo.mp4`.
+The same real run's 87-second generated browser demo is at
+`submission/media/echoledger-generated-demo.mp4`.
 
 ## Verify the submitted evidence
 
@@ -85,8 +88,10 @@ For internal commands, Control Room setup, and recovery behavior, see
 - Training: `live_train_20260714_v2` — 10 rounds, 70 valid episodes, 63 solved,
   280 accepted solver calls, 140 accepted Curator calls.
 - Immutable baseline: `sha256:b0849f195010cbedca942a351f6005dc8e91959b8f276ab4dec86bfd9baef324`.
-- Delivery: `exp04_coveragecanvas_20260717` — all seven lifecycle stages, demo,
-  and bundle completed; independent experiment score 100/100.
-- Continual learning: six canonical handoff rewards, 36 shadow trust updates,
-  one Night commit, memory updated for all 14 agents, and no change to the nine
-  frozen non-trust dimensions or the training source.
+- Delivery: `step13_echoledger_live_20260718` — all seven lifecycle stages,
+  demo, and 147-file bundle completed; independent experiment score 100/100.
+- Continual learning: the canonical rewards were `[1, 1, 1, 1, 0, 1]`; the
+  rejected handoff was repaired and preserved instead of rewritten as success.
+  Exactly 36 shadow trust updates and one Night commit produced sequence 6,
+  memory changed for all 14 agents, and neither the nine frozen non-trust
+  dimensions nor the immutable training source changed.
